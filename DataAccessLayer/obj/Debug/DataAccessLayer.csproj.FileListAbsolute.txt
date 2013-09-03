@@ -1,0 +1,7 @@
+C:\Repos\NuRacing\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Repos\NuRacing\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Repos\NuRacing\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Repos\NuRacing\DataAccessLayer\bin\Debug\MySql.Data.dll
+C:\Repos\NuRacing\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Repos\NuRacing\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Repos\NuRacing\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
