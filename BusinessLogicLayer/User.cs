@@ -31,7 +31,22 @@ namespace BusinessLogicLayer
             userTableAdapter userAdapter = new userTableAdapter();
             NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
 
-            return userTable.Rows.Count == 0;
+            return userTable.Rows.Count != 0;
+        }
+
+        static public string getEmail(string Username)
+        {
+            userTableAdapter userAdapter = new userTableAdapter();
+            NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
+
+            if (userTable.Rows.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                return userTable.Rows[0][userTable.User_EmailColumn].ToString();
+            }
         }
 
         //  Written By James Hibbard
@@ -82,12 +97,16 @@ namespace BusinessLogicLayer
                 NuRacingDataSet.passwordresetrequestDataTable prrTable = prrAdapter.GetData();
                 NuRacingDataSet.passwordresetrequestRow prrNewRow = prrTable.NewpasswordresetrequestRow();
 
+                byte[] byteCode = getByteString(16);
+
                 prrNewRow.PasswordRR_ExpiryDate = DateTime.Now.AddDays(2);
                 prrNewRow.User_UserName = Username;
-                prrNewRow.PasswordRR_UID = getByteString(16);
+                prrNewRow.PasswordRR_UID = byteCode;
 
                 prrTable.AddpasswordresetrequestRow(prrNewRow);
                 prrAdapter.Update(prrTable);
+
+                PasswordResetRequestEmail.SendPasswordResetRequest(byteCode, getEmail(Username));
             }
         }
     }

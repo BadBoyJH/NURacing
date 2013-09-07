@@ -9912,15 +9912,17 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT `User_Username`, `User_FullName`, `User_PasswordHash`, `User_PasswordSalt`" +
-                ", `User_Email`, `User_Role`, `User_Active` FROM `nuracing`.`user` WHERE \'User_Us" +
-                "ername\' = @Username";
+            this._commandCollection[1].CommandText = "SELECT        User_Username, User_FullName, User_PasswordHash, User_PasswordSalt," +
+                " User_Email, User_Role, User_Active\r\nFROM            `user`\r\nWHERE        (User_" +
+                "Username = @Username)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "Username";
-            param.Size = 1024;
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 255;
             param.IsNullable = true;
-            param.SourceColumn = "";
+            param.SourceColumn = "User_Username";
             this._commandCollection[1].Parameters.Add(param);
         }
         
