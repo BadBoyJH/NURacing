@@ -19,6 +19,12 @@ namespace BusinessLogicLayer
             return Password;
         }
 
+        //  Written By James Hibbard
+        /// <summary>
+        ///     Gets a random byte string
+        /// </summary>
+        /// <param name="Length">The number of bytes to get</param>
+        /// <returns>A randomised byte string</returns>
         static private byte[] getByteString(int Length)
         {
             byte[] result = new byte[Length];
@@ -26,6 +32,12 @@ namespace BusinessLogicLayer
             return result;
         }
 
+        //  Written By James Hibbard
+        /// <summary>
+        ///     Checks if the Username is stored in the database.
+        /// </summary>
+        /// <param name="Username">The Username to check</param>
+        /// <returns>True if the username exists</returns>
         static private bool validUsername(string Username)
         {
             userTableAdapter userAdapter = new userTableAdapter();
@@ -34,6 +46,12 @@ namespace BusinessLogicLayer
             return userTable.Rows.Count != 0;
         }
 
+        //  Written By James Hibbard
+        /// <summary>
+        ///     Gets the email for the given user    
+        /// </summary>
+        /// <param name="Username"></param>
+        /// <returns></returns>
         static public string getEmail(string Username)
         {
             userTableAdapter userAdapter = new userTableAdapter();
@@ -41,7 +59,7 @@ namespace BusinessLogicLayer
 
             if (userTable.Rows.Count == 0)
             {
-                return null;
+                throw new ArgumentException("Username wasn't a valid user");
             }
             else
             {
@@ -49,13 +67,16 @@ namespace BusinessLogicLayer
             }
         }
 
+
         //  Written By James Hibbard
+        ///
         /// <summary>
-        ///     Returns a value based on whether the password is accurate or not.
+        ///     Checks whether the validity of the password
         /// </summary>
-        /// <param name="Username"></param>
-        /// <param name="Password"></param>
-        /// <param name="userRole"></param>
+        /// <param name="Username">The users Username</param>
+        /// <param name="Password">The input password to check</param>
+        /// <param name="userRole">Returns the role they're in (null if incorrect password)</param>
+        /// <returns>True if the password is accurate</returns>
         static public bool authenticateUser(string Username, string Password, out string userRole)
         {
             userTableAdapter userAdapter = new userTableAdapter();
@@ -85,8 +106,10 @@ namespace BusinessLogicLayer
             return false;
         }
 
+        //  Written By James Hibbard
         /// <summary>
         ///     Sets up a reset password reset request for a given user.
+        ///     Throws ArgumentException if username is invalid.
         /// </summary>
         /// <param name="Username">The User to set the request for.</param>
         static public void resetPassword(string Username)
@@ -107,6 +130,10 @@ namespace BusinessLogicLayer
                 prrAdapter.Update(prrTable);
 
                 PasswordResetRequestEmail.SendPasswordResetRequest(byteCode, getEmail(Username));
+            }
+            else
+            {
+                throw new ArgumentException("Username wasn't valid");
             }
         }
     }
