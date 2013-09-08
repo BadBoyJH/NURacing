@@ -47,20 +47,11 @@ namespace BusinessLogicLayer
 
 
 
-        static public void SendPasswordResetRequest(byte[] ByteCode, string recipient)
+        static public void SendNewPasswordRequest(string Password, string recipient)
         {
-            StringBuilder builder = new StringBuilder();
-
-            foreach (byte b in ByteCode)
-            {
-                builder.Append(b.ToString("X2"));
-            }
-
-            string HexCode = builder.ToString();
-
             string message =
                 "Until further notice this will have to do\n" +
-                "New Password is: " + HexCode + "\n" +
+                "New Password is: " + Password + "\n" +
                 "NURacing Test";
 
             MailMessage email = new MailMessage();
