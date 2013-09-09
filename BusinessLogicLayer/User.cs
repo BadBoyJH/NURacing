@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Configuration;
+using System.Security.Cryptography;
 
 using DataAccessLayer;
 using DataAccessLayer.NuRacingDataSetTableAdapters;
@@ -69,11 +70,27 @@ namespace BusinessLogicLayer
         {
             settings = new BusinessLogicSettings();
         }
-
-
-        static private byte[] HashPassword(string Password, byte[] Salt)
+       
+        /// <summary>
+        ///     Generates a random salt
+        /// </summary>
+        /// <returns>16 byte salt</returns>
+        private static byte[] CreateSalt()
         {
-            return Password;
+            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
+            byte[] salt = new byte[16];
+            rng.GetBytes(salt);
+            return salt;
+
+        }
+
+        private static byte[] HashPassword(string Password, byte[] Salt)
+        {
+            byte[] saltAndPwd = System.Text.Encoding.Unicode.GetBytes(String.Concat(Password, Salt));
+            SHA1 encryptor = SHA1.Create();
+            byte[] hash = encryptor.ComputeHash(saltAndPwd);
+
+            return hash;
         }
 
         //  Written By James Hibbard
@@ -193,7 +210,7 @@ namespace BusinessLogicLayer
         /// <returns>True if the password is accurate</returns>
         static public bool authenticateUser(string Username, string Password, out string userRole)
         {            
-            if (UsernameExists(Username))
+            if (!UsernameExists(Username))
             {
                 userRole = null;
                 return false;
@@ -203,11 +220,11 @@ namespace BusinessLogicLayer
             NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
 
             NuRacingDataSet.userRow userRow = (NuRacingDataSet.userRow)userTable.Rows[0];
-            if (userRow.User_PasswordHash == HashPassword(Password, userRow.User_PasswordSalt))
+            if (userRow.User_PasswordHash.SequenceEqual(HashPassword(Password, userRow.User_PasswordSalt)))
             {
-                if (Convert.ToBoolean(userTable.Rows[0][userTable.User_ActiveColumn]))
+                if (userRow.User_Active)
                 {
-                    userRole = userTable.Rows[0][userTable.User_RoleColumn].ToString();
+                    userRole = userRow.User_Role;
                     return true;
                 }
                 else
@@ -269,7 +286,7 @@ namespace BusinessLogicLayer
             {
                 if (userRow.User_Username == Username)
                 {
-                    byte[] salt = getByteString(20);
+                    byte[] salt = CreateSalt();
                     byte[] hash = HashPassword(newPassword, salt);
 
                     userRow.User_PasswordHash = hash;
@@ -277,7 +294,7 @@ namespace BusinessLogicLayer
 
                     userAdapter.Update(userTable);
 
-                    EmailManager.sendPasswordResetEmail(newPassword);
+                    EmailManager.sendPasswordResetEmail(newPassword, userRow.User_Email);
                 }
             }
         }
@@ -304,7 +321,7 @@ namespace BusinessLogicLayer
             {
                 if (ByteResetRequestID.SequenceEqual(prrRow.PasswordRR_UID) && Username == prrRow.User_UserName)
                 {
-                    if (prrRow.PasswordRR_ExpiryDate > DateTime.Now)
+                    if (prrRow.PasswordRR_ExpiryDate < DateTime.Now)
                     {
                         throw new ArgumentException("Request Expired");
                     }
@@ -314,6 +331,26 @@ namespace BusinessLogicLayer
                 }
             }
             throw new ArgumentException("Can't find a matching record");
+        }
+
+        public static void SetUserActiveStatus(string Username, bool active)
+        {
+            if (UsernameExists(Username))
+            {
+                userTableAdapter userAdapter = new userTableAdapter();
+                NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
+                NuRacingDataSet.userRow userRow = userTable[0];
+                if (userRow.User_Active != active)
+                {
+                    //avoid making the connection if possible
+                    userRow.User_Active = active;
+                    userAdapter.Update(userTable);
+                }
+            }
+            else
+            {
+                throw new ArgumentException("Username wasn't valid");
+            }
         }
     }
 }

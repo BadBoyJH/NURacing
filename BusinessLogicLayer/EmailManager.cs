@@ -45,9 +45,7 @@ namespace BusinessLogicLayer
             smtp.Send(email);
         }
 
-
-
-        static public void SendNewPasswordRequest(string Password, string recipient)
+        static public void sendPasswordResetEmail(string Password, string recipient)
         {
             string message =
                 "Until further notice this will have to do\n" +

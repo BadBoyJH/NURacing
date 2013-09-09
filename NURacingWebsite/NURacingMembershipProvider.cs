@@ -6,8 +6,8 @@ using System.Web.Security;
 
 namespace NURacingWebsite
 {
-    public class NURacingMembershipProvider //: MembershipProvider
-    {/*
+    public class NURacingMembershipProvider : MembershipProvider
+    {
         public override bool EnablePasswordReset
         {
             get
@@ -87,6 +87,8 @@ namespace NURacingWebsite
             {
                 return BusinessLogicLayer.User.passwordRegEx;
             }
-        }*/
+        }
+
+
     }
 }
