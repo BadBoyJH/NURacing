@@ -28,11 +28,24 @@
 </head>
 
 <body>
-    <form id="form1" runat="server">
-    <div>
-        <asp:Image ImageUrl="Images/Logo.png" runat="server" ImageAlign="Middle"/>
+    <asp:Panel HorizontalAlign="Center" runat="server">
+        
+            <asp:Image ID="logoHome" CssClass="logoHome" ImageUrl="Images/NURacingLogo_White.png" runat="server" ImageAlign="Middle" Width="400" />
+        </asp:Panel>
+
+    <form id="login" runat="server">
+    <p style="text-align:center">Welcome to the NURacing System. Please enter your login details below.</p>
+     <asp:Panel runat="server" HorizontalAlign="Center">
+    <div id ="loginForm" class="loginForm">
+        <table align="center" border="0" style="text-align:right">
+        <tr><td><asp:Label runat="server" ID="UsernameLbl">Username: </asp:Label></td><td><asp:TextBox runat="server" Width="110px" ID="UsernameTxtBx" /></td></tr>
+        <tr><td><asp:Label runat="server" ID="PassLbl">Password: </asp:Label></td><td><asp:TextBox runat="server" TextMode="Password" Width="110px" ID="PassTxtBx" /></td></tr>
+            </table>
+        <asp:Button BackColor="#cc0000" runat="server" Text="Submit"  CssClass="input-submitLogin"  UseSubmitBehavior="true" />
+         <asp:Button ID="recover" BackColor="#cc0000" runat="server" Text="?"  CssClass="input-submitLoginRecover" />
+
     </div>
-        erthertdhethjlguioyguyfvuf
+        </asp:Panel>
     </form>
 </body>
 </html>
