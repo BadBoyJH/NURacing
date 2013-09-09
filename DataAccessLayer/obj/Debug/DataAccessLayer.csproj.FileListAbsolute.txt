@@ -5,3 +5,10 @@ C:\Repos\NuRacing\DataAccessLayer\bin\Debug\MySql.Data.dll
 C:\Repos\NuRacing\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 C:\Repos\NuRacing\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Repos\NuRacing\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Callan\Source\Repos\NURacing\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\Callan\Source\Repos\NURacing\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Callan\Source\Repos\NURacing\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Callan\Source\Repos\NURacing\DataAccessLayer\bin\Debug\MySql.Data.dll
+C:\Users\Callan\Source\Repos\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\Callan\Source\Repos\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Callan\Source\Repos\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
