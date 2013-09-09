@@ -169,7 +169,7 @@ namespace BusinessLogicLayer
         /// </summary>
         /// <param name="Username">The Username to check</param>
         /// <returns>True if the username exists</returns>
-        static private bool UsernameExists(string Username)
+        static internal bool UsernameExists(string Username)
         {
             userTableAdapter userAdapter = new userTableAdapter();
             NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
