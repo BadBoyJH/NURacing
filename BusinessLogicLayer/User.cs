@@ -175,7 +175,7 @@ namespace BusinessLogicLayer
         /// </summary>
         /// <param name="Username">The Username to check</param>
         /// <returns>True if the username exists</returns>
-        static internal bool UsernameExists(string Username)
+        static public bool UsernameExists(string Username)
         {
             userTableAdapter userAdapter = new userTableAdapter();
             NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
@@ -350,6 +350,10 @@ namespace BusinessLogicLayer
                     }
 
                     generateNewPassword(Username);
+
+                    prrRow.Delete();
+                    prrAdapter.Update(prrTable);
+
                     return;
                 }
             }
@@ -412,6 +416,8 @@ namespace BusinessLogicLayer
 
             userTable.AdduserRow(userRow);
             userAdapter.Update(userTable);
+
+            EmailManager.newUser(Username, Password, Email);
 
             return UserInfo.getUser(Username);
         }

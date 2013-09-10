@@ -17,7 +17,7 @@ namespace ConsoleTesting
             User.resetPassword(Username);
 
             Console.WriteLine("\nReset Request made");
-            Console.Write("What is the bytecode from the email");
+            Console.Write("What is the bytecode from the email? : ");
             string Bytecode = Console.ReadLine();
             User.generateNewPassword(Username, Bytecode);
 

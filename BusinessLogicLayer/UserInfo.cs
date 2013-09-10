@@ -21,6 +21,8 @@ namespace BusinessLogicLayer
 
         private string email;
 
+        private bool isActive;
+
         public string FullName
         {
             get
@@ -45,14 +47,20 @@ namespace BusinessLogicLayer
             }
         }
 
+        public bool IsActive
+        {
+            get
+            {
+                return isActive;
+            }
+        }
+
         //Written By Simon Davis
 
         /// <summary>
         /// Class constructor
         /// </summary>
-        /// <param name="fullname">User's full name</param>
-        /// <param name="username">User's username</param>
-        /// <param name="email">User's email</param>
+        /// <param name="userRow">A row from the User table in the database</param>
 
         private UserInfo(NuRacingDataSet.userRow userRow)
         {
@@ -61,6 +69,8 @@ namespace BusinessLogicLayer
             username = userRow.User_Username;
 
             email = userRow.User_Email;
+
+            isActive = userRow.User_Active;
         }
 
         //Written By Simon Davis

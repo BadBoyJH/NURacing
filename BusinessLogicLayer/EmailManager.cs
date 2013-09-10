@@ -20,7 +20,7 @@ namespace BusinessLogicLayer
             smtp.Credentials = new System.Net.NetworkCredential(ourEmail, ourPassword);
         }
 
-        static public void SendPasswordResetRequest(byte[] ByteCode, string recipient)
+        static public void SendPasswordResetRequest(byte[] ByteCode, string Recipient)
         {
             StringBuilder builder = new StringBuilder();
 
@@ -37,7 +37,7 @@ namespace BusinessLogicLayer
                 "NURacing Test";
 
             MailMessage email = new MailMessage();
-            email.To.Add(recipient);
+            email.To.Add(Recipient);
             email.Subject = "NURacing Online - Password Reset";
             email.From = new MailAddress(ourEmail);
             email.Body = message;
@@ -45,7 +45,7 @@ namespace BusinessLogicLayer
             smtp.Send(email);
         }
 
-        static public void sendPasswordResetEmail(string Password, string recipient)
+        static public void sendPasswordResetEmail(string Password, string Recipient)
         {
             string message =
                 "Until further notice this will have to do\n" +
@@ -53,12 +53,30 @@ namespace BusinessLogicLayer
                 "NURacing Test";
 
             MailMessage email = new MailMessage();
-            email.To.Add(recipient);
+            email.To.Add(Recipient);
             email.Subject = "NURacing Online - Password Reset Complete";
             email.From = new MailAddress(ourEmail);
             email.Body = message;
 
             smtp.Send(email);
+        }
+
+        static public void newUser(string Username, string Password, string Recipient)
+        {
+            string message =
+                "Until further notice this will have to do\n" +
+                "Username is: " + Username + "\n" +
+                "Password is: " + Password + "\n" +
+                "NURacing Test";
+
+            MailMessage email = new MailMessage();
+            email.To.Add(Recipient);
+            email.Subject = "NURacing Online - Password Reset Complete";
+            email.From = new MailAddress(ourEmail);
+            email.Body = message;
+
+            smtp.Send(email);
+            
         }
     }
 }
