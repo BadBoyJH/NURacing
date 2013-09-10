@@ -84,6 +84,12 @@ namespace BusinessLogicLayer
 
         }
 
+        /// <summary>
+        ///     Creates the Hashed Password
+        /// </summary>
+        /// <param name="Password">The password to has</param>
+        /// <param name="Salt">The Salt to append</param>
+        /// <returns>The Hash as a bytestring</returns>
         private static byte[] HashPassword(string Password, byte[] Salt)
         {
             byte[] saltAndPwd = System.Text.Encoding.Unicode.GetBytes(String.Concat(Password, Salt));
@@ -177,6 +183,22 @@ namespace BusinessLogicLayer
             return userTable.Rows.Count != 0;
         }
 
+        static internal bool EmailExists(string Email)
+        {
+            userTableAdapter userAdapter = new userTableAdapter();
+            NuRacingDataSet.userDataTable userTable = userAdapter.GetData();
+            
+            foreach (NuRacingDataSet.userRow userRow in userTable.Rows)
+            {
+                if (userRow.User_Email == Email)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         //  Written By James Hibbard
         /// <summary>
         ///     Gets the email for the given user    
@@ -218,20 +240,21 @@ namespace BusinessLogicLayer
             
             userTableAdapter userAdapter = new userTableAdapter();
             NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
-
             NuRacingDataSet.userRow userRow = (NuRacingDataSet.userRow)userTable.Rows[0];
-            if (userRow.User_PasswordHash.SequenceEqual(HashPassword(Password, userRow.User_PasswordSalt)))
+
+
+            if (userRow.User_Active)
             {
-                if (userRow.User_Active)
+                if (userRow.User_PasswordHash.SequenceEqual(HashPassword(Password, userRow.User_PasswordSalt)))
                 {
                     userRole = userRow.User_Role;
                     return true;
                 }
-                else
-                {
-                    userRole = null;
-                    return false;
-                }
+            }
+            else
+            {
+                userRole = null;
+                return false;
             }
 
             userRole = null;
@@ -351,6 +374,46 @@ namespace BusinessLogicLayer
             {
                 throw new ArgumentException("Username wasn't valid");
             }
+        }
+
+        static public UserInfo addUser(string Username, string Password, string Email, string FullName, string UserRole, bool active = true)
+        {
+            userTableAdapter userAdapter = new userTableAdapter();
+            NuRacingDataSet.userDataTable userTable = userAdapter.GetData();
+            NuRacingDataSet.userRow userRow = userTable.NewuserRow();
+
+            if (UsernameExists(Username))
+            {
+                throw new ArgumentException("Username already exists");
+            }
+            if (EmailExists(Email))
+            {
+                throw new ArgumentException("Email already exists");
+            }
+            if (!validPassword(Password))
+            {
+                throw new ArgumentException("Invalid Password");
+            }
+            if (!Role.UserRoles.Contains(UserRole))
+            {
+                throw new ArgumentException("Invalid Role");
+            }
+
+
+            byte[] Salt = CreateSalt();
+            byte[] HashedPassword = HashPassword(Password, Salt);
+
+            userRow.User_Username = Username;
+            userRow.User_PasswordHash = HashedPassword;
+            userRow.User_PasswordSalt = Salt;
+            userRow.User_FullName = FullName;
+            userRow.User_Role = UserRole;
+            userRow.User_Active = active;
+
+            userTable.AdduserRow(userRow);
+            userAdapter.Update(userTable);
+
+            return UserInfo.getUser(Username);
         }
     }
 }

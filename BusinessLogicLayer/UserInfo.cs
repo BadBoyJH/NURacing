@@ -13,7 +13,7 @@ using DataAccessLayer.NuRacingDataSetTableAdapters;
 
 namespace BusinessLogicLayer
 {
-    class UserInfo
+    public class UserInfo
     {
         private string fullname;
 

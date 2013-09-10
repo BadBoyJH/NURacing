@@ -76,5 +76,20 @@ namespace BusinessLogicLayer {
                 return ((int)(this["passwordMinLength"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>Administrator</string>
+  <string>Staff</string>
+  <string>User</string>
+  <string>Sponsor</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection UserRoles {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["UserRoles"]));
+            }
+        }
     }
 }

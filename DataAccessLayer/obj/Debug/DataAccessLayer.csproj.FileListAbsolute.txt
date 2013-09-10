@@ -12,3 +12,10 @@ C:\Project\NURacing\DataAccessLayer\bin\Debug\MySql.Data.dll
 C:\Project\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 C:\Project\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Project\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\James\Source\Repos\FinalProject\NURacing\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\James\Source\Repos\FinalProject\NURacing\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\James\Source\Repos\FinalProject\NURacing\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\James\Source\Repos\FinalProject\NURacing\DataAccessLayer\bin\Debug\MySql.Data.dll
+C:\Users\James\Source\Repos\FinalProject\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\James\Source\Repos\FinalProject\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\James\Source\Repos\FinalProject\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

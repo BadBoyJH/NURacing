@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 
+using BusinessLogicLayer;
+
 namespace NURacingWebsite
 {
-    public class NURacingMembershipProvider : MembershipProvider
+    public class NURacingMembershipProvider/* : MembershipProvider
     {
         public override bool EnablePasswordReset
         {
@@ -89,6 +91,20 @@ namespace NURacingWebsite
             }
         }
 
-
+        public override MembershipUser CreateUser(
+            string username,
+            string password,
+            string email,
+            string passwordQuestion,
+            string passwordAnswer,
+            bool isApproved,
+            Object providerUserKey,
+            out MembershipCreateStatus status
+        )
+        {
+            throw new NotImplementedException();
+        }
+        */
+    {
     }
 }

@@ -12,13 +12,26 @@ namespace ConsoleTesting
     {
         static void Main(string[] args)
         {
-            //User.resetPassword("BadBoyJH");
+            Console.Write("What is the username to send the reset request for? : ");
+            string Username = Console.ReadLine();
+            User.resetPassword(Username);
 
-            //User.generateNewPassword("BadBoyJH", "89C84AD9ED219D77D180FA5B0E8287A3");
+            Console.WriteLine("\nReset Request made");
+            Console.Write("What is the bytecode from the email");
+            string Bytecode = Console.ReadLine();
+            User.generateNewPassword(Username, Bytecode);
 
             string userRole;
-            User.authenticateUser("BadBoyJH", "8E8524182BBB9BB8", out userRole);
-            Console.WriteLine(userRole);
+            Console.Write("What is the password from the email? : ");
+            if (User.authenticateUser("BadBoyJH", "8E8524182BBB9BB8", out userRole))
+            {
+                Console.WriteLine("User validated");
+                Console.WriteLine(userRole);
+            }
+            else
+            {
+                Console.WriteLine("User not validated");
+            }
 
             Console.ReadLine();
         }
