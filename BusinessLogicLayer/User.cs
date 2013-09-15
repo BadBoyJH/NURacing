@@ -263,6 +263,25 @@ namespace BusinessLogicLayer
 
         //  Written By James Hibbard
         /// <summary>
+        ///     Sets the Last Activity Date in the database for the given user
+        /// </summary>
+        /// <param name="Username">The User that was active</param>
+        static public void wasActive(string Username)
+        {
+            if (UsernameExists(Username))
+            {
+                userTableAdapter userAdapter = new userTableAdapter();
+                NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
+                NuRacingDataSet.userRow userRow = (NuRacingDataSet.userRow)userTable.Rows[0];
+
+                userRow.User_LastActivity = DateTime.Now;
+
+                userAdapter.Update(userTable);
+            }
+        }
+
+        //  Written By James Hibbard
+        /// <summary>
         ///     Sets up a reset password reset request for a given user.
         ///     Throws ArgumentException if username is invalid.
         /// </summary>
