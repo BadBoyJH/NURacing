@@ -50,6 +50,8 @@ namespace DataAccessLayer {
         
         private global::System.Data.DataRelation relationassignedtask_ibfk_1;
         
+        private global::System.Data.DataRelation relationassignedtask_ibfk_2;
+        
         private global::System.Data.DataRelation relationinvolvedin_ibfk_1;
         
         private global::System.Data.DataRelation relationinvolvedin_ibfk_2;
@@ -57,6 +59,8 @@ namespace DataAccessLayer {
         private global::System.Data.DataRelation relationpasswordresetrequest_ibfk_1;
         
         private global::System.Data.DataRelation relationpurchase_ibfk_1;
+        
+        private global::System.Data.DataRelation relationpurchase_ibfk_2;
         
         private global::System.Data.DataRelation relationtakefiveresponse_ibfk_1;
         
@@ -481,10 +485,12 @@ namespace DataAccessLayer {
                 }
             }
             this.relationassignedtask_ibfk_1 = this.Relations["assignedtask_ibfk_1"];
+            this.relationassignedtask_ibfk_2 = this.Relations["assignedtask_ibfk_2"];
             this.relationinvolvedin_ibfk_1 = this.Relations["involvedin_ibfk_1"];
             this.relationinvolvedin_ibfk_2 = this.Relations["involvedin_ibfk_2"];
             this.relationpasswordresetrequest_ibfk_1 = this.Relations["passwordresetrequest_ibfk_1"];
             this.relationpurchase_ibfk_1 = this.Relations["purchase_ibfk_1"];
+            this.relationpurchase_ibfk_2 = this.Relations["purchase_ibfk_2"];
             this.relationtakefiveresponse_ibfk_1 = this.Relations["takefiveresponse_ibfk_1"];
             this.relationtakefiveresponse_ibfk_2 = this.Relations["takefiveresponse_ibfk_2"];
             this.relationwork_ibfk_1 = this.Relations["work_ibfk_1"];
@@ -527,8 +533,12 @@ namespace DataAccessLayer {
             base.Tables.Add(this.tabletotalcosts);
             this.relationassignedtask_ibfk_1 = new global::System.Data.DataRelation("assignedtask_ibfk_1", new global::System.Data.DataColumn[] {
                         this.tableuser.User_UsernameColumn}, new global::System.Data.DataColumn[] {
-                        this.tableassignedtask.User_UsernameColumn}, false);
+                        this.tableassignedtask.User_Username_AssignedToColumn}, false);
             this.Relations.Add(this.relationassignedtask_ibfk_1);
+            this.relationassignedtask_ibfk_2 = new global::System.Data.DataRelation("assignedtask_ibfk_2", new global::System.Data.DataColumn[] {
+                        this.tableuser.User_UsernameColumn}, new global::System.Data.DataColumn[] {
+                        this.tableassignedtask.User_Username_AssignedByColumn}, false);
+            this.Relations.Add(this.relationassignedtask_ibfk_2);
             this.relationinvolvedin_ibfk_1 = new global::System.Data.DataRelation("involvedin_ibfk_1", new global::System.Data.DataColumn[] {
                         this.tableproject.Project_UIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableinvolvedin.Project_UIDColumn}, false);
@@ -545,6 +555,10 @@ namespace DataAccessLayer {
                         this.tableworktype.WorkType_UIDColumn}, new global::System.Data.DataColumn[] {
                         this.tablepurchase.WorkType_UIDColumn}, false);
             this.Relations.Add(this.relationpurchase_ibfk_1);
+            this.relationpurchase_ibfk_2 = new global::System.Data.DataRelation("purchase_ibfk_2", new global::System.Data.DataColumn[] {
+                        this.tableuser.User_UsernameColumn}, new global::System.Data.DataColumn[] {
+                        this.tablepurchase.User_UsernameColumn}, false);
+            this.Relations.Add(this.relationpurchase_ibfk_2);
             this.relationtakefiveresponse_ibfk_1 = new global::System.Data.DataRelation("takefiveresponse_ibfk_1", new global::System.Data.DataColumn[] {
                         this.tabletakefive.TakeFive_UIDColumn}, new global::System.Data.DataColumn[] {
                         this.tabletakefiveresponse.TakeFive_UIDColumn}, false);
@@ -743,7 +757,9 @@ namespace DataAccessLayer {
             
             private global::System.Data.DataColumn columnTask_UID;
             
-            private global::System.Data.DataColumn columnUser_Username;
+            private global::System.Data.DataColumn columnUser_Username_AssignedTo;
+            
+            private global::System.Data.DataColumn columnUser_Username_AssignedBy;
             
             private global::System.Data.DataColumn columnTask_Name;
             
@@ -794,9 +810,17 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn User_UsernameColumn {
+            public global::System.Data.DataColumn User_Username_AssignedToColumn {
                 get {
-                    return this.columnUser_Username;
+                    return this.columnUser_Username_AssignedTo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_Username_AssignedByColumn {
+                get {
+                    return this.columnUser_Username_AssignedBy;
                 }
             }
             
@@ -861,9 +885,10 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public assignedtaskRow AddassignedtaskRow(userRow parentuserRowByassignedtask_ibfk_1, string Task_Name, string Task_Description, bool Task_TakeFiveNeeded) {
+            public assignedtaskRow AddassignedtaskRow(userRow parentuserRowByassignedtask_ibfk_1, userRow parentuserRowByassignedtask_ibfk_2, string Task_Name, string Task_Description, bool Task_TakeFiveNeeded) {
                 assignedtaskRow rowassignedtaskRow = ((assignedtaskRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        null,
                         null,
                         null,
                         Task_Name,
@@ -871,6 +896,9 @@ namespace DataAccessLayer {
                         Task_TakeFiveNeeded};
                 if ((parentuserRowByassignedtask_ibfk_1 != null)) {
                     columnValuesArray[1] = parentuserRowByassignedtask_ibfk_1[0];
+                }
+                if ((parentuserRowByassignedtask_ibfk_2 != null)) {
+                    columnValuesArray[2] = parentuserRowByassignedtask_ibfk_2[0];
                 }
                 rowassignedtaskRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowassignedtaskRow);
@@ -902,7 +930,8 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnTask_UID = base.Columns["Task_UID"];
-                this.columnUser_Username = base.Columns["User_Username"];
+                this.columnUser_Username_AssignedTo = base.Columns["User_Username_AssignedTo"];
+                this.columnUser_Username_AssignedBy = base.Columns["User_Username_AssignedBy"];
                 this.columnTask_Name = base.Columns["Task_Name"];
                 this.columnTask_Description = base.Columns["Task_Description"];
                 this.columnTask_TakeFiveNeeded = base.Columns["Task_TakeFiveNeeded"];
@@ -913,8 +942,10 @@ namespace DataAccessLayer {
             private void InitClass() {
                 this.columnTask_UID = new global::System.Data.DataColumn("Task_UID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTask_UID);
-                this.columnUser_Username = new global::System.Data.DataColumn("User_Username", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUser_Username);
+                this.columnUser_Username_AssignedTo = new global::System.Data.DataColumn("User_Username_AssignedTo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_Username_AssignedTo);
+                this.columnUser_Username_AssignedBy = new global::System.Data.DataColumn("User_Username_AssignedBy", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_Username_AssignedBy);
                 this.columnTask_Name = new global::System.Data.DataColumn("Task_Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTask_Name);
                 this.columnTask_Description = new global::System.Data.DataColumn("Task_Description", typeof(string), null, global::System.Data.MappingType.Element);
@@ -928,8 +959,10 @@ namespace DataAccessLayer {
                 this.columnTask_UID.AutoIncrementStep = -1;
                 this.columnTask_UID.AllowDBNull = false;
                 this.columnTask_UID.Unique = true;
-                this.columnUser_Username.AllowDBNull = false;
-                this.columnUser_Username.MaxLength = 255;
+                this.columnUser_Username_AssignedTo.AllowDBNull = false;
+                this.columnUser_Username_AssignedTo.MaxLength = 255;
+                this.columnUser_Username_AssignedBy.AllowDBNull = false;
+                this.columnUser_Username_AssignedBy.MaxLength = 255;
                 this.columnTask_Name.MaxLength = 255;
                 this.columnTask_Description.MaxLength = 255;
             }
@@ -1674,6 +1707,8 @@ namespace DataAccessLayer {
             
             private global::System.Data.DataColumn columnProject_YearMade;
             
+            private global::System.Data.DataColumn columnProject_Name;
+            
             private global::System.Data.DataColumn columnProject_Description;
             
             private global::System.Data.DataColumn columnProject_Active;
@@ -1724,6 +1759,14 @@ namespace DataAccessLayer {
             public global::System.Data.DataColumn Project_YearMadeColumn {
                 get {
                     return this.columnProject_YearMade;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Project_NameColumn {
+                get {
+                    return this.columnProject_Name;
                 }
             }
             
@@ -1780,11 +1823,12 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public projectRow AddprojectRow(int Project_YearMade, string Project_Description, bool Project_Active) {
+            public projectRow AddprojectRow(int Project_YearMade, string Project_Name, string Project_Description, bool Project_Active) {
                 projectRow rowprojectRow = ((projectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Project_YearMade,
+                        Project_Name,
                         Project_Description,
                         Project_Active};
                 rowprojectRow.ItemArray = columnValuesArray;
@@ -1818,6 +1862,7 @@ namespace DataAccessLayer {
             internal void InitVars() {
                 this.columnProject_UID = base.Columns["Project_UID"];
                 this.columnProject_YearMade = base.Columns["Project_YearMade"];
+                this.columnProject_Name = base.Columns["Project_Name"];
                 this.columnProject_Description = base.Columns["Project_Description"];
                 this.columnProject_Active = base.Columns["Project_Active"];
             }
@@ -1829,6 +1874,8 @@ namespace DataAccessLayer {
                 base.Columns.Add(this.columnProject_UID);
                 this.columnProject_YearMade = new global::System.Data.DataColumn("Project_YearMade", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProject_YearMade);
+                this.columnProject_Name = new global::System.Data.DataColumn("Project_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject_Name);
                 this.columnProject_Description = new global::System.Data.DataColumn("Project_Description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProject_Description);
                 this.columnProject_Active = new global::System.Data.DataColumn("Project_Active", typeof(bool), null, global::System.Data.MappingType.Element);
@@ -1840,6 +1887,7 @@ namespace DataAccessLayer {
                 this.columnProject_UID.AutoIncrementStep = -1;
                 this.columnProject_UID.AllowDBNull = false;
                 this.columnProject_UID.Unique = true;
+                this.columnProject_Name.MaxLength = 255;
                 this.columnProject_Description.MaxLength = 255;
             }
             
@@ -1978,9 +2026,13 @@ namespace DataAccessLayer {
             
             private global::System.Data.DataColumn columnWorkType_UID;
             
+            private global::System.Data.DataColumn columnUser_Username;
+            
             private global::System.Data.DataColumn columnPurchase_TotalPrice;
             
             private global::System.Data.DataColumn columnPurchase_Good;
+            
+            private global::System.Data.DataColumn columnPurchase_Supplier;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -2033,6 +2085,14 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_UsernameColumn {
+                get {
+                    return this.columnUser_Username;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Purchase_TotalPriceColumn {
                 get {
                     return this.columnPurchase_TotalPrice;
@@ -2044,6 +2104,14 @@ namespace DataAccessLayer {
             public global::System.Data.DataColumn Purchase_GoodColumn {
                 get {
                     return this.columnPurchase_Good;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Purchase_SupplierColumn {
+                get {
+                    return this.columnPurchase_Supplier;
                 }
             }
             
@@ -2084,15 +2152,20 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public purchaseRow AddpurchaseRow(worktypeRow parentworktypeRowBypurchase_ibfk_1, decimal Purchase_TotalPrice, string Purchase_Good) {
+            public purchaseRow AddpurchaseRow(worktypeRow parentworktypeRowBypurchase_ibfk_1, userRow parentuserRowBypurchase_ibfk_2, decimal Purchase_TotalPrice, string Purchase_Good, string Purchase_Supplier) {
                 purchaseRow rowpurchaseRow = ((purchaseRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
+                        null,
                         Purchase_TotalPrice,
-                        Purchase_Good};
+                        Purchase_Good,
+                        Purchase_Supplier};
                 if ((parentworktypeRowBypurchase_ibfk_1 != null)) {
                     columnValuesArray[1] = parentworktypeRowBypurchase_ibfk_1[0];
+                }
+                if ((parentuserRowBypurchase_ibfk_2 != null)) {
+                    columnValuesArray[2] = parentuserRowBypurchase_ibfk_2[0];
                 }
                 rowpurchaseRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowpurchaseRow);
@@ -2125,8 +2198,10 @@ namespace DataAccessLayer {
             internal void InitVars() {
                 this.columnPurchase_ID = base.Columns["Purchase_ID"];
                 this.columnWorkType_UID = base.Columns["WorkType_UID"];
+                this.columnUser_Username = base.Columns["User_Username"];
                 this.columnPurchase_TotalPrice = base.Columns["Purchase_TotalPrice"];
                 this.columnPurchase_Good = base.Columns["Purchase_Good"];
+                this.columnPurchase_Supplier = base.Columns["Purchase_Supplier"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2136,10 +2211,14 @@ namespace DataAccessLayer {
                 base.Columns.Add(this.columnPurchase_ID);
                 this.columnWorkType_UID = new global::System.Data.DataColumn("WorkType_UID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWorkType_UID);
+                this.columnUser_Username = new global::System.Data.DataColumn("User_Username", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_Username);
                 this.columnPurchase_TotalPrice = new global::System.Data.DataColumn("Purchase_TotalPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPurchase_TotalPrice);
                 this.columnPurchase_Good = new global::System.Data.DataColumn("Purchase_Good", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPurchase_Good);
+                this.columnPurchase_Supplier = new global::System.Data.DataColumn("Purchase_Supplier", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPurchase_Supplier);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnPurchase_ID}, true));
                 this.columnPurchase_ID.AutoIncrement = true;
@@ -2148,7 +2227,10 @@ namespace DataAccessLayer {
                 this.columnPurchase_ID.AllowDBNull = false;
                 this.columnPurchase_ID.Unique = true;
                 this.columnWorkType_UID.AllowDBNull = false;
+                this.columnUser_Username.AllowDBNull = false;
+                this.columnUser_Username.MaxLength = 255;
                 this.columnPurchase_Good.MaxLength = 255;
+                this.columnPurchase_Supplier.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2887,17 +2969,61 @@ namespace DataAccessLayer {
             
             private global::System.Data.DataColumn columnUser_Username;
             
-            private global::System.Data.DataColumn columnUser_FullName;
-            
             private global::System.Data.DataColumn columnUser_PasswordHash;
             
             private global::System.Data.DataColumn columnUser_PasswordSalt;
             
-            private global::System.Data.DataColumn columnUser_Email;
-            
             private global::System.Data.DataColumn columnUser_Role;
             
             private global::System.Data.DataColumn columnUser_Active;
+            
+            private global::System.Data.DataColumn columnUser_Surname;
+            
+            private global::System.Data.DataColumn columnUser_GivenName;
+            
+            private global::System.Data.DataColumn columnUser_Email;
+            
+            private global::System.Data.DataColumn columnUser_StudentNumber;
+            
+            private global::System.Data.DataColumn columnUser_EstGraduationYear;
+            
+            private global::System.Data.DataColumn columnUser_Degree;
+            
+            private global::System.Data.DataColumn columnUser_SAE_MemberNo;
+            
+            private global::System.Data.DataColumn columnUser_SAE_Expiry;
+            
+            private global::System.Data.DataColumn columnUser_CAMS_MemberNo;
+            
+            private global::System.Data.DataColumn columnUser_CAMS_LicenseType;
+            
+            private global::System.Data.DataColumn columnUser_LicenseNo;
+            
+            private global::System.Data.DataColumn columnUser_LicenseState;
+            
+            private global::System.Data.DataColumn columnUser_EmergencyContactName;
+            
+            private global::System.Data.DataColumn columnUser_EmergencyContactNumber;
+            
+            private global::System.Data.DataColumn columnUser_MedicareNo;
+            
+            private global::System.Data.DataColumn columnUser_Allergies;
+            
+            private global::System.Data.DataColumn columnUser_MedicalConditions;
+            
+            private global::System.Data.DataColumn columnUser_DietaryRequirements;
+            
+            private global::System.Data.DataColumn columnUser_IndemnityFormSigned;
+            
+            private global::System.Data.DataColumn columnUser_Created;
+            
+            private global::System.Data.DataColumn columnUser_LastLogin;
+            
+            private global::System.Data.DataColumn columnUser_LastActivity;
+            
+            private global::System.Data.DataColumn columnUser_LastPasswordChanged;
+            
+            private global::System.Data.DataColumn columnUser_LastLockoutDate;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -2942,14 +3068,6 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn User_FullNameColumn {
-                get {
-                    return this.columnUser_FullName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn User_PasswordHashColumn {
                 get {
                     return this.columnUser_PasswordHash;
@@ -2966,14 +3084,6 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn User_EmailColumn {
-                get {
-                    return this.columnUser_Email;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn User_RoleColumn {
                 get {
                     return this.columnUser_Role;
@@ -2985,6 +3095,198 @@ namespace DataAccessLayer {
             public global::System.Data.DataColumn User_ActiveColumn {
                 get {
                     return this.columnUser_Active;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_SurnameColumn {
+                get {
+                    return this.columnUser_Surname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_GivenNameColumn {
+                get {
+                    return this.columnUser_GivenName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_EmailColumn {
+                get {
+                    return this.columnUser_Email;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_StudentNumberColumn {
+                get {
+                    return this.columnUser_StudentNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_EstGraduationYearColumn {
+                get {
+                    return this.columnUser_EstGraduationYear;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_DegreeColumn {
+                get {
+                    return this.columnUser_Degree;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_SAE_MemberNoColumn {
+                get {
+                    return this.columnUser_SAE_MemberNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_SAE_ExpiryColumn {
+                get {
+                    return this.columnUser_SAE_Expiry;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_CAMS_MemberNoColumn {
+                get {
+                    return this.columnUser_CAMS_MemberNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_CAMS_LicenseTypeColumn {
+                get {
+                    return this.columnUser_CAMS_LicenseType;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_LicenseNoColumn {
+                get {
+                    return this.columnUser_LicenseNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_LicenseStateColumn {
+                get {
+                    return this.columnUser_LicenseState;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_EmergencyContactNameColumn {
+                get {
+                    return this.columnUser_EmergencyContactName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_EmergencyContactNumberColumn {
+                get {
+                    return this.columnUser_EmergencyContactNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_MedicareNoColumn {
+                get {
+                    return this.columnUser_MedicareNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_AllergiesColumn {
+                get {
+                    return this.columnUser_Allergies;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_MedicalConditionsColumn {
+                get {
+                    return this.columnUser_MedicalConditions;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_DietaryRequirementsColumn {
+                get {
+                    return this.columnUser_DietaryRequirements;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_IndemnityFormSignedColumn {
+                get {
+                    return this.columnUser_IndemnityFormSigned;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_CreatedColumn {
+                get {
+                    return this.columnUser_Created;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_LastLoginColumn {
+                get {
+                    return this.columnUser_LastLogin;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_LastActivityColumn {
+                get {
+                    return this.columnUser_LastActivity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_LastPasswordChangedColumn {
+                get {
+                    return this.columnUser_LastPasswordChanged;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_LastLockoutDateColumn {
+                get {
+                    return this.columnUser_LastLockoutDate;
                 }
             }
             
@@ -3025,16 +3327,67 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public userRow AdduserRow(string User_Username, string User_FullName, byte[] User_PasswordHash, byte[] User_PasswordSalt, string User_Email, string User_Role, bool User_Active) {
+            public userRow AdduserRow(
+                        string User_Username, 
+                        byte[] User_PasswordHash, 
+                        byte[] User_PasswordSalt, 
+                        string User_Role, 
+                        bool User_Active, 
+                        string User_Surname, 
+                        string User_GivenName, 
+                        string User_Email, 
+                        string User_StudentNumber, 
+                        string User_EstGraduationYear, 
+                        string User_Degree, 
+                        string User_SAE_MemberNo, 
+                        System.DateTime User_SAE_Expiry, 
+                        string User_CAMS_MemberNo, 
+                        string User_CAMS_LicenseType, 
+                        string User_LicenseNo, 
+                        string User_LicenseState, 
+                        string User_EmergencyContactName, 
+                        string User_EmergencyContactNumber, 
+                        string User_MedicareNo, 
+                        string User_Allergies, 
+                        string User_MedicalConditions, 
+                        string User_DietaryRequirements, 
+                        bool User_IndemnityFormSigned, 
+                        System.DateTime User_Created, 
+                        System.DateTime User_LastLogin, 
+                        System.DateTime User_LastActivity, 
+                        System.DateTime User_LastPasswordChanged, 
+                        System.DateTime User_LastLockoutDate) {
                 userRow rowuserRow = ((userRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         User_Username,
-                        User_FullName,
                         User_PasswordHash,
                         User_PasswordSalt,
-                        User_Email,
                         User_Role,
-                        User_Active};
+                        User_Active,
+                        User_Surname,
+                        User_GivenName,
+                        User_Email,
+                        User_StudentNumber,
+                        User_EstGraduationYear,
+                        User_Degree,
+                        User_SAE_MemberNo,
+                        User_SAE_Expiry,
+                        User_CAMS_MemberNo,
+                        User_CAMS_LicenseType,
+                        User_LicenseNo,
+                        User_LicenseState,
+                        User_EmergencyContactName,
+                        User_EmergencyContactNumber,
+                        User_MedicareNo,
+                        User_Allergies,
+                        User_MedicalConditions,
+                        User_DietaryRequirements,
+                        User_IndemnityFormSigned,
+                        User_Created,
+                        User_LastLogin,
+                        User_LastActivity,
+                        User_LastPasswordChanged,
+                        User_LastLockoutDate};
                 rowuserRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowuserRow);
                 return rowuserRow;
@@ -3065,12 +3418,34 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnUser_Username = base.Columns["User_Username"];
-                this.columnUser_FullName = base.Columns["User_FullName"];
                 this.columnUser_PasswordHash = base.Columns["User_PasswordHash"];
                 this.columnUser_PasswordSalt = base.Columns["User_PasswordSalt"];
-                this.columnUser_Email = base.Columns["User_Email"];
                 this.columnUser_Role = base.Columns["User_Role"];
                 this.columnUser_Active = base.Columns["User_Active"];
+                this.columnUser_Surname = base.Columns["User_Surname"];
+                this.columnUser_GivenName = base.Columns["User_GivenName"];
+                this.columnUser_Email = base.Columns["User_Email"];
+                this.columnUser_StudentNumber = base.Columns["User_StudentNumber"];
+                this.columnUser_EstGraduationYear = base.Columns["User_EstGraduationYear"];
+                this.columnUser_Degree = base.Columns["User_Degree"];
+                this.columnUser_SAE_MemberNo = base.Columns["User_SAE_MemberNo"];
+                this.columnUser_SAE_Expiry = base.Columns["User_SAE_Expiry"];
+                this.columnUser_CAMS_MemberNo = base.Columns["User_CAMS_MemberNo"];
+                this.columnUser_CAMS_LicenseType = base.Columns["User_CAMS_LicenseType"];
+                this.columnUser_LicenseNo = base.Columns["User_LicenseNo"];
+                this.columnUser_LicenseState = base.Columns["User_LicenseState"];
+                this.columnUser_EmergencyContactName = base.Columns["User_EmergencyContactName"];
+                this.columnUser_EmergencyContactNumber = base.Columns["User_EmergencyContactNumber"];
+                this.columnUser_MedicareNo = base.Columns["User_MedicareNo"];
+                this.columnUser_Allergies = base.Columns["User_Allergies"];
+                this.columnUser_MedicalConditions = base.Columns["User_MedicalConditions"];
+                this.columnUser_DietaryRequirements = base.Columns["User_DietaryRequirements"];
+                this.columnUser_IndemnityFormSigned = base.Columns["User_IndemnityFormSigned"];
+                this.columnUser_Created = base.Columns["User_Created"];
+                this.columnUser_LastLogin = base.Columns["User_LastLogin"];
+                this.columnUser_LastActivity = base.Columns["User_LastActivity"];
+                this.columnUser_LastPasswordChanged = base.Columns["User_LastPasswordChanged"];
+                this.columnUser_LastLockoutDate = base.Columns["User_LastLockoutDate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3078,32 +3453,92 @@ namespace DataAccessLayer {
             private void InitClass() {
                 this.columnUser_Username = new global::System.Data.DataColumn("User_Username", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUser_Username);
-                this.columnUser_FullName = new global::System.Data.DataColumn("User_FullName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUser_FullName);
                 this.columnUser_PasswordHash = new global::System.Data.DataColumn("User_PasswordHash", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUser_PasswordHash);
                 this.columnUser_PasswordSalt = new global::System.Data.DataColumn("User_PasswordSalt", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUser_PasswordSalt);
-                this.columnUser_Email = new global::System.Data.DataColumn("User_Email", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUser_Email);
                 this.columnUser_Role = new global::System.Data.DataColumn("User_Role", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUser_Role);
                 this.columnUser_Active = new global::System.Data.DataColumn("User_Active", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUser_Active);
+                this.columnUser_Surname = new global::System.Data.DataColumn("User_Surname", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_Surname);
+                this.columnUser_GivenName = new global::System.Data.DataColumn("User_GivenName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_GivenName);
+                this.columnUser_Email = new global::System.Data.DataColumn("User_Email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_Email);
+                this.columnUser_StudentNumber = new global::System.Data.DataColumn("User_StudentNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_StudentNumber);
+                this.columnUser_EstGraduationYear = new global::System.Data.DataColumn("User_EstGraduationYear", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_EstGraduationYear);
+                this.columnUser_Degree = new global::System.Data.DataColumn("User_Degree", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_Degree);
+                this.columnUser_SAE_MemberNo = new global::System.Data.DataColumn("User_SAE_MemberNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_SAE_MemberNo);
+                this.columnUser_SAE_Expiry = new global::System.Data.DataColumn("User_SAE_Expiry", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_SAE_Expiry);
+                this.columnUser_CAMS_MemberNo = new global::System.Data.DataColumn("User_CAMS_MemberNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_CAMS_MemberNo);
+                this.columnUser_CAMS_LicenseType = new global::System.Data.DataColumn("User_CAMS_LicenseType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_CAMS_LicenseType);
+                this.columnUser_LicenseNo = new global::System.Data.DataColumn("User_LicenseNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_LicenseNo);
+                this.columnUser_LicenseState = new global::System.Data.DataColumn("User_LicenseState", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_LicenseState);
+                this.columnUser_EmergencyContactName = new global::System.Data.DataColumn("User_EmergencyContactName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_EmergencyContactName);
+                this.columnUser_EmergencyContactNumber = new global::System.Data.DataColumn("User_EmergencyContactNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_EmergencyContactNumber);
+                this.columnUser_MedicareNo = new global::System.Data.DataColumn("User_MedicareNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_MedicareNo);
+                this.columnUser_Allergies = new global::System.Data.DataColumn("User_Allergies", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_Allergies);
+                this.columnUser_MedicalConditions = new global::System.Data.DataColumn("User_MedicalConditions", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_MedicalConditions);
+                this.columnUser_DietaryRequirements = new global::System.Data.DataColumn("User_DietaryRequirements", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_DietaryRequirements);
+                this.columnUser_IndemnityFormSigned = new global::System.Data.DataColumn("User_IndemnityFormSigned", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_IndemnityFormSigned);
+                this.columnUser_Created = new global::System.Data.DataColumn("User_Created", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_Created);
+                this.columnUser_LastLogin = new global::System.Data.DataColumn("User_LastLogin", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_LastLogin);
+                this.columnUser_LastActivity = new global::System.Data.DataColumn("User_LastActivity", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_LastActivity);
+                this.columnUser_LastPasswordChanged = new global::System.Data.DataColumn("User_LastPasswordChanged", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_LastPasswordChanged);
+                this.columnUser_LastLockoutDate = new global::System.Data.DataColumn("User_LastLockoutDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_LastLockoutDate);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnUser_Username}, true));
                 this.columnUser_Username.AllowDBNull = false;
                 this.columnUser_Username.Unique = true;
                 this.columnUser_Username.MaxLength = 255;
-                this.columnUser_FullName.AllowDBNull = false;
-                this.columnUser_FullName.MaxLength = 255;
                 this.columnUser_PasswordHash.AllowDBNull = false;
                 this.columnUser_PasswordSalt.AllowDBNull = false;
-                this.columnUser_Email.AllowDBNull = false;
-                this.columnUser_Email.MaxLength = 255;
                 this.columnUser_Role.AllowDBNull = false;
                 this.columnUser_Role.MaxLength = 255;
                 this.columnUser_Active.AllowDBNull = false;
+                this.columnUser_Surname.AllowDBNull = false;
+                this.columnUser_Surname.MaxLength = 255;
+                this.columnUser_GivenName.AllowDBNull = false;
+                this.columnUser_GivenName.MaxLength = 255;
+                this.columnUser_Email.AllowDBNull = false;
+                this.columnUser_Email.MaxLength = 255;
+                this.columnUser_StudentNumber.MaxLength = 255;
+                this.columnUser_EstGraduationYear.MaxLength = 255;
+                this.columnUser_Degree.MaxLength = 255;
+                this.columnUser_SAE_MemberNo.MaxLength = 255;
+                this.columnUser_CAMS_MemberNo.MaxLength = 255;
+                this.columnUser_CAMS_LicenseType.MaxLength = 255;
+                this.columnUser_LicenseNo.MaxLength = 255;
+                this.columnUser_LicenseState.MaxLength = 255;
+                this.columnUser_EmergencyContactName.MaxLength = 255;
+                this.columnUser_EmergencyContactNumber.MaxLength = 255;
+                this.columnUser_MedicareNo.MaxLength = 255;
+                this.columnUser_Allergies.MaxLength = 255;
+                this.columnUser_MedicalConditions.MaxLength = 255;
+                this.columnUser_DietaryRequirements.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4480,12 +4915,23 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string User_Username {
+            public string User_Username_AssignedTo {
                 get {
-                    return ((string)(this[this.tableassignedtask.User_UsernameColumn]));
+                    return ((string)(this[this.tableassignedtask.User_Username_AssignedToColumn]));
                 }
                 set {
-                    this[this.tableassignedtask.User_UsernameColumn] = value;
+                    this[this.tableassignedtask.User_Username_AssignedToColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_Username_AssignedBy {
+                get {
+                    return ((string)(this[this.tableassignedtask.User_Username_AssignedByColumn]));
+                }
+                set {
+                    this[this.tableassignedtask.User_Username_AssignedByColumn] = value;
                 }
             }
             
@@ -4539,12 +4985,23 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public userRow userRow {
+            public userRow userRowByassignedtask_ibfk_1 {
                 get {
                     return ((userRow)(this.GetParentRow(this.Table.ParentRelations["assignedtask_ibfk_1"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["assignedtask_ibfk_1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public userRow userRowByassignedtask_ibfk_2 {
+                get {
+                    return ((userRow)(this.GetParentRow(this.Table.ParentRelations["assignedtask_ibfk_2"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["assignedtask_ibfk_2"]);
                 }
             }
             
@@ -4797,6 +5254,22 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Project_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableproject.Project_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Project_Name\' in table \'project\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproject.Project_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Project_Description {
                 get {
                     try {
@@ -4837,6 +5310,18 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetProject_YearMadeNull() {
                 this[this.tableproject.Project_YearMadeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProject_NameNull() {
+                return this.IsNull(this.tableproject.Project_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProject_NameNull() {
+                this[this.tableproject.Project_NameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4924,6 +5409,17 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_Username {
+                get {
+                    return ((string)(this[this.tablepurchase.User_UsernameColumn]));
+                }
+                set {
+                    this[this.tablepurchase.User_UsernameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal Purchase_TotalPrice {
                 get {
                     try {
@@ -4956,12 +5452,39 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Purchase_Supplier {
+                get {
+                    try {
+                        return ((string)(this[this.tablepurchase.Purchase_SupplierColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Purchase_Supplier\' in table \'purchase\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepurchase.Purchase_SupplierColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public worktypeRow worktypeRow {
                 get {
                     return ((worktypeRow)(this.GetParentRow(this.Table.ParentRelations["purchase_ibfk_1"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["purchase_ibfk_1"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public userRow userRow {
+                get {
+                    return ((userRow)(this.GetParentRow(this.Table.ParentRelations["purchase_ibfk_2"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["purchase_ibfk_2"]);
                 }
             }
             
@@ -4987,6 +5510,18 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPurchase_GoodNull() {
                 this[this.tablepurchase.Purchase_GoodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPurchase_SupplierNull() {
+                return this.IsNull(this.tablepurchase.Purchase_SupplierColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPurchase_SupplierNull() {
+                this[this.tablepurchase.Purchase_SupplierColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5191,17 +5726,6 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string User_FullName {
-                get {
-                    return ((string)(this[this.tableuser.User_FullNameColumn]));
-                }
-                set {
-                    this[this.tableuser.User_FullNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public byte[] User_PasswordHash {
                 get {
                     return ((byte[])(this[this.tableuser.User_PasswordHashColumn]));
@@ -5219,17 +5743,6 @@ namespace DataAccessLayer {
                 }
                 set {
                     this[this.tableuser.User_PasswordSaltColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string User_Email {
-                get {
-                    return ((string)(this[this.tableuser.User_EmailColumn]));
-                }
-                set {
-                    this[this.tableuser.User_EmailColumn] = value;
                 }
             }
             
@@ -5257,12 +5770,644 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public assignedtaskRow[] GetassignedtaskRows() {
+            public string User_Surname {
+                get {
+                    return ((string)(this[this.tableuser.User_SurnameColumn]));
+                }
+                set {
+                    this[this.tableuser.User_SurnameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_GivenName {
+                get {
+                    return ((string)(this[this.tableuser.User_GivenNameColumn]));
+                }
+                set {
+                    this[this.tableuser.User_GivenNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_Email {
+                get {
+                    return ((string)(this[this.tableuser.User_EmailColumn]));
+                }
+                set {
+                    this[this.tableuser.User_EmailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_StudentNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableuser.User_StudentNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_StudentNumber\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_StudentNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_EstGraduationYear {
+                get {
+                    try {
+                        return ((string)(this[this.tableuser.User_EstGraduationYearColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_EstGraduationYear\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_EstGraduationYearColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_Degree {
+                get {
+                    try {
+                        return ((string)(this[this.tableuser.User_DegreeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_Degree\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_DegreeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_SAE_MemberNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableuser.User_SAE_MemberNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_SAE_MemberNo\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_SAE_MemberNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime User_SAE_Expiry {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableuser.User_SAE_ExpiryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_SAE_Expiry\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_SAE_ExpiryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_CAMS_MemberNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableuser.User_CAMS_MemberNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_CAMS_MemberNo\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_CAMS_MemberNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_CAMS_LicenseType {
+                get {
+                    try {
+                        return ((string)(this[this.tableuser.User_CAMS_LicenseTypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_CAMS_LicenseType\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_CAMS_LicenseTypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_LicenseNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableuser.User_LicenseNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_LicenseNo\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_LicenseNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_LicenseState {
+                get {
+                    try {
+                        return ((string)(this[this.tableuser.User_LicenseStateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_LicenseState\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_LicenseStateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_EmergencyContactName {
+                get {
+                    try {
+                        return ((string)(this[this.tableuser.User_EmergencyContactNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_EmergencyContactName\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_EmergencyContactNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_EmergencyContactNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableuser.User_EmergencyContactNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_EmergencyContactNumber\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_EmergencyContactNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_MedicareNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableuser.User_MedicareNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_MedicareNo\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_MedicareNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_Allergies {
+                get {
+                    try {
+                        return ((string)(this[this.tableuser.User_AllergiesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_Allergies\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_AllergiesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_MedicalConditions {
+                get {
+                    try {
+                        return ((string)(this[this.tableuser.User_MedicalConditionsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_MedicalConditions\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_MedicalConditionsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_DietaryRequirements {
+                get {
+                    try {
+                        return ((string)(this[this.tableuser.User_DietaryRequirementsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_DietaryRequirements\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_DietaryRequirementsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool User_IndemnityFormSigned {
+                get {
+                    try {
+                        return ((bool)(this[this.tableuser.User_IndemnityFormSignedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_IndemnityFormSigned\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_IndemnityFormSignedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime User_Created {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableuser.User_CreatedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_Created\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_CreatedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime User_LastLogin {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableuser.User_LastLoginColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_LastLogin\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_LastLoginColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime User_LastActivity {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableuser.User_LastActivityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_LastActivity\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_LastActivityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime User_LastPasswordChanged {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableuser.User_LastPasswordChangedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_LastPasswordChanged\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_LastPasswordChangedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime User_LastLockoutDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableuser.User_LastLockoutDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_LastLockoutDate\' in table \'user\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuser.User_LastLockoutDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_StudentNumberNull() {
+                return this.IsNull(this.tableuser.User_StudentNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_StudentNumberNull() {
+                this[this.tableuser.User_StudentNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_EstGraduationYearNull() {
+                return this.IsNull(this.tableuser.User_EstGraduationYearColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_EstGraduationYearNull() {
+                this[this.tableuser.User_EstGraduationYearColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_DegreeNull() {
+                return this.IsNull(this.tableuser.User_DegreeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_DegreeNull() {
+                this[this.tableuser.User_DegreeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_SAE_MemberNoNull() {
+                return this.IsNull(this.tableuser.User_SAE_MemberNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_SAE_MemberNoNull() {
+                this[this.tableuser.User_SAE_MemberNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_SAE_ExpiryNull() {
+                return this.IsNull(this.tableuser.User_SAE_ExpiryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_SAE_ExpiryNull() {
+                this[this.tableuser.User_SAE_ExpiryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_CAMS_MemberNoNull() {
+                return this.IsNull(this.tableuser.User_CAMS_MemberNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_CAMS_MemberNoNull() {
+                this[this.tableuser.User_CAMS_MemberNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_CAMS_LicenseTypeNull() {
+                return this.IsNull(this.tableuser.User_CAMS_LicenseTypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_CAMS_LicenseTypeNull() {
+                this[this.tableuser.User_CAMS_LicenseTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_LicenseNoNull() {
+                return this.IsNull(this.tableuser.User_LicenseNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_LicenseNoNull() {
+                this[this.tableuser.User_LicenseNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_LicenseStateNull() {
+                return this.IsNull(this.tableuser.User_LicenseStateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_LicenseStateNull() {
+                this[this.tableuser.User_LicenseStateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_EmergencyContactNameNull() {
+                return this.IsNull(this.tableuser.User_EmergencyContactNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_EmergencyContactNameNull() {
+                this[this.tableuser.User_EmergencyContactNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_EmergencyContactNumberNull() {
+                return this.IsNull(this.tableuser.User_EmergencyContactNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_EmergencyContactNumberNull() {
+                this[this.tableuser.User_EmergencyContactNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_MedicareNoNull() {
+                return this.IsNull(this.tableuser.User_MedicareNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_MedicareNoNull() {
+                this[this.tableuser.User_MedicareNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_AllergiesNull() {
+                return this.IsNull(this.tableuser.User_AllergiesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_AllergiesNull() {
+                this[this.tableuser.User_AllergiesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_MedicalConditionsNull() {
+                return this.IsNull(this.tableuser.User_MedicalConditionsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_MedicalConditionsNull() {
+                this[this.tableuser.User_MedicalConditionsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_DietaryRequirementsNull() {
+                return this.IsNull(this.tableuser.User_DietaryRequirementsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_DietaryRequirementsNull() {
+                this[this.tableuser.User_DietaryRequirementsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_IndemnityFormSignedNull() {
+                return this.IsNull(this.tableuser.User_IndemnityFormSignedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_IndemnityFormSignedNull() {
+                this[this.tableuser.User_IndemnityFormSignedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_CreatedNull() {
+                return this.IsNull(this.tableuser.User_CreatedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_CreatedNull() {
+                this[this.tableuser.User_CreatedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_LastLoginNull() {
+                return this.IsNull(this.tableuser.User_LastLoginColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_LastLoginNull() {
+                this[this.tableuser.User_LastLoginColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_LastActivityNull() {
+                return this.IsNull(this.tableuser.User_LastActivityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_LastActivityNull() {
+                this[this.tableuser.User_LastActivityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_LastPasswordChangedNull() {
+                return this.IsNull(this.tableuser.User_LastPasswordChangedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_LastPasswordChangedNull() {
+                this[this.tableuser.User_LastPasswordChangedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_LastLockoutDateNull() {
+                return this.IsNull(this.tableuser.User_LastLockoutDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_LastLockoutDateNull() {
+                this[this.tableuser.User_LastLockoutDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public assignedtaskRow[] GetassignedtaskRowsByassignedtask_ibfk_1() {
                 if ((this.Table.ChildRelations["assignedtask_ibfk_1"] == null)) {
                     return new assignedtaskRow[0];
                 }
                 else {
                     return ((assignedtaskRow[])(base.GetChildRows(this.Table.ChildRelations["assignedtask_ibfk_1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public assignedtaskRow[] GetassignedtaskRowsByassignedtask_ibfk_2() {
+                if ((this.Table.ChildRelations["assignedtask_ibfk_2"] == null)) {
+                    return new assignedtaskRow[0];
+                }
+                else {
+                    return ((assignedtaskRow[])(base.GetChildRows(this.Table.ChildRelations["assignedtask_ibfk_2"])));
                 }
             }
             
@@ -5285,6 +6430,17 @@ namespace DataAccessLayer {
                 }
                 else {
                     return ((passwordresetrequestRow[])(base.GetChildRows(this.Table.ChildRelations["passwordresetrequest_ibfk_1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public purchaseRow[] GetpurchaseRows() {
+                if ((this.Table.ChildRelations["purchase_ibfk_2"] == null)) {
+                    return new purchaseRow[0];
+                }
+                else {
+                    return ((purchaseRow[])(base.GetChildRows(this.Table.ChildRelations["purchase_ibfk_2"])));
                 }
             }
             
@@ -6328,14 +7484,15 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "assignedtask";
             tableMapping.ColumnMappings.Add("Task_UID", "Task_UID");
-            tableMapping.ColumnMappings.Add("User_Username", "User_Username");
+            tableMapping.ColumnMappings.Add("User_Username_AssignedTo", "User_Username_AssignedTo");
+            tableMapping.ColumnMappings.Add("User_Username_AssignedBy", "User_Username_AssignedBy");
             tableMapping.ColumnMappings.Add("Task_Name", "Task_Name");
             tableMapping.ColumnMappings.Add("Task_Description", "Task_Description");
             tableMapping.ColumnMappings.Add("Task_TakeFiveNeeded", "Task_TakeFiveNeeded");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `nuracing`.`assignedtask` WHERE ((`Task_UID` = @Original_Task_UID) AND (`User_Username` = @Original_User_Username) AND ((@IsNull_Task_Name = 1 AND `Task_Name` IS NULL) OR (`Task_Name` = @Original_Task_Name)) AND ((@IsNull_Task_Description = 1 AND `Task_Description` IS NULL) OR (`Task_Description` = @Original_Task_Description)) AND ((@IsNull_Task_TakeFiveNeeded = 1 AND `Task_TakeFiveNeeded` IS NULL) OR (`Task_TakeFiveNeeded` = @Original_Task_TakeFiveNeeded)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `nuracing`.`assignedtask` WHERE ((`Task_UID` = @Original_Task_UID) AND (`User_Username_AssignedTo` = @Original_User_Username_AssignedTo) AND (`User_Username_AssignedBy` = @Original_User_Username_AssignedBy) AND ((@IsNull_Task_Name = 1 AND `Task_Name` IS NULL) OR (`Task_Name` = @Original_Task_Name)) AND ((@IsNull_Task_Description = 1 AND `Task_Description` IS NULL) OR (`Task_Description` = @Original_Task_Description)) AND ((@IsNull_Task_TakeFiveNeeded = 1 AND `Task_TakeFiveNeeded` IS NULL) OR (`Task_TakeFiveNeeded` = @Original_Task_TakeFiveNeeded)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_Task_UID";
@@ -6346,11 +7503,19 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_User_Username";
+            param.ParameterName = "@Original_User_Username_AssignedTo";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "User_Username";
+            param.SourceColumn = "User_Username_AssignedTo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_Username_AssignedBy";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Username_AssignedBy";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -6406,16 +7571,21 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `nuracing`.`assignedtask` (`User_Username`, `Task_Name`, `Task_Descri" +
-                "ption`, `Task_TakeFiveNeeded`) VALUES (@User_Username, @Task_Name, @Task_Descrip" +
-                "tion, @Task_TakeFiveNeeded)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `nuracing`.`assignedtask` (`User_Username_AssignedTo`, `User_Username_AssignedBy`, `Task_Name`, `Task_Description`, `Task_TakeFiveNeeded`) VALUES (@User_Username_AssignedTo, @User_Username_AssignedBy, @Task_Name, @Task_Description, @Task_TakeFiveNeeded)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@User_Username";
+            param.ParameterName = "@User_Username_AssignedTo";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "User_Username";
+            param.SourceColumn = "User_Username_AssignedTo";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_Username_AssignedBy";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Username_AssignedBy";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Task_Name";
@@ -6440,14 +7610,21 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `nuracing`.`assignedtask` SET `User_Username` = @User_Username, `Task_Name` = @Task_Name, `Task_Description` = @Task_Description, `Task_TakeFiveNeeded` = @Task_TakeFiveNeeded WHERE ((`Task_UID` = @Original_Task_UID) AND (`User_Username` = @Original_User_Username) AND ((@IsNull_Task_Name = 1 AND `Task_Name` IS NULL) OR (`Task_Name` = @Original_Task_Name)) AND ((@IsNull_Task_Description = 1 AND `Task_Description` IS NULL) OR (`Task_Description` = @Original_Task_Description)) AND ((@IsNull_Task_TakeFiveNeeded = 1 AND `Task_TakeFiveNeeded` IS NULL) OR (`Task_TakeFiveNeeded` = @Original_Task_TakeFiveNeeded)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `nuracing`.`assignedtask` SET `User_Username_AssignedTo` = @User_Username_AssignedTo, `User_Username_AssignedBy` = @User_Username_AssignedBy, `Task_Name` = @Task_Name, `Task_Description` = @Task_Description, `Task_TakeFiveNeeded` = @Task_TakeFiveNeeded WHERE ((`Task_UID` = @Original_Task_UID) AND (`User_Username_AssignedTo` = @Original_User_Username_AssignedTo) AND (`User_Username_AssignedBy` = @Original_User_Username_AssignedBy) AND ((@IsNull_Task_Name = 1 AND `Task_Name` IS NULL) OR (`Task_Name` = @Original_Task_Name)) AND ((@IsNull_Task_Description = 1 AND `Task_Description` IS NULL) OR (`Task_Description` = @Original_Task_Description)) AND ((@IsNull_Task_TakeFiveNeeded = 1 AND `Task_TakeFiveNeeded` IS NULL) OR (`Task_TakeFiveNeeded` = @Original_Task_TakeFiveNeeded)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@User_Username";
+            param.ParameterName = "@User_Username_AssignedTo";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "User_Username";
+            param.SourceColumn = "User_Username_AssignedTo";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_Username_AssignedBy";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Username_AssignedBy";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Task_Name";
@@ -6479,11 +7656,19 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_User_Username";
+            param.ParameterName = "@Original_User_Username_AssignedTo";
             param.DbType = global::System.Data.DbType.String;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
-            param.SourceColumn = "User_Username";
+            param.SourceColumn = "User_Username_AssignedTo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_Username_AssignedBy";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Username_AssignedBy";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -6552,8 +7737,8 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Task_UID`, `User_Username`, `Task_Name`, `Task_Description`, `Task_TakeFi" +
-                "veNeeded` FROM `nuracing`.`assignedtask`";
+            this._commandCollection[0].CommandText = "SELECT `Task_UID`, `User_Username_AssignedTo`, `User_Username_AssignedBy`, `Task_" +
+                "Name`, `Task_Description`, `Task_TakeFiveNeeded` FROM `nuracing`.`assignedtask`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6614,37 +7799,43 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Task_UID, string Original_User_Username, string Original_Task_Name, string Original_Task_Description, global::System.Nullable<byte> Original_Task_TakeFiveNeeded) {
+        public virtual int Delete(int Original_Task_UID, string Original_User_Username_AssignedTo, string Original_User_Username_AssignedBy, string Original_Task_Name, string Original_Task_Description, global::System.Nullable<byte> Original_Task_TakeFiveNeeded) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Task_UID));
-            if ((Original_User_Username == null)) {
-                throw new global::System.ArgumentNullException("Original_User_Username");
+            if ((Original_User_Username_AssignedTo == null)) {
+                throw new global::System.ArgumentNullException("Original_User_Username_AssignedTo");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_User_Username));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_User_Username_AssignedTo));
+            }
+            if ((Original_User_Username_AssignedBy == null)) {
+                throw new global::System.ArgumentNullException("Original_User_Username_AssignedBy");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_User_Username_AssignedBy));
             }
             if ((Original_Task_Name == null)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Task_Name));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Task_Name));
             }
             if ((Original_Task_Description == null)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Task_Description));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Task_Description));
             }
             if ((Original_Task_TakeFiveNeeded.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((byte)(Original_Task_TakeFiveNeeded.Value));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((byte)(Original_Task_TakeFiveNeeded.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6666,30 +7857,36 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string User_Username, string Task_Name, string Task_Description, global::System.Nullable<byte> Task_TakeFiveNeeded) {
-            if ((User_Username == null)) {
-                throw new global::System.ArgumentNullException("User_Username");
+        public virtual int Insert(string User_Username_AssignedTo, string User_Username_AssignedBy, string Task_Name, string Task_Description, global::System.Nullable<byte> Task_TakeFiveNeeded) {
+            if ((User_Username_AssignedTo == null)) {
+                throw new global::System.ArgumentNullException("User_Username_AssignedTo");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(User_Username));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(User_Username_AssignedTo));
+            }
+            if ((User_Username_AssignedBy == null)) {
+                throw new global::System.ArgumentNullException("User_Username_AssignedBy");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(User_Username_AssignedBy));
             }
             if ((Task_Name == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Task_Name));
-            }
-            if ((Task_Description == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Task_Description));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Task_Name));
             }
-            if ((Task_TakeFiveNeeded.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((byte)(Task_TakeFiveNeeded.Value));
+            if ((Task_Description == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Task_Description));
+            }
+            if ((Task_TakeFiveNeeded.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((byte)(Task_TakeFiveNeeded.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6711,61 +7908,73 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string User_Username, string Task_Name, string Task_Description, global::System.Nullable<byte> Task_TakeFiveNeeded, int Original_Task_UID, string Original_User_Username, string Original_Task_Name, string Original_Task_Description, global::System.Nullable<byte> Original_Task_TakeFiveNeeded) {
-            if ((User_Username == null)) {
-                throw new global::System.ArgumentNullException("User_Username");
+        public virtual int Update(string User_Username_AssignedTo, string User_Username_AssignedBy, string Task_Name, string Task_Description, global::System.Nullable<byte> Task_TakeFiveNeeded, int Original_Task_UID, string Original_User_Username_AssignedTo, string Original_User_Username_AssignedBy, string Original_Task_Name, string Original_Task_Description, global::System.Nullable<byte> Original_Task_TakeFiveNeeded) {
+            if ((User_Username_AssignedTo == null)) {
+                throw new global::System.ArgumentNullException("User_Username_AssignedTo");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(User_Username));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(User_Username_AssignedTo));
+            }
+            if ((User_Username_AssignedBy == null)) {
+                throw new global::System.ArgumentNullException("User_Username_AssignedBy");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(User_Username_AssignedBy));
             }
             if ((Task_Name == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Task_Name));
-            }
-            if ((Task_Description == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Task_Description));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Task_Name));
             }
-            if ((Task_TakeFiveNeeded.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((byte)(Task_TakeFiveNeeded.Value));
-            }
-            else {
+            if ((Task_Description == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Task_UID));
-            if ((Original_User_Username == null)) {
-                throw new global::System.ArgumentNullException("Original_User_Username");
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Task_Description));
+            }
+            if ((Task_TakeFiveNeeded.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((byte)(Task_TakeFiveNeeded.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_User_Username));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Task_UID));
+            if ((Original_User_Username_AssignedTo == null)) {
+                throw new global::System.ArgumentNullException("Original_User_Username_AssignedTo");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_User_Username_AssignedTo));
+            }
+            if ((Original_User_Username_AssignedBy == null)) {
+                throw new global::System.ArgumentNullException("Original_User_Username_AssignedBy");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_User_Username_AssignedBy));
             }
             if ((Original_Task_Name == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Task_Name));
-            }
-            if ((Original_Task_Description == null)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Task_Description));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Task_Name));
             }
-            if ((Original_Task_TakeFiveNeeded.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((byte)(Original_Task_TakeFiveNeeded.Value));
-            }
-            else {
+            if ((Original_Task_Description == null)) {
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Task_Description));
+            }
+            if ((Original_Task_TakeFiveNeeded.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((byte)(Original_Task_TakeFiveNeeded.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7809,12 +9018,13 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             tableMapping.DataSetTable = "project";
             tableMapping.ColumnMappings.Add("Project_UID", "Project_UID");
             tableMapping.ColumnMappings.Add("Project_YearMade", "Project_YearMade");
+            tableMapping.ColumnMappings.Add("Project_Name", "Project_Name");
             tableMapping.ColumnMappings.Add("Project_Description", "Project_Description");
             tableMapping.ColumnMappings.Add("Project_Active", "Project_Active");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `nuracing`.`project` WHERE ((`Project_UID` = @Original_Project_UID) AND ((@IsNull_Project_YearMade = 1 AND `Project_YearMade` IS NULL) OR (`Project_YearMade` = @Original_Project_YearMade)) AND ((@IsNull_Project_Description = 1 AND `Project_Description` IS NULL) OR (`Project_Description` = @Original_Project_Description)) AND ((@IsNull_Project_Active = 1 AND `Project_Active` IS NULL) OR (`Project_Active` = @Original_Project_Active)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `nuracing`.`project` WHERE ((`Project_UID` = @Original_Project_UID) AND ((@IsNull_Project_YearMade = 1 AND `Project_YearMade` IS NULL) OR (`Project_YearMade` = @Original_Project_YearMade)) AND ((@IsNull_Project_Name = 1 AND `Project_Name` IS NULL) OR (`Project_Name` = @Original_Project_Name)) AND ((@IsNull_Project_Description = 1 AND `Project_Description` IS NULL) OR (`Project_Description` = @Original_Project_Description)) AND ((@IsNull_Project_Active = 1 AND `Project_Active` IS NULL) OR (`Project_Active` = @Original_Project_Active)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_Project_UID";
@@ -7839,6 +9049,23 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "Project_YearMade";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Project_Name";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_Name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Project_Name";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_Name";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -7877,8 +9104,9 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `nuracing`.`project` (`Project_YearMade`, `Project_Description`, `Pro" +
-                "ject_Active`) VALUES (@Project_YearMade, @Project_Description, @Project_Active)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `nuracing`.`project` (`Project_YearMade`, `Project_Name`, `Project_De" +
+                "scription`, `Project_Active`) VALUES (@Project_YearMade, @Project_Name, @Project" +
+                "_Description, @Project_Active)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Project_YearMade";
@@ -7886,6 +9114,13 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "Project_YearMade";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Project_Name";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_Name";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Project_Description";
@@ -7903,7 +9138,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `nuracing`.`project` SET `Project_YearMade` = @Project_YearMade, `Project_Description` = @Project_Description, `Project_Active` = @Project_Active WHERE ((`Project_UID` = @Original_Project_UID) AND ((@IsNull_Project_YearMade = 1 AND `Project_YearMade` IS NULL) OR (`Project_YearMade` = @Original_Project_YearMade)) AND ((@IsNull_Project_Description = 1 AND `Project_Description` IS NULL) OR (`Project_Description` = @Original_Project_Description)) AND ((@IsNull_Project_Active = 1 AND `Project_Active` IS NULL) OR (`Project_Active` = @Original_Project_Active)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `nuracing`.`project` SET `Project_YearMade` = @Project_YearMade, `Project_Name` = @Project_Name, `Project_Description` = @Project_Description, `Project_Active` = @Project_Active WHERE ((`Project_UID` = @Original_Project_UID) AND ((@IsNull_Project_YearMade = 1 AND `Project_YearMade` IS NULL) OR (`Project_YearMade` = @Original_Project_YearMade)) AND ((@IsNull_Project_Name = 1 AND `Project_Name` IS NULL) OR (`Project_Name` = @Original_Project_Name)) AND ((@IsNull_Project_Description = 1 AND `Project_Description` IS NULL) OR (`Project_Description` = @Original_Project_Description)) AND ((@IsNull_Project_Active = 1 AND `Project_Active` IS NULL) OR (`Project_Active` = @Original_Project_Active)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Project_YearMade";
@@ -7911,6 +9146,13 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "Project_YearMade";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Project_Name";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_Name";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Project_Description";
@@ -7949,6 +9191,23 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "Project_YearMade";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Project_Name";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_Name";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Project_Name";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_Name";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -8000,8 +9259,8 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Project_UID`, `Project_YearMade`, `Project_Description`, `Project_Active`" +
-                " FROM `nuracing`.`project`";
+            this._commandCollection[0].CommandText = "SELECT `Project_UID`, `Project_YearMade`, `Project_Name`, `Project_Description`, " +
+                "`Project_Active` FROM `nuracing`.`project`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8062,7 +9321,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Project_UID, global::System.Nullable<int> Original_Project_YearMade, string Original_Project_Description, global::System.Nullable<byte> Original_Project_Active) {
+        public virtual int Delete(int Original_Project_UID, global::System.Nullable<int> Original_Project_YearMade, string Original_Project_Name, string Original_Project_Description, global::System.Nullable<byte> Original_Project_Active) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Project_UID));
             if ((Original_Project_YearMade.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -8072,21 +9331,29 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((Original_Project_Description == null)) {
+            if ((Original_Project_Name == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Project_Description));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Project_Name));
             }
-            if ((Original_Project_Active.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((byte)(Original_Project_Active.Value));
-            }
-            else {
+            if ((Original_Project_Description == null)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Project_Description));
+            }
+            if ((Original_Project_Active.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((byte)(Original_Project_Active.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8108,24 +9375,30 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> Project_YearMade, string Project_Description, global::System.Nullable<byte> Project_Active) {
+        public virtual int Insert(global::System.Nullable<int> Project_YearMade, string Project_Name, string Project_Description, global::System.Nullable<byte> Project_Active) {
             if ((Project_YearMade.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Project_YearMade.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((Project_Description == null)) {
+            if ((Project_Name == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Project_Description));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Project_Name));
             }
-            if ((Project_Active.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((byte)(Project_Active.Value));
+            if ((Project_Description == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Project_Description));
+            }
+            if ((Project_Active.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((byte)(Project_Active.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8147,49 +9420,63 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Project_YearMade, string Project_Description, global::System.Nullable<byte> Project_Active, int Original_Project_UID, global::System.Nullable<int> Original_Project_YearMade, string Original_Project_Description, global::System.Nullable<byte> Original_Project_Active) {
+        public virtual int Update(global::System.Nullable<int> Project_YearMade, string Project_Name, string Project_Description, global::System.Nullable<byte> Project_Active, int Original_Project_UID, global::System.Nullable<int> Original_Project_YearMade, string Original_Project_Name, string Original_Project_Description, global::System.Nullable<byte> Original_Project_Active) {
             if ((Project_YearMade.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Project_YearMade.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((Project_Description == null)) {
+            if ((Project_Name == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Project_Description));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Project_Name));
             }
-            if ((Project_Active.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((byte)(Project_Active.Value));
-            }
-            else {
+            if ((Project_Description == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Project_UID));
-            if ((Original_Project_YearMade.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Project_YearMade.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Project_Description));
+            }
+            if ((Project_Active.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((byte)(Project_Active.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Project_UID));
+            if ((Original_Project_YearMade.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Project_YearMade.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Project_Name == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Project_Name));
             }
             if ((Original_Project_Description == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Project_Description));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Project_Description));
             }
             if ((Original_Project_Active.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((byte)(Original_Project_Active.Value));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((byte)(Original_Project_Active.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8331,12 +9618,14 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             tableMapping.DataSetTable = "purchase";
             tableMapping.ColumnMappings.Add("Purchase_ID", "Purchase_ID");
             tableMapping.ColumnMappings.Add("WorkType_UID", "WorkType_UID");
+            tableMapping.ColumnMappings.Add("User_Username", "User_Username");
             tableMapping.ColumnMappings.Add("Purchase_TotalPrice", "Purchase_TotalPrice");
             tableMapping.ColumnMappings.Add("Purchase_Good", "Purchase_Good");
+            tableMapping.ColumnMappings.Add("Purchase_Supplier", "Purchase_Supplier");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `nuracing`.`purchase` WHERE ((`Purchase_ID` = @Original_Purchase_ID) AND (`WorkType_UID` = @Original_WorkType_UID) AND ((@IsNull_Purchase_TotalPrice = 1 AND `Purchase_TotalPrice` IS NULL) OR (`Purchase_TotalPrice` = @Original_Purchase_TotalPrice)) AND ((@IsNull_Purchase_Good = 1 AND `Purchase_Good` IS NULL) OR (`Purchase_Good` = @Original_Purchase_Good)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `nuracing`.`purchase` WHERE ((`Purchase_ID` = @Original_Purchase_ID) AND (`WorkType_UID` = @Original_WorkType_UID) AND (`User_Username` = @Original_User_Username) AND ((@IsNull_Purchase_TotalPrice = 1 AND `Purchase_TotalPrice` IS NULL) OR (`Purchase_TotalPrice` = @Original_Purchase_TotalPrice)) AND ((@IsNull_Purchase_Good = 1 AND `Purchase_Good` IS NULL) OR (`Purchase_Good` = @Original_Purchase_Good)) AND ((@IsNull_Purchase_Supplier = 1 AND `Purchase_Supplier` IS NULL) OR (`Purchase_Supplier` = @Original_Purchase_Supplier)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_Purchase_ID";
@@ -8355,6 +9644,14 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_Username";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Username";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@IsNull_Purchase_TotalPrice";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
@@ -8388,10 +9685,28 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceColumn = "Purchase_Good";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Purchase_Supplier";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Purchase_Supplier";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Purchase_Supplier";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Purchase_Supplier";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `nuracing`.`purchase` (`WorkType_UID`, `Purchase_TotalPrice`, `Purcha" +
-                "se_Good`) VALUES (@WorkType_UID, @Purchase_TotalPrice, @Purchase_Good)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `nuracing`.`purchase` (`WorkType_UID`, `User_Username`, `Purchase_Tot" +
+                "alPrice`, `Purchase_Good`, `Purchase_Supplier`) VALUES (@WorkType_UID, @User_Use" +
+                "rname, @Purchase_TotalPrice, @Purchase_Good, @Purchase_Supplier)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@WorkType_UID";
@@ -8401,6 +9716,13 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceColumn = "WorkType_UID";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_Username";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Username";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Purchase_TotalPrice";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
@@ -8414,9 +9736,16 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "Purchase_Good";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Purchase_Supplier";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Purchase_Supplier";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `nuracing`.`purchase` SET `WorkType_UID` = @WorkType_UID, `Purchase_TotalPrice` = @Purchase_TotalPrice, `Purchase_Good` = @Purchase_Good WHERE ((`Purchase_ID` = @Original_Purchase_ID) AND (`WorkType_UID` = @Original_WorkType_UID) AND ((@IsNull_Purchase_TotalPrice = 1 AND `Purchase_TotalPrice` IS NULL) OR (`Purchase_TotalPrice` = @Original_Purchase_TotalPrice)) AND ((@IsNull_Purchase_Good = 1 AND `Purchase_Good` IS NULL) OR (`Purchase_Good` = @Original_Purchase_Good)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `nuracing`.`purchase` SET `WorkType_UID` = @WorkType_UID, `User_Username` = @User_Username, `Purchase_TotalPrice` = @Purchase_TotalPrice, `Purchase_Good` = @Purchase_Good, `Purchase_Supplier` = @Purchase_Supplier WHERE ((`Purchase_ID` = @Original_Purchase_ID) AND (`WorkType_UID` = @Original_WorkType_UID) AND (`User_Username` = @Original_User_Username) AND ((@IsNull_Purchase_TotalPrice = 1 AND `Purchase_TotalPrice` IS NULL) OR (`Purchase_TotalPrice` = @Original_Purchase_TotalPrice)) AND ((@IsNull_Purchase_Good = 1 AND `Purchase_Good` IS NULL) OR (`Purchase_Good` = @Original_Purchase_Good)) AND ((@IsNull_Purchase_Supplier = 1 AND `Purchase_Supplier` IS NULL) OR (`Purchase_Supplier` = @Original_Purchase_Supplier)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@WorkType_UID";
@@ -8426,6 +9755,13 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceColumn = "WorkType_UID";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_Username";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Username";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Purchase_TotalPrice";
             param.DbType = global::System.Data.DbType.Decimal;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
@@ -8438,6 +9774,13 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "Purchase_Good";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Purchase_Supplier";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Purchase_Supplier";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_Purchase_ID";
@@ -8456,6 +9799,14 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_Username";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Username";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@IsNull_Purchase_TotalPrice";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
@@ -8489,6 +9840,23 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceColumn = "Purchase_Good";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Purchase_Supplier";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Purchase_Supplier";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Purchase_Supplier";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Purchase_Supplier";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8504,8 +9872,8 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Purchase_ID`, `WorkType_UID`, `Purchase_TotalPrice`, `Purchase_Good` FROM" +
-                " `nuracing`.`purchase`";
+            this._commandCollection[0].CommandText = "SELECT `Purchase_ID`, `WorkType_UID`, `User_Username`, `Purchase_TotalPrice`, `Pu" +
+                "rchase_Good`, `Purchase_Supplier` FROM `nuracing`.`purchase`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8566,24 +9934,38 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Purchase_ID, int Original_WorkType_UID, global::System.Nullable<decimal> Original_Purchase_TotalPrice, string Original_Purchase_Good) {
+        public virtual int Delete(int Original_Purchase_ID, int Original_WorkType_UID, string Original_User_Username, global::System.Nullable<decimal> Original_Purchase_TotalPrice, string Original_Purchase_Good, string Original_Purchase_Supplier) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Purchase_ID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_WorkType_UID));
-            if ((Original_Purchase_TotalPrice.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((decimal)(Original_Purchase_TotalPrice.Value));
+            if ((Original_User_Username == null)) {
+                throw new global::System.ArgumentNullException("Original_User_Username");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_User_Username));
+            }
+            if ((Original_Purchase_TotalPrice.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(Original_Purchase_TotalPrice.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             if ((Original_Purchase_Good == null)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Purchase_Good));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Purchase_Good));
+            }
+            if ((Original_Purchase_Supplier == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Purchase_Supplier));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8605,19 +9987,31 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int WorkType_UID, global::System.Nullable<decimal> Purchase_TotalPrice, string Purchase_Good) {
+        public virtual int Insert(int WorkType_UID, string User_Username, global::System.Nullable<decimal> Purchase_TotalPrice, string Purchase_Good, string Purchase_Supplier) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(WorkType_UID));
-            if ((Purchase_TotalPrice.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(Purchase_TotalPrice.Value));
+            if ((User_Username == null)) {
+                throw new global::System.ArgumentNullException("User_Username");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(User_Username));
             }
-            if ((Purchase_Good == null)) {
+            if ((Purchase_TotalPrice.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(Purchase_TotalPrice.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
+            if ((Purchase_Good == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Purchase_Good));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Purchase_Good));
+            }
+            if ((Purchase_Supplier == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Purchase_Supplier));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8639,37 +10033,63 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int WorkType_UID, global::System.Nullable<decimal> Purchase_TotalPrice, string Purchase_Good, int Original_Purchase_ID, int Original_WorkType_UID, global::System.Nullable<decimal> Original_Purchase_TotalPrice, string Original_Purchase_Good) {
+        public virtual int Update(int WorkType_UID, string User_Username, global::System.Nullable<decimal> Purchase_TotalPrice, string Purchase_Good, string Purchase_Supplier, int Original_Purchase_ID, int Original_WorkType_UID, string Original_User_Username, global::System.Nullable<decimal> Original_Purchase_TotalPrice, string Original_Purchase_Good, string Original_Purchase_Supplier) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(WorkType_UID));
-            if ((Purchase_TotalPrice.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((decimal)(Purchase_TotalPrice.Value));
+            if ((User_Username == null)) {
+                throw new global::System.ArgumentNullException("User_Username");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(User_Username));
             }
-            if ((Purchase_Good == null)) {
+            if ((Purchase_TotalPrice.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(Purchase_TotalPrice.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Purchase_Good));
+            if ((Purchase_Good == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Purchase_ID));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_WorkType_UID));
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Purchase_Good));
+            }
+            if ((Purchase_Supplier == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Purchase_Supplier));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Purchase_ID));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_WorkType_UID));
+            if ((Original_User_Username == null)) {
+                throw new global::System.ArgumentNullException("Original_User_Username");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_User_Username));
+            }
             if ((Original_Purchase_TotalPrice.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(Original_Purchase_TotalPrice.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(Original_Purchase_TotalPrice.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((Original_Purchase_Good == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Purchase_Good));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Purchase_Good));
+            }
+            if ((Original_Purchase_Supplier == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Purchase_Supplier));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -9671,16 +11091,77 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "user";
             tableMapping.ColumnMappings.Add("User_Username", "User_Username");
-            tableMapping.ColumnMappings.Add("User_FullName", "User_FullName");
             tableMapping.ColumnMappings.Add("User_PasswordHash", "User_PasswordHash");
             tableMapping.ColumnMappings.Add("User_PasswordSalt", "User_PasswordSalt");
-            tableMapping.ColumnMappings.Add("User_Email", "User_Email");
             tableMapping.ColumnMappings.Add("User_Role", "User_Role");
             tableMapping.ColumnMappings.Add("User_Active", "User_Active");
+            tableMapping.ColumnMappings.Add("User_Surname", "User_Surname");
+            tableMapping.ColumnMappings.Add("User_GivenName", "User_GivenName");
+            tableMapping.ColumnMappings.Add("User_Email", "User_Email");
+            tableMapping.ColumnMappings.Add("User_StudentNumber", "User_StudentNumber");
+            tableMapping.ColumnMappings.Add("User_EstGraduationYear", "User_EstGraduationYear");
+            tableMapping.ColumnMappings.Add("User_Degree", "User_Degree");
+            tableMapping.ColumnMappings.Add("User_SAE_MemberNo", "User_SAE_MemberNo");
+            tableMapping.ColumnMappings.Add("User_SAE_Expiry", "User_SAE_Expiry");
+            tableMapping.ColumnMappings.Add("User_CAMS_MemberNo", "User_CAMS_MemberNo");
+            tableMapping.ColumnMappings.Add("User_CAMS_LicenseType", "User_CAMS_LicenseType");
+            tableMapping.ColumnMappings.Add("User_LicenseNo", "User_LicenseNo");
+            tableMapping.ColumnMappings.Add("User_LicenseState", "User_LicenseState");
+            tableMapping.ColumnMappings.Add("User_EmergencyContactName", "User_EmergencyContactName");
+            tableMapping.ColumnMappings.Add("User_EmergencyContactNumber", "User_EmergencyContactNumber");
+            tableMapping.ColumnMappings.Add("User_MedicareNo", "User_MedicareNo");
+            tableMapping.ColumnMappings.Add("User_Allergies", "User_Allergies");
+            tableMapping.ColumnMappings.Add("User_MedicalConditions", "User_MedicalConditions");
+            tableMapping.ColumnMappings.Add("User_DietaryRequirements", "User_DietaryRequirements");
+            tableMapping.ColumnMappings.Add("User_IndemnityFormSigned", "User_IndemnityFormSigned");
+            tableMapping.ColumnMappings.Add("User_Created", "User_Created");
+            tableMapping.ColumnMappings.Add("User_LastLogin", "User_LastLogin");
+            tableMapping.ColumnMappings.Add("User_LastActivity", "User_LastActivity");
+            tableMapping.ColumnMappings.Add("User_LastPasswordChanged", "User_LastPasswordChanged");
+            tableMapping.ColumnMappings.Add("User_LastLockoutDate", "User_LastLockoutDate");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `nuracing`.`user` WHERE ((`User_Username` = @Original_User_Username) AND (`User_FullName` = @Original_User_FullName) AND (`User_PasswordHash` = @Original_User_PasswordHash) AND (`User_PasswordSalt` = @Original_User_PasswordSalt) AND (`User_Email` = @Original_User_Email) AND (`User_Role` = @Original_User_Role) AND (`User_Active` = @Original_User_Active))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `nuracing`.`user` WHERE ((`User_Username` = @Original_User_Username) " +
+                "AND (`User_PasswordHash` = @Original_User_PasswordHash) AND (`User_PasswordSalt`" +
+                " = @Original_User_PasswordSalt) AND (`User_Role` = @Original_User_Role) AND (`Us" +
+                "er_Active` = @Original_User_Active) AND (`User_Surname` = @Original_User_Surname" +
+                ") AND (`User_GivenName` = @Original_User_GivenName) AND (`User_Email` = @Origina" +
+                "l_User_Email) AND ((@IsNull_User_StudentNumber = 1 AND `User_StudentNumber` IS N" +
+                "ULL) OR (`User_StudentNumber` = @Original_User_StudentNumber)) AND ((@IsNull_Use" +
+                "r_EstGraduationYear = 1 AND `User_EstGraduationYear` IS NULL) OR (`User_EstGradu" +
+                "ationYear` = @Original_User_EstGraduationYear)) AND ((@IsNull_User_Degree = 1 AN" +
+                "D `User_Degree` IS NULL) OR (`User_Degree` = @Original_User_Degree)) AND ((@IsNu" +
+                "ll_User_SAE_MemberNo = 1 AND `User_SAE_MemberNo` IS NULL) OR (`User_SAE_MemberNo" +
+                "` = @Original_User_SAE_MemberNo)) AND ((@IsNull_User_SAE_Expiry = 1 AND `User_SA" +
+                "E_Expiry` IS NULL) OR (`User_SAE_Expiry` = @Original_User_SAE_Expiry)) AND ((@Is" +
+                "Null_User_CAMS_MemberNo = 1 AND `User_CAMS_MemberNo` IS NULL) OR (`User_CAMS_Mem" +
+                "berNo` = @Original_User_CAMS_MemberNo)) AND ((@IsNull_User_CAMS_LicenseType = 1 " +
+                "AND `User_CAMS_LicenseType` IS NULL) OR (`User_CAMS_LicenseType` = @Original_Use" +
+                "r_CAMS_LicenseType)) AND ((@IsNull_User_LicenseNo = 1 AND `User_LicenseNo` IS NU" +
+                "LL) OR (`User_LicenseNo` = @Original_User_LicenseNo)) AND ((@IsNull_User_License" +
+                "State = 1 AND `User_LicenseState` IS NULL) OR (`User_LicenseState` = @Original_U" +
+                "ser_LicenseState)) AND ((@IsNull_User_EmergencyContactName = 1 AND `User_Emergen" +
+                "cyContactName` IS NULL) OR (`User_EmergencyContactName` = @Original_User_Emergen" +
+                "cyContactName)) AND ((@IsNull_User_EmergencyContactNumber = 1 AND `User_Emergenc" +
+                "yContactNumber` IS NULL) OR (`User_EmergencyContactNumber` = @Original_User_Emer" +
+                "gencyContactNumber)) AND ((@IsNull_User_MedicareNo = 1 AND `User_MedicareNo` IS " +
+                "NULL) OR (`User_MedicareNo` = @Original_User_MedicareNo)) AND ((@IsNull_User_All" +
+                "ergies = 1 AND `User_Allergies` IS NULL) OR (`User_Allergies` = @Original_User_A" +
+                "llergies)) AND ((@IsNull_User_MedicalConditions = 1 AND `User_MedicalConditions`" +
+                " IS NULL) OR (`User_MedicalConditions` = @Original_User_MedicalConditions)) AND " +
+                "((@IsNull_User_DietaryRequirements = 1 AND `User_DietaryRequirements` IS NULL) O" +
+                "R (`User_DietaryRequirements` = @Original_User_DietaryRequirements)) AND ((@IsNu" +
+                "ll_User_IndemnityFormSigned = 1 AND `User_IndemnityFormSigned` IS NULL) OR (`Use" +
+                "r_IndemnityFormSigned` = @Original_User_IndemnityFormSigned)) AND ((@IsNull_User" +
+                "_Created = 1 AND `User_Created` IS NULL) OR (`User_Created` = @Original_User_Cre" +
+                "ated)) AND ((@IsNull_User_LastLogin = 1 AND `User_LastLogin` IS NULL) OR (`User_" +
+                "LastLogin` = @Original_User_LastLogin)) AND ((@IsNull_User_LastActivity = 1 AND " +
+                "`User_LastActivity` IS NULL) OR (`User_LastActivity` = @Original_User_LastActivi" +
+                "ty)) AND ((@IsNull_User_LastPasswordChanged = 1 AND `User_LastPasswordChanged` I" +
+                "S NULL) OR (`User_LastPasswordChanged` = @Original_User_LastPasswordChanged)) AN" +
+                "D ((@IsNull_User_LastLockoutDate = 1 AND `User_LastLockoutDate` IS NULL) OR (`Us" +
+                "er_LastLockoutDate` = @Original_User_LastLockoutDate)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_User_Username";
@@ -9691,14 +11172,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_User_FullName";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "User_FullName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_User_PasswordHash";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Binary;
             param.IsNullable = true;
@@ -9710,14 +11183,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Binary;
             param.IsNullable = true;
             param.SourceColumn = "User_PasswordSalt";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_User_Email";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "User_Email";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -9736,9 +11201,390 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceColumn = "User_Active";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_Surname";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Surname";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_GivenName";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_GivenName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_Email";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Email";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_StudentNumber";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_StudentNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_StudentNumber";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_StudentNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_EstGraduationYear";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EstGraduationYear";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_EstGraduationYear";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EstGraduationYear";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_Degree";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Degree";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_Degree";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Degree";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_SAE_MemberNo";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_SAE_MemberNo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_SAE_MemberNo";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_SAE_MemberNo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_SAE_Expiry";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_SAE_Expiry";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_SAE_Expiry";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_SAE_Expiry";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_CAMS_MemberNo";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_CAMS_MemberNo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_CAMS_MemberNo";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_CAMS_MemberNo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_CAMS_LicenseType";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_CAMS_LicenseType";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_CAMS_LicenseType";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_CAMS_LicenseType";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_LicenseNo";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LicenseNo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_LicenseNo";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LicenseNo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_LicenseState";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LicenseState";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_LicenseState";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LicenseState";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_EmergencyContactName";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EmergencyContactName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_EmergencyContactName";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EmergencyContactName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_EmergencyContactNumber";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EmergencyContactNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_EmergencyContactNumber";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EmergencyContactNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_MedicareNo";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_MedicareNo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_MedicareNo";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_MedicareNo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_Allergies";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Allergies";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_Allergies";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Allergies";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_MedicalConditions";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_MedicalConditions";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_MedicalConditions";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_MedicalConditions";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_DietaryRequirements";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_DietaryRequirements";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_DietaryRequirements";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_DietaryRequirements";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_IndemnityFormSigned";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_IndemnityFormSigned";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_IndemnityFormSigned";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "User_IndemnityFormSigned";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_Created";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Created";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_Created";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Created";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_LastLogin";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastLogin";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_LastLogin";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastLogin";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_LastActivity";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastActivity";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_LastActivity";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastActivity";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_LastPasswordChanged";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastPasswordChanged";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_LastPasswordChanged";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastPasswordChanged";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_LastLockoutDate";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastLockoutDate";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_LastLockoutDate";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastLockoutDate";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `nuracing`.`user` (`User_Username`, `User_FullName`, `User_PasswordHash`, `User_PasswordSalt`, `User_Email`, `User_Role`, `User_Active`) VALUES (@User_Username, @User_FullName, @User_PasswordHash, @User_PasswordSalt, @User_Email, @User_Role, @User_Active)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `nuracing`.`user` (`User_Username`, `User_PasswordHash`, `User_PasswordSalt`, `User_Role`, `User_Active`, `User_Surname`, `User_GivenName`, `User_Email`, `User_StudentNumber`, `User_EstGraduationYear`, `User_Degree`, `User_SAE_MemberNo`, `User_SAE_Expiry`, `User_CAMS_MemberNo`, `User_CAMS_LicenseType`, `User_LicenseNo`, `User_LicenseState`, `User_EmergencyContactName`, `User_EmergencyContactNumber`, `User_MedicareNo`, `User_Allergies`, `User_MedicalConditions`, `User_DietaryRequirements`, `User_IndemnityFormSigned`, `User_Created`, `User_LastLogin`, `User_LastActivity`, `User_LastPasswordChanged`, `User_LastLockoutDate`) VALUES (@User_Username, @User_PasswordHash, @User_PasswordSalt, @User_Role, @User_Active, @User_Surname, @User_GivenName, @User_Email, @User_StudentNumber, @User_EstGraduationYear, @User_Degree, @User_SAE_MemberNo, @User_SAE_Expiry, @User_CAMS_MemberNo, @User_CAMS_LicenseType, @User_LicenseNo, @User_LicenseState, @User_EmergencyContactName, @User_EmergencyContactNumber, @User_MedicareNo, @User_Allergies, @User_MedicalConditions, @User_DietaryRequirements, @User_IndemnityFormSigned, @User_Created, @User_LastLogin, @User_LastActivity, @User_LastPasswordChanged, @User_LastLockoutDate)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@User_Username";
@@ -9748,13 +11594,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceColumn = "User_Username";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@User_FullName";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "User_FullName";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@User_PasswordHash";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Binary;
             param.IsNullable = true;
@@ -9765,13 +11604,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Binary;
             param.IsNullable = true;
             param.SourceColumn = "User_PasswordSalt";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@User_Email";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "User_Email";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@User_Role";
@@ -9787,9 +11619,231 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "User_Active";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_Surname";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Surname";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_GivenName";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_GivenName";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_Email";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Email";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_StudentNumber";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_StudentNumber";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_EstGraduationYear";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EstGraduationYear";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_Degree";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Degree";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_SAE_MemberNo";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_SAE_MemberNo";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_SAE_Expiry";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_SAE_Expiry";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_CAMS_MemberNo";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_CAMS_MemberNo";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_CAMS_LicenseType";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_CAMS_LicenseType";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_LicenseNo";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LicenseNo";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_LicenseState";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LicenseState";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_EmergencyContactName";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EmergencyContactName";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_EmergencyContactNumber";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EmergencyContactNumber";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_MedicareNo";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_MedicareNo";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_Allergies";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Allergies";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_MedicalConditions";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_MedicalConditions";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_DietaryRequirements";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_DietaryRequirements";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_IndemnityFormSigned";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "User_IndemnityFormSigned";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_Created";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Created";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_LastLogin";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastLogin";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_LastActivity";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastActivity";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_LastPasswordChanged";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastPasswordChanged";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_LastLockoutDate";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastLockoutDate";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `nuracing`.`user` SET `User_Username` = @User_Username, `User_FullName` = @User_FullName, `User_PasswordHash` = @User_PasswordHash, `User_PasswordSalt` = @User_PasswordSalt, `User_Email` = @User_Email, `User_Role` = @User_Role, `User_Active` = @User_Active WHERE ((`User_Username` = @Original_User_Username) AND (`User_FullName` = @Original_User_FullName) AND (`User_PasswordHash` = @Original_User_PasswordHash) AND (`User_PasswordSalt` = @Original_User_PasswordSalt) AND (`User_Email` = @Original_User_Email) AND (`User_Role` = @Original_User_Role) AND (`User_Active` = @Original_User_Active))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `nuracing`.`user` SET `User_Username` = @User_Username, `User_PasswordHash" +
+                "` = @User_PasswordHash, `User_PasswordSalt` = @User_PasswordSalt, `User_Role` = " +
+                "@User_Role, `User_Active` = @User_Active, `User_Surname` = @User_Surname, `User_" +
+                "GivenName` = @User_GivenName, `User_Email` = @User_Email, `User_StudentNumber` =" +
+                " @User_StudentNumber, `User_EstGraduationYear` = @User_EstGraduationYear, `User_" +
+                "Degree` = @User_Degree, `User_SAE_MemberNo` = @User_SAE_MemberNo, `User_SAE_Expi" +
+                "ry` = @User_SAE_Expiry, `User_CAMS_MemberNo` = @User_CAMS_MemberNo, `User_CAMS_L" +
+                "icenseType` = @User_CAMS_LicenseType, `User_LicenseNo` = @User_LicenseNo, `User_" +
+                "LicenseState` = @User_LicenseState, `User_EmergencyContactName` = @User_Emergenc" +
+                "yContactName, `User_EmergencyContactNumber` = @User_EmergencyContactNumber, `Use" +
+                "r_MedicareNo` = @User_MedicareNo, `User_Allergies` = @User_Allergies, `User_Medi" +
+                "calConditions` = @User_MedicalConditions, `User_DietaryRequirements` = @User_Die" +
+                "taryRequirements, `User_IndemnityFormSigned` = @User_IndemnityFormSigned, `User_" +
+                "Created` = @User_Created, `User_LastLogin` = @User_LastLogin, `User_LastActivity" +
+                "` = @User_LastActivity, `User_LastPasswordChanged` = @User_LastPasswordChanged, " +
+                "`User_LastLockoutDate` = @User_LastLockoutDate WHERE ((`User_Username` = @Origin" +
+                "al_User_Username) AND (`User_PasswordHash` = @Original_User_PasswordHash) AND (`" +
+                "User_PasswordSalt` = @Original_User_PasswordSalt) AND (`User_Role` = @Original_U" +
+                "ser_Role) AND (`User_Active` = @Original_User_Active) AND (`User_Surname` = @Ori" +
+                "ginal_User_Surname) AND (`User_GivenName` = @Original_User_GivenName) AND (`User" +
+                "_Email` = @Original_User_Email) AND ((@IsNull_User_StudentNumber = 1 AND `User_S" +
+                "tudentNumber` IS NULL) OR (`User_StudentNumber` = @Original_User_StudentNumber))" +
+                " AND ((@IsNull_User_EstGraduationYear = 1 AND `User_EstGraduationYear` IS NULL) " +
+                "OR (`User_EstGraduationYear` = @Original_User_EstGraduationYear)) AND ((@IsNull_" +
+                "User_Degree = 1 AND `User_Degree` IS NULL) OR (`User_Degree` = @Original_User_De" +
+                "gree)) AND ((@IsNull_User_SAE_MemberNo = 1 AND `User_SAE_MemberNo` IS NULL) OR (" +
+                "`User_SAE_MemberNo` = @Original_User_SAE_MemberNo)) AND ((@IsNull_User_SAE_Expir" +
+                "y = 1 AND `User_SAE_Expiry` IS NULL) OR (`User_SAE_Expiry` = @Original_User_SAE_" +
+                "Expiry)) AND ((@IsNull_User_CAMS_MemberNo = 1 AND `User_CAMS_MemberNo` IS NULL) " +
+                "OR (`User_CAMS_MemberNo` = @Original_User_CAMS_MemberNo)) AND ((@IsNull_User_CAM" +
+                "S_LicenseType = 1 AND `User_CAMS_LicenseType` IS NULL) OR (`User_CAMS_LicenseTyp" +
+                "e` = @Original_User_CAMS_LicenseType)) AND ((@IsNull_User_LicenseNo = 1 AND `Use" +
+                "r_LicenseNo` IS NULL) OR (`User_LicenseNo` = @Original_User_LicenseNo)) AND ((@I" +
+                "sNull_User_LicenseState = 1 AND `User_LicenseState` IS NULL) OR (`User_LicenseSt" +
+                "ate` = @Original_User_LicenseState)) AND ((@IsNull_User_EmergencyContactName = 1" +
+                " AND `User_EmergencyContactName` IS NULL) OR (`User_EmergencyContactName` = @Ori" +
+                "ginal_User_EmergencyContactName)) AND ((@IsNull_User_EmergencyContactNumber = 1 " +
+                "AND `User_EmergencyContactNumber` IS NULL) OR (`User_EmergencyContactNumber` = @" +
+                "Original_User_EmergencyContactNumber)) AND ((@IsNull_User_MedicareNo = 1 AND `Us" +
+                "er_MedicareNo` IS NULL) OR (`User_MedicareNo` = @Original_User_MedicareNo)) AND " +
+                "((@IsNull_User_Allergies = 1 AND `User_Allergies` IS NULL) OR (`User_Allergies` " +
+                "= @Original_User_Allergies)) AND ((@IsNull_User_MedicalConditions = 1 AND `User_" +
+                "MedicalConditions` IS NULL) OR (`User_MedicalConditions` = @Original_User_Medica" +
+                "lConditions)) AND ((@IsNull_User_DietaryRequirements = 1 AND `User_DietaryRequir" +
+                "ements` IS NULL) OR (`User_DietaryRequirements` = @Original_User_DietaryRequirem" +
+                "ents)) AND ((@IsNull_User_IndemnityFormSigned = 1 AND `User_IndemnityFormSigned`" +
+                " IS NULL) OR (`User_IndemnityFormSigned` = @Original_User_IndemnityFormSigned)) " +
+                "AND ((@IsNull_User_Created = 1 AND `User_Created` IS NULL) OR (`User_Created` = " +
+                "@Original_User_Created)) AND ((@IsNull_User_LastLogin = 1 AND `User_LastLogin` I" +
+                "S NULL) OR (`User_LastLogin` = @Original_User_LastLogin)) AND ((@IsNull_User_Las" +
+                "tActivity = 1 AND `User_LastActivity` IS NULL) OR (`User_LastActivity` = @Origin" +
+                "al_User_LastActivity)) AND ((@IsNull_User_LastPasswordChanged = 1 AND `User_Last" +
+                "PasswordChanged` IS NULL) OR (`User_LastPasswordChanged` = @Original_User_LastPa" +
+                "sswordChanged)) AND ((@IsNull_User_LastLockoutDate = 1 AND `User_LastLockoutDate" +
+                "` IS NULL) OR (`User_LastLockoutDate` = @Original_User_LastLockoutDate)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@User_Username";
@@ -9799,13 +11853,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceColumn = "User_Username";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@User_FullName";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "User_FullName";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@User_PasswordHash";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Binary;
             param.IsNullable = true;
@@ -9816,13 +11863,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Binary;
             param.IsNullable = true;
             param.SourceColumn = "User_PasswordSalt";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@User_Email";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "User_Email";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@User_Role";
@@ -9837,6 +11877,174 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.IsNullable = true;
             param.SourceColumn = "User_Active";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_Surname";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Surname";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_GivenName";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_GivenName";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_Email";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Email";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_StudentNumber";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_StudentNumber";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_EstGraduationYear";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EstGraduationYear";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_Degree";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Degree";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_SAE_MemberNo";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_SAE_MemberNo";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_SAE_Expiry";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_SAE_Expiry";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_CAMS_MemberNo";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_CAMS_MemberNo";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_CAMS_LicenseType";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_CAMS_LicenseType";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_LicenseNo";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LicenseNo";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_LicenseState";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LicenseState";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_EmergencyContactName";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EmergencyContactName";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_EmergencyContactNumber";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EmergencyContactNumber";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_MedicareNo";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_MedicareNo";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_Allergies";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Allergies";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_MedicalConditions";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_MedicalConditions";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_DietaryRequirements";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_DietaryRequirements";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_IndemnityFormSigned";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "User_IndemnityFormSigned";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_Created";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Created";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_LastLogin";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastLogin";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_LastActivity";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastActivity";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_LastPasswordChanged";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastPasswordChanged";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@User_LastLockoutDate";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastLockoutDate";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_User_Username";
@@ -9847,14 +12055,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_User_FullName";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "User_FullName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_User_PasswordHash";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Binary;
             param.IsNullable = true;
@@ -9866,14 +12066,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Binary;
             param.IsNullable = true;
             param.SourceColumn = "User_PasswordSalt";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_User_Email";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "User_Email";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -9890,6 +12082,387 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.IsNullable = true;
             param.SourceColumn = "User_Active";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_Surname";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Surname";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_GivenName";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_GivenName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_Email";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Email";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_StudentNumber";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_StudentNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_StudentNumber";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_StudentNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_EstGraduationYear";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EstGraduationYear";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_EstGraduationYear";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EstGraduationYear";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_Degree";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Degree";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_Degree";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Degree";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_SAE_MemberNo";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_SAE_MemberNo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_SAE_MemberNo";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_SAE_MemberNo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_SAE_Expiry";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_SAE_Expiry";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_SAE_Expiry";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_SAE_Expiry";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_CAMS_MemberNo";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_CAMS_MemberNo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_CAMS_MemberNo";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_CAMS_MemberNo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_CAMS_LicenseType";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_CAMS_LicenseType";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_CAMS_LicenseType";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_CAMS_LicenseType";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_LicenseNo";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LicenseNo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_LicenseNo";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LicenseNo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_LicenseState";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LicenseState";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_LicenseState";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LicenseState";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_EmergencyContactName";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EmergencyContactName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_EmergencyContactName";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EmergencyContactName";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_EmergencyContactNumber";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EmergencyContactNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_EmergencyContactNumber";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_EmergencyContactNumber";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_MedicareNo";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_MedicareNo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_MedicareNo";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_MedicareNo";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_Allergies";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Allergies";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_Allergies";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Allergies";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_MedicalConditions";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_MedicalConditions";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_MedicalConditions";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_MedicalConditions";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_DietaryRequirements";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_DietaryRequirements";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_DietaryRequirements";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "User_DietaryRequirements";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_IndemnityFormSigned";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_IndemnityFormSigned";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_IndemnityFormSigned";
+            param.DbType = global::System.Data.DbType.SByte;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
+            param.IsNullable = true;
+            param.SourceColumn = "User_IndemnityFormSigned";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_Created";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Created";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_Created";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Created";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_LastLogin";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastLogin";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_LastLogin";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastLogin";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_LastActivity";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastActivity";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_LastActivity";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastActivity";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_LastPasswordChanged";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastPasswordChanged";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_LastPasswordChanged";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastPasswordChanged";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_User_LastLockoutDate";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastLockoutDate";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_User_LastLockoutDate";
+            param.DbType = global::System.Data.DbType.Date;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
+            param.IsNullable = true;
+            param.SourceColumn = "User_LastLockoutDate";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -9907,14 +12480,11 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `User_Username`, `User_FullName`, `User_PasswordHash`, `User_PasswordSalt`" +
-                ", `User_Email`, `User_Role`, `User_Active` FROM `nuracing`.`user`";
+            this._commandCollection[0].CommandText = @"SELECT `User_Username`, `User_PasswordHash`, `User_PasswordSalt`, `User_Role`, `User_Active`, `User_Surname`, `User_GivenName`, `User_Email`, `User_StudentNumber`, `User_EstGraduationYear`, `User_Degree`, `User_SAE_MemberNo`, `User_SAE_Expiry`, `User_CAMS_MemberNo`, `User_CAMS_LicenseType`, `User_LicenseNo`, `User_LicenseState`, `User_EmergencyContactName`, `User_EmergencyContactNumber`, `User_MedicareNo`, `User_Allergies`, `User_MedicalConditions`, `User_DietaryRequirements`, `User_IndemnityFormSigned`, `User_Created`, `User_LastLogin`, `User_LastActivity`, `User_LastPasswordChanged`, `User_LastLockoutDate` FROM `nuracing`.`user`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        User_Username, User_FullName, User_PasswordHash, User_PasswordSalt," +
-                " User_Email, User_Role, User_Active\r\nFROM            `user`\r\nWHERE        (User_" +
-                "Username = @Username)";
+            this._commandCollection[1].CommandText = @"SELECT `User_Username`, `User_PasswordHash`, `User_PasswordSalt`, `User_Role`, `User_Active`, `User_Surname`, `User_GivenName`, `User_Email`, `User_StudentNumber`, `User_EstGraduationYear`, `User_Degree`, `User_SAE_MemberNo`, `User_SAE_Expiry`, `User_CAMS_MemberNo`, `User_CAMS_LicenseType`, `User_LicenseNo`, `User_LicenseState`, `User_EmergencyContactName`, `User_EmergencyContactNumber`, `User_MedicareNo`, `User_Allergies`, `User_MedicalConditions`, `User_DietaryRequirements`, `User_IndemnityFormSigned`, `User_Created`, `User_LastLogin`, `User_LastActivity`, `User_LastPasswordChanged`, `User_LastLockoutDate` FROM `nuracing`.`user` WHERE User_Username = @Username";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "Username";
@@ -10019,44 +12589,247 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_User_Username, string Original_User_FullName, string Original_User_PasswordHash, string Original_User_PasswordSalt, string Original_User_Email, string Original_User_Role, byte Original_User_Active) {
+        public virtual int Delete(
+                    string Original_User_Username, 
+                    string Original_User_PasswordHash, 
+                    string Original_User_PasswordSalt, 
+                    string Original_User_Role, 
+                    byte Original_User_Active, 
+                    string Original_User_Surname, 
+                    string Original_User_GivenName, 
+                    string Original_User_Email, 
+                    string Original_User_StudentNumber, 
+                    string Original_User_EstGraduationYear, 
+                    string Original_User_Degree, 
+                    string Original_User_SAE_MemberNo, 
+                    string Original_User_SAE_Expiry, 
+                    string Original_User_CAMS_MemberNo, 
+                    string Original_User_CAMS_LicenseType, 
+                    string Original_User_LicenseNo, 
+                    string Original_User_LicenseState, 
+                    string Original_User_EmergencyContactName, 
+                    string Original_User_EmergencyContactNumber, 
+                    string Original_User_MedicareNo, 
+                    string Original_User_Allergies, 
+                    string Original_User_MedicalConditions, 
+                    string Original_User_DietaryRequirements, 
+                    global::System.Nullable<byte> Original_User_IndemnityFormSigned, 
+                    global::System.Nullable<global::System.DateTime> Original_User_Created, 
+                    global::System.Nullable<global::System.DateTime> Original_User_LastLogin, 
+                    global::System.Nullable<global::System.DateTime> Original_User_LastActivity, 
+                    global::System.Nullable<global::System.DateTime> Original_User_LastPasswordChanged, 
+                    global::System.Nullable<global::System.DateTime> Original_User_LastLockoutDate) {
             if ((Original_User_Username == null)) {
                 throw new global::System.ArgumentNullException("Original_User_Username");
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_User_Username));
             }
-            if ((Original_User_FullName == null)) {
-                throw new global::System.ArgumentNullException("Original_User_FullName");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_User_FullName));
-            }
             if ((Original_User_PasswordHash == null)) {
                 throw new global::System.ArgumentNullException("Original_User_PasswordHash");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_User_PasswordHash));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_User_PasswordHash));
             }
             if ((Original_User_PasswordSalt == null)) {
                 throw new global::System.ArgumentNullException("Original_User_PasswordSalt");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_User_PasswordSalt));
-            }
-            if ((Original_User_Email == null)) {
-                throw new global::System.ArgumentNullException("Original_User_Email");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_User_Email));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_User_PasswordSalt));
             }
             if ((Original_User_Role == null)) {
                 throw new global::System.ArgumentNullException("Original_User_Role");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_User_Role));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_User_Role));
             }
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((byte)(Original_User_Active));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((byte)(Original_User_Active));
+            if ((Original_User_Surname == null)) {
+                throw new global::System.ArgumentNullException("Original_User_Surname");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_User_Surname));
+            }
+            if ((Original_User_GivenName == null)) {
+                throw new global::System.ArgumentNullException("Original_User_GivenName");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_User_GivenName));
+            }
+            if ((Original_User_Email == null)) {
+                throw new global::System.ArgumentNullException("Original_User_Email");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_User_Email));
+            }
+            if ((Original_User_StudentNumber == null)) {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_User_StudentNumber));
+            }
+            if ((Original_User_EstGraduationYear == null)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_User_EstGraduationYear));
+            }
+            if ((Original_User_Degree == null)) {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_User_Degree));
+            }
+            if ((Original_User_SAE_MemberNo == null)) {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((string)(Original_User_SAE_MemberNo));
+            }
+            if ((Original_User_SAE_Expiry == null)) {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((string)(Original_User_SAE_Expiry));
+            }
+            if ((Original_User_CAMS_MemberNo == null)) {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((string)(Original_User_CAMS_MemberNo));
+            }
+            if ((Original_User_CAMS_LicenseType == null)) {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[21].Value = ((string)(Original_User_CAMS_LicenseType));
+            }
+            if ((Original_User_LicenseNo == null)) {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[23].Value = ((string)(Original_User_LicenseNo));
+            }
+            if ((Original_User_LicenseState == null)) {
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[25].Value = ((string)(Original_User_LicenseState));
+            }
+            if ((Original_User_EmergencyContactName == null)) {
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((string)(Original_User_EmergencyContactName));
+            }
+            if ((Original_User_EmergencyContactNumber == null)) {
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[29].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((string)(Original_User_EmergencyContactNumber));
+            }
+            if ((Original_User_MedicareNo == null)) {
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[31].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((string)(Original_User_MedicareNo));
+            }
+            if ((Original_User_Allergies == null)) {
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[33].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((string)(Original_User_Allergies));
+            }
+            if ((Original_User_MedicalConditions == null)) {
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[35].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((string)(Original_User_MedicalConditions));
+            }
+            if ((Original_User_DietaryRequirements == null)) {
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[37].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[37].Value = ((string)(Original_User_DietaryRequirements));
+            }
+            if ((Original_User_IndemnityFormSigned.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[39].Value = ((byte)(Original_User_IndemnityFormSigned.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[38].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            if ((Original_User_Created.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[41].Value = ((System.DateTime)(Original_User_Created.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[41].Value = global::System.DBNull.Value;
+            }
+            if ((Original_User_LastLogin.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[43].Value = ((System.DateTime)(Original_User_LastLogin.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[43].Value = global::System.DBNull.Value;
+            }
+            if ((Original_User_LastActivity.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[44].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[45].Value = ((System.DateTime)(Original_User_LastActivity.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[44].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[45].Value = global::System.DBNull.Value;
+            }
+            if ((Original_User_LastPasswordChanged.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[46].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[47].Value = ((System.DateTime)(Original_User_LastPasswordChanged.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[46].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[47].Value = global::System.DBNull.Value;
+            }
+            if ((Original_User_LastLockoutDate.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[48].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[49].Value = ((System.DateTime)(Original_User_LastLockoutDate.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[48].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[49].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10077,44 +12850,205 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string User_Username, string User_FullName, string User_PasswordHash, string User_PasswordSalt, string User_Email, string User_Role, byte User_Active) {
+        public virtual int Insert(
+                    string User_Username, 
+                    string User_PasswordHash, 
+                    string User_PasswordSalt, 
+                    string User_Role, 
+                    byte User_Active, 
+                    string User_Surname, 
+                    string User_GivenName, 
+                    string User_Email, 
+                    string User_StudentNumber, 
+                    string User_EstGraduationYear, 
+                    string User_Degree, 
+                    string User_SAE_MemberNo, 
+                    string User_SAE_Expiry, 
+                    string User_CAMS_MemberNo, 
+                    string User_CAMS_LicenseType, 
+                    string User_LicenseNo, 
+                    string User_LicenseState, 
+                    string User_EmergencyContactName, 
+                    string User_EmergencyContactNumber, 
+                    string User_MedicareNo, 
+                    string User_Allergies, 
+                    string User_MedicalConditions, 
+                    string User_DietaryRequirements, 
+                    global::System.Nullable<byte> User_IndemnityFormSigned, 
+                    global::System.Nullable<global::System.DateTime> User_Created, 
+                    global::System.Nullable<global::System.DateTime> User_LastLogin, 
+                    global::System.Nullable<global::System.DateTime> User_LastActivity, 
+                    global::System.Nullable<global::System.DateTime> User_LastPasswordChanged, 
+                    global::System.Nullable<global::System.DateTime> User_LastLockoutDate) {
             if ((User_Username == null)) {
                 throw new global::System.ArgumentNullException("User_Username");
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(User_Username));
             }
-            if ((User_FullName == null)) {
-                throw new global::System.ArgumentNullException("User_FullName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(User_FullName));
-            }
             if ((User_PasswordHash == null)) {
                 throw new global::System.ArgumentNullException("User_PasswordHash");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(User_PasswordHash));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(User_PasswordHash));
             }
             if ((User_PasswordSalt == null)) {
                 throw new global::System.ArgumentNullException("User_PasswordSalt");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(User_PasswordSalt));
-            }
-            if ((User_Email == null)) {
-                throw new global::System.ArgumentNullException("User_Email");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(User_Email));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(User_PasswordSalt));
             }
             if ((User_Role == null)) {
                 throw new global::System.ArgumentNullException("User_Role");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(User_Role));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(User_Role));
             }
-            this.Adapter.InsertCommand.Parameters[6].Value = ((byte)(User_Active));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((byte)(User_Active));
+            if ((User_Surname == null)) {
+                throw new global::System.ArgumentNullException("User_Surname");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(User_Surname));
+            }
+            if ((User_GivenName == null)) {
+                throw new global::System.ArgumentNullException("User_GivenName");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(User_GivenName));
+            }
+            if ((User_Email == null)) {
+                throw new global::System.ArgumentNullException("User_Email");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(User_Email));
+            }
+            if ((User_StudentNumber == null)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(User_StudentNumber));
+            }
+            if ((User_EstGraduationYear == null)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(User_EstGraduationYear));
+            }
+            if ((User_Degree == null)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((string)(User_Degree));
+            }
+            if ((User_SAE_MemberNo == null)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((string)(User_SAE_MemberNo));
+            }
+            if ((User_SAE_Expiry == null)) {
+                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[12].Value = ((string)(User_SAE_Expiry));
+            }
+            if ((User_CAMS_MemberNo == null)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(User_CAMS_MemberNo));
+            }
+            if ((User_CAMS_LicenseType == null)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((string)(User_CAMS_LicenseType));
+            }
+            if ((User_LicenseNo == null)) {
+                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[15].Value = ((string)(User_LicenseNo));
+            }
+            if ((User_LicenseState == null)) {
+                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[16].Value = ((string)(User_LicenseState));
+            }
+            if ((User_EmergencyContactName == null)) {
+                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[17].Value = ((string)(User_EmergencyContactName));
+            }
+            if ((User_EmergencyContactNumber == null)) {
+                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(User_EmergencyContactNumber));
+            }
+            if ((User_MedicareNo == null)) {
+                this.Adapter.InsertCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[19].Value = ((string)(User_MedicareNo));
+            }
+            if ((User_Allergies == null)) {
+                this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[20].Value = ((string)(User_Allergies));
+            }
+            if ((User_MedicalConditions == null)) {
+                this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[21].Value = ((string)(User_MedicalConditions));
+            }
+            if ((User_DietaryRequirements == null)) {
+                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[22].Value = ((string)(User_DietaryRequirements));
+            }
+            if ((User_IndemnityFormSigned.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[23].Value = ((byte)(User_IndemnityFormSigned.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((User_Created.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[24].Value = ((System.DateTime)(User_Created.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((User_LastLogin.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[25].Value = ((System.DateTime)(User_LastLogin.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((User_LastActivity.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[26].Value = ((System.DateTime)(User_LastActivity.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((User_LastPasswordChanged.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[27].Value = ((System.DateTime)(User_LastPasswordChanged.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            if ((User_LastLockoutDate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[28].Value = ((System.DateTime)(User_LastLockoutDate.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10135,81 +13069,445 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string User_Username, string User_FullName, string User_PasswordHash, string User_PasswordSalt, string User_Email, string User_Role, byte User_Active, string Original_User_Username, string Original_User_FullName, string Original_User_PasswordHash, string Original_User_PasswordSalt, string Original_User_Email, string Original_User_Role, byte Original_User_Active) {
+        public virtual int Update(
+                    string User_Username, 
+                    string User_PasswordHash, 
+                    string User_PasswordSalt, 
+                    string User_Role, 
+                    byte User_Active, 
+                    string User_Surname, 
+                    string User_GivenName, 
+                    string User_Email, 
+                    string User_StudentNumber, 
+                    string User_EstGraduationYear, 
+                    string User_Degree, 
+                    string User_SAE_MemberNo, 
+                    string User_SAE_Expiry, 
+                    string User_CAMS_MemberNo, 
+                    string User_CAMS_LicenseType, 
+                    string User_LicenseNo, 
+                    string User_LicenseState, 
+                    string User_EmergencyContactName, 
+                    string User_EmergencyContactNumber, 
+                    string User_MedicareNo, 
+                    string User_Allergies, 
+                    string User_MedicalConditions, 
+                    string User_DietaryRequirements, 
+                    global::System.Nullable<byte> User_IndemnityFormSigned, 
+                    global::System.Nullable<global::System.DateTime> User_Created, 
+                    global::System.Nullable<global::System.DateTime> User_LastLogin, 
+                    global::System.Nullable<global::System.DateTime> User_LastActivity, 
+                    global::System.Nullable<global::System.DateTime> User_LastPasswordChanged, 
+                    global::System.Nullable<global::System.DateTime> User_LastLockoutDate, 
+                    string Original_User_Username, 
+                    string Original_User_PasswordHash, 
+                    string Original_User_PasswordSalt, 
+                    string Original_User_Role, 
+                    byte Original_User_Active, 
+                    string Original_User_Surname, 
+                    string Original_User_GivenName, 
+                    string Original_User_Email, 
+                    string Original_User_StudentNumber, 
+                    string Original_User_EstGraduationYear, 
+                    string Original_User_Degree, 
+                    string Original_User_SAE_MemberNo, 
+                    string Original_User_SAE_Expiry, 
+                    string Original_User_CAMS_MemberNo, 
+                    string Original_User_CAMS_LicenseType, 
+                    string Original_User_LicenseNo, 
+                    string Original_User_LicenseState, 
+                    string Original_User_EmergencyContactName, 
+                    string Original_User_EmergencyContactNumber, 
+                    string Original_User_MedicareNo, 
+                    string Original_User_Allergies, 
+                    string Original_User_MedicalConditions, 
+                    string Original_User_DietaryRequirements, 
+                    global::System.Nullable<byte> Original_User_IndemnityFormSigned, 
+                    global::System.Nullable<global::System.DateTime> Original_User_Created, 
+                    global::System.Nullable<global::System.DateTime> Original_User_LastLogin, 
+                    global::System.Nullable<global::System.DateTime> Original_User_LastActivity, 
+                    global::System.Nullable<global::System.DateTime> Original_User_LastPasswordChanged, 
+                    global::System.Nullable<global::System.DateTime> Original_User_LastLockoutDate) {
             if ((User_Username == null)) {
                 throw new global::System.ArgumentNullException("User_Username");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(User_Username));
             }
-            if ((User_FullName == null)) {
-                throw new global::System.ArgumentNullException("User_FullName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(User_FullName));
-            }
             if ((User_PasswordHash == null)) {
                 throw new global::System.ArgumentNullException("User_PasswordHash");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(User_PasswordHash));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(User_PasswordHash));
             }
             if ((User_PasswordSalt == null)) {
                 throw new global::System.ArgumentNullException("User_PasswordSalt");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(User_PasswordSalt));
-            }
-            if ((User_Email == null)) {
-                throw new global::System.ArgumentNullException("User_Email");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(User_Email));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(User_PasswordSalt));
             }
             if ((User_Role == null)) {
                 throw new global::System.ArgumentNullException("User_Role");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(User_Role));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(User_Role));
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((byte)(User_Active));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((byte)(User_Active));
+            if ((User_Surname == null)) {
+                throw new global::System.ArgumentNullException("User_Surname");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(User_Surname));
+            }
+            if ((User_GivenName == null)) {
+                throw new global::System.ArgumentNullException("User_GivenName");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(User_GivenName));
+            }
+            if ((User_Email == null)) {
+                throw new global::System.ArgumentNullException("User_Email");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(User_Email));
+            }
+            if ((User_StudentNumber == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(User_StudentNumber));
+            }
+            if ((User_EstGraduationYear == null)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(User_EstGraduationYear));
+            }
+            if ((User_Degree == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(User_Degree));
+            }
+            if ((User_SAE_MemberNo == null)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(User_SAE_MemberNo));
+            }
+            if ((User_SAE_Expiry == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(User_SAE_Expiry));
+            }
+            if ((User_CAMS_MemberNo == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(User_CAMS_MemberNo));
+            }
+            if ((User_CAMS_LicenseType == null)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(User_CAMS_LicenseType));
+            }
+            if ((User_LicenseNo == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(User_LicenseNo));
+            }
+            if ((User_LicenseState == null)) {
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(User_LicenseState));
+            }
+            if ((User_EmergencyContactName == null)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(User_EmergencyContactName));
+            }
+            if ((User_EmergencyContactNumber == null)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(User_EmergencyContactNumber));
+            }
+            if ((User_MedicareNo == null)) {
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(User_MedicareNo));
+            }
+            if ((User_Allergies == null)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(User_Allergies));
+            }
+            if ((User_MedicalConditions == null)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(User_MedicalConditions));
+            }
+            if ((User_DietaryRequirements == null)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(User_DietaryRequirements));
+            }
+            if ((User_IndemnityFormSigned.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((byte)(User_IndemnityFormSigned.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((User_Created.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(User_Created.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            if ((User_LastLogin.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((System.DateTime)(User_LastLogin.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+            }
+            if ((User_LastActivity.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((System.DateTime)(User_LastActivity.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
+            }
+            if ((User_LastPasswordChanged.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((System.DateTime)(User_LastPasswordChanged.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+            }
+            if ((User_LastLockoutDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((System.DateTime)(User_LastLockoutDate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
             if ((Original_User_Username == null)) {
                 throw new global::System.ArgumentNullException("Original_User_Username");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_User_Username));
-            }
-            if ((Original_User_FullName == null)) {
-                throw new global::System.ArgumentNullException("Original_User_FullName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_User_FullName));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_User_Username));
             }
             if ((Original_User_PasswordHash == null)) {
                 throw new global::System.ArgumentNullException("Original_User_PasswordHash");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_User_PasswordHash));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_User_PasswordHash));
             }
             if ((Original_User_PasswordSalt == null)) {
                 throw new global::System.ArgumentNullException("Original_User_PasswordSalt");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_User_PasswordSalt));
-            }
-            if ((Original_User_Email == null)) {
-                throw new global::System.ArgumentNullException("Original_User_Email");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_User_Email));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_User_PasswordSalt));
             }
             if ((Original_User_Role == null)) {
                 throw new global::System.ArgumentNullException("Original_User_Role");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_User_Role));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_User_Role));
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((byte)(Original_User_Active));
+            this.Adapter.UpdateCommand.Parameters[33].Value = ((byte)(Original_User_Active));
+            if ((Original_User_Surname == null)) {
+                throw new global::System.ArgumentNullException("Original_User_Surname");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_User_Surname));
+            }
+            if ((Original_User_GivenName == null)) {
+                throw new global::System.ArgumentNullException("Original_User_GivenName");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_User_GivenName));
+            }
+            if ((Original_User_Email == null)) {
+                throw new global::System.ArgumentNullException("Original_User_Email");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_User_Email));
+            }
+            if ((Original_User_StudentNumber == null)) {
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[38].Value = ((string)(Original_User_StudentNumber));
+            }
+            if ((Original_User_EstGraduationYear == null)) {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_User_EstGraduationYear));
+            }
+            if ((Original_User_Degree == null)) {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_User_Degree));
+            }
+            if ((Original_User_SAE_MemberNo == null)) {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_User_SAE_MemberNo));
+            }
+            if ((Original_User_SAE_Expiry == null)) {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_User_SAE_Expiry));
+            }
+            if ((Original_User_CAMS_MemberNo == null)) {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_User_CAMS_MemberNo));
+            }
+            if ((Original_User_CAMS_LicenseType == null)) {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((string)(Original_User_CAMS_LicenseType));
+            }
+            if ((Original_User_LicenseNo == null)) {
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((string)(Original_User_LicenseNo));
+            }
+            if ((Original_User_LicenseState == null)) {
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((string)(Original_User_LicenseState));
+            }
+            if ((Original_User_EmergencyContactName == null)) {
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((string)(Original_User_EmergencyContactName));
+            }
+            if ((Original_User_EmergencyContactNumber == null)) {
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[58].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((string)(Original_User_EmergencyContactNumber));
+            }
+            if ((Original_User_MedicareNo == null)) {
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[60].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((string)(Original_User_MedicareNo));
+            }
+            if ((Original_User_Allergies == null)) {
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[62].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((string)(Original_User_Allergies));
+            }
+            if ((Original_User_MedicalConditions == null)) {
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[64].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((string)(Original_User_MedicalConditions));
+            }
+            if ((Original_User_DietaryRequirements == null)) {
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[66].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((string)(Original_User_DietaryRequirements));
+            }
+            if ((Original_User_IndemnityFormSigned.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((byte)(Original_User_IndemnityFormSigned.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[68].Value = global::System.DBNull.Value;
+            }
+            if ((Original_User_Created.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[70].Value = ((System.DateTime)(Original_User_Created.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[70].Value = global::System.DBNull.Value;
+            }
+            if ((Original_User_LastLogin.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[72].Value = ((System.DateTime)(Original_User_LastLogin.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[72].Value = global::System.DBNull.Value;
+            }
+            if ((Original_User_LastActivity.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[73].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[74].Value = ((System.DateTime)(Original_User_LastActivity.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[73].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[74].Value = global::System.DBNull.Value;
+            }
+            if ((Original_User_LastPasswordChanged.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[75].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[76].Value = ((System.DateTime)(Original_User_LastPasswordChanged.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[75].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[76].Value = global::System.DBNull.Value;
+            }
+            if ((Original_User_LastLockoutDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[77].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[78].Value = ((System.DateTime)(Original_User_LastLockoutDate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[77].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[78].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10230,8 +13528,65 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string User_FullName, string User_PasswordHash, string User_PasswordSalt, string User_Email, string User_Role, byte User_Active, string Original_User_Username, string Original_User_FullName, string Original_User_PasswordHash, string Original_User_PasswordSalt, string Original_User_Email, string Original_User_Role, byte Original_User_Active) {
-            return this.Update(Original_User_Username, User_FullName, User_PasswordHash, User_PasswordSalt, User_Email, User_Role, User_Active, Original_User_Username, Original_User_FullName, Original_User_PasswordHash, Original_User_PasswordSalt, Original_User_Email, Original_User_Role, Original_User_Active);
+        public virtual int Update(
+                    string User_PasswordHash, 
+                    string User_PasswordSalt, 
+                    string User_Role, 
+                    byte User_Active, 
+                    string User_Surname, 
+                    string User_GivenName, 
+                    string User_Email, 
+                    string User_StudentNumber, 
+                    string User_EstGraduationYear, 
+                    string User_Degree, 
+                    string User_SAE_MemberNo, 
+                    string User_SAE_Expiry, 
+                    string User_CAMS_MemberNo, 
+                    string User_CAMS_LicenseType, 
+                    string User_LicenseNo, 
+                    string User_LicenseState, 
+                    string User_EmergencyContactName, 
+                    string User_EmergencyContactNumber, 
+                    string User_MedicareNo, 
+                    string User_Allergies, 
+                    string User_MedicalConditions, 
+                    string User_DietaryRequirements, 
+                    global::System.Nullable<byte> User_IndemnityFormSigned, 
+                    global::System.Nullable<global::System.DateTime> User_Created, 
+                    global::System.Nullable<global::System.DateTime> User_LastLogin, 
+                    global::System.Nullable<global::System.DateTime> User_LastActivity, 
+                    global::System.Nullable<global::System.DateTime> User_LastPasswordChanged, 
+                    global::System.Nullable<global::System.DateTime> User_LastLockoutDate, 
+                    string Original_User_Username, 
+                    string Original_User_PasswordHash, 
+                    string Original_User_PasswordSalt, 
+                    string Original_User_Role, 
+                    byte Original_User_Active, 
+                    string Original_User_Surname, 
+                    string Original_User_GivenName, 
+                    string Original_User_Email, 
+                    string Original_User_StudentNumber, 
+                    string Original_User_EstGraduationYear, 
+                    string Original_User_Degree, 
+                    string Original_User_SAE_MemberNo, 
+                    string Original_User_SAE_Expiry, 
+                    string Original_User_CAMS_MemberNo, 
+                    string Original_User_CAMS_LicenseType, 
+                    string Original_User_LicenseNo, 
+                    string Original_User_LicenseState, 
+                    string Original_User_EmergencyContactName, 
+                    string Original_User_EmergencyContactNumber, 
+                    string Original_User_MedicareNo, 
+                    string Original_User_Allergies, 
+                    string Original_User_MedicalConditions, 
+                    string Original_User_DietaryRequirements, 
+                    global::System.Nullable<byte> Original_User_IndemnityFormSigned, 
+                    global::System.Nullable<global::System.DateTime> Original_User_Created, 
+                    global::System.Nullable<global::System.DateTime> Original_User_LastLogin, 
+                    global::System.Nullable<global::System.DateTime> Original_User_LastActivity, 
+                    global::System.Nullable<global::System.DateTime> Original_User_LastPasswordChanged, 
+                    global::System.Nullable<global::System.DateTime> Original_User_LastLockoutDate) {
+            return this.Update(Original_User_Username, User_PasswordHash, User_PasswordSalt, User_Role, User_Active, User_Surname, User_GivenName, User_Email, User_StudentNumber, User_EstGraduationYear, User_Degree, User_SAE_MemberNo, User_SAE_Expiry, User_CAMS_MemberNo, User_CAMS_LicenseType, User_LicenseNo, User_LicenseState, User_EmergencyContactName, User_EmergencyContactNumber, User_MedicareNo, User_Allergies, User_MedicalConditions, User_DietaryRequirements, User_IndemnityFormSigned, User_Created, User_LastLogin, User_LastActivity, User_LastPasswordChanged, User_LastLockoutDate, Original_User_Username, Original_User_PasswordHash, Original_User_PasswordSalt, Original_User_Role, Original_User_Active, Original_User_Surname, Original_User_GivenName, Original_User_Email, Original_User_StudentNumber, Original_User_EstGraduationYear, Original_User_Degree, Original_User_SAE_MemberNo, Original_User_SAE_Expiry, Original_User_CAMS_MemberNo, Original_User_CAMS_LicenseType, Original_User_LicenseNo, Original_User_LicenseState, Original_User_EmergencyContactName, Original_User_EmergencyContactNumber, Original_User_MedicareNo, Original_User_Allergies, Original_User_MedicalConditions, Original_User_DietaryRequirements, Original_User_IndemnityFormSigned, Original_User_Created, Original_User_LastLogin, Original_User_LastActivity, Original_User_LastPasswordChanged, Original_User_LastLockoutDate);
         }
     }
     

@@ -25,7 +25,7 @@ namespace BusinessLogicLayer {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string passwordRegEx {
             get {
                 return ((string)(this["passwordRegEx"]));

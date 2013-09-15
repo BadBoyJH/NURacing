@@ -163,10 +163,10 @@ namespace BusinessLogicLayer
                 }
             }
 
-            return  (nonAlphaNumeric > passwordMinNonAlphaNumericChars &&
-                uppercase > passwordMinUppercase &&
-                lowercase > passwordMinLowercase &&
-                numerals > passwordMinNumerals);
+            return  (nonAlphaNumeric >= passwordMinNonAlphaNumericChars &&
+                uppercase >= passwordMinUppercase &&
+                lowercase >= passwordMinLowercase &&
+                numerals >= passwordMinNumerals);
         }
 
         //  Written By James Hibbard
@@ -292,6 +292,41 @@ namespace BusinessLogicLayer
             }
         }
 
+
+        static public void setPassword(string Username, string NewPassword, string OldPassword)
+        {
+            string UserRole;
+
+            if (authenticateUser(Username, OldPassword, out UserRole))
+            {
+                throw new ArgumentException("Old Password was incorrect");
+            }
+
+            if (!validPassword(NewPassword))
+            {
+                throw new ArgumentException("Password wasn't valid");
+            }
+
+            if (UsernameExists(Username))
+            {
+                userTableAdapter userAdapter = new userTableAdapter();
+                NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
+                NuRacingDataSet.userRow userRow = (NuRacingDataSet.userRow)userTable.Rows[0];
+
+                byte[] salt = CreateSalt();
+                byte[] hash = HashPassword(NewPassword, salt);
+
+                userRow.User_PasswordHash = hash;
+                userRow.User_PasswordSalt = salt;
+
+                userAdapter.Update(userTable);
+            }
+            else
+            {
+                throw new ArgumentException("Username wasn't valid");
+            }
+        }
+
         static private void generateNewPassword(string Username)
         {
             StringBuilder builder = new StringBuilder();
@@ -380,7 +415,7 @@ namespace BusinessLogicLayer
             }
         }
 
-        static public UserInfo addUser(string Username, string Password, string Email, string FullName, string UserRole, bool active = true)
+        static public UserInfo addUser(string Username, string Password, string Email, string GivenName, string Surname, string UserRole, string StudentNumber, string YearOfGradutation, bool active = true)
         {
             userTableAdapter userAdapter = new userTableAdapter();
             NuRacingDataSet.userDataTable userTable = userAdapter.GetData();
@@ -410,9 +445,13 @@ namespace BusinessLogicLayer
             userRow.User_Username = Username;
             userRow.User_PasswordHash = HashedPassword;
             userRow.User_PasswordSalt = Salt;
-            userRow.User_FullName = FullName;
+            userRow.User_GivenName = GivenName;
+            userRow.User_Surname = Surname;
             userRow.User_Role = UserRole;
             userRow.User_Active = active;
+            userRow.User_Email = Email;
+            userRow.User_StudentNumber = StudentNumber;
+            userRow.User_EstGraduationYear = YearOfGradutation;
 
             userTable.AdduserRow(userRow);
             userAdapter.Update(userTable);

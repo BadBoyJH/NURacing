@@ -150,7 +150,7 @@ namespace NURacingWebsite
 
         private MembershipUser getMembershipUser(UserInfo Info)
         {
-            return new MembershipUser(null, Info.UserName, Info.UserName, Info.Email, null, null, true, Info.IsActive, new DateTime(), new DateTime(), new DateTime(), new DateTime(), new DateTime());
+            return new MembershipUser("NURacingMembershipProvider", Info.UserName, Info.UserName, Info.Email, null, null, true, Info.IsActive, Info.DateCreated, Info.LastLoggedIn, Info.LastActivity, Info.PasswordLastChanged, Info.LastLockedOut);
         }
 
         public override MembershipUser GetUser(string username, bool LastActivityDate)
