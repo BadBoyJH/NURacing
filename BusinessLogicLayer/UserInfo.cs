@@ -17,9 +17,9 @@ namespace BusinessLogicLayer
     public class UserInfo
     {
         // Personal Info
+        private string username;
         private string givenName;
         private string surname;
-        private string username;
         private string email;
         private string studentnumber;
         private string estimatedGraduationYear;

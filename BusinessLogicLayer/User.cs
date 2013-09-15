@@ -434,7 +434,10 @@ namespace BusinessLogicLayer
             }
         }
 
-        static public UserInfo addUser(string Username, string Password, string Email, string GivenName, string Surname, string UserRole, string StudentNumber, string YearOfGradutation, bool active = true)
+        static public UserInfo addUser(string Username, string Password, string UserRole, string GivenName, string Surname, string Email, string StudentNumber,
+            string YearOfGradutation, string DegreeName, string MedicareNumber, string Allergies, string MedicalConditions, string DietaryRequirements,
+            bool IndemnityFormSigned, string SAEMembershipNumber, DateTime SAEExpiryDate, string CAMSMembershipNumber, string CAMSLicenseType, 
+            string DriversLicenseNumber, string DriversLicenseState, string EmergencyContactName, string EmergencyContactPhoneNumber, bool IsActive = true)
         {
             userTableAdapter userAdapter = new userTableAdapter();
             NuRacingDataSet.userDataTable userTable = userAdapter.GetData();
@@ -464,13 +467,28 @@ namespace BusinessLogicLayer
             userRow.User_Username = Username;
             userRow.User_PasswordHash = HashedPassword;
             userRow.User_PasswordSalt = Salt;
+            userRow.User_Role = UserRole;
             userRow.User_GivenName = GivenName;
             userRow.User_Surname = Surname;
-            userRow.User_Role = UserRole;
-            userRow.User_Active = active;
             userRow.User_Email = Email;
             userRow.User_StudentNumber = StudentNumber;
             userRow.User_EstGraduationYear = YearOfGradutation;
+            userRow.User_Degree = DegreeName;
+            userRow.User_SAE_MemberNo = SAEMembershipNumber;
+            userRow.User_SAE_Expiry = SAEExpiryDate;
+            userRow.User_CAMS_MemberNo = CAMSMembershipNumber;
+            userRow.User_CAMS_LicenseType = CAMSLicenseType;
+            userRow.User_LicenseNo = DriversLicenseNumber;
+            userRow.User_LicenseState = DriversLicenseState;
+            userRow.User_EmergencyContactName = EmergencyContactName;
+            userRow.User_EmergencyContactNumber = EmergencyContactPhoneNumber;
+            userRow.User_Active = IsActive;
+
+            userRow.User_Created = DateTime.Now;
+            userRow.User_LastLogin = DateTime.Now;
+            userRow.User_LastActivity = DateTime.Now;
+            userRow.User_LastPasswordChanged = DateTime.Now;
+            userRow.User_LastLockoutDate = DateTime.Now;
 
             userTable.AdduserRow(userRow);
             userAdapter.Update(userTable);
