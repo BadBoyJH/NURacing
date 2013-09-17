@@ -26,7 +26,7 @@ namespace DataAccessLayer {
         
         private assignedtaskDataTable tableassignedtask;
         
-        private involvedinDataTable tableinvolvedin;
+        private sponsoredDataTable tablesponsored;
         
         private passwordresetrequestDataTable tablepasswordresetrequest;
         
@@ -74,6 +74,8 @@ namespace DataAccessLayer {
         
         private global::System.Data.DataRelation relationworktype_ibfk_1;
         
+        private global::System.Data.DataRelation relationassignedtask_ibfk_3;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -105,8 +107,8 @@ namespace DataAccessLayer {
                 if ((ds.Tables["assignedtask"] != null)) {
                     base.Tables.Add(new assignedtaskDataTable(ds.Tables["assignedtask"]));
                 }
-                if ((ds.Tables["involvedin"] != null)) {
-                    base.Tables.Add(new involvedinDataTable(ds.Tables["involvedin"]));
+                if ((ds.Tables["sponsored"] != null)) {
+                    base.Tables.Add(new sponsoredDataTable(ds.Tables["sponsored"]));
                 }
                 if ((ds.Tables["passwordresetrequest"] != null)) {
                     base.Tables.Add(new passwordresetrequestDataTable(ds.Tables["passwordresetrequest"]));
@@ -170,9 +172,9 @@ namespace DataAccessLayer {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public involvedinDataTable involvedin {
+        public sponsoredDataTable sponsored {
             get {
-                return this.tableinvolvedin;
+                return this.tablesponsored;
             }
         }
         
@@ -346,8 +348,8 @@ namespace DataAccessLayer {
                 if ((ds.Tables["assignedtask"] != null)) {
                     base.Tables.Add(new assignedtaskDataTable(ds.Tables["assignedtask"]));
                 }
-                if ((ds.Tables["involvedin"] != null)) {
-                    base.Tables.Add(new involvedinDataTable(ds.Tables["involvedin"]));
+                if ((ds.Tables["sponsored"] != null)) {
+                    base.Tables.Add(new sponsoredDataTable(ds.Tables["sponsored"]));
                 }
                 if ((ds.Tables["passwordresetrequest"] != null)) {
                     base.Tables.Add(new passwordresetrequestDataTable(ds.Tables["passwordresetrequest"]));
@@ -418,10 +420,10 @@ namespace DataAccessLayer {
                     this.tableassignedtask.InitVars();
                 }
             }
-            this.tableinvolvedin = ((involvedinDataTable)(base.Tables["involvedin"]));
+            this.tablesponsored = ((sponsoredDataTable)(base.Tables["sponsored"]));
             if ((initTable == true)) {
-                if ((this.tableinvolvedin != null)) {
-                    this.tableinvolvedin.InitVars();
+                if ((this.tablesponsored != null)) {
+                    this.tablesponsored.InitVars();
                 }
             }
             this.tablepasswordresetrequest = ((passwordresetrequestDataTable)(base.Tables["passwordresetrequest"]));
@@ -497,6 +499,7 @@ namespace DataAccessLayer {
             this.relationwork_ibfk_2 = this.Relations["work_ibfk_2"];
             this.relationwork_ibfk_3 = this.Relations["work_ibfk_3"];
             this.relationworktype_ibfk_1 = this.Relations["worktype_ibfk_1"];
+            this.relationassignedtask_ibfk_3 = this.Relations["assignedtask_ibfk_3"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -509,8 +512,8 @@ namespace DataAccessLayer {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableassignedtask = new assignedtaskDataTable();
             base.Tables.Add(this.tableassignedtask);
-            this.tableinvolvedin = new involvedinDataTable();
-            base.Tables.Add(this.tableinvolvedin);
+            this.tablesponsored = new sponsoredDataTable();
+            base.Tables.Add(this.tablesponsored);
             this.tablepasswordresetrequest = new passwordresetrequestDataTable();
             base.Tables.Add(this.tablepasswordresetrequest);
             this.tableproject = new projectDataTable();
@@ -541,11 +544,11 @@ namespace DataAccessLayer {
             this.Relations.Add(this.relationassignedtask_ibfk_2);
             this.relationinvolvedin_ibfk_1 = new global::System.Data.DataRelation("involvedin_ibfk_1", new global::System.Data.DataColumn[] {
                         this.tableproject.Project_UIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tableinvolvedin.Project_UIDColumn}, false);
+                        this.tablesponsored.Project_UIDColumn}, false);
             this.Relations.Add(this.relationinvolvedin_ibfk_1);
             this.relationinvolvedin_ibfk_2 = new global::System.Data.DataRelation("involvedin_ibfk_2", new global::System.Data.DataColumn[] {
                         this.tableuser.User_UsernameColumn}, new global::System.Data.DataColumn[] {
-                        this.tableinvolvedin.User_UserNameColumn}, false);
+                        this.tablesponsored.User_UserNameColumn}, false);
             this.Relations.Add(this.relationinvolvedin_ibfk_2);
             this.relationpasswordresetrequest_ibfk_1 = new global::System.Data.DataRelation("passwordresetrequest_ibfk_1", new global::System.Data.DataColumn[] {
                         this.tableuser.User_UsernameColumn}, new global::System.Data.DataColumn[] {
@@ -583,6 +586,10 @@ namespace DataAccessLayer {
                         this.tableproject.Project_UIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableworktype.Project_UIDColumn}, false);
             this.Relations.Add(this.relationworktype_ibfk_1);
+            this.relationassignedtask_ibfk_3 = new global::System.Data.DataRelation("assignedtask_ibfk_3", new global::System.Data.DataColumn[] {
+                        this.tableworktype.WorkType_UIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tableassignedtask.WorkType_UIDColumn}, false);
+            this.Relations.Add(this.relationassignedtask_ibfk_3);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -593,7 +600,7 @@ namespace DataAccessLayer {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeinvolvedin() {
+        private bool ShouldSerializesponsored() {
             return false;
         }
         
@@ -716,7 +723,7 @@ namespace DataAccessLayer {
         public delegate void assignedtaskRowChangeEventHandler(object sender, assignedtaskRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void involvedinRowChangeEventHandler(object sender, involvedinRowChangeEvent e);
+        public delegate void sponsoredRowChangeEventHandler(object sender, sponsoredRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void passwordresetrequestRowChangeEventHandler(object sender, passwordresetrequestRowChangeEvent e);
@@ -766,6 +773,12 @@ namespace DataAccessLayer {
             private global::System.Data.DataColumn columnTask_Description;
             
             private global::System.Data.DataColumn columnTask_TakeFiveNeeded;
+            
+            private global::System.Data.DataColumn columnWorkType_UID;
+            
+            private global::System.Data.DataColumn columnTask_IncompleteReason;
+            
+            private global::System.Data.DataColumn columnTask_Status;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -850,6 +863,30 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WorkType_UIDColumn {
+                get {
+                    return this.columnWorkType_UID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Task_IncompleteReasonColumn {
+                get {
+                    return this.columnTask_IncompleteReason;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Task_StatusColumn {
+                get {
+                    return this.columnTask_Status;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -885,7 +922,7 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public assignedtaskRow AddassignedtaskRow(userRow parentuserRowByassignedtask_ibfk_1, userRow parentuserRowByassignedtask_ibfk_2, string Task_Name, string Task_Description, bool Task_TakeFiveNeeded) {
+            public assignedtaskRow AddassignedtaskRow(userRow parentuserRowByassignedtask_ibfk_1, userRow parentuserRowByassignedtask_ibfk_2, string Task_Name, string Task_Description, bool Task_TakeFiveNeeded, worktypeRow parentworktypeRowByassignedtask_ibfk_3, string Task_IncompleteReason, string Task_Status) {
                 assignedtaskRow rowassignedtaskRow = ((assignedtaskRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -893,12 +930,18 @@ namespace DataAccessLayer {
                         null,
                         Task_Name,
                         Task_Description,
-                        Task_TakeFiveNeeded};
+                        Task_TakeFiveNeeded,
+                        null,
+                        Task_IncompleteReason,
+                        Task_Status};
                 if ((parentuserRowByassignedtask_ibfk_1 != null)) {
                     columnValuesArray[1] = parentuserRowByassignedtask_ibfk_1[0];
                 }
                 if ((parentuserRowByassignedtask_ibfk_2 != null)) {
                     columnValuesArray[2] = parentuserRowByassignedtask_ibfk_2[0];
+                }
+                if ((parentworktypeRowByassignedtask_ibfk_3 != null)) {
+                    columnValuesArray[6] = parentworktypeRowByassignedtask_ibfk_3[0];
                 }
                 rowassignedtaskRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowassignedtaskRow);
@@ -935,6 +978,9 @@ namespace DataAccessLayer {
                 this.columnTask_Name = base.Columns["Task_Name"];
                 this.columnTask_Description = base.Columns["Task_Description"];
                 this.columnTask_TakeFiveNeeded = base.Columns["Task_TakeFiveNeeded"];
+                this.columnWorkType_UID = base.Columns["WorkType_UID"];
+                this.columnTask_IncompleteReason = base.Columns["Task_IncompleteReason"];
+                this.columnTask_Status = base.Columns["Task_Status"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -952,6 +998,12 @@ namespace DataAccessLayer {
                 base.Columns.Add(this.columnTask_Description);
                 this.columnTask_TakeFiveNeeded = new global::System.Data.DataColumn("Task_TakeFiveNeeded", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTask_TakeFiveNeeded);
+                this.columnWorkType_UID = new global::System.Data.DataColumn("WorkType_UID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkType_UID);
+                this.columnTask_IncompleteReason = new global::System.Data.DataColumn("Task_IncompleteReason", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTask_IncompleteReason);
+                this.columnTask_Status = new global::System.Data.DataColumn("Task_Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTask_Status);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTask_UID}, true));
                 this.columnTask_UID.AutoIncrement = true;
@@ -965,6 +1017,9 @@ namespace DataAccessLayer {
                 this.columnUser_Username_AssignedBy.MaxLength = 255;
                 this.columnTask_Name.MaxLength = 255;
                 this.columnTask_Description.MaxLength = 255;
+                this.columnWorkType_UID.AllowDBNull = false;
+                this.columnTask_IncompleteReason.MaxLength = 255;
+                this.columnTask_Status.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1096,20 +1151,18 @@ namespace DataAccessLayer {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class involvedinDataTable : global::System.Data.TypedTableBase<involvedinRow> {
-            
-            private global::System.Data.DataColumn columnInvolvedIn_UID;
+        public partial class sponsoredDataTable : global::System.Data.TypedTableBase<sponsoredRow> {
             
             private global::System.Data.DataColumn columnProject_UID;
             
             private global::System.Data.DataColumn columnUser_UserName;
             
-            private global::System.Data.DataColumn columnInvolvedIn_Role;
+            private global::System.Data.DataColumn columnSponsored_UID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public involvedinDataTable() {
-                this.TableName = "involvedin";
+            public sponsoredDataTable() {
+                this.TableName = "sponsored";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1117,7 +1170,7 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal involvedinDataTable(global::System.Data.DataTable table) {
+            internal sponsoredDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1134,17 +1187,9 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected involvedinDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected sponsoredDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn InvolvedIn_UIDColumn {
-                get {
-                    return this.columnInvolvedIn_UID;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1165,9 +1210,9 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn InvolvedIn_RoleColumn {
+            public global::System.Data.DataColumn Sponsored_UIDColumn {
                 get {
-                    return this.columnInvolvedIn_Role;
+                    return this.columnSponsored_UID;
                 }
             }
             
@@ -1182,61 +1227,60 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public involvedinRow this[int index] {
+            public sponsoredRow this[int index] {
                 get {
-                    return ((involvedinRow)(this.Rows[index]));
+                    return ((sponsoredRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event involvedinRowChangeEventHandler involvedinRowChanging;
+            public event sponsoredRowChangeEventHandler sponsoredRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event involvedinRowChangeEventHandler involvedinRowChanged;
+            public event sponsoredRowChangeEventHandler sponsoredRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event involvedinRowChangeEventHandler involvedinRowDeleting;
+            public event sponsoredRowChangeEventHandler sponsoredRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event involvedinRowChangeEventHandler involvedinRowDeleted;
+            public event sponsoredRowChangeEventHandler sponsoredRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddinvolvedinRow(involvedinRow row) {
+            public void AddsponsoredRow(sponsoredRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public involvedinRow AddinvolvedinRow(projectRow parentprojectRowByinvolvedin_ibfk_1, userRow parentuserRowByinvolvedin_ibfk_2, string InvolvedIn_Role) {
-                involvedinRow rowinvolvedinRow = ((involvedinRow)(this.NewRow()));
+            public sponsoredRow AddsponsoredRow(projectRow parentprojectRowByinvolvedin_ibfk_1, userRow parentuserRowByinvolvedin_ibfk_2) {
+                sponsoredRow rowsponsoredRow = ((sponsoredRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
-                        null,
-                        InvolvedIn_Role};
+                        null};
                 if ((parentprojectRowByinvolvedin_ibfk_1 != null)) {
-                    columnValuesArray[1] = parentprojectRowByinvolvedin_ibfk_1[0];
+                    columnValuesArray[0] = parentprojectRowByinvolvedin_ibfk_1[0];
                 }
                 if ((parentuserRowByinvolvedin_ibfk_2 != null)) {
-                    columnValuesArray[2] = parentuserRowByinvolvedin_ibfk_2[0];
+                    columnValuesArray[1] = parentuserRowByinvolvedin_ibfk_2[0];
                 }
-                rowinvolvedinRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowinvolvedinRow);
-                return rowinvolvedinRow;
+                rowsponsoredRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowsponsoredRow);
+                return rowsponsoredRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public involvedinRow FindByInvolvedIn_UID(int InvolvedIn_UID) {
-                return ((involvedinRow)(this.Rows.Find(new object[] {
-                            InvolvedIn_UID})));
+            public sponsoredRow FindBySponsored_UID(int Sponsored_UID) {
+                return ((sponsoredRow)(this.Rows.Find(new object[] {
+                            Sponsored_UID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                involvedinDataTable cln = ((involvedinDataTable)(base.Clone()));
+                sponsoredDataTable cln = ((sponsoredDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1244,67 +1288,62 @@ namespace DataAccessLayer {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new involvedinDataTable();
+                return new sponsoredDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnInvolvedIn_UID = base.Columns["InvolvedIn_UID"];
                 this.columnProject_UID = base.Columns["Project_UID"];
                 this.columnUser_UserName = base.Columns["User_UserName"];
-                this.columnInvolvedIn_Role = base.Columns["InvolvedIn_Role"];
+                this.columnSponsored_UID = base.Columns["Sponsored_UID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnInvolvedIn_UID = new global::System.Data.DataColumn("InvolvedIn_UID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInvolvedIn_UID);
                 this.columnProject_UID = new global::System.Data.DataColumn("Project_UID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProject_UID);
                 this.columnUser_UserName = new global::System.Data.DataColumn("User_UserName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUser_UserName);
-                this.columnInvolvedIn_Role = new global::System.Data.DataColumn("InvolvedIn_Role", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInvolvedIn_Role);
+                this.columnSponsored_UID = new global::System.Data.DataColumn("Sponsored_UID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSponsored_UID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnInvolvedIn_UID}, true));
-                this.columnInvolvedIn_UID.AutoIncrement = true;
-                this.columnInvolvedIn_UID.AutoIncrementSeed = -1;
-                this.columnInvolvedIn_UID.AutoIncrementStep = -1;
-                this.columnInvolvedIn_UID.AllowDBNull = false;
-                this.columnInvolvedIn_UID.Unique = true;
+                                this.columnSponsored_UID}, true));
                 this.columnProject_UID.AllowDBNull = false;
                 this.columnUser_UserName.AllowDBNull = false;
                 this.columnUser_UserName.MaxLength = 255;
-                this.columnInvolvedIn_Role.AllowDBNull = false;
-                this.columnInvolvedIn_Role.MaxLength = 255;
+                this.columnSponsored_UID.AutoIncrement = true;
+                this.columnSponsored_UID.AutoIncrementSeed = -1;
+                this.columnSponsored_UID.AutoIncrementStep = -1;
+                this.columnSponsored_UID.AllowDBNull = false;
+                this.columnSponsored_UID.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public involvedinRow NewinvolvedinRow() {
-                return ((involvedinRow)(this.NewRow()));
+            public sponsoredRow NewsponsoredRow() {
+                return ((sponsoredRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new involvedinRow(builder);
+                return new sponsoredRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(involvedinRow);
+                return typeof(sponsoredRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.involvedinRowChanged != null)) {
-                    this.involvedinRowChanged(this, new involvedinRowChangeEvent(((involvedinRow)(e.Row)), e.Action));
+                if ((this.sponsoredRowChanged != null)) {
+                    this.sponsoredRowChanged(this, new sponsoredRowChangeEvent(((sponsoredRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1312,8 +1351,8 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.involvedinRowChanging != null)) {
-                    this.involvedinRowChanging(this, new involvedinRowChangeEvent(((involvedinRow)(e.Row)), e.Action));
+                if ((this.sponsoredRowChanging != null)) {
+                    this.sponsoredRowChanging(this, new sponsoredRowChangeEvent(((sponsoredRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1321,8 +1360,8 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.involvedinRowDeleted != null)) {
-                    this.involvedinRowDeleted(this, new involvedinRowChangeEvent(((involvedinRow)(e.Row)), e.Action));
+                if ((this.sponsoredRowDeleted != null)) {
+                    this.sponsoredRowDeleted(this, new sponsoredRowChangeEvent(((sponsoredRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1330,14 +1369,14 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.involvedinRowDeleting != null)) {
-                    this.involvedinRowDeleting(this, new involvedinRowChangeEvent(((involvedinRow)(e.Row)), e.Action));
+                if ((this.sponsoredRowDeleting != null)) {
+                    this.sponsoredRowDeleting(this, new sponsoredRowChangeEvent(((sponsoredRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveinvolvedinRow(involvedinRow row) {
+            public void RemovesponsoredRow(sponsoredRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1364,7 +1403,7 @@ namespace DataAccessLayer {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "involvedinDataTable";
+                attribute2.FixedValue = "sponsoredDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -4985,6 +5024,49 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int WorkType_UID {
+                get {
+                    return ((int)(this[this.tableassignedtask.WorkType_UIDColumn]));
+                }
+                set {
+                    this[this.tableassignedtask.WorkType_UIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Task_IncompleteReason {
+                get {
+                    try {
+                        return ((string)(this[this.tableassignedtask.Task_IncompleteReasonColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Task_IncompleteReason\' in table \'assignedtask\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableassignedtask.Task_IncompleteReasonColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Task_Status {
+                get {
+                    try {
+                        return ((string)(this[this.tableassignedtask.Task_StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Task_Status\' in table \'assignedtask\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableassignedtask.Task_StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public userRow userRowByassignedtask_ibfk_1 {
                 get {
                     return ((userRow)(this.GetParentRow(this.Table.ParentRelations["assignedtask_ibfk_1"])));
@@ -5002,6 +5084,17 @@ namespace DataAccessLayer {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["assignedtask_ibfk_2"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public worktypeRow worktypeRow {
+                get {
+                    return ((worktypeRow)(this.GetParentRow(this.Table.ParentRelations["assignedtask_ibfk_3"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["assignedtask_ibfk_3"]);
                 }
             }
             
@@ -5043,6 +5136,30 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTask_IncompleteReasonNull() {
+                return this.IsNull(this.tableassignedtask.Task_IncompleteReasonColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTask_IncompleteReasonNull() {
+                this[this.tableassignedtask.Task_IncompleteReasonColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTask_StatusNull() {
+                return this.IsNull(this.tableassignedtask.Task_StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTask_StatusNull() {
+                this[this.tableassignedtask.Task_StatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public workRow[] GetworkRows() {
                 if ((this.Table.ChildRelations["work_ibfk_3"] == null)) {
                     return new workRow[0];
@@ -5056,36 +5173,25 @@ namespace DataAccessLayer {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class involvedinRow : global::System.Data.DataRow {
+        public partial class sponsoredRow : global::System.Data.DataRow {
             
-            private involvedinDataTable tableinvolvedin;
+            private sponsoredDataTable tablesponsored;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal involvedinRow(global::System.Data.DataRowBuilder rb) : 
+            internal sponsoredRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableinvolvedin = ((involvedinDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int InvolvedIn_UID {
-                get {
-                    return ((int)(this[this.tableinvolvedin.InvolvedIn_UIDColumn]));
-                }
-                set {
-                    this[this.tableinvolvedin.InvolvedIn_UIDColumn] = value;
-                }
+                this.tablesponsored = ((sponsoredDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int Project_UID {
                 get {
-                    return ((int)(this[this.tableinvolvedin.Project_UIDColumn]));
+                    return ((int)(this[this.tablesponsored.Project_UIDColumn]));
                 }
                 set {
-                    this[this.tableinvolvedin.Project_UIDColumn] = value;
+                    this[this.tablesponsored.Project_UIDColumn] = value;
                 }
             }
             
@@ -5093,21 +5199,21 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string User_UserName {
                 get {
-                    return ((string)(this[this.tableinvolvedin.User_UserNameColumn]));
+                    return ((string)(this[this.tablesponsored.User_UserNameColumn]));
                 }
                 set {
-                    this[this.tableinvolvedin.User_UserNameColumn] = value;
+                    this[this.tablesponsored.User_UserNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string InvolvedIn_Role {
+            public int Sponsored_UID {
                 get {
-                    return ((string)(this[this.tableinvolvedin.InvolvedIn_RoleColumn]));
+                    return ((int)(this[this.tablesponsored.Sponsored_UIDColumn]));
                 }
                 set {
-                    this[this.tableinvolvedin.InvolvedIn_RoleColumn] = value;
+                    this[this.tablesponsored.Sponsored_UIDColumn] = value;
                 }
             }
             
@@ -5350,12 +5456,12 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public involvedinRow[] GetinvolvedinRows() {
+            public sponsoredRow[] GetinvolvedinRows() {
                 if ((this.Table.ChildRelations["involvedin_ibfk_1"] == null)) {
-                    return new involvedinRow[0];
+                    return new sponsoredRow[0];
                 }
                 else {
-                    return ((involvedinRow[])(base.GetChildRows(this.Table.ChildRelations["involvedin_ibfk_1"])));
+                    return ((sponsoredRow[])(base.GetChildRows(this.Table.ChildRelations["involvedin_ibfk_1"])));
                 }
             }
             
@@ -6413,12 +6519,12 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public involvedinRow[] GetinvolvedinRows() {
+            public sponsoredRow[] GetinvolvedinRows() {
                 if ((this.Table.ChildRelations["involvedin_ibfk_2"] == null)) {
-                    return new involvedinRow[0];
+                    return new sponsoredRow[0];
                 }
                 else {
-                    return ((involvedinRow[])(base.GetChildRows(this.Table.ChildRelations["involvedin_ibfk_2"])));
+                    return ((sponsoredRow[])(base.GetChildRows(this.Table.ChildRelations["involvedin_ibfk_2"])));
                 }
             }
             
@@ -6767,6 +6873,17 @@ namespace DataAccessLayer {
                     return ((workRow[])(base.GetChildRows(this.Table.ChildRelations["work_ibfk_2"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public assignedtaskRow[] GetassignedtaskRows() {
+                if ((this.Table.ChildRelations["assignedtask_ibfk_3"] == null)) {
+                    return new assignedtaskRow[0];
+                }
+                else {
+                    return ((assignedtaskRow[])(base.GetChildRows(this.Table.ChildRelations["assignedtask_ibfk_3"])));
+                }
+            }
         }
         
         /// <summary>
@@ -6988,22 +7105,22 @@ namespace DataAccessLayer {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class involvedinRowChangeEvent : global::System.EventArgs {
+        public class sponsoredRowChangeEvent : global::System.EventArgs {
             
-            private involvedinRow eventRow;
+            private sponsoredRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public involvedinRowChangeEvent(involvedinRow row, global::System.Data.DataRowAction action) {
+            public sponsoredRowChangeEvent(sponsoredRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public involvedinRow Row {
+            public sponsoredRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -7489,10 +7606,13 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Task_Name", "Task_Name");
             tableMapping.ColumnMappings.Add("Task_Description", "Task_Description");
             tableMapping.ColumnMappings.Add("Task_TakeFiveNeeded", "Task_TakeFiveNeeded");
+            tableMapping.ColumnMappings.Add("WorkType_UID", "WorkType_UID");
+            tableMapping.ColumnMappings.Add("Task_IncompleteReason", "Task_IncompleteReason");
+            tableMapping.ColumnMappings.Add("Task_Status", "Task_Status");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `nuracing`.`assignedtask` WHERE ((`Task_UID` = @Original_Task_UID) AND (`User_Username_AssignedTo` = @Original_User_Username_AssignedTo) AND (`User_Username_AssignedBy` = @Original_User_Username_AssignedBy) AND ((@IsNull_Task_Name = 1 AND `Task_Name` IS NULL) OR (`Task_Name` = @Original_Task_Name)) AND ((@IsNull_Task_Description = 1 AND `Task_Description` IS NULL) OR (`Task_Description` = @Original_Task_Description)) AND ((@IsNull_Task_TakeFiveNeeded = 1 AND `Task_TakeFiveNeeded` IS NULL) OR (`Task_TakeFiveNeeded` = @Original_Task_TakeFiveNeeded)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `nuracing`.`assignedtask` WHERE ((`Task_UID` = @Original_Task_UID) AND (`User_Username_AssignedTo` = @Original_User_Username_AssignedTo) AND (`User_Username_AssignedBy` = @Original_User_Username_AssignedBy) AND ((@IsNull_Task_Name = 1 AND `Task_Name` IS NULL) OR (`Task_Name` = @Original_Task_Name)) AND ((@IsNull_Task_Description = 1 AND `Task_Description` IS NULL) OR (`Task_Description` = @Original_Task_Description)) AND ((@IsNull_Task_TakeFiveNeeded = 1 AND `Task_TakeFiveNeeded` IS NULL) OR (`Task_TakeFiveNeeded` = @Original_Task_TakeFiveNeeded)) AND (`WorkType_UID` = @Original_WorkType_UID) AND ((@IsNull_Task_IncompleteReason = 1 AND `Task_IncompleteReason` IS NULL) OR (`Task_IncompleteReason` = @Original_Task_IncompleteReason)) AND ((@IsNull_Task_Status = 1 AND `Task_Status` IS NULL) OR (`Task_Status` = @Original_Task_Status)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_Task_UID";
@@ -7569,9 +7689,51 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceColumn = "Task_TakeFiveNeeded";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_WorkType_UID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_UID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Task_IncompleteReason";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Task_IncompleteReason";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Task_IncompleteReason";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Task_IncompleteReason";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Task_Status";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Task_Status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Task_Status";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Task_Status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `nuracing`.`assignedtask` (`User_Username_AssignedTo`, `User_Username_AssignedBy`, `Task_Name`, `Task_Description`, `Task_TakeFiveNeeded`) VALUES (@User_Username_AssignedTo, @User_Username_AssignedBy, @Task_Name, @Task_Description, @Task_TakeFiveNeeded)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `nuracing`.`assignedtask` (`User_Username_AssignedTo`, `User_Username_AssignedBy`, `Task_Name`, `Task_Description`, `Task_TakeFiveNeeded`, `WorkType_UID`, `Task_IncompleteReason`, `Task_Status`) VALUES (@User_Username_AssignedTo, @User_Username_AssignedBy, @Task_Name, @Task_Description, @Task_TakeFiveNeeded, @WorkType_UID, @Task_IncompleteReason, @Task_Status)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@User_Username_AssignedTo";
@@ -7608,9 +7770,30 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "Task_TakeFiveNeeded";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@WorkType_UID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_UID";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Task_IncompleteReason";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Task_IncompleteReason";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Task_Status";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Task_Status";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `nuracing`.`assignedtask` SET `User_Username_AssignedTo` = @User_Username_AssignedTo, `User_Username_AssignedBy` = @User_Username_AssignedBy, `Task_Name` = @Task_Name, `Task_Description` = @Task_Description, `Task_TakeFiveNeeded` = @Task_TakeFiveNeeded WHERE ((`Task_UID` = @Original_Task_UID) AND (`User_Username_AssignedTo` = @Original_User_Username_AssignedTo) AND (`User_Username_AssignedBy` = @Original_User_Username_AssignedBy) AND ((@IsNull_Task_Name = 1 AND `Task_Name` IS NULL) OR (`Task_Name` = @Original_Task_Name)) AND ((@IsNull_Task_Description = 1 AND `Task_Description` IS NULL) OR (`Task_Description` = @Original_Task_Description)) AND ((@IsNull_Task_TakeFiveNeeded = 1 AND `Task_TakeFiveNeeded` IS NULL) OR (`Task_TakeFiveNeeded` = @Original_Task_TakeFiveNeeded)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `nuracing`.`assignedtask` SET `User_Username_AssignedTo` = @User_Username_AssignedTo, `User_Username_AssignedBy` = @User_Username_AssignedBy, `Task_Name` = @Task_Name, `Task_Description` = @Task_Description, `Task_TakeFiveNeeded` = @Task_TakeFiveNeeded, `WorkType_UID` = @WorkType_UID, `Task_IncompleteReason` = @Task_IncompleteReason, `Task_Status` = @Task_Status WHERE ((`Task_UID` = @Original_Task_UID) AND (`User_Username_AssignedTo` = @Original_User_Username_AssignedTo) AND (`User_Username_AssignedBy` = @Original_User_Username_AssignedBy) AND ((@IsNull_Task_Name = 1 AND `Task_Name` IS NULL) OR (`Task_Name` = @Original_Task_Name)) AND ((@IsNull_Task_Description = 1 AND `Task_Description` IS NULL) OR (`Task_Description` = @Original_Task_Description)) AND ((@IsNull_Task_TakeFiveNeeded = 1 AND `Task_TakeFiveNeeded` IS NULL) OR (`Task_TakeFiveNeeded` = @Original_Task_TakeFiveNeeded)) AND (`WorkType_UID` = @Original_WorkType_UID) AND ((@IsNull_Task_IncompleteReason = 1 AND `Task_IncompleteReason` IS NULL) OR (`Task_IncompleteReason` = @Original_Task_IncompleteReason)) AND ((@IsNull_Task_Status = 1 AND `Task_Status` IS NULL) OR (`Task_Status` = @Original_Task_Status)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@User_Username_AssignedTo";
@@ -7646,6 +7829,27 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.IsNullable = true;
             param.SourceColumn = "Task_TakeFiveNeeded";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@WorkType_UID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_UID";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Task_IncompleteReason";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Task_IncompleteReason";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Task_Status";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Task_Status";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_Task_UID";
@@ -7722,6 +7926,48 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceColumn = "Task_TakeFiveNeeded";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_WorkType_UID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_UID";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Task_IncompleteReason";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Task_IncompleteReason";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Task_IncompleteReason";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Task_IncompleteReason";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Task_Status";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Task_Status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Task_Status";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Task_Status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7737,8 +7983,9 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Task_UID`, `User_Username_AssignedTo`, `User_Username_AssignedBy`, `Task_" +
-                "Name`, `Task_Description`, `Task_TakeFiveNeeded` FROM `nuracing`.`assignedtask`";
+            this._commandCollection[0].CommandText = "SELECT        Task_UID, User_Username_AssignedTo, User_Username_AssignedBy, Task_" +
+                "Name, Task_Description, Task_TakeFiveNeeded, WorkType_UID, \r\n                   " +
+                "      Task_IncompleteReason, Task_Status\r\nFROM            assignedtask";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7799,7 +8046,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Task_UID, string Original_User_Username_AssignedTo, string Original_User_Username_AssignedBy, string Original_Task_Name, string Original_Task_Description, global::System.Nullable<byte> Original_Task_TakeFiveNeeded) {
+        public virtual int Delete(int Original_Task_UID, string Original_User_Username_AssignedTo, string Original_User_Username_AssignedBy, string Original_Task_Name, string Original_Task_Description, global::System.Nullable<byte> Original_Task_TakeFiveNeeded, int Original_WorkType_UID, string Original_Task_IncompleteReason, string Original_Task_Status) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Task_UID));
             if ((Original_User_Username_AssignedTo == null)) {
                 throw new global::System.ArgumentNullException("Original_User_Username_AssignedTo");
@@ -7837,6 +8084,23 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_WorkType_UID));
+            if ((Original_Task_IncompleteReason == null)) {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_Task_IncompleteReason));
+            }
+            if ((Original_Task_Status == null)) {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((string)(Original_Task_Status));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7857,7 +8121,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string User_Username_AssignedTo, string User_Username_AssignedBy, string Task_Name, string Task_Description, global::System.Nullable<byte> Task_TakeFiveNeeded) {
+        public virtual int Insert(string User_Username_AssignedTo, string User_Username_AssignedBy, string Task_Name, string Task_Description, global::System.Nullable<byte> Task_TakeFiveNeeded, int WorkType_UID, string Task_IncompleteReason, string Task_Status) {
             if ((User_Username_AssignedTo == null)) {
                 throw new global::System.ArgumentNullException("User_Username_AssignedTo");
             }
@@ -7888,6 +8152,19 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
+            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(WorkType_UID));
+            if ((Task_IncompleteReason == null)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Task_IncompleteReason));
+            }
+            if ((Task_Status == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Task_Status));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7908,7 +8185,24 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string User_Username_AssignedTo, string User_Username_AssignedBy, string Task_Name, string Task_Description, global::System.Nullable<byte> Task_TakeFiveNeeded, int Original_Task_UID, string Original_User_Username_AssignedTo, string Original_User_Username_AssignedBy, string Original_Task_Name, string Original_Task_Description, global::System.Nullable<byte> Original_Task_TakeFiveNeeded) {
+        public virtual int Update(
+                    string User_Username_AssignedTo, 
+                    string User_Username_AssignedBy, 
+                    string Task_Name, 
+                    string Task_Description, 
+                    global::System.Nullable<byte> Task_TakeFiveNeeded, 
+                    int WorkType_UID, 
+                    string Task_IncompleteReason, 
+                    string Task_Status, 
+                    int Original_Task_UID, 
+                    string Original_User_Username_AssignedTo, 
+                    string Original_User_Username_AssignedBy, 
+                    string Original_Task_Name, 
+                    string Original_Task_Description, 
+                    global::System.Nullable<byte> Original_Task_TakeFiveNeeded, 
+                    int Original_WorkType_UID, 
+                    string Original_Task_IncompleteReason, 
+                    string Original_Task_Status) {
             if ((User_Username_AssignedTo == null)) {
                 throw new global::System.ArgumentNullException("User_Username_AssignedTo");
             }
@@ -7939,42 +8233,72 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Task_UID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(WorkType_UID));
+            if ((Task_IncompleteReason == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Task_IncompleteReason));
+            }
+            if ((Task_Status == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Task_Status));
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Task_UID));
             if ((Original_User_Username_AssignedTo == null)) {
                 throw new global::System.ArgumentNullException("Original_User_Username_AssignedTo");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_User_Username_AssignedTo));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_User_Username_AssignedTo));
             }
             if ((Original_User_Username_AssignedBy == null)) {
                 throw new global::System.ArgumentNullException("Original_User_Username_AssignedBy");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_User_Username_AssignedBy));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_User_Username_AssignedBy));
             }
             if ((Original_Task_Name == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Task_Name));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Task_Name));
             }
             if ((Original_Task_Description == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Task_Description));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Task_Description));
             }
             if ((Original_Task_TakeFiveNeeded.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((byte)(Original_Task_TakeFiveNeeded.Value));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((byte)(Original_Task_TakeFiveNeeded.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_WorkType_UID));
+            if ((Original_Task_IncompleteReason == null)) {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Task_IncompleteReason));
+            }
+            if ((Original_Task_Status == null)) {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Task_Status));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -8002,7 +8326,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class involvedinTableAdapter : global::System.ComponentModel.Component {
+    public partial class sponsoredTableAdapter : global::System.ComponentModel.Component {
         
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
         
@@ -8016,7 +8340,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public involvedinTableAdapter() {
+        public sponsoredTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -8113,24 +8437,23 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "involvedin";
-            tableMapping.ColumnMappings.Add("InvolvedIn_UID", "InvolvedIn_UID");
+            tableMapping.DataSetTable = "sponsored";
             tableMapping.ColumnMappings.Add("Project_UID", "Project_UID");
             tableMapping.ColumnMappings.Add("User_UserName", "User_UserName");
-            tableMapping.ColumnMappings.Add("InvolvedIn_Role", "InvolvedIn_Role");
+            tableMapping.ColumnMappings.Add("Sponsored_UID", "Sponsored_UID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `nuracing`.`involvedin` WHERE ((`InvolvedIn_UID` = @Original_Involved" +
-                "In_UID) AND (`Project_UID` = @Original_Project_UID) AND (`User_UserName` = @Orig" +
-                "inal_User_UserName) AND (`InvolvedIn_Role` = @Original_InvolvedIn_Role))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `nuracing`.`sponsored` WHERE ((`Sponsored_UID` = @Original_Sponsored_" +
+                "UID) AND (`Project_UID` = @Original_Project_UID) AND (`User_UserName` = @Origina" +
+                "l_User_UserName))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_InvolvedIn_UID";
+            param.ParameterName = "@Original_Sponsored_UID";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "InvolvedIn_UID";
+            param.SourceColumn = "Sponsored_UID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -8149,18 +8472,10 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceColumn = "User_UserName";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_InvolvedIn_Role";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "InvolvedIn_Role";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `nuracing`.`involvedin` (`Project_UID`, `User_UserName`, `InvolvedIn_" +
-                "Role`) VALUES (@Project_UID, @User_UserName, @InvolvedIn_Role)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `nuracing`.`sponsored` (`Project_UID`, `User_UserName`) VALUES (@Proj" +
+                "ect_UID, @User_UserName)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Project_UID";
@@ -8176,16 +8491,11 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "User_UserName";
             this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@InvolvedIn_Role";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "InvolvedIn_Role";
-            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `nuracing`.`involvedin` SET `Project_UID` = @Project_UID, `User_UserName` = @User_UserName, `InvolvedIn_Role` = @InvolvedIn_Role WHERE ((`InvolvedIn_UID` = @Original_InvolvedIn_UID) AND (`Project_UID` = @Original_Project_UID) AND (`User_UserName` = @Original_User_UserName) AND (`InvolvedIn_Role` = @Original_InvolvedIn_Role))";
+            this._adapter.UpdateCommand.CommandText = "UPDATE `nuracing`.`sponsored` SET `Project_UID` = @Project_UID, `User_UserName` =" +
+                " @User_UserName WHERE ((`Sponsored_UID` = @Original_Sponsored_UID) AND (`Project" +
+                "_UID` = @Original_Project_UID) AND (`User_UserName` = @Original_User_UserName))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Project_UID";
@@ -8202,18 +8512,11 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceColumn = "User_UserName";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@InvolvedIn_Role";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "InvolvedIn_Role";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_InvolvedIn_UID";
+            param.ParameterName = "@Original_Sponsored_UID";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "InvolvedIn_UID";
+            param.SourceColumn = "Sponsored_UID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -8230,14 +8533,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "User_UserName";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_InvolvedIn_Role";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "InvolvedIn_Role";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
         }
@@ -8255,8 +8550,8 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `InvolvedIn_UID`, `Project_UID`, `User_UserName`, `InvolvedIn_Role` FROM `" +
-                "nuracing`.`involvedin`";
+            this._commandCollection[0].CommandText = "SELECT `Sponsored_UID`, `Project_UID`, `User_UserName` FROM `nuracing`.`sponsored" +
+                "`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -8264,7 +8559,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(NuRacingDataSet.involvedinDataTable dataTable) {
+        public virtual int Fill(NuRacingDataSet.sponsoredDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -8277,9 +8572,9 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual NuRacingDataSet.involvedinDataTable GetData() {
+        public virtual NuRacingDataSet.sponsoredDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            NuRacingDataSet.involvedinDataTable dataTable = new NuRacingDataSet.involvedinDataTable();
+            NuRacingDataSet.sponsoredDataTable dataTable = new NuRacingDataSet.sponsoredDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -8287,7 +8582,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(NuRacingDataSet.involvedinDataTable dataTable) {
+        public virtual int Update(NuRacingDataSet.sponsoredDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -8295,7 +8590,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(NuRacingDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "involvedin");
+            return this.Adapter.Update(dataSet, "sponsored");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8311,123 +8606,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_InvolvedIn_UID, int Original_Project_UID, string Original_User_UserName, string Original_InvolvedIn_Role) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_InvolvedIn_UID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Project_UID));
-            if ((Original_User_UserName == null)) {
-                throw new global::System.ArgumentNullException("Original_User_UserName");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_User_UserName));
-            }
-            if ((Original_InvolvedIn_Role == null)) {
-                throw new global::System.ArgumentNullException("Original_InvolvedIn_Role");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_InvolvedIn_Role));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Project_UID, string User_UserName, string InvolvedIn_Role) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Project_UID));
-            if ((User_UserName == null)) {
-                throw new global::System.ArgumentNullException("User_UserName");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(User_UserName));
-            }
-            if ((InvolvedIn_Role == null)) {
-                throw new global::System.ArgumentNullException("InvolvedIn_Role");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(InvolvedIn_Role));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Project_UID, string User_UserName, string InvolvedIn_Role, int Original_InvolvedIn_UID, int Original_Project_UID, string Original_User_UserName, string Original_InvolvedIn_Role) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Project_UID));
-            if ((User_UserName == null)) {
-                throw new global::System.ArgumentNullException("User_UserName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(User_UserName));
-            }
-            if ((InvolvedIn_Role == null)) {
-                throw new global::System.ArgumentNullException("InvolvedIn_Role");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(InvolvedIn_Role));
-            }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_InvolvedIn_UID));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Project_UID));
-            if ((Original_User_UserName == null)) {
-                throw new global::System.ArgumentNullException("Original_User_UserName");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_User_UserName));
-            }
-            if ((Original_InvolvedIn_Role == null)) {
-                throw new global::System.ArgumentNullException("Original_InvolvedIn_Role");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_InvolvedIn_Role));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
         }
     }
     
@@ -15071,7 +15249,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         
         private assignedtaskTableAdapter _assignedtaskTableAdapter;
         
-        private involvedinTableAdapter _involvedinTableAdapter;
+        private sponsoredTableAdapter _sponsoredTableAdapter;
         
         private passwordresetrequestTableAdapter _passwordresetrequestTableAdapter;
         
@@ -15123,12 +15301,12 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public involvedinTableAdapter involvedinTableAdapter {
+        public sponsoredTableAdapter sponsoredTableAdapter {
             get {
-                return this._involvedinTableAdapter;
+                return this._sponsoredTableAdapter;
             }
             set {
-                this._involvedinTableAdapter = value;
+                this._sponsoredTableAdapter = value;
             }
         }
         
@@ -15267,9 +15445,9 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                             && (this._assignedtaskTableAdapter.Connection != null))) {
                     return this._assignedtaskTableAdapter.Connection;
                 }
-                if (((this._involvedinTableAdapter != null) 
-                            && (this._involvedinTableAdapter.Connection != null))) {
-                    return this._involvedinTableAdapter.Connection;
+                if (((this._sponsoredTableAdapter != null) 
+                            && (this._sponsoredTableAdapter.Connection != null))) {
+                    return this._sponsoredTableAdapter.Connection;
                 }
                 if (((this._passwordresetrequestTableAdapter != null) 
                             && (this._passwordresetrequestTableAdapter.Connection != null))) {
@@ -15319,7 +15497,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                 if ((this._assignedtaskTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._involvedinTableAdapter != null)) {
+                if ((this._sponsoredTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._passwordresetrequestTableAdapter != null)) {
@@ -15375,21 +15553,21 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._assignedtaskTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.assignedtask.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._assignedtaskTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._worktypeTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.worktype.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._worktypeTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._assignedtaskTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.assignedtask.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._assignedtaskTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -15411,12 +15589,12 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._involvedinTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.involvedin.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._sponsoredTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.sponsored.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._involvedinTableAdapter.Update(updatedRows));
+                    result = (result + this._sponsoredTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -15473,19 +15651,19 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._assignedtaskTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.assignedtask.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._assignedtaskTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._worktypeTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.worktype.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._worktypeTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._assignedtaskTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.assignedtask.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._assignedtaskTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -15505,11 +15683,11 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._involvedinTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.involvedin.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._sponsoredTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.sponsored.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._involvedinTableAdapter.Update(addedRows));
+                    result = (result + this._sponsoredTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -15571,11 +15749,11 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._involvedinTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.involvedin.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._sponsoredTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.sponsored.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._involvedinTableAdapter.Update(deletedRows));
+                    result = (result + this._sponsoredTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -15595,19 +15773,19 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._worktypeTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.worktype.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._worktypeTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._assignedtaskTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.assignedtask.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._assignedtaskTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._worktypeTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.worktype.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._worktypeTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -15671,8 +15849,8 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._involvedinTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._involvedinTableAdapter.Connection) == false))) {
+            if (((this._sponsoredTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._sponsoredTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -15757,13 +15935,13 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._assignedtaskTableAdapter.Adapter);
                     }
                 }
-                if ((this._involvedinTableAdapter != null)) {
-                    revertConnections.Add(this._involvedinTableAdapter, this._involvedinTableAdapter.Connection);
-                    this._involvedinTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
-                    this._involvedinTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
-                    if (this._involvedinTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._involvedinTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._involvedinTableAdapter.Adapter);
+                if ((this._sponsoredTableAdapter != null)) {
+                    revertConnections.Add(this._sponsoredTableAdapter, this._sponsoredTableAdapter.Connection);
+                    this._sponsoredTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
+                    this._sponsoredTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
+                    if (this._sponsoredTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._sponsoredTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._sponsoredTableAdapter.Adapter);
                     }
                 }
                 if ((this._passwordresetrequestTableAdapter != null)) {
@@ -15900,9 +16078,9 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                     this._assignedtaskTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._assignedtaskTableAdapter]));
                     this._assignedtaskTableAdapter.Transaction = null;
                 }
-                if ((this._involvedinTableAdapter != null)) {
-                    this._involvedinTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._involvedinTableAdapter]));
-                    this._involvedinTableAdapter.Transaction = null;
+                if ((this._sponsoredTableAdapter != null)) {
+                    this._sponsoredTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._sponsoredTableAdapter]));
+                    this._sponsoredTableAdapter.Transaction = null;
                 }
                 if ((this._passwordresetrequestTableAdapter != null)) {
                     this._passwordresetrequestTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._passwordresetrequestTableAdapter]));
