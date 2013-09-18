@@ -68,13 +68,13 @@ namespace DataAccessLayer {
         
         private global::System.Data.DataRelation relationwork_ibfk_1;
         
-        private global::System.Data.DataRelation relationwork_ibfk_2;
-        
         private global::System.Data.DataRelation relationwork_ibfk_3;
         
         private global::System.Data.DataRelation relationworktype_ibfk_1;
         
         private global::System.Data.DataRelation relationassignedtask_ibfk_3;
+        
+        private global::System.Data.DataRelation relationwork_ibfk_2;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -496,10 +496,10 @@ namespace DataAccessLayer {
             this.relationtakefiveresponse_ibfk_1 = this.Relations["takefiveresponse_ibfk_1"];
             this.relationtakefiveresponse_ibfk_2 = this.Relations["takefiveresponse_ibfk_2"];
             this.relationwork_ibfk_1 = this.Relations["work_ibfk_1"];
-            this.relationwork_ibfk_2 = this.Relations["work_ibfk_2"];
             this.relationwork_ibfk_3 = this.Relations["work_ibfk_3"];
             this.relationworktype_ibfk_1 = this.Relations["worktype_ibfk_1"];
             this.relationassignedtask_ibfk_3 = this.Relations["assignedtask_ibfk_3"];
+            this.relationwork_ibfk_2 = this.Relations["work_ibfk_2"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -574,10 +574,6 @@ namespace DataAccessLayer {
                         this.tableuser.User_UsernameColumn}, new global::System.Data.DataColumn[] {
                         this.tablework.User_UsernameColumn}, false);
             this.Relations.Add(this.relationwork_ibfk_1);
-            this.relationwork_ibfk_2 = new global::System.Data.DataRelation("work_ibfk_2", new global::System.Data.DataColumn[] {
-                        this.tableworktype.WorkType_UIDColumn}, new global::System.Data.DataColumn[] {
-                        this.tablework.Work_PartWorkedOnColumn}, false);
-            this.Relations.Add(this.relationwork_ibfk_2);
             this.relationwork_ibfk_3 = new global::System.Data.DataRelation("work_ibfk_3", new global::System.Data.DataColumn[] {
                         this.tableassignedtask.Task_UIDColumn}, new global::System.Data.DataColumn[] {
                         this.tablework.Task_UIDColumn}, false);
@@ -590,6 +586,10 @@ namespace DataAccessLayer {
                         this.tableworktype.WorkType_UIDColumn}, new global::System.Data.DataColumn[] {
                         this.tableassignedtask.WorkType_UIDColumn}, false);
             this.Relations.Add(this.relationassignedtask_ibfk_3);
+            this.relationwork_ibfk_2 = new global::System.Data.DataRelation("work_ibfk_2", new global::System.Data.DataColumn[] {
+                        this.tableworktype.WorkType_UIDColumn}, new global::System.Data.DataColumn[] {
+                        this.tablework.WorkType_UIDColumn}, false);
+            this.Relations.Add(this.relationwork_ibfk_2);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3717,7 +3717,7 @@ namespace DataAccessLayer {
             
             private global::System.Data.DataColumn columnWork_Description;
             
-            private global::System.Data.DataColumn columnWork_PartWorkedOn;
+            private global::System.Data.DataColumn columnWorkType_UID;
             
             private global::System.Data.DataColumn columnWork_TimeWorkedMins;
             
@@ -3786,9 +3786,9 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Work_PartWorkedOnColumn {
+            public global::System.Data.DataColumn WorkType_UIDColumn {
                 get {
-                    return this.columnWork_PartWorkedOn;
+                    return this.columnWorkType_UID;
                 }
             }
             
@@ -3913,7 +3913,7 @@ namespace DataAccessLayer {
                 this.columnWork_UID = base.Columns["Work_UID"];
                 this.columnWork_DateCompleted = base.Columns["Work_DateCompleted"];
                 this.columnWork_Description = base.Columns["Work_Description"];
-                this.columnWork_PartWorkedOn = base.Columns["Work_PartWorkedOn"];
+                this.columnWorkType_UID = base.Columns["WorkType_UID"];
                 this.columnWork_TimeWorkedMins = base.Columns["Work_TimeWorkedMins"];
                 this.columnUser_Username = base.Columns["User_Username"];
                 this.columnTask_UID = base.Columns["Task_UID"];
@@ -3929,8 +3929,8 @@ namespace DataAccessLayer {
                 base.Columns.Add(this.columnWork_DateCompleted);
                 this.columnWork_Description = new global::System.Data.DataColumn("Work_Description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWork_Description);
-                this.columnWork_PartWorkedOn = new global::System.Data.DataColumn("Work_PartWorkedOn", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWork_PartWorkedOn);
+                this.columnWorkType_UID = new global::System.Data.DataColumn("WorkType_UID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkType_UID);
                 this.columnWork_TimeWorkedMins = new global::System.Data.DataColumn("Work_TimeWorkedMins", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWork_TimeWorkedMins);
                 this.columnUser_Username = new global::System.Data.DataColumn("User_Username", typeof(string), null, global::System.Data.MappingType.Element);
@@ -3950,7 +3950,7 @@ namespace DataAccessLayer {
                 this.columnWork_UID.Unique = true;
                 this.columnWork_DateCompleted.AllowDBNull = false;
                 this.columnWork_Description.MaxLength = 255;
-                this.columnWork_PartWorkedOn.AllowDBNull = false;
+                this.columnWorkType_UID.AllowDBNull = false;
                 this.columnUser_Username.AllowDBNull = false;
                 this.columnUser_Username.MaxLength = 255;
                 this.columnTask_UID.Unique = true;
@@ -6616,12 +6616,12 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Work_PartWorkedOn {
+            public int WorkType_UID {
                 get {
-                    return ((int)(this[this.tablework.Work_PartWorkedOnColumn]));
+                    return ((int)(this[this.tablework.WorkType_UIDColumn]));
                 }
                 set {
-                    this[this.tablework.Work_PartWorkedOnColumn] = value;
+                    this[this.tablework.WorkType_UIDColumn] = value;
                 }
             }
             
@@ -6697,23 +6697,23 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public worktypeRow worktypeRow {
-                get {
-                    return ((worktypeRow)(this.GetParentRow(this.Table.ParentRelations["work_ibfk_2"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["work_ibfk_2"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public assignedtaskRow assignedtaskRow {
                 get {
                     return ((assignedtaskRow)(this.GetParentRow(this.Table.ParentRelations["work_ibfk_3"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["work_ibfk_3"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public worktypeRow worktypeRow {
+                get {
+                    return ((worktypeRow)(this.GetParentRow(this.Table.ParentRelations["work_ibfk_2"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["work_ibfk_2"]);
                 }
             }
             
@@ -6865,23 +6865,23 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public workRow[] GetworkRows() {
-                if ((this.Table.ChildRelations["work_ibfk_2"] == null)) {
-                    return new workRow[0];
-                }
-                else {
-                    return ((workRow[])(base.GetChildRows(this.Table.ChildRelations["work_ibfk_2"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public assignedtaskRow[] GetassignedtaskRows() {
                 if ((this.Table.ChildRelations["assignedtask_ibfk_3"] == null)) {
                     return new assignedtaskRow[0];
                 }
                 else {
                     return ((assignedtaskRow[])(base.GetChildRows(this.Table.ChildRelations["assignedtask_ibfk_3"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public workRow[] GetworkRows() {
+                if ((this.Table.ChildRelations["work_ibfk_2"] == null)) {
+                    return new workRow[0];
+                }
+                else {
+                    return ((workRow[])(base.GetChildRows(this.Table.ChildRelations["work_ibfk_2"])));
                 }
             }
         }
@@ -7980,13 +7980,57 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        Task_UID, User_Username_AssignedTo, User_Username_AssignedBy, Task_" +
                 "Name, Task_Description, Task_TakeFiveNeeded, WorkType_UID, \r\n                   " +
                 "      Task_IncompleteReason, Task_Status\r\nFROM            assignedtask";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        Task_UID, User_Username_AssignedTo, User_Username_AssignedBy, Task_Name, Task_Description, Task_TakeFiveNeeded, WorkType_UID, 
+                         Task_IncompleteReason, Task_Status
+FROM            assignedtask
+WHERE          User_Username_AssignedTo = @Username";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "Username";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 255;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Username_AssignedTo";
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT        Task_UID, User_Username_AssignedTo, User_Username_AssignedBy, Task_Name, Task_Description, Task_TakeFiveNeeded, WorkType_UID, 
+                         Task_IncompleteReason, Task_Status
+FROM            assignedtask
+WHERE         User_Username_AssignedBy = @Username";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "Username";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 255;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Username_AssignedBy";
+            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT        Task_UID, User_Username_AssignedTo, User_Username_AssignedBy, Task_Name, Task_Description, Task_TakeFiveNeeded, WorkType_UID, 
+                         Task_IncompleteReason, Task_Status
+FROM            assignedtask
+WHERE          WorkType_UID = @WorkTypeID";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "WorkTypeID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_UID";
+            this._commandCollection[3].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8008,6 +8052,104 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual NuRacingDataSet.assignedtaskDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            NuRacingDataSet.assignedtaskDataTable dataTable = new NuRacingDataSet.assignedtaskDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByAssignedUser(NuRacingDataSet.assignedtaskDataTable dataTable, string Username) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Username));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.assignedtaskDataTable GetDataByAssignedUser(string Username) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Username));
+            }
+            NuRacingDataSet.assignedtaskDataTable dataTable = new NuRacingDataSet.assignedtaskDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByAssigningUser(NuRacingDataSet.assignedtaskDataTable dataTable, string Username) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Username));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.assignedtaskDataTable GetDataByAssigningUser(string Username) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Username));
+            }
+            NuRacingDataSet.assignedtaskDataTable dataTable = new NuRacingDataSet.assignedtaskDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByWorkTypeID(NuRacingDataSet.assignedtaskDataTable dataTable, int WorkTypeID) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(WorkTypeID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.assignedtaskDataTable GetDataByWorkTypeID(int WorkTypeID) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(WorkTypeID));
             NuRacingDataSet.assignedtaskDataTable dataTable = new NuRacingDataSet.assignedtaskDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -8547,12 +8689,57 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `Sponsored_UID`, `Project_UID`, `User_UserName` FROM `nuracing`.`sponsored" +
                 "`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT `Sponsored_UID`, `Project_UID`, `User_UserName` FROM `nuracing`.`sponsored" +
+                "`\r\nWHERE User_Username = @Username AND Project_UID = @ProjectID";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "Username";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 255;
+            param.IsNullable = true;
+            param.SourceColumn = "User_UserName";
+            this._commandCollection[1].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "ProjectID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_UID";
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT `Sponsored_UID`, `Project_UID`, `User_UserName` \r\nFROM `nuracing`.`sponsor" +
+                "ed`\r\nWHERE Project_UID = @ProjectID";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "ProjectID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_UID";
+            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT `Sponsored_UID`, `Project_UID`, `User_UserName` FROM `nuracing`.`sponsored" +
+                "`\r\nWHERE User_Username = @Username";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "Username";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 255;
+            param.IsNullable = true;
+            param.SourceColumn = "User_UserName";
+            this._commandCollection[3].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8574,6 +8761,106 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual NuRacingDataSet.sponsoredDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            NuRacingDataSet.sponsoredDataTable dataTable = new NuRacingDataSet.sponsoredDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByBoth(NuRacingDataSet.sponsoredDataTable dataTable, string Username, int ProjectID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Username));
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(ProjectID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.sponsoredDataTable GetDataByBoth(string Username, int ProjectID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Username));
+            }
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(ProjectID));
+            NuRacingDataSet.sponsoredDataTable dataTable = new NuRacingDataSet.sponsoredDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByProject(NuRacingDataSet.sponsoredDataTable dataTable, int ProjectID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ProjectID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.sponsoredDataTable GetDataByProject(int ProjectID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ProjectID));
+            NuRacingDataSet.sponsoredDataTable dataTable = new NuRacingDataSet.sponsoredDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByUsername(NuRacingDataSet.sponsoredDataTable dataTable, string Username) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Username));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.sponsoredDataTable GetDataByUsername(string Username) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Username));
+            }
             NuRacingDataSet.sponsoredDataTable dataTable = new NuRacingDataSet.sponsoredDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -8864,12 +9151,38 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `PasswordRR_UID`, `User_UserName`, `PasswordRR_ExpiryDate` FROM `nuracing`" +
                 ".`passwordresetrequest`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT `PasswordRR_UID`, `User_UserName`, `PasswordRR_ExpiryDate` FROM `nuracing`" +
+                ".`passwordresetrequest`\r\nWHERE PasswordRR_UID = @PasswordResetRequestID";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "PasswordResetRequestID";
+            param.DbType = global::System.Data.DbType.Binary;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Binary;
+            param.Size = 16;
+            param.IsNullable = true;
+            param.SourceColumn = "PasswordRR_UID";
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT `PasswordRR_UID`, `User_UserName`, `PasswordRR_ExpiryDate` FROM `nuracing`" +
+                ".`passwordresetrequest`\r\nWHERE User_Username = @Username";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "Username";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 255;
+            param.IsNullable = true;
+            param.SourceColumn = "User_UserName";
+            this._commandCollection[2].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8891,6 +9204,78 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual NuRacingDataSet.passwordresetrequestDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            NuRacingDataSet.passwordresetrequestDataTable dataTable = new NuRacingDataSet.passwordresetrequestDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPasswordRRID(NuRacingDataSet.passwordresetrequestDataTable dataTable, byte[] PasswordResetRequestID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((PasswordResetRequestID == null)) {
+                throw new global::System.ArgumentNullException("PasswordResetRequestID");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((byte[])(PasswordResetRequestID));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.passwordresetrequestDataTable GetPasswordResetRequest(byte[] PasswordResetRequestID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((PasswordResetRequestID == null)) {
+                throw new global::System.ArgumentNullException("PasswordResetRequestID");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((byte[])(PasswordResetRequestID));
+            }
+            NuRacingDataSet.passwordresetrequestDataTable dataTable = new NuRacingDataSet.passwordresetrequestDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByUsername(NuRacingDataSet.passwordresetrequestDataTable dataTable, string Username) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Username));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.passwordresetrequestDataTable GetDataByUsername(string Username) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Username));
+            }
             NuRacingDataSet.passwordresetrequestDataTable dataTable = new NuRacingDataSet.passwordresetrequestDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -9434,12 +9819,24 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `Project_UID`, `Project_YearMade`, `Project_Name`, `Project_Description`, " +
                 "`Project_Active` FROM `nuracing`.`project`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT `Project_UID`, `Project_YearMade`, `Project_Name`, `Project_Description`, " +
+                "`Project_Active` FROM `nuracing`.`project`\r\nWHERE Project_UID = @ProjectID\r\n";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "ProjectID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_UID";
+            this._commandCollection[1].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9461,6 +9858,32 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual NuRacingDataSet.projectDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            NuRacingDataSet.projectDataTable dataTable = new NuRacingDataSet.projectDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByProjectID(NuRacingDataSet.projectDataTable dataTable, int ProjectID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ProjectID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.projectDataTable GetProject(int ProjectID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ProjectID));
             NuRacingDataSet.projectDataTable dataTable = new NuRacingDataSet.projectDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -10047,12 +10470,66 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[5];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `Purchase_ID`, `WorkType_UID`, `User_Username`, `Purchase_TotalPrice`, `Pu" +
                 "rchase_Good`, `Purchase_Supplier` FROM `nuracing`.`purchase`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT \r\n\tPurchase_ID,\r\n\tPurchase.WorkType_UID,\r\n\tUser_Username,\r\n\tPurchase_Total" +
+                "Price,\r\n\tPurchase_Good,\r\n\tPurchase_Supplier\r\nFROM\r\n\tPurchase LEFT JOIN WorkType " +
+                "ON \r\n\t\tPurchase.WorkType_UID = WorkType.WorkType_UID\r\nWHERE\r\n\tProject_UID = @Pro" +
+                "ject_UID";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "Project_UID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_UID";
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT \r\n\tPurchase_ID,\r\n\tWorkType_UID,\r\n\tUser_Username,\r\n\tPurchase_TotalPrice,\r\n\t" +
+                "Purchase_Good,\r\n\tPurchase_Supplier\r\nFROM\r\n\tPurchase\r\nWHERE\r\n\tPurchase_ID = @Purc" +
+                "haseID";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "PurchaseID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Purchase_ID";
+            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT `Purchase_ID`, `WorkType_UID`, `User_Username`, `Purchase_TotalPrice`, `Pu" +
+                "rchase_Good`, `Purchase_Supplier` FROM `nuracing`.`purchase`\r\nWHERE User_Usernam" +
+                "e = @Username";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "Username";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 255;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Username";
+            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT        Purchase_ID, WorkType_UID, User_Username, Purchase_TotalPrice, Purc" +
+                "hase_Good, Purchase_Supplier\r\nFROM            purchase\r\nWHERE        WorkType_UI" +
+                "D = @WorkTypeID";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "WorkTypeID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_UID";
+            this._commandCollection[4].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10074,6 +10551,120 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual NuRacingDataSet.purchaseDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            NuRacingDataSet.purchaseDataTable dataTable = new NuRacingDataSet.purchaseDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByProjectID(NuRacingDataSet.purchaseDataTable dataTable, int Project_UID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Project_UID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.purchaseDataTable GetDataByProjectID(int Project_UID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Project_UID));
+            NuRacingDataSet.purchaseDataTable dataTable = new NuRacingDataSet.purchaseDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPurchaseID(NuRacingDataSet.purchaseDataTable dataTable, int PurchaseID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PurchaseID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.purchaseDataTable GetPurchase(int PurchaseID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(PurchaseID));
+            NuRacingDataSet.purchaseDataTable dataTable = new NuRacingDataSet.purchaseDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByUsername(NuRacingDataSet.purchaseDataTable dataTable, string Username) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Username));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.purchaseDataTable GetDataByUsername(string Username) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Username));
+            }
+            NuRacingDataSet.purchaseDataTable dataTable = new NuRacingDataSet.purchaseDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByWorkTypeID(NuRacingDataSet.purchaseDataTable dataTable, int WorkTypeID) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(WorkTypeID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.purchaseDataTable GetDataByWorkTypeID(int WorkTypeID) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(WorkTypeID));
             NuRacingDataSet.purchaseDataTable dataTable = new NuRacingDataSet.purchaseDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -10548,12 +11139,24 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `TakeFive_UID`, `TakeFive_Question`, `TakeFive_Response` FROM `nuracing`.`" +
                 "takefive`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT `TakeFive_UID`, `TakeFive_Question`, `TakeFive_Response` FROM `nuracing`.`" +
+                "takefive`\r\nWHERE TakeFive_UID = @TakeFiveID";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "TakeFiveID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "TakeFive_UID";
+            this._commandCollection[1].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10575,6 +11178,32 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual NuRacingDataSet.takefiveDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            NuRacingDataSet.takefiveDataTable dataTable = new NuRacingDataSet.takefiveDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTakeFiveID(NuRacingDataSet.takefiveDataTable dataTable, int TakeFiveID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TakeFiveID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.takefiveDataTable GetTakeFive(int TakeFiveID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TakeFiveID));
             NuRacingDataSet.takefiveDataTable dataTable = new NuRacingDataSet.takefiveDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -10988,12 +11617,56 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `TakeFiveResponse_UID`, `TakeFiveResponse_Reason`, `TakeFive_UID`, `Work_U" +
                 "ID` FROM `nuracing`.`takefiveresponse`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT `TakeFiveResponse_UID`, `TakeFiveResponse_Reason`, `TakeFive_UID`, `Work_U" +
+                "ID` FROM `nuracing`.`takefiveresponse`\r\nWHERE TakeFive_UID = @TakeFiveID AND Wor" +
+                "k_UID = @WorkID";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "TakeFiveID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "TakeFive_UID";
+            this._commandCollection[1].Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "WorkID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Work_UID";
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT `TakeFiveResponse_UID`, `TakeFiveResponse_Reason`, `TakeFive_UID`, `Work_U" +
+                "ID` FROM `nuracing`.`takefiveresponse`\r\nWHERE TakeFive_UID = @TakeFiveID";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "TakeFiveID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "TakeFive_UID";
+            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT `TakeFiveResponse_UID`, `TakeFiveResponse_Reason`, `TakeFive_UID`, `Work_U" +
+                "ID` FROM `nuracing`.`takefiveresponse`\r\nWHERE Work_UID = @WorkID";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "WorkID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Work_UID";
+            this._commandCollection[3].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11015,6 +11688,86 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual NuRacingDataSet.takefiveresponseDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            NuRacingDataSet.takefiveresponseDataTable dataTable = new NuRacingDataSet.takefiveresponseDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByBoth(NuRacingDataSet.takefiveresponseDataTable dataTable, int TakeFiveID, int WorkID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TakeFiveID));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(WorkID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.takefiveresponseDataTable GetDataByBoth(int TakeFiveID, int WorkID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TakeFiveID));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((int)(WorkID));
+            NuRacingDataSet.takefiveresponseDataTable dataTable = new NuRacingDataSet.takefiveresponseDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTakeFiveID(NuRacingDataSet.takefiveresponseDataTable dataTable, int TakeFiveID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TakeFiveID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.takefiveresponseDataTable GetDataByTakeFiveID(int TakeFiveID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TakeFiveID));
+            NuRacingDataSet.takefiveresponseDataTable dataTable = new NuRacingDataSet.takefiveresponseDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByWorkID(NuRacingDataSet.takefiveresponseDataTable dataTable, int WorkID) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(WorkID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.takefiveresponseDataTable GetDataByWorkID(int WorkID) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(WorkID));
             NuRacingDataSet.takefiveresponseDataTable dataTable = new NuRacingDataSet.takefiveresponseDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -13892,15 +14645,15 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Work_UID", "Work_UID");
             tableMapping.ColumnMappings.Add("Work_DateCompleted", "Work_DateCompleted");
             tableMapping.ColumnMappings.Add("Work_Description", "Work_Description");
-            tableMapping.ColumnMappings.Add("Work_PartWorkedOn", "Work_PartWorkedOn");
             tableMapping.ColumnMappings.Add("Work_TimeWorkedMins", "Work_TimeWorkedMins");
             tableMapping.ColumnMappings.Add("User_Username", "User_Username");
             tableMapping.ColumnMappings.Add("Task_UID", "Task_UID");
             tableMapping.ColumnMappings.Add("Work_TakeFiveTaken", "Work_TakeFiveTaken");
+            tableMapping.ColumnMappings.Add("WorkType_UID", "WorkType_UID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `nuracing`.`work` WHERE ((`Work_UID` = @Original_Work_UID) AND (`Work_DateCompleted` = @Original_Work_DateCompleted) AND ((@IsNull_Work_Description = 1 AND `Work_Description` IS NULL) OR (`Work_Description` = @Original_Work_Description)) AND (`Work_PartWorkedOn` = @Original_Work_PartWorkedOn) AND ((@IsNull_Work_TimeWorkedMins = 1 AND `Work_TimeWorkedMins` IS NULL) OR (`Work_TimeWorkedMins` = @Original_Work_TimeWorkedMins)) AND (`User_Username` = @Original_User_Username) AND ((@IsNull_Task_UID = 1 AND `Task_UID` IS NULL) OR (`Task_UID` = @Original_Task_UID)) AND ((@IsNull_Work_TakeFiveTaken = 1 AND `Work_TakeFiveTaken` IS NULL) OR (`Work_TakeFiveTaken` = @Original_Work_TakeFiveTaken)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `nuracing`.`work` WHERE ((`Work_UID` = @Original_Work_UID) AND (`Work_DateCompleted` = @Original_Work_DateCompleted) AND ((@IsNull_Work_Description = 1 AND `Work_Description` IS NULL) OR (`Work_Description` = @Original_Work_Description)) AND (`WorkType_UID` = @Original_WorkType_UID) AND ((@IsNull_Work_TimeWorkedMins = 1 AND `Work_TimeWorkedMins` IS NULL) OR (`Work_TimeWorkedMins` = @Original_Work_TimeWorkedMins)) AND (`User_Username` = @Original_User_Username) AND ((@IsNull_Task_UID = 1 AND `Task_UID` IS NULL) OR (`Task_UID` = @Original_Task_UID)) AND ((@IsNull_Work_TakeFiveTaken = 1 AND `Work_TakeFiveTaken` IS NULL) OR (`Work_TakeFiveTaken` = @Original_Work_TakeFiveTaken)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_Work_UID";
@@ -13936,11 +14689,11 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Work_PartWorkedOn";
+            param.ParameterName = "@Original_WorkType_UID";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Work_PartWorkedOn";
+            param.SourceColumn = "WorkType_UID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -14004,7 +14757,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `nuracing`.`work` (`Work_DateCompleted`, `Work_Description`, `Work_PartWorkedOn`, `Work_TimeWorkedMins`, `User_Username`, `Task_UID`, `Work_TakeFiveTaken`) VALUES (@Work_DateCompleted, @Work_Description, @Work_PartWorkedOn, @Work_TimeWorkedMins, @User_Username, @Task_UID, @Work_TakeFiveTaken)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `nuracing`.`work` (`Work_DateCompleted`, `Work_Description`, `WorkType_UID`, `Work_TimeWorkedMins`, `User_Username`, `Task_UID`, `Work_TakeFiveTaken`) VALUES (@Work_DateCompleted, @Work_Description, @WorkType_UID, @Work_TimeWorkedMins, @User_Username, @Task_UID, @Work_TakeFiveTaken)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Work_DateCompleted";
@@ -14021,11 +14774,11 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceColumn = "Work_Description";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Work_PartWorkedOn";
+            param.ParameterName = "@WorkType_UID";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Work_PartWorkedOn";
+            param.SourceColumn = "WorkType_UID";
             this._adapter.InsertCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Work_TimeWorkedMins";
@@ -14057,7 +14810,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `nuracing`.`work` SET `Work_DateCompleted` = @Work_DateCompleted, `Work_Description` = @Work_Description, `Work_PartWorkedOn` = @Work_PartWorkedOn, `Work_TimeWorkedMins` = @Work_TimeWorkedMins, `User_Username` = @User_Username, `Task_UID` = @Task_UID, `Work_TakeFiveTaken` = @Work_TakeFiveTaken WHERE ((`Work_UID` = @Original_Work_UID) AND (`Work_DateCompleted` = @Original_Work_DateCompleted) AND ((@IsNull_Work_Description = 1 AND `Work_Description` IS NULL) OR (`Work_Description` = @Original_Work_Description)) AND (`Work_PartWorkedOn` = @Original_Work_PartWorkedOn) AND ((@IsNull_Work_TimeWorkedMins = 1 AND `Work_TimeWorkedMins` IS NULL) OR (`Work_TimeWorkedMins` = @Original_Work_TimeWorkedMins)) AND (`User_Username` = @Original_User_Username) AND ((@IsNull_Task_UID = 1 AND `Task_UID` IS NULL) OR (`Task_UID` = @Original_Task_UID)) AND ((@IsNull_Work_TakeFiveTaken = 1 AND `Work_TakeFiveTaken` IS NULL) OR (`Work_TakeFiveTaken` = @Original_Work_TakeFiveTaken)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `nuracing`.`work` SET `Work_DateCompleted` = @Work_DateCompleted, `Work_Description` = @Work_Description, `WorkType_UID` = @WorkType_UID, `Work_TimeWorkedMins` = @Work_TimeWorkedMins, `User_Username` = @User_Username, `Task_UID` = @Task_UID, `Work_TakeFiveTaken` = @Work_TakeFiveTaken WHERE ((`Work_UID` = @Original_Work_UID) AND (`Work_DateCompleted` = @Original_Work_DateCompleted) AND ((@IsNull_Work_Description = 1 AND `Work_Description` IS NULL) OR (`Work_Description` = @Original_Work_Description)) AND (`WorkType_UID` = @Original_WorkType_UID) AND ((@IsNull_Work_TimeWorkedMins = 1 AND `Work_TimeWorkedMins` IS NULL) OR (`Work_TimeWorkedMins` = @Original_Work_TimeWorkedMins)) AND (`User_Username` = @Original_User_Username) AND ((@IsNull_Task_UID = 1 AND `Task_UID` IS NULL) OR (`Task_UID` = @Original_Task_UID)) AND ((@IsNull_Work_TakeFiveTaken = 1 AND `Work_TakeFiveTaken` IS NULL) OR (`Work_TakeFiveTaken` = @Original_Work_TakeFiveTaken)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Work_DateCompleted";
@@ -14074,11 +14827,11 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceColumn = "Work_Description";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Work_PartWorkedOn";
+            param.ParameterName = "@WorkType_UID";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Work_PartWorkedOn";
+            param.SourceColumn = "WorkType_UID";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Work_TimeWorkedMins";
@@ -14142,11 +14895,11 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Original_Work_PartWorkedOn";
+            param.ParameterName = "@Original_WorkType_UID";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
-            param.SourceColumn = "Work_PartWorkedOn";
+            param.SourceColumn = "WorkType_UID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -14220,13 +14973,52 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Work_UID`, `Work_DateCompleted`, `Work_Description`, `Work_PartWorkedOn`," +
-                " `Work_TimeWorkedMins`, `User_Username`, `Task_UID`, `Work_TakeFiveTaken` FROM `" +
-                "nuracing`.`work`";
+            this._commandCollection[0].CommandText = "SELECT `Work_UID`, `Work_DateCompleted`, `Work_Description`, `WorkType_UID`, `Wor" +
+                "k_TimeWorkedMins`, `User_Username`, `Task_UID`, `Work_TakeFiveTaken` FROM `nurac" +
+                "ing`.`work`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT `Work_UID`, `Work_DateCompleted`, `Work_Description`, `WorkType_UID`, `Wor" +
+                "k_TimeWorkedMins`, `User_Username`, `Task_UID`, `Work_TakeFiveTaken` FROM `nurac" +
+                "ing`.`work`\r\nWHERE Task_UID = @TaskID";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "TaskID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Task_UID";
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT `Work_UID`, `Work_DateCompleted`, `Work_Description`, `WorkType_UID`, `Wor" +
+                "k_TimeWorkedMins`, `User_Username`, `Task_UID`, `Work_TakeFiveTaken` FROM `nurac" +
+                "ing`.`work`\r\nWHERE Work_UID = @WorkID";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "WorkID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Work_UID";
+            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT `Work_UID`, `Work_DateCompleted`, `Work_Description`, `WorkType_UID`, `Wor" +
+                "k_TimeWorkedMins`, `User_Username`, `Task_UID`, `Work_TakeFiveTaken` FROM `nurac" +
+                "ing`.`work`\r\nWHERE WorkType_UID = @WorkTypeID";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "WorkTypeID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_UID";
+            this._commandCollection[3].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14248,6 +15040,94 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual NuRacingDataSet.workDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            NuRacingDataSet.workDataTable dataTable = new NuRacingDataSet.workDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByTaskID(NuRacingDataSet.workDataTable dataTable, global::System.Nullable<int> TaskID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((TaskID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TaskID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.workDataTable GetDataByTaskID(global::System.Nullable<int> TaskID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((TaskID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((int)(TaskID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            NuRacingDataSet.workDataTable dataTable = new NuRacingDataSet.workDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByWorkID(NuRacingDataSet.workDataTable dataTable, int WorkID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(WorkID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.workDataTable GetWork(int WorkID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(WorkID));
+            NuRacingDataSet.workDataTable dataTable = new NuRacingDataSet.workDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByWorkTypeID(NuRacingDataSet.workDataTable dataTable, int WorkTypeID) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(WorkTypeID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.workDataTable GetDataByWorkTypeID(int WorkTypeID) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(WorkTypeID));
             NuRacingDataSet.workDataTable dataTable = new NuRacingDataSet.workDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -14286,7 +15166,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Work_UID, System.DateTime Original_Work_DateCompleted, string Original_Work_Description, int Original_Work_PartWorkedOn, global::System.Nullable<int> Original_Work_TimeWorkedMins, string Original_User_Username, global::System.Nullable<int> Original_Task_UID, global::System.Nullable<byte> Original_Work_TakeFiveTaken) {
+        public virtual int Delete(int Original_Work_UID, System.DateTime Original_Work_DateCompleted, string Original_Work_Description, int Original_WorkType_UID, global::System.Nullable<int> Original_Work_TimeWorkedMins, string Original_User_Username, global::System.Nullable<int> Original_Task_UID, global::System.Nullable<byte> Original_Work_TakeFiveTaken) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Work_UID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((System.DateTime)(Original_Work_DateCompleted));
             if ((Original_Work_Description == null)) {
@@ -14297,7 +15177,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Work_Description));
             }
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Work_PartWorkedOn));
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_WorkType_UID));
             if ((Original_Work_TimeWorkedMins.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_Work_TimeWorkedMins.Value));
@@ -14348,7 +15228,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(System.DateTime Work_DateCompleted, string Work_Description, int Work_PartWorkedOn, global::System.Nullable<int> Work_TimeWorkedMins, string User_Username, global::System.Nullable<int> Task_UID, global::System.Nullable<byte> Work_TakeFiveTaken) {
+        public virtual int Insert(System.DateTime Work_DateCompleted, string Work_Description, int WorkType_UID, global::System.Nullable<int> Work_TimeWorkedMins, string User_Username, global::System.Nullable<int> Task_UID, global::System.Nullable<byte> Work_TakeFiveTaken) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(Work_DateCompleted));
             if ((Work_Description == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -14356,7 +15236,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Work_Description));
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Work_PartWorkedOn));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(WorkType_UID));
             if ((Work_TimeWorkedMins.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Work_TimeWorkedMins.Value));
             }
@@ -14401,7 +15281,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.DateTime Work_DateCompleted, string Work_Description, int Work_PartWorkedOn, global::System.Nullable<int> Work_TimeWorkedMins, string User_Username, global::System.Nullable<int> Task_UID, global::System.Nullable<byte> Work_TakeFiveTaken, int Original_Work_UID, System.DateTime Original_Work_DateCompleted, string Original_Work_Description, int Original_Work_PartWorkedOn, global::System.Nullable<int> Original_Work_TimeWorkedMins, string Original_User_Username, global::System.Nullable<int> Original_Task_UID, global::System.Nullable<byte> Original_Work_TakeFiveTaken) {
+        public virtual int Update(System.DateTime Work_DateCompleted, string Work_Description, int WorkType_UID, global::System.Nullable<int> Work_TimeWorkedMins, string User_Username, global::System.Nullable<int> Task_UID, global::System.Nullable<byte> Work_TakeFiveTaken, int Original_Work_UID, System.DateTime Original_Work_DateCompleted, string Original_Work_Description, int Original_WorkType_UID, global::System.Nullable<int> Original_Work_TimeWorkedMins, string Original_User_Username, global::System.Nullable<int> Original_Task_UID, global::System.Nullable<byte> Original_Work_TakeFiveTaken) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(Work_DateCompleted));
             if ((Work_Description == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -14409,7 +15289,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Work_Description));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Work_PartWorkedOn));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(WorkType_UID));
             if ((Work_TimeWorkedMins.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Work_TimeWorkedMins.Value));
             }
@@ -14444,7 +15324,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Work_Description));
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_Work_PartWorkedOn));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_WorkType_UID));
             if ((Original_Work_TimeWorkedMins.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
                 this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_Work_TimeWorkedMins.Value));
@@ -14738,11 +15618,35 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `WorkType_UID`, `Project_UID`, `WorkType_Name` FROM `nuracing`.`worktype`";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT `WorkType_UID`, `Project_UID`, `WorkType_Name` FROM `nuracing`.`worktype`\r" +
+                "\nWHERE Project_UID = @ProjectID";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "ProjectID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_UID";
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT `WorkType_UID`, `Project_UID`, `WorkType_Name` FROM `nuracing`.`worktype`\r" +
+                "\nWHERE WorkType_UID = @WorkTypeID";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "WorkTypeID";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_UID";
+            this._commandCollection[2].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14764,6 +15668,58 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual NuRacingDataSet.worktypeDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            NuRacingDataSet.worktypeDataTable dataTable = new NuRacingDataSet.worktypeDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByProjectID(NuRacingDataSet.worktypeDataTable dataTable, int ProjectID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ProjectID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.worktypeDataTable GetDataByProjectID(int ProjectID) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ProjectID));
+            NuRacingDataSet.worktypeDataTable dataTable = new NuRacingDataSet.worktypeDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByWorkTypeID(NuRacingDataSet.worktypeDataTable dataTable, int WorkTypeID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(WorkTypeID));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.worktypeDataTable GetWorkType(int WorkTypeID) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(WorkTypeID));
             NuRacingDataSet.worktypeDataTable dataTable = new NuRacingDataSet.worktypeDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
