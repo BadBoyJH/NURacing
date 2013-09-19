@@ -8808,7 +8808,7 @@ WHERE          WorkType_UID = @WorkTypeID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByProject(NuRacingDataSet.sponsoredDataTable dataTable, int ProjectID) {
+        public virtual int FillByProjectID(NuRacingDataSet.sponsoredDataTable dataTable, int ProjectID) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ProjectID));
             if ((this.ClearBeforeFill == true)) {
@@ -8822,7 +8822,7 @@ WHERE          WorkType_UID = @WorkTypeID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual NuRacingDataSet.sponsoredDataTable GetDataByProject(int ProjectID) {
+        public virtual NuRacingDataSet.sponsoredDataTable GetDataByProjectID(int ProjectID) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(ProjectID));
             NuRacingDataSet.sponsoredDataTable dataTable = new NuRacingDataSet.sponsoredDataTable();

@@ -198,7 +198,7 @@ WHERE User_Username = @Username AND Project_UID = @ProjectID</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="NuRacingConnectionString (Settings)" DbObjectName="NuRacing.sponsored" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByProject" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByProject" GeneratorSourceName="FillByProject" GetMethodModifier="Public" GetMethodName="GetDataByProject" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByProject" UserSourceName="FillByProject">
+              <DbSource ConnectionRef="NuRacingConnectionString (Settings)" DbObjectName="NuRacing.sponsored" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByProjectID" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByProjectID" GeneratorSourceName="FillByProjectID" GetMethodModifier="Public" GetMethodName="GetDataByProjectID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByProjectID" UserSourceName="FillByProjectID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT `Sponsored_UID`, `Project_UID`, `User_UserName` 
