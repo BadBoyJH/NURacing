@@ -148,17 +148,19 @@ namespace BusinessLogicLayer
             return result;
         }
 
-        //Waiting on James to add required methods
+        static List<TaskInfo> getProjectTasks(int ProjectID)
+        {
+            worktypeTableAdapter workTypeAdapter = new worktypeTableAdapter();
+            NuRacingDataSet.worktypeDataTable workTypeTable = workTypeAdapter.GetDataByProjectID(ProjectID);
 
-        //static List<TaskInfo> getProjectTasks(int projectID)
-        //{
-        //    worktypeTableAdapter workTypeAdapter = new worktypeTableAdapter();
+            List<TaskInfo> result = new List<TaskInfo>();
 
-        //    NuRacingDataSet.worktypeDataTable workTypeTable = workTypeAdapter.GetDataByProjectID(projectID);
+            foreach (NuRacingDataSet.worktypeRow workTypeRow in workTypeTable)
+            {
+                result.AddRange(getWorkTypeTasks(workTypeRow.WorkType_UID));
+            }
 
-        //    //List<TaskInfo> taskList = new
-
-        //    return 
-        //}
+            return result;
+        }
     }
 }
