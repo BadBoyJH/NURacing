@@ -25,7 +25,7 @@ namespace BusinessLogicLayer
             workTypeAdapter.Update(WorkTypeTable);
         }
 
-        static public bool WorkTypeIDExists(int WorkTypeID)
+        static public bool WorkTypeExists(int WorkTypeID)
         {
             return (new worktypeTableAdapter().GetWorkType(WorkTypeID).Rows.Count != 0);
         }
