@@ -14,7 +14,7 @@ namespace BusinessLogicLayer
     static class AssignedTask
     {
         /// <summary>
-        /// Adds a task for the specified user.
+        /// Adds a task for the specified user and send them an email notification.
         /// </summary>
         /// <param name="assigningUser">User assigning the task</param>
         /// <param name="assignedToUser">User task was assigned to</param>
@@ -46,6 +46,8 @@ namespace BusinessLogicLayer
             assignedTaskTable.AddassignedtaskRow(assignedTaskRow);
 
             assignedTaskAdapter.Update(assignedTaskTable);
+
+            EmailManager.taskNotification(assignedToUser, assigningUser, name, description, User.getEmail(assignedToUser));
         }
 
         /// <summary>
