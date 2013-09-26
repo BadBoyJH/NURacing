@@ -71,12 +71,21 @@ namespace BusinessLogicLayer
 
             MailMessage email = new MailMessage();
             email.To.Add(Recipient);
-            email.Subject = "NURacing Online - Password Reset Complete";
+            email.Subject = "NURacing Online - User Registration";
             email.From = new MailAddress(ourEmail);
             email.Body = message;
 
             smtp.Send(email);
             
+        }
+
+        static public void taskNotification(string assignedTo, string assignedBy, string taskName, string taskDescription, string recipient)
+        {
+            string message =
+                assignedTo + ",\n\n"
+                + assignedBy + " has assigned a task to you.\n\n"
+                + taskName + ": " + taskDescription + ".\n\n"
+                + "Love,\nThe Administrator";
         }
     }
 }
