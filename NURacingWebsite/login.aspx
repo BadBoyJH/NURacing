@@ -37,10 +37,18 @@
     <p style="text-align:center">Welcome to the NURacing System. Please enter your login details below.</p>
      <asp:Panel runat="server" HorizontalAlign="Center">
     <div id ="loginForm" class="loginForm">
-        <table align="center" border="0" style="text-align:right">
+        <table border="0" style="margin-left:auto; margin-right:auto; text-align:right;">
         <tr><td><asp:Label runat="server" ID="UsernameLbl">Username: </asp:Label></td><td><asp:TextBox runat="server" Width="110px" ID="UsernameTxtBx" /></td></tr>
         <tr><td><asp:Label runat="server" ID="PassLbl">Password: </asp:Label></td><td><asp:TextBox runat="server" TextMode="Password" Width="110px" ID="PassTxtBx" /></td></tr>
-            </table>
+            <tr>
+                <td>
+                    <asp:CheckBox runat="server" ID ="rememberChkBx" />
+                </td>
+                <td style="text-align:left;">
+                    <asp:Label runat="server">Remember Me</asp:Label>
+                </td>
+            </tr>
+        </table>
         <asp:Button BackColor="#cc0000" runat="server" Text="Submit"  CssClass="input-submitLogin"  UseSubmitBehavior="true" />
          <asp:Button ID="recover" BackColor="#cc0000" runat="server" Text="?"  CssClass="input-submitLoginRecover" />
 
