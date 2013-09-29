@@ -21,7 +21,7 @@
 
 <body lang="en" runat="server">
    
-	<div id="header">
+	<div id="header" style="height:auto;">
 		<div id="topBarMenu">	
 				<div id="topMenu">
 					<ul>
@@ -30,14 +30,17 @@
 				</div>
 			</div>	
         </div>
-            <asp:Image ID="logoHome" CssClass="logoHome" ImageUrl="Images/NURacingLogo_White.png" runat="server" ImageAlign="Middle" Width="400" />
+
+            
      
 <div class="colmask threecol">
-<div id="sub-header"></div>
 	<div class="colmid">
 		<div class="colleft">
 			<div class="col1">
     <form id="login" runat="server">
+        <br /><br />
+        <asp:Image ID="logoHome" CssClass="logoHome" ImageUrl="Images/NURacingLogo_White_Transparent.png" runat="server" ImageAlign="Middle"  />
+        <br /><br />
     <p style="text-align:center">Welcome to the NURacing System. Please enter your login credentials below.</p>
     <div id ="loginForm" class="loginForm">
         <table border="0" style="margin-left:auto; margin-right:auto; text-align:right;">
@@ -52,8 +55,14 @@
                 </td>
             </tr>
         </table>
-        <asp:Button runat="server" Text="Submit"  CssClass="btnSubmit"  UseSubmitBehavior="true" ID="btnSubmit" />
+        <table border="0" style="margin-left:auto; margin-right:auto; text-align:right;">
+            <tr>
+                <td>
+        <asp:Button runat="server" Text="SUBMIT"  CssClass="btnSubmit"  UseSubmitBehavior="true" ID="btnSubmit" />
          <asp:Button ID="btnRecover" runat="server" Text="?"  CssClass="btnSubmit" />
+            </td>
+            </tr>
+            </table>
     </div>
     </form>
 </div>
