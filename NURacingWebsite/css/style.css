@@ -17,9 +17,11 @@ dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figure, figcaption, hgroup, 
 menu, footer, header, nav, section, summary, time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
+	border-style: none;
+    border-color: inherit;
+    border-width: 0;
+    margin: 0 0 2px 0;
+    padding: 0;
 }
 
 article, aside, canvas, figure, figure img, figcaption, hgroup,
@@ -34,6 +36,29 @@ a img {border: 0;}
 
 p {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 11pt;
+	color: #7E7E7E;
+	text-shadow: 1px 1px 1px #000000;
+}
+
+
+#lblUsername {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 11pt;
+	color: #7E7E7E;
+	text-shadow: 1px 1px 1px #000000;
+}
+
+
+#lblPassword {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 11pt;
+	color: #7E7E7E;
+	text-shadow: 1px 1px 1px #000000;
+}
+
+#lblRemember{
+    	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 11pt;
 	color: #7E7E7E;
 	text-shadow: 1px 1px 1px #000000;
@@ -302,6 +327,27 @@ body {
 	box-shadow: 0px 1px 1px #2e2e2e;
     border: none;
 	float: left;
+}
+
+#btnRecover {
+	color: #FFFFFF;
+	font-family: 'Cuprum', sans-serif;
+	margin-top: 10px;
+	font-size: 16px;
+	line-height: 34px;
+    display: inline-block;
+    padding: 1px 15px 6px 15px;
+	height: 36px;
+	background-color: #E55F05;
+	-moz-border-radius: 7px; 
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	-webkit-box-shadow: 0px 1px 1px #2e2e2e;
+	-moz-box-shadow: 0px 1px 1px #2e2e2e;
+	box-shadow: 0px 1px 1px #2e2e2e;
+    border: none;
+	float: left;
+    margin-left:10px;
 }
 
 

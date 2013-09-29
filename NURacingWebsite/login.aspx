@@ -1,59 +1,68 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="NURacingWebsite.login" %>
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />	
-<link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css' />
-<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
-<link href='http://fonts.googleapis.com/css?family=Reenie+Beanie' rel='stylesheet' type='text/css' />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>NURacing System - Login</title>
+		<link rel="icon" type="image/png" href="NURacing_Favicon.ico"/>
 
-<!-- Javascripts -->
-<script type="text/javascript" src="js/jquery.js"></script>
+		<link rel="stylesheet" media="all" href="css/style.css"/>
+		<link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css' />
+		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	    <style type="text/css">
+            .auto-style1 {
+                height: 27px;
+            }
+        </style>
+	</head>
 
-<!-- jQuery UI -->
-<script type="text/javascript" src="js/jquery-ui-1.8.5.min.js"></script>
-
-
-<!-- Google map -->
-<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
-
-<!-- Scripts -->
-<script type="text/javascript" src="js/scripts.js"></script>
-
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-<script type="text/javascript" src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"></script>
-</head>
-
-<body>
-    <asp:Panel HorizontalAlign="Center" runat="server">
-        
+<body lang="en" runat="server">
+   
+	<div id="header">
+		<div id="topBarMenu">	
+				<div id="topMenu">
+					<ul>
+						<li><a href="#" style="TEXT-DECORATION: NONE;"><span>Text goes here &nbsp; &#149;&nbsp; More text goes here</span></a></li>
+					</ul>
+				</div>
+			</div>	
+        </div>
             <asp:Image ID="logoHome" CssClass="logoHome" ImageUrl="Images/NURacingLogo_White.png" runat="server" ImageAlign="Middle" Width="400" />
-        </asp:Panel>
-
+     
+<div class="colmask threecol">
+<div id="sub-header"></div>
+	<div class="colmid">
+		<div class="colleft">
+			<div class="col1">
     <form id="login" runat="server">
-    <p style="text-align:center">Welcome to the NURacing System. Please enter your login details below.</p>
-     <asp:Panel runat="server" HorizontalAlign="Center">
+    <p style="text-align:center">Welcome to the NURacing System. Please enter your login credentials below.</p>
     <div id ="loginForm" class="loginForm">
         <table border="0" style="margin-left:auto; margin-right:auto; text-align:right;">
-        <tr><td><asp:Label runat="server" ID="UsernameLbl">Username: </asp:Label></td><td><asp:TextBox runat="server" Width="110px" ID="UsernameTxtBx" /></td></tr>
-        <tr><td><asp:Label runat="server" ID="PassLbl">Password: </asp:Label></td><td><asp:TextBox runat="server" TextMode="Password" Width="110px" ID="PassTxtBx" /></td></tr>
+        <tr><td class="auto-style1"><asp:Label runat="server" ID="lblUsername" CssClass="lblUsername">Username: </asp:Label></td><td class="auto-style1"><asp:TextBox runat="server" Width="110px" ID="UsernameTxtBx" /></td></tr>
+        <tr><td><asp:Label runat="server" ID="lblPassword" CssClass="p">Password: </asp:Label></td><td><asp:TextBox runat="server" TextMode="Password" Width="110px" ID="PassTxtBx" /></td></tr>
             <tr>
                 <td>
-                    <asp:CheckBox runat="server" ID ="rememberChkBx" />
+                    <asp:CheckBox runat="server" ID ="chkbxRemember" CssClass="p" />
                 </td>
                 <td style="text-align:left;">
-                    <asp:Label runat="server">Remember Me</asp:Label>
+                    <asp:Label runat="server" ID="lblRemember" CssClass="p">Remember Me</asp:Label>
                 </td>
             </tr>
         </table>
-        <asp:Button BackColor="#cc0000" runat="server" Text="Submit"  CssClass="input-submitLogin"  UseSubmitBehavior="true" />
-         <asp:Button ID="recover" BackColor="#cc0000" runat="server" Text="?"  CssClass="input-submitLoginRecover" />
-
+        <asp:Button runat="server" Text="Submit"  CssClass="btnSubmit"  UseSubmitBehavior="true" ID="btnSubmit" />
+         <asp:Button ID="btnRecover" runat="server" Text="?"  CssClass="btnSubmit" />
     </div>
-        </asp:Panel>
     </form>
-</body>
+</div>
+			<div class="col2">
+			</div>
+			<div class="col3">
+			</div>
+		</div>
+	</div>
+ </div>
+</body>	
 </html>

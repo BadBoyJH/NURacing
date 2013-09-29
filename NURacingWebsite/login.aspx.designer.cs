@@ -22,13 +22,13 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.Image logoHome;
         
         /// <summary>
-        /// UsernameLbl control.
+        /// lblUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label UsernameLbl;
+        protected global::System.Web.UI.WebControls.Label lblUsername;
         
         /// <summary>
         /// UsernameTxtBx control.
@@ -40,13 +40,13 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.TextBox UsernameTxtBx;
         
         /// <summary>
-        /// PassLbl control.
+        /// lblPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PassLbl;
+        protected global::System.Web.UI.WebControls.Label lblPassword;
         
         /// <summary>
         /// PassTxtBx control.
@@ -58,21 +58,39 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.TextBox PassTxtBx;
         
         /// <summary>
-        /// rememberChkBx control.
+        /// chkbxRemember control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox rememberChkBx;
+        protected global::System.Web.UI.WebControls.CheckBox chkbxRemember;
         
         /// <summary>
-        /// recover control.
+        /// lblRemember control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button recover;
+        protected global::System.Web.UI.WebControls.Label lblRemember;
+        
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        
+        /// <summary>
+        /// btnRecover control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRecover;
     }
 }
