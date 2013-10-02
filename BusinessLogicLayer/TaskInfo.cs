@@ -124,7 +124,7 @@ namespace BusinessLogicLayer
         /// <param name="assignedTaskID"></param>
         /// <returns></returns>
 
-        static TaskInfo getAssignedTask(int assignedTaskID)
+        public static TaskInfo getAssignedTask(int assignedTaskID)
         {
             assignedtaskTableAdapter assignedTaskAdapter = new assignedtaskTableAdapter();
 
@@ -144,7 +144,7 @@ namespace BusinessLogicLayer
         /// <param name="workID"></param>
         /// <returns></returns>
 
-        static List<TaskInfo> getWorkTypeTasks(int workID)
+        public static List<TaskInfo> getWorkTypeTasks(int workID)
         {
             assignedtaskTableAdapter assignedTaskAdapter = new assignedtaskTableAdapter();
 
@@ -166,7 +166,7 @@ namespace BusinessLogicLayer
         /// <param name="ProjectID"></param>
         /// <returns></returns>
 
-        static List<TaskInfo> getProjectTasks(int ProjectID)
+        public static List<TaskInfo> getProjectTasks(int ProjectID)
         {
             worktypeTableAdapter workTypeAdapter = new worktypeTableAdapter();
             NuRacingDataSet.worktypeDataTable workTypeTable = workTypeAdapter.GetDataByProjectID(ProjectID);
@@ -187,7 +187,7 @@ namespace BusinessLogicLayer
         /// <param name="username">Username of assigned user</param>
         /// <returns></returns>
 
-        static List<TaskInfo> getUserTasks(string username)
+        public static List<TaskInfo> getUserTasks(string username)
         {
             assignedtaskTableAdapter assignedTaskAdapter = new assignedtaskTableAdapter();
 
@@ -208,7 +208,7 @@ namespace BusinessLogicLayer
         /// </summary>
         /// <returns></returns>
 
-        static List<TaskInfo> getTasks()
+        public static List<TaskInfo> getTasks()
         {
             assignedtaskTableAdapter assignedTaskAdapter = new assignedtaskTableAdapter();
 

@@ -22,9 +22,9 @@ namespace BusinessLogicLayer
 
         /*
         WorkTypeInfo workType;
-        TaskInfo task;
         */
-        
+
+        TaskInfo task;        
         List<TakeFiveResponseInfo> responses;
 
         public int TimeWorkedMins
@@ -79,6 +79,7 @@ namespace BusinessLogicLayer
                 return workType;
             }
         }
+        */
 
         public TaskInfo Task
         {
@@ -91,7 +92,6 @@ namespace BusinessLogicLayer
                 return task;
             }
         }
-        */
 
         public List<TakeFiveResponseInfo> TakeFiveResponses
         {

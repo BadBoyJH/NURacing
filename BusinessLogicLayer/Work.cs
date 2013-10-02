@@ -11,8 +11,6 @@ namespace BusinessLogicLayer
 {
     static class Work
     {
-        
-
         public static void AddWork(string Username, DateTime DateCompleted, string Description, int WorkTypeID, int TimeWorkedMins, bool TakeFiveTaken)
         {
             if (User.UsernameExists(Username))
@@ -49,21 +47,21 @@ namespace BusinessLogicLayer
             {
                 throw new ArgumentException("Username doesn't exist");
             }
-            /*
-            if (AssignedTask.taskExists(TaskID))
+            if (AssignedTask.taskExists(AssignedTaskID))
             {
                 throw new ArgumentException("Task doesn't exist");
             }
-            if (TaskInfo.getTask(AssignedTaskID).TakeFiveNeeded && !takeFiveTaken)
+            if (TaskInfo.getAssignedTask(AssignedTaskID).TakeFiveNeeded && !TakeFiveTaken)
             {
                 throw new ArgumentException("Take Five was required");
             }
+
             TaskInfo task = TaskInfo.getAssignedTask(AssignedTaskID);
-            if (Task.Username == Username)
+
+            if (task.UserAssignedInfo.UserName == Username)
             {
                 throw new ArgumentException("Username wasn't consistant with Assigned Task record");
             }
-            */
 
             workTableAdapter workAdapter = new workTableAdapter();
             NuRacingDataSet.workDataTable workTable = workAdapter.GetData();
@@ -72,7 +70,7 @@ namespace BusinessLogicLayer
             workRow.User_Username = Username;
             workRow.Work_DateCompleted = DateCompleted;
             workRow.Work_Description = Description;
-            //workRow.WorkType_UID = task.WorkTypeID;
+            workRow.WorkType_UID = task.WorkTypeID;
             workRow.Work_TimeWorkedMins = TimeWorkedMins;
             workRow.Task_UID = AssignedTaskID;
             workRow.Work_TakeFiveTaken = TakeFiveTaken;
