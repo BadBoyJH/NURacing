@@ -118,6 +118,12 @@ namespace BusinessLogicLayer
             taskIncompleteReason = taskRow.Task_IncompleteReason;
         }
 
+        /// <summary>
+        /// Return a TaskInfo object via specified assignedTaskID
+        /// </summary>
+        /// <param name="assignedTaskID"></param>
+        /// <returns></returns>
+
         static TaskInfo getAssignedTask(int assignedTaskID)
         {
             assignedtaskTableAdapter assignedTaskAdapter = new assignedtaskTableAdapter();
@@ -131,6 +137,12 @@ namespace BusinessLogicLayer
 
             return new TaskInfo((NuRacingDataSet.assignedtaskRow)assignedTaskTable.Rows[0]);
         }
+
+        /// <summary>
+        /// Returns a list of assigned tasks for given workType
+        /// </summary>
+        /// <param name="workID"></param>
+        /// <returns></returns>
 
         static List<TaskInfo> getWorkTypeTasks(int workID)
         {
@@ -148,6 +160,12 @@ namespace BusinessLogicLayer
             return result;
         }
 
+        /// <summary>
+        /// Return a list of assigned tasks for a project
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <returns></returns>
+
         static List<TaskInfo> getProjectTasks(int ProjectID)
         {
             worktypeTableAdapter workTypeAdapter = new worktypeTableAdapter();
@@ -161,6 +179,49 @@ namespace BusinessLogicLayer
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Return a list of all assigned tasks for the specified user
+        /// </summary>
+        /// <param name="username">Username of assigned user</param>
+        /// <returns></returns>
+
+        static List<TaskInfo> getUserTasks(string username)
+        {
+            assignedtaskTableAdapter assignedTaskAdapter = new assignedtaskTableAdapter();
+
+            NuRacingDataSet.assignedtaskDataTable assignedTaskTable = assignedTaskAdapter.GetDataByAssignedUser(username);
+
+            List<TaskInfo> result = new List<TaskInfo>();
+
+            foreach (NuRacingDataSet.assignedtaskRow AssignedTaskRow in assignedTaskTable.Rows)
+            {
+                result.Add(new TaskInfo(AssignedTaskRow));
+            }
+
+            return result; 
+        }
+
+        /// <summary>
+        /// Returns a list of all assigned tasks with their information
+        /// </summary>
+        /// <returns></returns>
+
+        static List<TaskInfo> getTasks()
+        {
+            assignedtaskTableAdapter assignedTaskAdapter = new assignedtaskTableAdapter();
+
+            NuRacingDataSet.assignedtaskDataTable assignedTaskTable = assignedTaskAdapter.GetData();
+
+            List<TaskInfo> result = new List<TaskInfo>();
+
+            foreach (NuRacingDataSet.assignedtaskRow AssignedTaskRow in assignedTaskTable.Rows)
+            {
+                result.Add(new TaskInfo(AssignedTaskRow));
+            }
+
+            return result;         
         }
     }
 }
