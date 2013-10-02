@@ -77,7 +77,7 @@ namespace BusinessLogicLayer
         }
 
         /// <summary>
-        /// Sets the reason for a task being incomplete
+        /// Sets the reason for a task being incomplete.
         /// </summary>
         /// <param name="taskID">ID of the task</param>
         /// <param name="reason">Reason for incomplete task</param>
