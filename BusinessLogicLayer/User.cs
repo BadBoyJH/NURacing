@@ -14,6 +14,7 @@ namespace BusinessLogicLayer
 {
     public static class User
     {
+        static private RNGCryptoServiceProvider saltGenerator = new RNGCryptoServiceProvider();
         static private Random randomGenerator = new Random();
         
         static public string passwordRegEx
@@ -77,9 +78,8 @@ namespace BusinessLogicLayer
         /// <returns>16 byte salt</returns>
         private static byte[] CreateSalt()
         {
-            RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
             byte[] salt = new byte[16];
-            rng.GetBytes(salt);
+            saltGenerator.GetBytes(salt);
             return salt;
 
         }
@@ -93,7 +93,7 @@ namespace BusinessLogicLayer
         private static byte[] HashPassword(string Password, byte[] Salt)
         {
             byte[] saltAndPwd = System.Text.Encoding.Unicode.GetBytes(String.Concat(Password, Salt));
-            SHA1 encryptor = SHA1.Create();
+            SHA256 encryptor = SHA256.Create();
             byte[] hash = encryptor.ComputeHash(saltAndPwd);
 
             return hash;
@@ -286,24 +286,32 @@ namespace BusinessLogicLayer
         ///     Throws ArgumentException if username is invalid.
         /// </summary>
         /// <param name="Username">The User to set the request for.</param>
-        static public void resetPassword(string Username)
+        /// <param name="Email">The User's email to provide an extra layer of security.</param>
+        static public void resetPassword(string Username, string Email)
         {
             if (UsernameExists(Username))
             {
-                passwordresetrequestTableAdapter prrAdapter = new passwordresetrequestTableAdapter();
-                NuRacingDataSet.passwordresetrequestDataTable prrTable = prrAdapter.GetData();
-                NuRacingDataSet.passwordresetrequestRow prrNewRow = prrTable.NewpasswordresetrequestRow();
+                if (Email.Equals(getEmail(Username)))
+                {
+                    passwordresetrequestTableAdapter prrAdapter = new passwordresetrequestTableAdapter();
+                    NuRacingDataSet.passwordresetrequestDataTable prrTable = prrAdapter.GetData();
+                    NuRacingDataSet.passwordresetrequestRow prrNewRow = prrTable.NewpasswordresetrequestRow();
 
-                byte[] byteCode = getByteString(16);
+                    byte[] byteCode = getByteString(16);
 
-                prrNewRow.PasswordRR_ExpiryDate = DateTime.Now.AddDays(2);
-                prrNewRow.User_UserName = Username;
-                prrNewRow.PasswordRR_UID = byteCode;
+                    prrNewRow.PasswordRR_ExpiryDate = DateTime.Now.AddDays(2);
+                    prrNewRow.User_UserName = Username;
+                    prrNewRow.PasswordRR_UID = byteCode;
 
-                prrTable.AddpasswordresetrequestRow(prrNewRow);
-                prrAdapter.Update(prrTable);
+                    prrTable.AddpasswordresetrequestRow(prrNewRow);
+                    prrAdapter.Update(prrTable);
 
-                EmailManager.SendPasswordResetRequest(byteCode, getEmail(Username));
+                    EmailManager.SendPasswordResetRequest(byteCode, getEmail(Username));
+                }
+                else
+                {
+                    throw new ArgumentException("Email wasn't correct");
+                }
             }
             else
             {

@@ -14,7 +14,8 @@ namespace ConsoleTesting
         {
             Console.Write("What is the username to send the reset request for? : ");
             string Username = Console.ReadLine();
-            User.resetPassword(Username);
+            string Email = Console.ReadLine();
+            User.resetPassword(Username, Email);
 
             Console.WriteLine("\nReset Request made");
             Console.Write("What is the bytecode from the email? : ");
