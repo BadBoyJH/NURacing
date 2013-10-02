@@ -36,6 +36,12 @@ namespace BusinessLogicLayer
             response = row.TakeFiveResponse_Reason;
         }
 
+        // Created by James Hibbard
+        /// <summary>
+        ///     Returns all resposnes for a given WorkID
+        /// </summary>
+        /// <param name="WorkID">The WorkID to get the responses for</param>
+        /// <returns>A list of the responses, and their question</returns>
         public static List<TakeFiveResponseInfo> getWorkResponses(int WorkID)
         {
             if (!Work.WorkExists(WorkID))

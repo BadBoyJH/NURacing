@@ -14973,7 +14973,7 @@ WHERE          WorkType_UID = @WorkTypeID";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[4];
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[5];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT `Work_UID`, `Work_DateCompleted`, `Work_Description`, `WorkType_UID`, `Wor" +
@@ -14997,28 +14997,42 @@ WHERE          WorkType_UID = @WorkTypeID";
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT `Work_UID`, `Work_DateCompleted`, `Work_Description`, `WorkType_UID`, `Wor" +
                 "k_TimeWorkedMins`, `User_Username`, `Task_UID`, `Work_TakeFiveTaken` FROM `nurac" +
-                "ing`.`work`\r\nWHERE Work_UID = @WorkID";
+                "ing`.`work`\r\nWhere User_Username = @Username";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Username";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.Size = 255;
+            param.IsNullable = true;
+            param.SourceColumn = "User_Username";
+            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT `Work_UID`, `Work_DateCompleted`, `Work_Description`, `WorkType_UID`, `Wor" +
+                "k_TimeWorkedMins`, `User_Username`, `Task_UID`, `Work_TakeFiveTaken` FROM `nurac" +
+                "ing`.`work`\r\nWHERE Work_UID = @WorkID";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "WorkID";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "Work_UID";
-            this._commandCollection[2].Parameters.Add(param);
-            this._commandCollection[3] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT `Work_UID`, `Work_DateCompleted`, `Work_Description`, `WorkType_UID`, `Wor" +
+            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "SELECT `Work_UID`, `Work_DateCompleted`, `Work_Description`, `WorkType_UID`, `Wor" +
                 "k_TimeWorkedMins`, `User_Username`, `Task_UID`, `Work_TakeFiveTaken` FROM `nurac" +
                 "ing`.`work`\r\nWHERE WorkType_UID = @WorkTypeID";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "WorkTypeID";
             param.DbType = global::System.Data.DbType.Int32;
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
             param.IsNullable = true;
             param.SourceColumn = "WorkType_UID";
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15085,8 +15099,44 @@ WHERE          WorkType_UID = @WorkTypeID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByWorkID(NuRacingDataSet.workDataTable dataTable, int WorkID) {
+        public virtual int FillByUsername(NuRacingDataSet.workDataTable dataTable, string Username) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Username));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual NuRacingDataSet.workDataTable GetDataByUsername(string Username) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((Username == null)) {
+                throw new global::System.ArgumentNullException("Username");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Username));
+            }
+            NuRacingDataSet.workDataTable dataTable = new NuRacingDataSet.workDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByWorkID(NuRacingDataSet.workDataTable dataTable, int WorkID) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(WorkID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -15100,7 +15150,7 @@ WHERE          WorkType_UID = @WorkTypeID";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual NuRacingDataSet.workDataTable GetWork(int WorkID) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand = this.CommandCollection[3];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(WorkID));
             NuRacingDataSet.workDataTable dataTable = new NuRacingDataSet.workDataTable();
             this.Adapter.Fill(dataTable);
@@ -15112,7 +15162,7 @@ WHERE          WorkType_UID = @WorkTypeID";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int FillByWorkTypeID(NuRacingDataSet.workDataTable dataTable, int WorkTypeID) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(WorkTypeID));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -15126,7 +15176,7 @@ WHERE          WorkType_UID = @WorkTypeID";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual NuRacingDataSet.workDataTable GetDataByWorkTypeID(int WorkTypeID) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[4];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(WorkTypeID));
             NuRacingDataSet.workDataTable dataTable = new NuRacingDataSet.workDataTable();
             this.Adapter.Fill(dataTable);

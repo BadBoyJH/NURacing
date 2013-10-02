@@ -11,6 +11,12 @@ namespace BusinessLogicLayer
 {
     class TakeFive
     {
+        // Written By James Hibbard
+        /// <summary>
+        ///     Returns the Question associated with the TakeFiveID
+        /// </summary>
+        /// <param name="TakeFiveID">A Unique ID from the TakeFive table</param>
+        /// <returns>The related Question</returns>
         public static string getTakeFiveQuestion(int TakeFiveID)
         {
             takefiveTableAdapter takefiveAdapter = new takefiveTableAdapter();
