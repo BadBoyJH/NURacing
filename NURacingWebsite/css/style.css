@@ -351,4 +351,97 @@ body {
     margin-left:10px;
 }
 
-
+.projectTable {
+	
+	margin-left:auto;
+    margin-right:auto;
+		font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
+font-size:x-large;
+border-spacing:5px 5px;
+    max-height:100px;	}
+.projectTable td
+{
+    overflow:scroll;
+	background-color:#7F7F7F;
+    border:thick;
+	width:20%;	
+    max-width:100px;
+    max-height:100px;
+	height: 100px;
+    padding:5px;
+    text-align:center;
+    white-space:pre-line;
+    overflow-x:auto;
+    overflow-y:auto;
+}
+.projName {}
+.projDesc {
+        max-height:100px;
+    float:left;
+    font-size:medium;
+}
+.tasksTable {
+	border:solid;
+	margin-left:40%;
+		font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
+font-size:x-large;
+background-color:#7F7F7F;
+	}
+.tasksTable td {
+	border:none;
+	background-color:#7F7F7F;}
+.accountOptions {
+	margin-left:50%;	
+}
+.input-textareaPassword {	border: 1px solid #d2d1cf;
+	width: 420px;
+	height: 16px;
+	margin-bottom: 10px;
+	font-size: 14px;
+	font-family: Arial,Verdana,sans-serif;
+	background-color: #fff;
+	color: #666;}
+.loginForm {
+}
+.input-submitLogin {
+width: 135px;
+color: #fff;
+font-family: 'Cuprum', sans-serif;
+margin-top: 10px;
+font-size: 16px;
+line-height: 34px;
+    display: inline-block;
+background-color: #16949c;
+    padding: 1px 15px 6px 15px;
+height: 36px;
+background-image: url(../images/images/bttn_alt.png);
+background-repeat: repeat-x;
+-moz-border-radius: 7px;
+-webkit-border-radius: 7px;
+border-radius: 7px;
+-webkit-box-shadow: 0px 1px 1px #2e2e2e;
+-moz-box-shadow: 0px 1px 1px #2e2e2e;
+box-shadow: 0px 1px 1px #2e2e2e;
+    border: none;
+cursor: pointer;}.input-submitLoginRecover {
+width: auto;
+color: #fff;
+font-family: 'Cuprum', sans-serif;
+margin-top: 10px;
+font-size: 16px;
+line-height: 34px;
+    display: inline-block;
+background-color: #16949c;
+    padding: 1px 15px 6px 15px;
+height: 36px;
+background-image: url(../images/images/bttn_alt.png);
+background-repeat: repeat-x;
+-moz-border-radius: 7px;
+-webkit-border-radius: 7px;
+border-radius: 7px;
+-webkit-box-shadow: 0px 1px 1px #2e2e2e;
+-moz-box-shadow: 0px 1px 1px #2e2e2e;
+box-shadow: 0px 1px 1px #2e2e2e;
+    border: none;
+cursor: pointer;
+}
