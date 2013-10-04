@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <title>Home</title>
         <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />	
 <link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css' />
@@ -76,19 +76,19 @@
 				<p>Select a project:</p>
 <br/><br/>
 				</div>	
-                        <asp:Table runat="server" GridLines="Horizontal" CssClass="projectTable" HorizontalAlign="Center">
+                        <asp:Table ID="Table1" runat="server" GridLines="Horizontal" CssClass="projectTable" HorizontalAlign="Center">
             <asp:TableRow >
             <asp:TableCell BorderColor="Black" BorderStyle="Solid"><a href="">
                 <asp:Label runat="server" ID="projNameLbl" CssClass="projName">Epic car #1 <br /> <br /></asp:Label>
-                <asp:Label runat="server" CssClass="projDesc">This is a nice project description that I thought I'd write. This is a nice project description that I thought I'd write This is a nice project description that I thought I'd write This is a nice project description that I thought I'd write This is a nice project description that I thought I'd write This is a nice project description that I thought I'd write This is a nice project description that I thought I'd writeThis is a nice project description that I thought I'd writeThis is a nice project description that I thought I'd write</asp:Label>
+                <asp:Label ID="Label1" runat="server" CssClass="projDesc">This is a nice project description that I thought I'd write. This is a nice project description that I thought I'd write This is a nice project description that I thought I'd write This is a nice project description that I thought I'd write This is a nice project description that I thought I'd write This is a nice project description that I thought I'd write This is a nice project description that I thought I'd writeThis is a nice project description that I thought I'd writeThis is a nice project description that I thought I'd write</asp:Label>
             </a></asp:TableCell>
             <asp:TableCell BorderColor="Black" BorderStyle="Solid"><a href="">
-                <asp:Label runat="server" ID="Label1" CssClass="projName">Epic car #2 <br /> <br /></asp:Label>
-                <asp:Label ID="Label2" runat="server" CssClass="projDesc">This description is better than the previous one.</asp:Label>
+                <asp:Label runat="server" ID="Label2" CssClass="projName">Epic car #2 <br /> <br /></asp:Label>
+                <asp:Label ID="Label3" runat="server" CssClass="projDesc">This description is better than the previous one.</asp:Label>
             </a></asp:TableCell>
             <asp:TableCell BorderColor="Black" BorderStyle="Solid"><a href="">
-                <asp:Label runat="server" ID="Label3" CssClass="projName">No U Mobile <br /> <br /></asp:Label>
-                <asp:Label ID="Label4" runat="server" CssClass="projDesc">ffffffffffffffffffffffffffffffffffffffffffffffffffffff</asp:Label>
+                <asp:Label runat="server" ID="Label4" CssClass="projName">No U Mobile <br /> <br /></asp:Label>
+                <asp:Label ID="Label5" runat="server" CssClass="projDesc">ffffffffffffffffffffffffffffffffffffffffffffffffffffff</asp:Label>
             </a></asp:TableCell>
             </asp:TableRow>       
             </asp:Table>
