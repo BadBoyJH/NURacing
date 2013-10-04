@@ -46,6 +46,8 @@
       <DependentUpon>BusinessLogicSettings.settings</DependentUpon>
     </Compile>
     <Compile Include="EmailManager.cs" />
+    <Compile Include="Project.cs" />
+    <Compile Include="ProjectInfo.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="TakeFive.cs" />
     <Compile Include="TakeFiveResponseInfo.cs" />
@@ -55,6 +57,8 @@
     <Compile Include="UserInfo.cs" />
     <Compile Include="Work.cs" />
     <Compile Include="WorkInfo.cs" />
+    <Compile Include="WorkType.cs" />
+    <Compile Include="WorkTypeInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">

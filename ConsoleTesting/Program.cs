@@ -12,6 +12,7 @@ namespace ConsoleTesting
     {
         static void Main(string[] args)
         {
+            /*
             Console.Write("What is the username to send the reset request for? : ");
             string Username = Console.ReadLine();
             string Email = Console.ReadLine();
@@ -33,6 +34,32 @@ namespace ConsoleTesting
             {
                 Console.WriteLine("User not validated");
             }
+
+            Console.ReadLine();
+
+
+            Console.WriteLine("Starting...");
+            WorkType.AddWorkType(2, "yeheheheh");
+            Console.WriteLine("Done");
+
+            Console.WriteLine("");
+
+
+            foreach (WorkTypeInfo WT in WorkTypeInfo.getWorkTypes(2))
+            {
+                Console.WriteLine(String.Format("ID: {0}\nName: {1}\n", WT.WorkTypeID, WT.Name));
+            }
+
+            Console.ReadLine();
+            */
+
+            List<string> CarParts = new List<string>();
+            CarParts.Add("Engine");
+            CarParts.Add("Chasis");
+            CarParts.Add("Suspension");
+            CarParts.Add("Electronics");
+
+            Project.AddCar("Big Red Car", 0, "Chugga Chugga big red car", CarParts);
 
             Console.ReadLine();
         }
