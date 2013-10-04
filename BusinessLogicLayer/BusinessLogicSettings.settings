@@ -29,5 +29,21 @@
   &lt;string&gt;Sponsor&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
+    <Setting Name="DefaultCarParts" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;brake system&lt;/string&gt;
+  &lt;string&gt;engine&lt;/string&gt;
+  &lt;string&gt;drivetrain&lt;/string&gt;
+  &lt;string&gt;chassis&lt;/string&gt;
+  &lt;string&gt;bodywork&lt;/string&gt;
+  &lt;string&gt;electrical&lt;/string&gt;
+  &lt;string&gt;wiring&lt;/string&gt;
+  &lt;string&gt;Misc, Fit and Finish&lt;/string&gt;
+  &lt;string&gt;Steering&lt;/string&gt;
+  &lt;string&gt;Suspension&lt;/string&gt;
+  &lt;string&gt;Wheels and Tyres&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -13,8 +13,10 @@ namespace BusinessLogicLayer
     {
         private int workTypeID;
         private int projectID;
-        //private ProjectInfo project;
+        private ProjectInfo project;
         private string name;
+        private string status;
+        private DateTime statusLastChanged;
 
         public int WorkTypeID
         {
@@ -24,19 +26,17 @@ namespace BusinessLogicLayer
             }
         }
 
-        /*
         public ProjectInfo Project
         {
             get
             {
-                if (ProjectInfo == null)
+                if (project == null)
                 {
-                    project = ProjectInfo.getProject(ProjectID);
+                    project = ProjectInfo.getProject(projectID);
                 }
                 return project;
             }
         }
-        */
 
         public string Name
         {
@@ -46,11 +46,29 @@ namespace BusinessLogicLayer
             }
         }
 
+        public string Status
+        {
+            get
+            {
+                return status;
+            }
+        }
+
+        public DateTime StatusLastChanged
+        {
+            get
+            {
+                return statusLastChanged;
+            }
+        }
+
         private WorkTypeInfo(NuRacingDataSet.worktypeRow row)
         {
             workTypeID = row.WorkType_UID;
             projectID = row.Project_UID;
             name = row.WorkType_Name;
+            status = row.WorkType_Status;
+            statusLastChanged = row.WorkType_StatusChangedDate;
         }
 
         public static WorkTypeInfo getWorkType(int WorkType)
@@ -66,7 +84,7 @@ namespace BusinessLogicLayer
             return new WorkTypeInfo((NuRacingDataSet.worktypeRow)WorkTypeTable.Rows[0]);
         }
 
-        public static List<WorkTypeInfo> getWorkTypes(int ProjectID)
+        public static List<WorkTypeInfo> getProjectWorkTypes(int ProjectID)
         {
             worktypeTableAdapter workTypeAdapter = new worktypeTableAdapter();
             NuRacingDataSet.worktypeDataTable WorkTypeTable = workTypeAdapter.GetDataByProjectID(ProjectID);
@@ -81,7 +99,7 @@ namespace BusinessLogicLayer
             return result;
         }
 
-        public static List<WorkTypeInfo> getWorkTypes()
+        public static List<WorkTypeInfo> getAllWorkTypes()
         {
             worktypeTableAdapter workTypeAdapter = new worktypeTableAdapter();
             NuRacingDataSet.worktypeDataTable WorkTypeTable = workTypeAdapter.GetData();

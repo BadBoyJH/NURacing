@@ -36,7 +36,6 @@ namespace ConsoleTesting
 
             Console.ReadLine();
 
-            */
 
             Console.WriteLine("Starting...");
             WorkType.AddWorkType(2, "yeheheheh");
@@ -49,6 +48,17 @@ namespace ConsoleTesting
             {
                 Console.WriteLine(String.Format("ID: {0}\nName: {1}\n", WT.WorkTypeID, WT.Name));
             }
+
+            Console.ReadLine();
+            */
+
+            List<string> CarParts = new List<string>();
+            CarParts.Add("Engine");
+            CarParts.Add("Chasis");
+            CarParts.Add("Suspension");
+            CarParts.Add("Electronics");
+
+            Project.AddCar("Big Red Car", 0, "Chugga Chugga big red car", CarParts);
 
             Console.ReadLine();
         }

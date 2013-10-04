@@ -1752,6 +1752,10 @@ namespace DataAccessLayer {
             
             private global::System.Data.DataColumn columnProject_Active;
             
+            private global::System.Data.DataColumn columnProject_Status;
+            
+            private global::System.Data.DataColumn columnProject_StatusChangedDate;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public projectDataTable() {
@@ -1827,6 +1831,22 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Project_StatusColumn {
+                get {
+                    return this.columnProject_Status;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Project_StatusChangedDateColumn {
+                get {
+                    return this.columnProject_StatusChangedDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1862,14 +1882,16 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public projectRow AddprojectRow(int Project_YearMade, string Project_Name, string Project_Description, bool Project_Active) {
+            public projectRow AddprojectRow(int Project_YearMade, string Project_Name, string Project_Description, bool Project_Active, string Project_Status, System.DateTime Project_StatusChangedDate) {
                 projectRow rowprojectRow = ((projectRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Project_YearMade,
                         Project_Name,
                         Project_Description,
-                        Project_Active};
+                        Project_Active,
+                        Project_Status,
+                        Project_StatusChangedDate};
                 rowprojectRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowprojectRow);
                 return rowprojectRow;
@@ -1904,6 +1926,8 @@ namespace DataAccessLayer {
                 this.columnProject_Name = base.Columns["Project_Name"];
                 this.columnProject_Description = base.Columns["Project_Description"];
                 this.columnProject_Active = base.Columns["Project_Active"];
+                this.columnProject_Status = base.Columns["Project_Status"];
+                this.columnProject_StatusChangedDate = base.Columns["Project_StatusChangedDate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1919,6 +1943,10 @@ namespace DataAccessLayer {
                 base.Columns.Add(this.columnProject_Description);
                 this.columnProject_Active = new global::System.Data.DataColumn("Project_Active", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProject_Active);
+                this.columnProject_Status = new global::System.Data.DataColumn("Project_Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject_Status);
+                this.columnProject_StatusChangedDate = new global::System.Data.DataColumn("Project_StatusChangedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject_StatusChangedDate);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnProject_UID}, true));
                 this.columnProject_UID.AutoIncrement = true;
@@ -1928,6 +1956,7 @@ namespace DataAccessLayer {
                 this.columnProject_UID.Unique = true;
                 this.columnProject_Name.MaxLength = 255;
                 this.columnProject_Description.MaxLength = 255;
+                this.columnProject_Status.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4091,6 +4120,10 @@ namespace DataAccessLayer {
             
             private global::System.Data.DataColumn columnProject_UID;
             
+            private global::System.Data.DataColumn columnWorkType_Status;
+            
+            private global::System.Data.DataColumn columnWorkType_StatusChangedDate;
+            
             private global::System.Data.DataColumn columnWorkType_Name;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4144,6 +4177,22 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WorkType_StatusColumn {
+                get {
+                    return this.columnWorkType_Status;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WorkType_StatusChangedDateColumn {
+                get {
+                    return this.columnWorkType_StatusChangedDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn WorkType_NameColumn {
                 get {
                     return this.columnWorkType_Name;
@@ -4187,11 +4236,13 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public worktypeRow AddworktypeRow(projectRow parentprojectRowByworktype_ibfk_1, string WorkType_Name) {
+            public worktypeRow AddworktypeRow(projectRow parentprojectRowByworktype_ibfk_1, string WorkType_Status, System.DateTime WorkType_StatusChangedDate, string WorkType_Name) {
                 worktypeRow rowworktypeRow = ((worktypeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
+                        WorkType_Status,
+                        WorkType_StatusChangedDate,
                         WorkType_Name};
                 if ((parentprojectRowByworktype_ibfk_1 != null)) {
                     columnValuesArray[1] = parentprojectRowByworktype_ibfk_1[0];
@@ -4227,6 +4278,8 @@ namespace DataAccessLayer {
             internal void InitVars() {
                 this.columnWorkType_UID = base.Columns["WorkType_UID"];
                 this.columnProject_UID = base.Columns["Project_UID"];
+                this.columnWorkType_Status = base.Columns["WorkType_Status"];
+                this.columnWorkType_StatusChangedDate = base.Columns["WorkType_StatusChangedDate"];
                 this.columnWorkType_Name = base.Columns["WorkType_Name"];
             }
             
@@ -4237,6 +4290,10 @@ namespace DataAccessLayer {
                 base.Columns.Add(this.columnWorkType_UID);
                 this.columnProject_UID = new global::System.Data.DataColumn("Project_UID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProject_UID);
+                this.columnWorkType_Status = new global::System.Data.DataColumn("WorkType_Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkType_Status);
+                this.columnWorkType_StatusChangedDate = new global::System.Data.DataColumn("WorkType_StatusChangedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkType_StatusChangedDate);
                 this.columnWorkType_Name = new global::System.Data.DataColumn("WorkType_Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWorkType_Name);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
@@ -4247,6 +4304,7 @@ namespace DataAccessLayer {
                 this.columnWorkType_UID.AllowDBNull = false;
                 this.columnWorkType_UID.Unique = true;
                 this.columnProject_UID.AllowDBNull = false;
+                this.columnWorkType_Status.MaxLength = 255;
                 this.columnWorkType_Name.MaxLength = 255;
             }
             
@@ -5408,6 +5466,38 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Project_Status {
+                get {
+                    try {
+                        return ((string)(this[this.tableproject.Project_StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Project_Status\' in table \'project\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproject.Project_StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Project_StatusChangedDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableproject.Project_StatusChangedDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Project_StatusChangedDate\' in table \'project\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableproject.Project_StatusChangedDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsProject_YearMadeNull() {
                 return this.IsNull(this.tableproject.Project_YearMadeColumn);
             }
@@ -5452,6 +5542,30 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetProject_ActiveNull() {
                 this[this.tableproject.Project_ActiveColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProject_StatusNull() {
+                return this.IsNull(this.tableproject.Project_StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProject_StatusNull() {
+                this[this.tableproject.Project_StatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProject_StatusChangedDateNull() {
+                return this.IsNull(this.tableproject.Project_StatusChangedDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProject_StatusChangedDateNull() {
+                this[this.tableproject.Project_StatusChangedDateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6815,6 +6929,38 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string WorkType_Status {
+                get {
+                    try {
+                        return ((string)(this[this.tableworktype.WorkType_StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_Status\' in table \'worktype\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableworktype.WorkType_StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime WorkType_StatusChangedDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableworktype.WorkType_StatusChangedDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_StatusChangedDate\' in table \'worktype\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableworktype.WorkType_StatusChangedDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string WorkType_Name {
                 get {
                     try {
@@ -6838,6 +6984,30 @@ namespace DataAccessLayer {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["worktype_ibfk_1"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWorkType_StatusNull() {
+                return this.IsNull(this.tableworktype.WorkType_StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWorkType_StatusNull() {
+                this[this.tableworktype.WorkType_StatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWorkType_StatusChangedDateNull() {
+                return this.IsNull(this.tableworktype.WorkType_StatusChangedDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWorkType_StatusChangedDateNull() {
+                this[this.tableworktype.WorkType_StatusChangedDateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9584,10 +9754,12 @@ WHERE          WorkType_UID = @WorkTypeID";
             tableMapping.ColumnMappings.Add("Project_Name", "Project_Name");
             tableMapping.ColumnMappings.Add("Project_Description", "Project_Description");
             tableMapping.ColumnMappings.Add("Project_Active", "Project_Active");
+            tableMapping.ColumnMappings.Add("Project_Status", "Project_Status");
+            tableMapping.ColumnMappings.Add("Project_StatusChangedDate", "Project_StatusChangedDate");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `nuracing`.`project` WHERE ((`Project_UID` = @Original_Project_UID) AND ((@IsNull_Project_YearMade = 1 AND `Project_YearMade` IS NULL) OR (`Project_YearMade` = @Original_Project_YearMade)) AND ((@IsNull_Project_Name = 1 AND `Project_Name` IS NULL) OR (`Project_Name` = @Original_Project_Name)) AND ((@IsNull_Project_Description = 1 AND `Project_Description` IS NULL) OR (`Project_Description` = @Original_Project_Description)) AND ((@IsNull_Project_Active = 1 AND `Project_Active` IS NULL) OR (`Project_Active` = @Original_Project_Active)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `nuracing`.`project` WHERE ((`Project_UID` = @Original_Project_UID) AND ((@IsNull_Project_YearMade = 1 AND `Project_YearMade` IS NULL) OR (`Project_YearMade` = @Original_Project_YearMade)) AND ((@IsNull_Project_Name = 1 AND `Project_Name` IS NULL) OR (`Project_Name` = @Original_Project_Name)) AND ((@IsNull_Project_Description = 1 AND `Project_Description` IS NULL) OR (`Project_Description` = @Original_Project_Description)) AND ((@IsNull_Project_Active = 1 AND `Project_Active` IS NULL) OR (`Project_Active` = @Original_Project_Active)) AND ((@IsNull_Project_Status = 1 AND `Project_Status` IS NULL) OR (`Project_Status` = @Original_Project_Status)) AND ((@IsNull_Project_StatusChangedDate = 1 AND `Project_StatusChangedDate` IS NULL) OR (`Project_StatusChangedDate` = @Original_Project_StatusChangedDate)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_Project_UID";
@@ -9665,11 +9837,43 @@ WHERE          WorkType_UID = @WorkTypeID";
             param.SourceColumn = "Project_Active";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Project_Status";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_Status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Project_Status";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_Status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Project_StatusChangedDate";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_StatusChangedDate";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Project_StatusChangedDate";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_StatusChangedDate";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `nuracing`.`project` (`Project_YearMade`, `Project_Name`, `Project_De" +
-                "scription`, `Project_Active`) VALUES (@Project_YearMade, @Project_Name, @Project" +
-                "_Description, @Project_Active)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `nuracing`.`project` (`Project_YearMade`, `Project_Name`, `Project_Description`, `Project_Active`, `Project_Status`, `Project_StatusChangedDate`) VALUES (@Project_YearMade, @Project_Name, @Project_Description, @Project_Active, @Project_Status, @Project_StatusChangedDate)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Project_YearMade";
@@ -9699,9 +9903,23 @@ WHERE          WorkType_UID = @WorkTypeID";
             param.IsNullable = true;
             param.SourceColumn = "Project_Active";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Project_Status";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_Status";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Project_StatusChangedDate";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_StatusChangedDate";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `nuracing`.`project` SET `Project_YearMade` = @Project_YearMade, `Project_Name` = @Project_Name, `Project_Description` = @Project_Description, `Project_Active` = @Project_Active WHERE ((`Project_UID` = @Original_Project_UID) AND ((@IsNull_Project_YearMade = 1 AND `Project_YearMade` IS NULL) OR (`Project_YearMade` = @Original_Project_YearMade)) AND ((@IsNull_Project_Name = 1 AND `Project_Name` IS NULL) OR (`Project_Name` = @Original_Project_Name)) AND ((@IsNull_Project_Description = 1 AND `Project_Description` IS NULL) OR (`Project_Description` = @Original_Project_Description)) AND ((@IsNull_Project_Active = 1 AND `Project_Active` IS NULL) OR (`Project_Active` = @Original_Project_Active)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `nuracing`.`project` SET `Project_YearMade` = @Project_YearMade, `Project_Name` = @Project_Name, `Project_Description` = @Project_Description, `Project_Active` = @Project_Active, `Project_Status` = @Project_Status, `Project_StatusChangedDate` = @Project_StatusChangedDate WHERE ((`Project_UID` = @Original_Project_UID) AND ((@IsNull_Project_YearMade = 1 AND `Project_YearMade` IS NULL) OR (`Project_YearMade` = @Original_Project_YearMade)) AND ((@IsNull_Project_Name = 1 AND `Project_Name` IS NULL) OR (`Project_Name` = @Original_Project_Name)) AND ((@IsNull_Project_Description = 1 AND `Project_Description` IS NULL) OR (`Project_Description` = @Original_Project_Description)) AND ((@IsNull_Project_Active = 1 AND `Project_Active` IS NULL) OR (`Project_Active` = @Original_Project_Active)) AND ((@IsNull_Project_Status = 1 AND `Project_Status` IS NULL) OR (`Project_Status` = @Original_Project_Status)) AND ((@IsNull_Project_StatusChangedDate = 1 AND `Project_StatusChangedDate` IS NULL) OR (`Project_StatusChangedDate` = @Original_Project_StatusChangedDate)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Project_YearMade";
@@ -9730,6 +9948,20 @@ WHERE          WorkType_UID = @WorkTypeID";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
             param.IsNullable = true;
             param.SourceColumn = "Project_Active";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Project_Status";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_Status";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Project_StatusChangedDate";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_StatusChangedDate";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_Project_UID";
@@ -9807,6 +10039,40 @@ WHERE          WorkType_UID = @WorkTypeID";
             param.SourceColumn = "Project_Active";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Project_Status";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_Status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Project_Status";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_Status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_Project_StatusChangedDate";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_StatusChangedDate";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_Project_StatusChangedDate";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "Project_StatusChangedDate";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9822,13 +10088,14 @@ WHERE          WorkType_UID = @WorkTypeID";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[2];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `Project_UID`, `Project_YearMade`, `Project_Name`, `Project_Description`, " +
-                "`Project_Active` FROM `nuracing`.`project`";
+            this._commandCollection[0].CommandText = "SELECT Project_UID, Project_YearMade, Project_Name, Project_Description, Project_" +
+                "Active, Project_Status, Project_StatusChangedDate FROM project";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT `Project_UID`, `Project_YearMade`, `Project_Name`, `Project_Description`, " +
-                "`Project_Active` FROM `nuracing`.`project`\r\nWHERE Project_UID = @ProjectID\r\n";
+            this._commandCollection[1].CommandText = "SELECT Project_Active, Project_Description, Project_Name, Project_Status, Project" +
+                "_StatusChangedDate, Project_UID, Project_YearMade FROM project WHERE (Project_UI" +
+                "D = @ProjectID)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "ProjectID";
@@ -9922,7 +10189,7 @@ WHERE          WorkType_UID = @WorkTypeID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Project_UID, global::System.Nullable<int> Original_Project_YearMade, string Original_Project_Name, string Original_Project_Description, global::System.Nullable<byte> Original_Project_Active) {
+        public virtual int Delete(int Original_Project_UID, global::System.Nullable<int> Original_Project_YearMade, string Original_Project_Name, string Original_Project_Description, global::System.Nullable<byte> Original_Project_Active, string Original_Project_Status, global::System.Nullable<global::System.DateTime> Original_Project_StatusChangedDate) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Project_UID));
             if ((Original_Project_YearMade.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -9956,6 +10223,22 @@ WHERE          WorkType_UID = @WorkTypeID";
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
+            if ((Original_Project_Status == null)) {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Project_Status));
+            }
+            if ((Original_Project_StatusChangedDate.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((System.DateTime)(Original_Project_StatusChangedDate.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -9976,7 +10259,7 @@ WHERE          WorkType_UID = @WorkTypeID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> Project_YearMade, string Project_Name, string Project_Description, global::System.Nullable<byte> Project_Active) {
+        public virtual int Insert(global::System.Nullable<int> Project_YearMade, string Project_Name, string Project_Description, global::System.Nullable<byte> Project_Active, string Project_Status, global::System.Nullable<global::System.DateTime> Project_StatusChangedDate) {
             if ((Project_YearMade.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Project_YearMade.Value));
             }
@@ -10001,6 +10284,18 @@ WHERE          WorkType_UID = @WorkTypeID";
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
+            if ((Project_Status == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Project_Status));
+            }
+            if ((Project_StatusChangedDate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((System.DateTime)(Project_StatusChangedDate.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -10021,7 +10316,7 @@ WHERE          WorkType_UID = @WorkTypeID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Project_YearMade, string Project_Name, string Project_Description, global::System.Nullable<byte> Project_Active, int Original_Project_UID, global::System.Nullable<int> Original_Project_YearMade, string Original_Project_Name, string Original_Project_Description, global::System.Nullable<byte> Original_Project_Active) {
+        public virtual int Update(global::System.Nullable<int> Project_YearMade, string Project_Name, string Project_Description, global::System.Nullable<byte> Project_Active, string Project_Status, global::System.Nullable<global::System.DateTime> Project_StatusChangedDate, int Original_Project_UID, global::System.Nullable<int> Original_Project_YearMade, string Original_Project_Name, string Original_Project_Description, global::System.Nullable<byte> Original_Project_Active, string Original_Project_Status, global::System.Nullable<global::System.DateTime> Original_Project_StatusChangedDate) {
             if ((Project_YearMade.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Project_YearMade.Value));
             }
@@ -10046,38 +10341,66 @@ WHERE          WorkType_UID = @WorkTypeID";
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_Project_UID));
-            if ((Original_Project_YearMade.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Project_YearMade.Value));
+            if ((Project_Status == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Project_Status));
             }
-            if ((Original_Project_Name == null)) {
+            if ((Project_StatusChangedDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((System.DateTime)(Project_StatusChangedDate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Project_UID));
+            if ((Original_Project_YearMade.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Project_YearMade.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Project_Name));
-            }
-            if ((Original_Project_Description == null)) {
+            if ((Original_Project_Name == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Project_Description));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Project_Name));
             }
-            if ((Original_Project_Active.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((byte)(Original_Project_Active.Value));
-            }
-            else {
+            if ((Original_Project_Description == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Project_Description));
+            }
+            if ((Original_Project_Active.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((byte)(Original_Project_Active.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Project_Status == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Project_Status));
+            }
+            if ((Original_Project_StatusChangedDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_Project_StatusChangedDate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -15496,12 +15819,12 @@ WHERE          WorkType_UID = @WorkTypeID";
             tableMapping.ColumnMappings.Add("WorkType_UID", "WorkType_UID");
             tableMapping.ColumnMappings.Add("Project_UID", "Project_UID");
             tableMapping.ColumnMappings.Add("WorkType_Name", "WorkType_Name");
+            tableMapping.ColumnMappings.Add("WorkType_Status", "WorkType_Status");
+            tableMapping.ColumnMappings.Add("WorkType_StatusChangedDate", "WorkType_StatusChangedDate");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `nuracing`.`worktype` WHERE ((`WorkType_UID` = @Original_WorkType_UID" +
-                ") AND (`Project_UID` = @Original_Project_UID) AND ((@IsNull_WorkType_Name = 1 AN" +
-                "D `WorkType_Name` IS NULL) OR (`WorkType_Name` = @Original_WorkType_Name)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `nuracing`.`worktype` WHERE ((`WorkType_UID` = @Original_WorkType_UID) AND (`Project_UID` = @Original_Project_UID) AND ((@IsNull_WorkType_Name = 1 AND `WorkType_Name` IS NULL) OR (`WorkType_Name` = @Original_WorkType_Name)) AND ((@IsNull_WorkType_Status = 1 AND `WorkType_Status` IS NULL) OR (`WorkType_Status` = @Original_WorkType_Status)) AND ((@IsNull_WorkType_StatusChangedDate = 1 AND `WorkType_StatusChangedDate` IS NULL) OR (`WorkType_StatusChangedDate` = @Original_WorkType_StatusChangedDate)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_WorkType_UID";
@@ -15536,10 +15859,45 @@ WHERE          WorkType_UID = @WorkTypeID";
             param.SourceColumn = "WorkType_Name";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_WorkType_Status";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_Status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_WorkType_Status";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_Status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_WorkType_StatusChangedDate";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_StatusChangedDate";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_WorkType_StatusChangedDate";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_StatusChangedDate";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `nuracing`.`worktype` (`Project_UID`, `WorkType_Name`) VALUES (@Proje" +
-                "ct_UID, @WorkType_Name)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `nuracing`.`worktype` (`Project_UID`, `WorkType_Name`, `WorkType_Stat" +
+                "us`, `WorkType_StatusChangedDate`) VALUES (@Project_UID, @WorkType_Name, @WorkTy" +
+                "pe_Status, @WorkType_StatusChangedDate)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Project_UID";
@@ -15555,9 +15913,23 @@ WHERE          WorkType_UID = @WorkTypeID";
             param.IsNullable = true;
             param.SourceColumn = "WorkType_Name";
             this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@WorkType_Status";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_Status";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@WorkType_StatusChangedDate";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_StatusChangedDate";
+            this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `nuracing`.`worktype` SET `Project_UID` = @Project_UID, `WorkType_Name` = @WorkType_Name WHERE ((`WorkType_UID` = @Original_WorkType_UID) AND (`Project_UID` = @Original_Project_UID) AND ((@IsNull_WorkType_Name = 1 AND `WorkType_Name` IS NULL) OR (`WorkType_Name` = @Original_WorkType_Name)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `nuracing`.`worktype` SET `Project_UID` = @Project_UID, `WorkType_Name` = @WorkType_Name, `WorkType_Status` = @WorkType_Status, `WorkType_StatusChangedDate` = @WorkType_StatusChangedDate WHERE ((`WorkType_UID` = @Original_WorkType_UID) AND (`Project_UID` = @Original_Project_UID) AND ((@IsNull_WorkType_Name = 1 AND `WorkType_Name` IS NULL) OR (`WorkType_Name` = @Original_WorkType_Name)) AND ((@IsNull_WorkType_Status = 1 AND `WorkType_Status` IS NULL) OR (`WorkType_Status` = @Original_WorkType_Status)) AND ((@IsNull_WorkType_StatusChangedDate = 1 AND `WorkType_StatusChangedDate` IS NULL) OR (`WorkType_StatusChangedDate` = @Original_WorkType_StatusChangedDate)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Project_UID";
@@ -15572,6 +15944,20 @@ WHERE          WorkType_UID = @WorkTypeID";
             param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
             param.IsNullable = true;
             param.SourceColumn = "WorkType_Name";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@WorkType_Status";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_Status";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@WorkType_StatusChangedDate";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_StatusChangedDate";
             this._adapter.UpdateCommand.Parameters.Add(param);
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_WorkType_UID";
@@ -15606,6 +15992,40 @@ WHERE          WorkType_UID = @WorkTypeID";
             param.SourceColumn = "WorkType_Name";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_WorkType_Status";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_Status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_WorkType_Status";
+            param.DbType = global::System.Data.DbType.String;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_Status";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@IsNull_WorkType_StatusChangedDate";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_StatusChangedDate";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::MySql.Data.MySqlClient.MySqlParameter();
+            param.ParameterName = "@Original_WorkType_StatusChangedDate";
+            param.DbType = global::System.Data.DbType.DateTime;
+            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
+            param.IsNullable = true;
+            param.SourceColumn = "WorkType_StatusChangedDate";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -15621,12 +16041,13 @@ WHERE          WorkType_UID = @WorkTypeID";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[3];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT `WorkType_UID`, `Project_UID`, `WorkType_Name` FROM `nuracing`.`worktype`";
+            this._commandCollection[0].CommandText = "SELECT WorkType_UID, Project_UID, WorkType_Name, WorkType_Status, WorkType_Status" +
+                "ChangedDate FROM worktype";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT `WorkType_UID`, `Project_UID`, `WorkType_Name` FROM `nuracing`.`worktype`\r" +
-                "\nWHERE Project_UID = @ProjectID";
+            this._commandCollection[1].CommandText = "SELECT WorkType_UID, Project_UID, WorkType_Name, WorkType_Status, WorkType_Status" +
+                "ChangedDate, WorkType_UID FROM worktype WHERE (Project_UID = @ProjectID)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "ProjectID";
@@ -15637,8 +16058,8 @@ WHERE          WorkType_UID = @WorkTypeID";
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT `WorkType_UID`, `Project_UID`, `WorkType_Name` FROM `nuracing`.`worktype`\r" +
-                "\nWHERE WorkType_UID = @WorkTypeID";
+            this._commandCollection[2].CommandText = "SELECT WorkType_UID, Project_UID, WorkType_Name, WorkType_Status, WorkType_Status" +
+                "ChangedDate, WorkType_UID FROM worktype WHERE (WorkType_UID = @WorkTypeID)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "WorkTypeID";
@@ -15758,7 +16179,7 @@ WHERE          WorkType_UID = @WorkTypeID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_WorkType_UID, int Original_Project_UID, string Original_WorkType_Name) {
+        public virtual int Delete(int Original_WorkType_UID, int Original_Project_UID, string Original_WorkType_Name, string Original_WorkType_Status, global::System.Nullable<global::System.DateTime> Original_WorkType_StatusChangedDate) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_WorkType_UID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_Project_UID));
             if ((Original_WorkType_Name == null)) {
@@ -15768,6 +16189,22 @@ WHERE          WorkType_UID = @WorkTypeID";
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_WorkType_Name));
+            }
+            if ((Original_WorkType_Status == null)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_WorkType_Status));
+            }
+            if ((Original_WorkType_StatusChangedDate.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((System.DateTime)(Original_WorkType_StatusChangedDate.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -15789,13 +16226,25 @@ WHERE          WorkType_UID = @WorkTypeID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Project_UID, string WorkType_Name) {
+        public virtual int Insert(int Project_UID, string WorkType_Name, string WorkType_Status, global::System.Nullable<global::System.DateTime> WorkType_StatusChangedDate) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Project_UID));
             if ((WorkType_Name == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(WorkType_Name));
+            }
+            if ((WorkType_Status == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(WorkType_Status));
+            }
+            if ((WorkType_StatusChangedDate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(WorkType_StatusChangedDate.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -15817,7 +16266,7 @@ WHERE          WorkType_UID = @WorkTypeID";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Project_UID, string WorkType_Name, int Original_WorkType_UID, int Original_Project_UID, string Original_WorkType_Name) {
+        public virtual int Update(int Project_UID, string WorkType_Name, string WorkType_Status, global::System.Nullable<global::System.DateTime> WorkType_StatusChangedDate, int Original_WorkType_UID, int Original_Project_UID, string Original_WorkType_Name, string Original_WorkType_Status, global::System.Nullable<global::System.DateTime> Original_WorkType_StatusChangedDate) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Project_UID));
             if ((WorkType_Name == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -15825,15 +16274,43 @@ WHERE          WorkType_UID = @WorkTypeID";
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(WorkType_Name));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_WorkType_UID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Project_UID));
-            if ((Original_WorkType_Name == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            if ((WorkType_Status == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_WorkType_Name));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(WorkType_Status));
+            }
+            if ((WorkType_StatusChangedDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(WorkType_StatusChangedDate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_WorkType_UID));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Project_UID));
+            if ((Original_WorkType_Name == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_WorkType_Name));
+            }
+            if ((Original_WorkType_Status == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_WorkType_Status));
+            }
+            if ((Original_WorkType_StatusChangedDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_WorkType_StatusChangedDate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 

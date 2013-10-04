@@ -91,5 +91,30 @@ namespace BusinessLogicLayer {
                 return ((global::System.Collections.Specialized.StringCollection)(this["UserRoles"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+  <string>brake system</string>
+  <string>engine</string>
+  <string>drivetrain</string>
+  <string>chassis</string>
+  <string>bodywork</string>
+  <string>electrical</string>
+  <string>wiring</string>
+  <string>Misc, Fit and Finish</string>
+  <string>Steering</string>
+  <string>Suspension</string>
+  <string>Wheels and Tyres</string>
+</ArrayOfString>")]
+        public global::System.Collections.Specialized.StringCollection DefaultCarParts {
+            get {
+                return ((global::System.Collections.Specialized.StringCollection)(this["DefaultCarParts"]));
+            }
+            set {
+                this["DefaultCarParts"] = value;
+            }
+        }
     }
 }

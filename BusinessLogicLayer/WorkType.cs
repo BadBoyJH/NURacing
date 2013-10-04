@@ -19,6 +19,8 @@ namespace BusinessLogicLayer
 
             WorkTypeRow.Project_UID = ProjectID;
             WorkTypeRow.WorkType_Name = Name;
+            WorkTypeRow.WorkType_Status = "Planning";
+            WorkTypeRow.WorkType_StatusChangedDate = DateTime.Now;
 
             WorkTypeTable.AddworktypeRow(WorkTypeRow);
 
@@ -28,6 +30,18 @@ namespace BusinessLogicLayer
         static public bool WorkTypeExists(int WorkTypeID)
         {
             return (new worktypeTableAdapter().GetWorkType(WorkTypeID).Rows.Count != 0);
+        }
+
+        static public void ChangeStatus(int WorkTypeID, string newStatus)
+        {
+            worktypeTableAdapter workTypeAdapter = new worktypeTableAdapter();
+            NuRacingDataSet.worktypeDataTable WorkTypeTable = workTypeAdapter.GetWorkType(WorkTypeID);
+            NuRacingDataSet.worktypeRow WorkTypeRow = (NuRacingDataSet.worktypeRow) WorkTypeTable.Rows[0];
+
+            WorkTypeRow.WorkType_Status = newStatus;
+            WorkTypeRow.WorkType_StatusChangedDate = DateTime.Now;
+
+            workTypeAdapter.Update(WorkTypeTable);
         }
     }
 }
