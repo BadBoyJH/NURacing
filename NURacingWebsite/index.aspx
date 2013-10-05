@@ -73,8 +73,7 @@
 			<div id="pageFull" style="text-align:center;">
 								<br/><br/><br/>
 				<div style="width:100%;text-align:center;"></div>
-				<p>Select a project:</p>
-<br/><br/>
+                <br/><br/>
 				</div>	
                         <asp:Table ID="Table1" runat="server" GridLines="Horizontal" CssClass="projectTable" HorizontalAlign="Center">
             <asp:TableRow >
