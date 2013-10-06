@@ -143,7 +143,7 @@ namespace BusinessLogicLayer
         public WorkInfo getTaskWorkInfo(int TaskID)
         {
             workTableAdapter workAdapter = new workTableAdapter();
-            NuRacingDataSet.workDataTable workTable = workAdapter.GetDataByTaskID(TaskID)
+            NuRacingDataSet.workDataTable workTable = workAdapter.GetDataByTaskID(TaskID);
             if (workTable.Rows.Count == 0)
             {
                 return null;

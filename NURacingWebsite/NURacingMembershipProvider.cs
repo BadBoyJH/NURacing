@@ -165,11 +165,6 @@ namespace NURacingWebsite
 
         public override MembershipUser GetUser(object username, bool LastActivityDate)
         {
-            if (LastActivityDate)
-            {
-                User.wasActive(username);
-            }
-
             return GetUser((string)username, LastActivityDate);
         }
 

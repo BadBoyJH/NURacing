@@ -30,6 +30,8 @@ namespace BusinessLogicLayer
 
         private string taskIncompleteReason;
 
+        private DateTime dueDate;
+
         public UserInfo AssigningUserInfo
         { 
             get
@@ -94,6 +96,14 @@ namespace BusinessLogicLayer
             }
         }
 
+        public DateTime TaskDueDate
+        {
+            get
+            {
+                return dueDate;
+            }
+        }
+
         /// <summary>
         /// Class constructor
         /// </summary>
@@ -116,6 +126,8 @@ namespace BusinessLogicLayer
             taskStatus = taskRow.Task_Status;
 
             taskIncompleteReason = taskRow.Task_IncompleteReason;
+
+            dueDate = taskRow.Task_DueDate;
         }
 
         /// <summary>

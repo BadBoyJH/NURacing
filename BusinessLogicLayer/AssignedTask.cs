@@ -23,7 +23,7 @@ namespace BusinessLogicLayer
         /// <param name="description">Description of task</param>
         /// <param name="takeFiveNeeded">Requires a take five</param>
         
-        static public void addTask(string assigningUser, string assignedToUser, int workType, string name, string description, bool takeFiveNeeded)
+        static public void addTask(string assigningUser, string assignedToUser, int workType, DateTime dueDate, string name, string description, bool takeFiveNeeded)
         {
             assignedtaskTableAdapter assignedTaskAdapter = new assignedtaskTableAdapter();
 
@@ -42,6 +42,8 @@ namespace BusinessLogicLayer
             assignedTaskRow.Task_Description = description;
 
             assignedTaskRow.Task_TakeFiveNeeded = takeFiveNeeded;
+
+            assignedTaskRow.Task_DueDate = dueDate;
 
             assignedTaskTable.AddassignedtaskRow(assignedTaskRow);
 
