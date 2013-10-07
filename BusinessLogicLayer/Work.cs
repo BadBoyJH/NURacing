@@ -24,9 +24,9 @@ namespace BusinessLogicLayer
             }
             */ 
             
-            workTableAdapter workAdapter = new workTableAdapter();
-            NuRacingDataSet.workDataTable workTable = workAdapter.GetData();
-            NuRacingDataSet.workRow workRow = workTable.NewworkRow();
+            WorkTableAdapter workAdapter = new WorkTableAdapter();
+            NuRacingDataSet.WorkDataTable workTable = workAdapter.GetData();
+            NuRacingDataSet.WorkRow workRow = workTable.NewWorkRow();
 
             workRow.User_Username = Username;
 
@@ -37,7 +37,7 @@ namespace BusinessLogicLayer
             workRow.SetTask_UIDNull();
             workRow.Work_TakeFiveTaken = TakeFiveTaken;
 
-            workTable.AddworkRow(workRow);
+            workTable.AddWorkRow(workRow);
             workAdapter.Update(workTable);
         }
 
@@ -63,9 +63,9 @@ namespace BusinessLogicLayer
                 throw new ArgumentException("Username wasn't consistant with Assigned Task record");
             }
 
-            workTableAdapter workAdapter = new workTableAdapter();
-            NuRacingDataSet.workDataTable workTable = workAdapter.GetData();
-            NuRacingDataSet.workRow workRow = workTable.NewworkRow();
+            WorkTableAdapter workAdapter = new WorkTableAdapter();
+            NuRacingDataSet.WorkDataTable workTable = workAdapter.GetData();
+            NuRacingDataSet.WorkRow workRow = workTable.NewWorkRow();
 
             workRow.User_Username = Username;
             workRow.Work_DateCompleted = DateCompleted;
@@ -75,13 +75,13 @@ namespace BusinessLogicLayer
             workRow.Task_UID = AssignedTaskID;
             workRow.Work_TakeFiveTaken = TakeFiveTaken;
 
-            workTable.AddworkRow(workRow);
+            workTable.AddWorkRow(workRow);
             workAdapter.Update(workTable);
         }
 
         public static bool WorkExists(int WorkID)
         {
-            return (new workTableAdapter().GetWork(WorkID).Rows.Count != 0);
+            return (new WorkTableAdapter().GetWork(WorkID).Rows.Count != 0);
         }
     }
 }

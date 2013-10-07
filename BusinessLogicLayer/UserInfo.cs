@@ -270,7 +270,7 @@ namespace BusinessLogicLayer
         /// </summary>
         /// <param name="userRow">A row from the User table in the database</param>
 
-        private UserInfo(NuRacingDataSet.userRow userRow)
+        private UserInfo(NuRacingDataSet.UserRow userRow)
         {
             givenName = userRow.User_GivenName;
             surname = userRow.User_Surname;
@@ -320,11 +320,11 @@ namespace BusinessLogicLayer
                 throw new ArgumentException("Username wasn't valid");
             }
 
-            userTableAdapter userAdapter = new userTableAdapter();
+            UserTableAdapter userAdapter = new UserTableAdapter();
 
-            NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
+            NuRacingDataSet.UserDataTable userTable = userAdapter.GetUser(Username);
 
-            NuRacingDataSet.userRow userRow = (NuRacingDataSet.userRow) userTable.Rows[0];
+            NuRacingDataSet.UserRow userRow = (NuRacingDataSet.UserRow) userTable.Rows[0];
 
             UserInfo userInfo = new UserInfo(userRow);
 
@@ -342,11 +342,11 @@ namespace BusinessLogicLayer
         {
             List<UserInfo> userList = new List<UserInfo>();
 
-            userTableAdapter userAdapter = new userTableAdapter();
+            UserTableAdapter userAdapter = new UserTableAdapter();
 
-            NuRacingDataSet.userDataTable userTable = userAdapter.GetData();
+            NuRacingDataSet.UserDataTable userTable = userAdapter.GetData();
 
-            foreach (NuRacingDataSet.userRow row in userTable.Rows)
+            foreach (NuRacingDataSet.UserRow row in userTable.Rows)
             {
                 if (row.User_Active)
                 {

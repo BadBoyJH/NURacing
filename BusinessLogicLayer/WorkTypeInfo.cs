@@ -62,7 +62,7 @@ namespace BusinessLogicLayer
             }
         }
 
-        private WorkTypeInfo(NuRacingDataSet.worktypeRow row)
+        private WorkTypeInfo(NuRacingDataSet.WorkTypeRow row)
         {
             workTypeID = row.WorkType_UID;
             projectID = row.Project_UID;
@@ -73,25 +73,25 @@ namespace BusinessLogicLayer
 
         public static WorkTypeInfo getWorkType(int WorkType)
         {
-            worktypeTableAdapter workTypeAdapter = new worktypeTableAdapter();
-            NuRacingDataSet.worktypeDataTable WorkTypeTable = workTypeAdapter.GetWorkType(WorkType);
+            WorkTypeTableAdapter workTypeAdapter = new WorkTypeTableAdapter();
+            NuRacingDataSet.WorkTypeDataTable WorkTypeTable = workTypeAdapter.GetWorkType(WorkType);
 
             if (WorkTypeTable.Rows.Count == 0)
             {
                 throw new ArgumentException("Work Type Doesn't Exist");
             }
 
-            return new WorkTypeInfo((NuRacingDataSet.worktypeRow)WorkTypeTable.Rows[0]);
+            return new WorkTypeInfo((NuRacingDataSet.WorkTypeRow)WorkTypeTable.Rows[0]);
         }
 
         public static List<WorkTypeInfo> getProjectWorkTypes(int ProjectID)
         {
-            worktypeTableAdapter workTypeAdapter = new worktypeTableAdapter();
-            NuRacingDataSet.worktypeDataTable WorkTypeTable = workTypeAdapter.GetDataByProjectID(ProjectID);
+            WorkTypeTableAdapter workTypeAdapter = new WorkTypeTableAdapter();
+            NuRacingDataSet.WorkTypeDataTable WorkTypeTable = workTypeAdapter.GetDataByProjectID(ProjectID);
 
             List<WorkTypeInfo> result = new List<WorkTypeInfo>();
 
-            foreach (NuRacingDataSet.worktypeRow WorkTypeRow in WorkTypeTable.Rows)
+            foreach (NuRacingDataSet.WorkTypeRow WorkTypeRow in WorkTypeTable.Rows)
             {
                 result.Add(new WorkTypeInfo(WorkTypeRow));
             }
@@ -101,12 +101,12 @@ namespace BusinessLogicLayer
 
         public static List<WorkTypeInfo> getAllWorkTypes()
         {
-            worktypeTableAdapter workTypeAdapter = new worktypeTableAdapter();
-            NuRacingDataSet.worktypeDataTable WorkTypeTable = workTypeAdapter.GetData();
+            WorkTypeTableAdapter workTypeAdapter = new WorkTypeTableAdapter();
+            NuRacingDataSet.WorkTypeDataTable WorkTypeTable = workTypeAdapter.GetData();
 
             List<WorkTypeInfo> result = new List<WorkTypeInfo>();
 
-            foreach (NuRacingDataSet.worktypeRow WorkTypeRow in WorkTypeTable.Rows)
+            foreach (NuRacingDataSet.WorkTypeRow WorkTypeRow in WorkTypeTable.Rows)
             {
                 result.Add(new WorkTypeInfo(WorkTypeRow));
             }

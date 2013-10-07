@@ -59,7 +59,9 @@ namespace ConsoleTesting
             CarParts.Add("Suspension");
             CarParts.Add("Electronics");
 
-            Project.AddCar("Big Red Car", 0, "Chugga Chugga big red car", CarParts);
+            //Project.AddCar("Big Red Car", 0, "Chugga Chugga big red car", CarParts);
+
+            Project.addDefaultCar("NU17", 2015, "The car that James deserves", true);
 
             Console.ReadLine();
         }

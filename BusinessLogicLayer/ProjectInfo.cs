@@ -67,7 +67,7 @@ namespace BusinessLogicLayer
             }
         }
 
-        private ProjectInfo(NuRacingDataSet.projectRow projectRow)
+        private ProjectInfo(NuRacingDataSet.ProjectRow projectRow)
         {
             active = projectRow.Project_Active;
             name = projectRow.Project_Name;
@@ -88,15 +88,15 @@ namespace BusinessLogicLayer
 
         public static ProjectInfo getProject(int ProjectID)
         {
-            projectTableAdapter projectAdapter = new projectTableAdapter();
-            NuRacingDataSet.projectDataTable projectTable = projectAdapter.GetProject(ProjectID);
+            ProjectTableAdapter projectAdapter = new ProjectTableAdapter();
+            NuRacingDataSet.ProjectDataTable projectTable = projectAdapter.GetProject(ProjectID);
             
             if (projectTable.Rows.Count == 0)
             {
                 throw new ArgumentException("Project doesn't exist");
             }
 
-            return new ProjectInfo((NuRacingDataSet.projectRow) projectTable.Rows[1]);
+            return new ProjectInfo((NuRacingDataSet.ProjectRow) projectTable.Rows[1]);
         }
 
         public static List<ProjectInfo> getUserProjects(string Username, bool OnlyActive)
@@ -106,12 +106,12 @@ namespace BusinessLogicLayer
                 throw new ArgumentException("Username doesn't exist");
             }
 
-            projectTableAdapter projectAdapter = new projectTableAdapter();
-            NuRacingDataSet.projectDataTable projectTable = projectAdapter.GetData();
+            ProjectTableAdapter projectAdapter = new ProjectTableAdapter();
+            NuRacingDataSet.ProjectDataTable projectTable = projectAdapter.GetData();
 
             List<ProjectInfo> result = new List<ProjectInfo>();
 
-            foreach (NuRacingDataSet.projectRow projectRow in projectTable.Rows)
+            foreach (NuRacingDataSet.ProjectRow projectRow in projectTable.Rows)
             {
                 if (!(
                     (OnlyActive && (!projectRow.Project_Active)) || 

@@ -13,30 +13,30 @@ namespace BusinessLogicLayer
     {
 		static public void AddWorkType(int ProjectID, string Name)
         {
-            worktypeTableAdapter workTypeAdapter = new worktypeTableAdapter();
-            NuRacingDataSet.worktypeDataTable WorkTypeTable = workTypeAdapter.GetData();
-            NuRacingDataSet.worktypeRow WorkTypeRow = WorkTypeTable.NewworktypeRow();
+            WorkTypeTableAdapter workTypeAdapter = new WorkTypeTableAdapter();
+            NuRacingDataSet.WorkTypeDataTable WorkTypeTable = workTypeAdapter.GetData();
+            NuRacingDataSet.WorkTypeRow WorkTypeRow = WorkTypeTable.NewWorkTypeRow();
 
             WorkTypeRow.Project_UID = ProjectID;
             WorkTypeRow.WorkType_Name = Name;
             WorkTypeRow.WorkType_Status = "Planning";
             WorkTypeRow.WorkType_StatusChangedDate = DateTime.Now;
 
-            WorkTypeTable.AddworktypeRow(WorkTypeRow);
+            WorkTypeTable.AddWorkTypeRow(WorkTypeRow);
 
             workTypeAdapter.Update(WorkTypeTable);
         }
 
         static public bool WorkTypeExists(int WorkTypeID)
         {
-            return (new worktypeTableAdapter().GetWorkType(WorkTypeID).Rows.Count != 0);
+            return (new WorkTypeTableAdapter().GetWorkType(WorkTypeID).Rows.Count != 0);
         }
 
         static public void ChangeStatus(int WorkTypeID, string newStatus)
         {
-            worktypeTableAdapter workTypeAdapter = new worktypeTableAdapter();
-            NuRacingDataSet.worktypeDataTable WorkTypeTable = workTypeAdapter.GetWorkType(WorkTypeID);
-            NuRacingDataSet.worktypeRow WorkTypeRow = (NuRacingDataSet.worktypeRow) WorkTypeTable.Rows[0];
+            WorkTypeTableAdapter workTypeAdapter = new WorkTypeTableAdapter();
+            NuRacingDataSet.WorkTypeDataTable WorkTypeTable = workTypeAdapter.GetWorkType(WorkTypeID);
+            NuRacingDataSet.WorkTypeRow WorkTypeRow = (NuRacingDataSet.WorkTypeRow) WorkTypeTable.Rows[0];
 
             WorkTypeRow.WorkType_Status = newStatus;
             WorkTypeRow.WorkType_StatusChangedDate = DateTime.Now;

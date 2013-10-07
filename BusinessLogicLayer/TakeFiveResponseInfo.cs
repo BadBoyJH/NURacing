@@ -30,7 +30,7 @@ namespace BusinessLogicLayer
             }
         }
 
-        public TakeFiveResponseInfo(NuRacingDataSet.takefiveresponseRow row)
+        public TakeFiveResponseInfo(NuRacingDataSet.TakeFiveResponseRow row)
         {
             responseTo = TakeFive.getTakeFiveQuestion(row.TakeFive_UID);
             response = row.TakeFiveResponse_Reason;
@@ -50,10 +50,10 @@ namespace BusinessLogicLayer
             }
             List<TakeFiveResponseInfo> result = new List<TakeFiveResponseInfo>();
 
-            takefiveresponseTableAdapter responseAdapter = new takefiveresponseTableAdapter();
-            NuRacingDataSet.takefiveresponseDataTable responseTable = responseAdapter.GetDataByWorkID(WorkID);
+            TakeFiveResponseTableAdapter responseAdapter = new TakeFiveResponseTableAdapter();
+            NuRacingDataSet.TakeFiveResponseDataTable responseTable = responseAdapter.GetDataByWorkID(WorkID);
 
-            foreach (NuRacingDataSet.takefiveresponseRow responseRow in responseTable.Rows)
+            foreach (NuRacingDataSet.TakeFiveResponseRow responseRow in responseTable.Rows)
             {
                 result.Add(new TakeFiveResponseInfo(responseRow));
             }

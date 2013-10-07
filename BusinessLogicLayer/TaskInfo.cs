@@ -109,7 +109,7 @@ namespace BusinessLogicLayer
         /// </summary>
         /// <param name="taskRow">A row from the assigned tasks table</param>
 
-        private TaskInfo(NuRacingDataSet.assignedtaskRow taskRow)
+        private TaskInfo(NuRacingDataSet.AssignedTaskRow taskRow)
         {
             assigningUserInfo = UserInfo.getUser(taskRow.User_Username_AssignedBy);
 
@@ -138,16 +138,16 @@ namespace BusinessLogicLayer
 
         public static TaskInfo getAssignedTask(int assignedTaskID)
         {
-            assignedtaskTableAdapter assignedTaskAdapter = new assignedtaskTableAdapter();
+            AssignedTaskTableAdapter assignedTaskAdapter = new AssignedTaskTableAdapter();
 
-            NuRacingDataSet.assignedtaskDataTable assignedTaskTable = assignedTaskAdapter.GetAssignedTask(assignedTaskID);
+            NuRacingDataSet.AssignedTaskDataTable assignedTaskTable = assignedTaskAdapter.GetAssignedTask(assignedTaskID);
 
             if (assignedTaskTable.Rows.Count == 0)
             {
                 throw new ArgumentException("Assigned Task Doesn't Exist");
             }
 
-            return new TaskInfo((NuRacingDataSet.assignedtaskRow)assignedTaskTable.Rows[0]);
+            return new TaskInfo((NuRacingDataSet.AssignedTaskRow)assignedTaskTable.Rows[0]);
         }
 
         /// <summary>
@@ -158,13 +158,13 @@ namespace BusinessLogicLayer
 
         public static List<TaskInfo> getWorkTypeTasks(int workID)
         {
-            assignedtaskTableAdapter assignedTaskAdapter = new assignedtaskTableAdapter();
+            AssignedTaskTableAdapter assignedTaskAdapter = new AssignedTaskTableAdapter();
 
-            NuRacingDataSet.assignedtaskDataTable assignedTaskTable = assignedTaskAdapter.GetDataByWorkTypeID(workID);
+            NuRacingDataSet.AssignedTaskDataTable assignedTaskTable = assignedTaskAdapter.GetDataByWorkTypeID(workID);
 
             List<TaskInfo> result = new List<TaskInfo>();
 
-            foreach (NuRacingDataSet.assignedtaskRow AssignedTaskRow in assignedTaskTable.Rows)
+            foreach (NuRacingDataSet.AssignedTaskRow AssignedTaskRow in assignedTaskTable.Rows)
             {
                 result.Add(new TaskInfo(AssignedTaskRow));
             }
@@ -180,12 +180,12 @@ namespace BusinessLogicLayer
 
         public static List<TaskInfo> getProjectTasks(int ProjectID)
         {
-            worktypeTableAdapter workTypeAdapter = new worktypeTableAdapter();
-            NuRacingDataSet.worktypeDataTable workTypeTable = workTypeAdapter.GetDataByProjectID(ProjectID);
+            WorkTypeTableAdapter workTypeAdapter = new WorkTypeTableAdapter();
+            NuRacingDataSet.WorkTypeDataTable workTypeTable = workTypeAdapter.GetDataByProjectID(ProjectID);
 
             List<TaskInfo> result = new List<TaskInfo>();
 
-            foreach (NuRacingDataSet.worktypeRow workTypeRow in workTypeTable)
+            foreach (NuRacingDataSet.WorkTypeRow workTypeRow in workTypeTable)
             {
                 result.AddRange(getWorkTypeTasks(workTypeRow.WorkType_UID));
             }
@@ -201,13 +201,13 @@ namespace BusinessLogicLayer
 
         public static List<TaskInfo> getUserTasks(string username)
         {
-            assignedtaskTableAdapter assignedTaskAdapter = new assignedtaskTableAdapter();
+            AssignedTaskTableAdapter assignedTaskAdapter = new AssignedTaskTableAdapter();
 
-            NuRacingDataSet.assignedtaskDataTable assignedTaskTable = assignedTaskAdapter.GetDataByAssignedUser(username);
+            NuRacingDataSet.AssignedTaskDataTable assignedTaskTable = assignedTaskAdapter.GetDataByAssignedUser(username);
 
             List<TaskInfo> result = new List<TaskInfo>();
 
-            foreach (NuRacingDataSet.assignedtaskRow AssignedTaskRow in assignedTaskTable.Rows)
+            foreach (NuRacingDataSet.AssignedTaskRow AssignedTaskRow in assignedTaskTable.Rows)
             {
                 result.Add(new TaskInfo(AssignedTaskRow));
             }
@@ -222,13 +222,13 @@ namespace BusinessLogicLayer
 
         public static List<TaskInfo> getTasks()
         {
-            assignedtaskTableAdapter assignedTaskAdapter = new assignedtaskTableAdapter();
+            AssignedTaskTableAdapter assignedTaskAdapter = new AssignedTaskTableAdapter();
 
-            NuRacingDataSet.assignedtaskDataTable assignedTaskTable = assignedTaskAdapter.GetData();
+            NuRacingDataSet.AssignedTaskDataTable assignedTaskTable = assignedTaskAdapter.GetData();
 
             List<TaskInfo> result = new List<TaskInfo>();
 
-            foreach (NuRacingDataSet.assignedtaskRow AssignedTaskRow in assignedTaskTable.Rows)
+            foreach (NuRacingDataSet.AssignedTaskRow AssignedTaskRow in assignedTaskTable.Rows)
             {
                 result.Add(new TaskInfo(AssignedTaskRow));
             }

@@ -105,7 +105,7 @@ namespace BusinessLogicLayer
             }
         }
 
-        private WorkInfo(NuRacingDataSet.workRow row)
+        private WorkInfo(NuRacingDataSet.WorkRow row)
         {
             workID = row.Work_UID;
             timeWorkedMins = row.Work_TimeWorkedMins;
@@ -125,13 +125,13 @@ namespace BusinessLogicLayer
         /// <returns>A WorkInfo object containing all info about the row.</returns>
         public WorkInfo getWorkInfo(int WorkID)
         {
-            workTableAdapter workAdapter = new workTableAdapter();
-            NuRacingDataSet.workDataTable workTable = workAdapter.GetWork(WorkID);
+            WorkTableAdapter workAdapter = new WorkTableAdapter();
+            NuRacingDataSet.WorkDataTable workTable = workAdapter.GetWork(WorkID);
             if (workTable.Rows.Count == 0)
             {
                 throw new ArgumentException("WorkID wasn't valid");
             }
-            return new WorkInfo((NuRacingDataSet.workRow)workTable.Rows[0]);
+            return new WorkInfo((NuRacingDataSet.WorkRow)workTable.Rows[0]);
         }
 
         // Written by James Hibbard
@@ -142,15 +142,15 @@ namespace BusinessLogicLayer
         /// <returns>If the taskID has a Work record, a WorkInfo object containing all info about the row, if it doesn't, returns null.</returns>
         public WorkInfo getTaskWorkInfo(int TaskID)
         {
-            workTableAdapter workAdapter = new workTableAdapter();
-            NuRacingDataSet.workDataTable workTable = workAdapter.GetDataByTaskID(TaskID);
+            WorkTableAdapter workAdapter = new WorkTableAdapter();
+            NuRacingDataSet.WorkDataTable workTable = workAdapter.GetDataByTaskID(TaskID);
             if (workTable.Rows.Count == 0)
             {
                 return null;
             }
             else 
             {
-                return new WorkInfo((NuRacingDataSet.workRow)workTable.Rows[0]);
+                return new WorkInfo((NuRacingDataSet.WorkRow)workTable.Rows[0]);
             }
         }
 
@@ -162,12 +162,12 @@ namespace BusinessLogicLayer
         /// <returns>A list of all the work records</returns>
         public List<WorkInfo> getUserWorkInfo(String Username)
         {
-            workTableAdapter workAdapter = new workTableAdapter();
-            NuRacingDataSet.workDataTable workTable = workAdapter.GetDataByUsername(Username);
+            WorkTableAdapter workAdapter = new WorkTableAdapter();
+            NuRacingDataSet.WorkDataTable workTable = workAdapter.GetDataByUsername(Username);
 
             List<WorkInfo> result = new List<WorkInfo>();
 
-            foreach (NuRacingDataSet.workRow workRow in workTable.Rows)
+            foreach (NuRacingDataSet.WorkRow workRow in workTable.Rows)
             {
                 result.Add(new WorkInfo(workRow));
             }
@@ -183,12 +183,12 @@ namespace BusinessLogicLayer
         /// <returns>A List of the WorkInfo records</returns>
         public List<WorkInfo> getWorkTypeWorkInfo(int WorkTypeID)
         {
-            workTableAdapter workAdapter = new workTableAdapter();
-            NuRacingDataSet.workDataTable workTable = workAdapter.GetDataByWorkTypeID(WorkTypeID);
+            WorkTableAdapter workAdapter = new WorkTableAdapter();
+            NuRacingDataSet.WorkDataTable workTable = workAdapter.GetDataByWorkTypeID(WorkTypeID);
 
             List<WorkInfo> result = new List<WorkInfo>();
 
-            foreach (NuRacingDataSet.workRow workRow in workTable.Rows)
+            foreach (NuRacingDataSet.WorkRow workRow in workTable.Rows)
             {
                 result.Add(new WorkInfo(workRow));
             }
@@ -204,12 +204,12 @@ namespace BusinessLogicLayer
         /// <returns>A list of the WorkInfo records</returns>
         public List<WorkInfo> getProjectWorkInfo(int ProjectID)
         {
-            worktypeTableAdapter workTypeAdapter = new worktypeTableAdapter();
-            NuRacingDataSet.worktypeDataTable workTypeTable = workTypeAdapter.GetDataByProjectID(ProjectID);
+            WorkTypeTableAdapter workTypeAdapter = new WorkTypeTableAdapter();
+            NuRacingDataSet.WorkTypeDataTable workTypeTable = workTypeAdapter.GetDataByProjectID(ProjectID);
 
             List<WorkInfo> result = new List<WorkInfo>();
 
-            foreach (NuRacingDataSet.worktypeRow workTypeRow in workTypeTable.Rows)
+            foreach (NuRacingDataSet.WorkTypeRow workTypeRow in workTypeTable.Rows)
             {
                 result.AddRange(getWorkTypeWorkInfo(workTypeRow.WorkType_UID));
             }

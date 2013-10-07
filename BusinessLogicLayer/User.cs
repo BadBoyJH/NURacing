@@ -177,18 +177,18 @@ namespace BusinessLogicLayer
         /// <returns>True if the username exists</returns>
         static public bool UsernameExists(string Username)
         {
-            userTableAdapter userAdapter = new userTableAdapter();
-            NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
+            UserTableAdapter userAdapter = new UserTableAdapter();
+            NuRacingDataSet.UserDataTable userTable = userAdapter.GetUser(Username);
 
             return userTable.Rows.Count != 0;
         }
 
         static internal bool EmailExists(string Email)
         {
-            userTableAdapter userAdapter = new userTableAdapter();
-            NuRacingDataSet.userDataTable userTable = userAdapter.GetData();
+            UserTableAdapter userAdapter = new UserTableAdapter();
+            NuRacingDataSet.UserDataTable userTable = userAdapter.GetData();
             
-            foreach (NuRacingDataSet.userRow userRow in userTable.Rows)
+            foreach (NuRacingDataSet.UserRow userRow in userTable.Rows)
             {
                 if (userRow.User_Email == Email)
                 {
@@ -207,8 +207,8 @@ namespace BusinessLogicLayer
         /// <returns></returns>
         static public string getEmail(string Username)
         {
-            userTableAdapter userAdapter = new userTableAdapter();
-            NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
+            UserTableAdapter userAdapter = new UserTableAdapter();
+            NuRacingDataSet.UserDataTable userTable = userAdapter.GetUser(Username);
 
             if (userTable.Rows.Count == 0)
             {
@@ -238,9 +238,9 @@ namespace BusinessLogicLayer
                 return false;
             }
             
-            userTableAdapter userAdapter = new userTableAdapter();
-            NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
-            NuRacingDataSet.userRow userRow = (NuRacingDataSet.userRow)userTable.Rows[0];
+            UserTableAdapter userAdapter = new UserTableAdapter();
+            NuRacingDataSet.UserDataTable userTable = userAdapter.GetUser(Username);
+            NuRacingDataSet.UserRow userRow = (NuRacingDataSet.UserRow)userTable.Rows[0];
 
 
             if (userRow.User_Active)
@@ -270,9 +270,9 @@ namespace BusinessLogicLayer
         {
             if (UsernameExists(Username))
             {
-                userTableAdapter userAdapter = new userTableAdapter();
-                NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
-                NuRacingDataSet.userRow userRow = (NuRacingDataSet.userRow)userTable.Rows[0];
+                UserTableAdapter userAdapter = new UserTableAdapter();
+                NuRacingDataSet.UserDataTable userTable = userAdapter.GetUser(Username);
+                NuRacingDataSet.UserRow userRow = (NuRacingDataSet.UserRow)userTable.Rows[0];
 
                 userRow.User_LastActivity = DateTime.Now;
 
@@ -293,9 +293,9 @@ namespace BusinessLogicLayer
             {
                 if (Email.Equals(getEmail(Username)))
                 {
-                    passwordresetrequestTableAdapter prrAdapter = new passwordresetrequestTableAdapter();
-                    NuRacingDataSet.passwordresetrequestDataTable prrTable = prrAdapter.GetData();
-                    NuRacingDataSet.passwordresetrequestRow prrNewRow = prrTable.NewpasswordresetrequestRow();
+                    PasswordResetRequestTableAdapter prrAdapter = new PasswordResetRequestTableAdapter();
+                    NuRacingDataSet.PasswordResetRequestDataTable prrTable = prrAdapter.GetData();
+                    NuRacingDataSet.PasswordResetRequestRow prrNewRow = prrTable.NewPasswordResetRequestRow();
 
                     byte[] byteCode = getByteString(16);
 
@@ -303,7 +303,7 @@ namespace BusinessLogicLayer
                     prrNewRow.User_UserName = Username;
                     prrNewRow.PasswordRR_UID = byteCode;
 
-                    prrTable.AddpasswordresetrequestRow(prrNewRow);
+                    prrTable.AddPasswordResetRequestRow(prrNewRow);
                     prrAdapter.Update(prrTable);
 
                     EmailManager.SendPasswordResetRequest(byteCode, getEmail(Username));
@@ -336,9 +336,9 @@ namespace BusinessLogicLayer
 
             if (UsernameExists(Username))
             {
-                userTableAdapter userAdapter = new userTableAdapter();
-                NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
-                NuRacingDataSet.userRow userRow = (NuRacingDataSet.userRow)userTable.Rows[0];
+                UserTableAdapter userAdapter = new UserTableAdapter();
+                NuRacingDataSet.UserDataTable userTable = userAdapter.GetUser(Username);
+                NuRacingDataSet.UserRow userRow = (NuRacingDataSet.UserRow)userTable.Rows[0];
 
                 byte[] salt = CreateSalt();
                 byte[] hash = HashPassword(NewPassword, salt);
@@ -364,10 +364,10 @@ namespace BusinessLogicLayer
             }
             string newPassword = builder.ToString();
 
-            userTableAdapter userAdapter = new userTableAdapter();
-            NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
+            UserTableAdapter userAdapter = new UserTableAdapter();
+            NuRacingDataSet.UserDataTable userTable = userAdapter.GetUser(Username);
 
-            foreach (NuRacingDataSet.userRow userRow in userTable.Rows)
+            foreach (NuRacingDataSet.UserRow userRow in userTable.Rows)
             {
                 if (userRow.User_Username == Username)
                 {
@@ -399,10 +399,10 @@ namespace BusinessLogicLayer
                 ByteResetRequestID[i] = (byte)((ResetRequestID[i * 2] - (ResetRequestID[i * 2] < 58 ? 48 : 55)) * 16 + (ResetRequestID[i * 2 + 1] - (ResetRequestID[i * 2 + 1] < 58 ? 48 : 55)));
             }
 
-            passwordresetrequestTableAdapter prrAdapter = new passwordresetrequestTableAdapter();
-            NuRacingDataSet.passwordresetrequestDataTable prrTable = prrAdapter.GetData();
+            PasswordResetRequestTableAdapter prrAdapter = new PasswordResetRequestTableAdapter();
+            NuRacingDataSet.PasswordResetRequestDataTable prrTable = prrAdapter.GetData();
 
-            foreach (NuRacingDataSet.passwordresetrequestRow prrRow in prrTable.Rows)
+            foreach (NuRacingDataSet.PasswordResetRequestRow prrRow in prrTable.Rows)
             {
                 if (ByteResetRequestID.SequenceEqual(prrRow.PasswordRR_UID) && Username == prrRow.User_UserName)
                 {
@@ -426,9 +426,9 @@ namespace BusinessLogicLayer
         {
             if (UsernameExists(Username))
             {
-                userTableAdapter userAdapter = new userTableAdapter();
-                NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
-                NuRacingDataSet.userRow userRow = userTable[0];
+                UserTableAdapter userAdapter = new UserTableAdapter();
+                NuRacingDataSet.UserDataTable userTable = userAdapter.GetUser(Username);
+                NuRacingDataSet.UserRow userRow = userTable[0];
                 if (userRow.User_Active != active)
                 {
                     //avoid making the connection if possible
@@ -447,9 +447,9 @@ namespace BusinessLogicLayer
             bool IndemnityFormSigned, string SAEMembershipNumber, DateTime SAEExpiryDate, string CAMSMembershipNumber, string CAMSLicenseType, 
             string DriversLicenseNumber, string DriversLicenseState, string EmergencyContactName, string EmergencyContactPhoneNumber, bool IsActive = true)
         {
-            userTableAdapter userAdapter = new userTableAdapter();
-            NuRacingDataSet.userDataTable userTable = userAdapter.GetData();
-            NuRacingDataSet.userRow userRow = userTable.NewuserRow();
+            UserTableAdapter userAdapter = new UserTableAdapter();
+            NuRacingDataSet.UserDataTable userTable = userAdapter.GetData();
+            NuRacingDataSet.UserRow userRow = userTable.NewUserRow();
 
             if (UsernameExists(Username))
             {
@@ -498,7 +498,7 @@ namespace BusinessLogicLayer
             userRow.User_LastPasswordChanged = DateTime.Now;
             userRow.User_LastLockoutDate = DateTime.Now;
 
-            userTable.AdduserRow(userRow);
+            userTable.AddUserRow(userRow);
             userAdapter.Update(userTable);
 
             EmailManager.newUser(Username, Password, Email);

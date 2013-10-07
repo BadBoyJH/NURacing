@@ -28,21 +28,21 @@ namespace BusinessLogicLayer
 
         public static string GetUserRole(string Username)
         {
-            userTableAdapter userAdapter = new userTableAdapter();
-            NuRacingDataSet.userDataTable userTable = userAdapter.GetUser(Username);
-            NuRacingDataSet.userRow userRow = (NuRacingDataSet.userRow)userTable.Rows[0];
+            UserTableAdapter userAdapter = new UserTableAdapter();
+            NuRacingDataSet.UserDataTable userTable = userAdapter.GetUser(Username);
+            NuRacingDataSet.UserRow userRow = (NuRacingDataSet.UserRow)userTable.Rows[0];
 
             return userRow.User_Role;
         }
 
         public static string[] getUsersInRole(string RoleName)
         {
-            userTableAdapter userAdapter = new userTableAdapter();
-            NuRacingDataSet.userDataTable userTable = userAdapter.GetData();
+            UserTableAdapter userAdapter = new UserTableAdapter();
+            NuRacingDataSet.UserDataTable userTable = userAdapter.GetData();
 
             List<string> results = new List<string>();
 
-            foreach (NuRacingDataSet.userRow userRow in userTable.Rows)
+            foreach (NuRacingDataSet.UserRow userRow in userTable.Rows)
             {
                 results.Add(userRow.User_Username);
             }

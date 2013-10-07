@@ -19,8 +19,8 @@ namespace BusinessLogicLayer
         /// <returns>The related Question</returns>
         public static string getTakeFiveQuestion(int TakeFiveID)
         {
-            takefiveTableAdapter takefiveAdapter = new takefiveTableAdapter();
-            NuRacingDataSet.takefiveDataTable takeFiveTable = takefiveAdapter.GetTakeFive(TakeFiveID);
+            TakeFiveTableAdapter takefiveAdapter = new TakeFiveTableAdapter();
+            NuRacingDataSet.TakeFiveDataTable takeFiveTable = takefiveAdapter.GetTakeFive(TakeFiveID);
 
             if (takeFiveTable.Rows.Count == 0)
             {
@@ -28,7 +28,7 @@ namespace BusinessLogicLayer
             }
             else
             {
-                return ((NuRacingDataSet.takefiveRow)(takeFiveTable.Rows[0])).TakeFive_Question;
+                return ((NuRacingDataSet.TakeFiveRow)(takeFiveTable.Rows[0])).TakeFive_Question;
             }
         }
     }

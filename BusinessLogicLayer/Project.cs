@@ -21,19 +21,19 @@ namespace BusinessLogicLayer
 
         public static void AddProject(string ProjectName, int YearOfProject, string ProjectDescription, bool IsActive = true)
         {
-            projectTableAdapter projectAdapter = new projectTableAdapter();
-            NuRacingDataSet.projectDataTable projectTable = new NuRacingDataSet.projectDataTable();
+            ProjectTableAdapter projectAdapter = new ProjectTableAdapter();
+            NuRacingDataSet.ProjectDataTable projectTable = new NuRacingDataSet.ProjectDataTable();
 
             projectAdapter.Fill(projectTable);
 
-            NuRacingDataSet.projectRow newProjectRow = projectTable.NewprojectRow();
+            NuRacingDataSet.ProjectRow newProjectRow = projectTable.NewProjectRow();
 
             newProjectRow.Project_Name = ProjectName;
             newProjectRow.Project_YearMade = YearOfProject;
             newProjectRow.Project_Description = ProjectDescription;
             newProjectRow.Project_Active = IsActive;
 
-            projectTable.AddprojectRow(newProjectRow);
+            projectTable.AddProjectRow(newProjectRow);
             projectAdapter.Update(projectTable);
         }
 
@@ -44,10 +44,10 @@ namespace BusinessLogicLayer
 
             int ProjectID = -1;
             
-            projectTableAdapter projectAdapter = new projectTableAdapter();
-            NuRacingDataSet.projectDataTable projectTable = projectAdapter.GetData();
+            ProjectTableAdapter projectAdapter = new ProjectTableAdapter();
+            NuRacingDataSet.ProjectDataTable projectTable = projectAdapter.GetData();
 
-            foreach (NuRacingDataSet.projectRow projectRow in projectTable.Rows)
+            foreach (NuRacingDataSet.ProjectRow projectRow in projectTable.Rows)
             {
                 if (projectRow.Project_Name == CarName &&
                     projectRow.Project_YearMade == YearMade &&
@@ -75,7 +75,7 @@ namespace BusinessLogicLayer
 
         public static bool projectExists(int ProjectID)
         {
-            return ((new projectTableAdapter()).GetProject(ProjectID).Rows.Count != 0);
+            return ((new ProjectTableAdapter()).GetProject(ProjectID).Rows.Count != 0);
         }
 
         public static bool projectActive(int ProjectID)
@@ -86,9 +86,9 @@ namespace BusinessLogicLayer
             }
             else
             {
-                projectTableAdapter projectAdapter = new projectTableAdapter();
-                NuRacingDataSet.projectDataTable projectTable = projectAdapter.GetProject(ProjectID);
-                return ((NuRacingDataSet.projectRow)projectTable.Rows[0]).Project_Active;
+                ProjectTableAdapter projectAdapter = new ProjectTableAdapter();
+                NuRacingDataSet.ProjectDataTable projectTable = projectAdapter.GetProject(ProjectID);
+                return ((NuRacingDataSet.ProjectRow)projectTable.Rows[0]).Project_Active;
             }
         }
 
@@ -100,7 +100,7 @@ namespace BusinessLogicLayer
             }
             else
             {
-                return (new sponsoredTableAdapter()).GetDataByBoth(Username, ProjectID).Rows.Count != 0;
+                return (new SponsoredTableAdapter()).GetDataByBoth(Username, ProjectID).Rows.Count != 0;
             }
         }
     }

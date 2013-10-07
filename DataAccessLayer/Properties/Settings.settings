@@ -5,10 +5,10 @@
     <Setting Name="NuRacingConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;server=nuracingtestmachine.no-ip.org;User Id=WebAccessAccount;password=MaskHipsterHeadphonesChopsticks;Persist Security Info=True;database=NuRacing&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;server=db4free.net;User Id=webaccessaccount;password=MaskHipsterHeadphonesChopsticks;Persist Security Info=True;database=nuracing&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;MySql.Data.MySqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">server=nuracingtestmachine.no-ip.org;User Id=WebAccessAccount;password=MaskHipsterHeadphonesChopsticks;Persist Security Info=True;database=NuRacing</Value>
+      <Value Profile="(Default)">server=db4free.net;User Id=webaccessaccount;password=MaskHipsterHeadphonesChopsticks;Persist Security Info=True;database=nuracing</Value>
     </Setting>
   </Settings>
 </SettingsFile>

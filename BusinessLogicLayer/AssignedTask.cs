@@ -25,11 +25,11 @@ namespace BusinessLogicLayer
         
         static public void addTask(string assigningUser, string assignedToUser, int workType, DateTime dueDate, string name, string description, bool takeFiveNeeded)
         {
-            assignedtaskTableAdapter assignedTaskAdapter = new assignedtaskTableAdapter();
+            AssignedTaskTableAdapter assignedTaskAdapter = new AssignedTaskTableAdapter();
 
-            NuRacingDataSet.assignedtaskDataTable assignedTaskTable = assignedTaskAdapter.GetData();
+            NuRacingDataSet.AssignedTaskDataTable assignedTaskTable = assignedTaskAdapter.GetData();
 
-            NuRacingDataSet.assignedtaskRow assignedTaskRow = assignedTaskTable.NewassignedtaskRow();
+            NuRacingDataSet.AssignedTaskRow assignedTaskRow = assignedTaskTable.NewAssignedTaskRow();
 
             assignedTaskRow.User_Username_AssignedBy = assigningUser;
 
@@ -45,7 +45,7 @@ namespace BusinessLogicLayer
 
             assignedTaskRow.Task_DueDate = dueDate;
 
-            assignedTaskTable.AddassignedtaskRow(assignedTaskRow);
+            assignedTaskTable.AddAssignedTaskRow(assignedTaskRow);
 
             assignedTaskAdapter.Update(assignedTaskTable);
 
@@ -61,11 +61,11 @@ namespace BusinessLogicLayer
         {
             if (taskExists(taskID))
             {
-                assignedtaskTableAdapter assignedTaskAdapter = new assignedtaskTableAdapter();
+                AssignedTaskTableAdapter assignedTaskAdapter = new AssignedTaskTableAdapter();
 
-                NuRacingDataSet.assignedtaskDataTable assignedTaskTable = assignedTaskAdapter.GetDataByWorkTypeID(taskID);
+                NuRacingDataSet.AssignedTaskDataTable assignedTaskTable = assignedTaskAdapter.GetDataByWorkTypeID(taskID);
 
-                NuRacingDataSet.assignedtaskRow assignedTaskRow = (NuRacingDataSet.assignedtaskRow)assignedTaskTable.Rows[0];
+                NuRacingDataSet.AssignedTaskRow assignedTaskRow = (NuRacingDataSet.AssignedTaskRow)assignedTaskTable.Rows[0];
 
                 assignedTaskRow.Task_Status = "Complete";
 
@@ -88,11 +88,11 @@ namespace BusinessLogicLayer
         {
             if (taskExists(taskID))
             {
-                assignedtaskTableAdapter assignedTaskAdapter = new assignedtaskTableAdapter();
+                AssignedTaskTableAdapter assignedTaskAdapter = new AssignedTaskTableAdapter();
 
-                NuRacingDataSet.assignedtaskDataTable assignedTaskTable = assignedTaskAdapter.GetDataByWorkTypeID(taskID);
+                NuRacingDataSet.AssignedTaskDataTable assignedTaskTable = assignedTaskAdapter.GetDataByWorkTypeID(taskID);
 
-                NuRacingDataSet.assignedtaskRow assignedTaskRow = (NuRacingDataSet.assignedtaskRow)assignedTaskTable.Rows[0];
+                NuRacingDataSet.AssignedTaskRow assignedTaskRow = (NuRacingDataSet.AssignedTaskRow)assignedTaskTable.Rows[0];
 
                 assignedTaskRow.Task_Status = "Incomplete";
 
@@ -115,9 +115,9 @@ namespace BusinessLogicLayer
 
         static public bool taskExists(int taskID)
         {
-            assignedtaskTableAdapter assignedTaskAdapter = new assignedtaskTableAdapter();
+            AssignedTaskTableAdapter assignedTaskAdapter = new AssignedTaskTableAdapter();
 
-            NuRacingDataSet.assignedtaskDataTable assignedTaskTable = assignedTaskAdapter.GetDataByWorkTypeID(taskID);
+            NuRacingDataSet.AssignedTaskDataTable assignedTaskTable = assignedTaskAdapter.GetDataByWorkTypeID(taskID);
 
             return assignedTaskTable.Rows.Count != 0;
         }
