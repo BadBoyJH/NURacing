@@ -391,10 +391,9 @@ background-color:#7F7F7F;
 .tasksTable td {
 	border:none;
 	background-color:#7F7F7F;}
-.accountOptions {
-	margin-left:50%;	
-}
-.input-textareaPassword {	border: 1px solid #d2d1cf;
+
+.input-textareaPassword {	
+    border: 1px solid #d2d1cf;
 	width: 420px;
 	height: 16px;
 	margin-bottom: 10px;
@@ -480,3 +479,78 @@ border-spacing:5px 5px;
     overflow-y:auto;
     border-style:solid;
 }
+.taskDetail {
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+}
+.taskTitleLbl {
+    float:left;
+	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
+    font-size:x-large;
+    color:#7F7F7F;
+        margin-bottom:10px;
+
+}
+.dueDateLbl {
+    float:right;
+	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
+    font-size:x-large;
+    color:#7F7F7F;
+    padding-right:10px;
+        margin-bottom:10px;
+
+}
+.takeFiveBtn {
+	color: #FFFFFF;
+	font-family: 'Cuprum', sans-serif;
+	font-size: 16px;
+	line-height: 34px;
+    display: inline-block;
+    padding: 1px 15px 6px 15px;
+	height: 36px;
+	background-color: #E55F05;
+	-moz-border-radius: 7px; 
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	-webkit-box-shadow: 0px 1px 1px #2e2e2e;
+	-moz-box-shadow: 0px 1px 1px #2e2e2e;
+	box-shadow: 0px 1px 1px #2e2e2e;
+    border: none;
+	float: right;
+    margin-bottom:10px;
+}
+.taskDescLbl {
+    width:100%;
+    max-width:150%;
+    height:40%;
+    max-height:100%;
+    font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
+    font-size:large;
+    margin-top:10px;
+    overflow:scroll;
+    border:solid;
+    border-color:#7F7F7F;
+    float:left;
+    text-align:left;
+    background-color:white;
+}
+.timeLogging {
+    font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
+    border:solid; 
+    border-color:#7F7F7F; 
+    background-color:white;
+}
+.taskHrMinTxtBx {
+    width:10px;
+}
+.taskDescTxtBx {
+    width:80%;
+}
+.accountOptions {
+    margin-left:auto;
+}
+.userRole {
+    font-size:x-large;
+}
+
