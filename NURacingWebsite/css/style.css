@@ -553,4 +553,26 @@ border-spacing:5px 5px;
 .userRole {
     font-size:x-large;
 }
-
+.taskMngement {
+    width:80%;
+    float:left;
+    text-align:left;
+}
+.taskManBtn {
+	color: #FFFFFF;
+	font-family: 'Cuprum', sans-serif;
+	font-size: 16px;
+	line-height: 34px;
+    display: inline-block;
+    padding: 1px 15px 6px 15px;
+	height: 36px;
+	background-color: #E55F05;
+	-moz-border-radius: 7px; 
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	-webkit-box-shadow: 0px 1px 1px #2e2e2e;
+	-moz-box-shadow: 0px 1px 1px #2e2e2e;
+	box-shadow: 0px 1px 1px #2e2e2e;
+    border: none;
+	float: right;
+}

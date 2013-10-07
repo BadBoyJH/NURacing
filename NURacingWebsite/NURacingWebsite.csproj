@@ -278,6 +278,7 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Global.asax" />
     <Content Include="task.aspx" />
+    <Content Include="taskManagement.aspx" />
     <Content Include="todo.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -383,6 +384,13 @@
     </Compile>
     <Compile Include="task.aspx.designer.cs">
       <DependentUpon>task.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="taskManagement.aspx.cs">
+      <DependentUpon>taskManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="taskManagement.aspx.designer.cs">
+      <DependentUpon>taskManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="todo.aspx.cs">
       <DependentUpon>todo.aspx</DependentUpon>
