@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using DataAccessLayer;
 using DataAccessLayer.NuRacingDataSetTableAdapters;
 
@@ -11,7 +10,7 @@ using DataAccessLayer.NuRacingDataSetTableAdapters;
 
 namespace BusinessLogicLayer
 {
-    static class AssignedTask
+    public static class AssignedTask
     {
         /// <summary>
         /// Adds a task for the specified user and send them an email notification.

@@ -11,7 +11,7 @@ using DataAccessLayer.NuRacingDataSetTableAdapters;
 
 namespace BusinessLogicLayer
 {
-    class TaskInfo
+    public class TaskInfo
     {
         //Task Details
         private UserInfo assigningUserInfo;
@@ -123,9 +123,15 @@ namespace BusinessLogicLayer
 
             takeFiveNeeded = taskRow.Task_TakeFiveNeeded;
 
-            taskStatus = taskRow.Task_Status;
+            if (!taskRow.IsTask_StatusNull())
+            {
+                taskStatus = taskRow.Task_Status;
 
-            taskIncompleteReason = taskRow.Task_IncompleteReason;
+                if (!taskRow.IsTask_IncompleteReasonNull())
+                {
+                    taskIncompleteReason = taskRow.Task_IncompleteReason;
+                }
+            }
 
             dueDate = taskRow.Task_DueDate;
         }

@@ -18,10 +18,12 @@ namespace NURacingWebsite
             user = Membership.GetUser().ToString();
             userLbl.Text = user;
 
-            BusinessLogicLayer. Request.QueryString[""];
+            BusinessLogicLayer.TaskInfo info =  TaskInfo.getAssignedTask(Convert.ToInt32(Request.QueryString["id"]));
             HtmlGenericControl NewControl = new HtmlGenericControl("span");
+            taskTitleLbl.Text = info.TaskName;
+            dueDateLbl.Text = info.TaskDueDate.ToString();
             NewControl.ID = "taskDescLbl";
-            NewControl.InnerHtml = "<b>" + "</b>";
+            NewControl.InnerHtml = "<b>" + info.TaskDescription +  "</b>";
             taskDescLbl.Controls.Add(NewControl);
         }
     }

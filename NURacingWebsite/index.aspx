@@ -38,11 +38,7 @@
 				
 				<div id="menu">			
 					<ul id="nav" class="menu" style="padding-top:10px;">
-						<li><a href="index.aspx"><span><span>Projects</span></span></a></li>
-						<li><a href="todo.aspx"><span><span>Tasks</span></span></a></li>
-						<li><a href="#"><span><span>Purchase</span></span></a></li>
-						<li><a href="account.aspx"><span><span>Account</span></span></a></li>
-						<li><a href="#"><span><span>Reporting</span></span></a></li>
+<li><a href="\index.aspx"><span><span>Projects</span></span></a></li> <li><a href="\todo.aspx"><span><span>Tasks</span></span></a></li> <li><a href="#"><span><span>Purchase</span></span></a></li> <li><a href="\account.aspx"><span><span>Account</span></span></a></li> <li><a href="\reports.aspx"><span><span>Reporting</span></span></a></li>
 					</ul>
 				</div>
 		</div>
