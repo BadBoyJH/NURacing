@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F1240379-CA96-4BA7-9D30-C454F08EF81A}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{8F667E28-7BFE-454B-B542-B54C5E9DC9E3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BusinessLogicLayer</RootNamespace>
-    <AssemblyName>BusinessLogicLayer</AssemblyName>
+    <RootNamespace>ConsoleTesting</RootNamespace>
+    <AssemblyName>ConsoleTesting</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -39,39 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssignedTask.cs" />
-    <Compile Include="BusinessLogicSettings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>BusinessLogicSettings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="EmailManager.cs" />
-    <Compile Include="Project.cs" />
-    <Compile Include="ProjectInfo.cs" />
-    <Compile Include="Role.cs" />
-    <Compile Include="TakeFive.cs" />
-    <Compile Include="TakeFiveResponseInfo.cs" />
-    <Compile Include="TaskInfo.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserInfo.cs" />
-    <Compile Include="Work.cs" />
-    <Compile Include="WorkInfo.cs" />
-    <Compile Include="WorkType.cs" />
-    <Compile Include="WorkTypeInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
-      <Project>{83a6717d-1e20-4a85-bd4a-1464852d157d}</Project>
-      <Name>DataAccessLayer</Name>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogicLayer\BusinessLogicLayer.csproj">
+      <Project>{f1240379-ca96-4ba7-9d30-c454f08ef81a}</Project>
+      <Name>BusinessLogicLayer</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="BusinessLogicSettings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>BusinessLogicSettings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
