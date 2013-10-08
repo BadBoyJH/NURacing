@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NuRacingDataSet.Designer.cs">
+    <Compile Include="NuRacingDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>NuRacingDataSet.xsd</DependentUpon>
@@ -64,7 +64,7 @@
     </None>
     <None Include="NuRacingDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>NuRacingDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>NuRacingDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="NuRacingDataSet.xss">
