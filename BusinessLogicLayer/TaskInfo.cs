@@ -14,6 +14,8 @@ namespace BusinessLogicLayer
     public class TaskInfo
     {
         //Task Details
+        private int taskID;
+
         private UserInfo assigningUserInfo;
 
         private UserInfo userAssignedInfo;
@@ -31,6 +33,14 @@ namespace BusinessLogicLayer
         private string taskIncompleteReason;
 
         private DateTime dueDate;
+
+        public int TaskID
+        {
+            get
+            {
+                return taskID;
+            }
+        }
 
         public UserInfo AssigningUserInfo
         { 
@@ -114,6 +124,8 @@ namespace BusinessLogicLayer
             assigningUserInfo = UserInfo.getUser(taskRow.User_Username_AssignedBy);
 
             userAssignedInfo = UserInfo.getUser(taskRow.User_Username_AssignedTo);
+
+            taskID = taskRow.Task_UID;
 
             workTypeID = taskRow.WorkType_UID;
 

@@ -68,8 +68,8 @@
         <br />		
             <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="1">
                 <Columns>
-                    <asp:HyperLinkField HeaderText="Test" DataTextField="Task_Name" />
-                    <asp:HyperLinkField HeaderText="Due date" DataTextField="duedate" />
+                    <asp:HyperLinkField HeaderText="Test" DataTextField="Task_Name" DataNavigateUrlFields ="Task_ID" DataNavigateUrlFormatString ="task.aspx?id={0:G}" />
+                    <asp:HyperLinkField HeaderText="Due date" DataTextField="duedate" DataNavigateUrlFields ="Task_ID" DataNavigateUrlFormatString ="task.aspx?id{0:G}" />
                 </Columns>
 
             </asp:GridView>
