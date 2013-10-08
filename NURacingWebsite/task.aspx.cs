@@ -17,6 +17,8 @@ namespace NURacingWebsite
         {
             user = Membership.GetUser().ToString();
             userLbl.Text = user;
+
+            BusinessLogicLayer. Request.QueryString[""];
             HtmlGenericControl NewControl = new HtmlGenericControl("span");
             NewControl.ID = "taskDescLbl";
             NewControl.InnerHtml = "<b>" + "</b>";

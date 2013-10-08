@@ -122,7 +122,7 @@ namespace BusinessLogicLayer
             description = row.Work_Description;
             takeFiveTaken = row.Work_TakeFiveTaken;
             workTypeID = row.WorkType_UID;
-            TaskID = row.Task_UID;
+            taskID = row.Task_UID;
         }
 
         // Written by James Hibbard
