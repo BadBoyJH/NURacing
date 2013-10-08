@@ -154,3 +154,6 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+/NURacingWebsite/accountOld.aspx
+/NURacingWebsite/accountOld.aspx.cs
+/NURacingWebsite/accountOld.aspx.designer.cs
