@@ -18,7 +18,7 @@ namespace BusinessLogicLayer
         string description;
         bool takeFiveTaken;
         int workTypeID;
-        int TaskID;
+        int taskID;
 
         /*
         WorkTypeInfo workType;
@@ -64,6 +64,14 @@ namespace BusinessLogicLayer
             get
             {
                 return takeFiveTaken;
+            }
+        }
+
+        public int TaskID
+        {
+            get
+            {
+                return taskID;
             }
         }
 

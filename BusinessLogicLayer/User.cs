@@ -324,7 +324,7 @@ namespace BusinessLogicLayer
         {
             string UserRole;
 
-            if (authenticateUser(Username, OldPassword, out UserRole))
+            if (!authenticateUser(Username, OldPassword, out UserRole))
             {
                 throw new ArgumentException("Old Password was incorrect");
             }
