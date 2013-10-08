@@ -58,7 +58,7 @@
         <table border="0" style="margin-left:auto; margin-right:auto; text-align:right;">
             <tr>
                 <td>
-        <asp:Button runat="server" Text="SUBMIT"  CssClass="btnSubmit"  UseSubmitBehavior="true" ID="btnSubmit" />
+        <asp:Button runat="server" Text="SUBMIT"  CssClass="btnSubmit"  UseSubmitBehavior="true" ID="btnSubmit" OnClick="btnSubmit_Click" />
          <asp:Button ID="btnRecover" runat="server" Text="?"  CssClass="btnSubmit" />
             </td>
             </tr>

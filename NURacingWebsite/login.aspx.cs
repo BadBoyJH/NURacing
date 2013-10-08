@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace NURacingWebsite
 {
@@ -12,6 +13,16 @@ namespace NURacingWebsite
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            String role = "";
+            if (BusinessLogicLayer.User.authenticateUser(UsernameTxtBx.Text, PassTxtBx.Text, out role))
+            {
+                FormsAuthentication.SetAuthCookie(UsernameTxtBx.Text, true);
+                Response.Redirect("index.aspx");
+            }
         }
     }
 }

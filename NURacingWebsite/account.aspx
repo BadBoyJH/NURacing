@@ -89,7 +89,7 @@
 							
 				<div id="topMenu">
 					<ul>
-						<li><a href="#" style="TEXT-DECORATION: NONE;"><span>Welcome, Test User&nbsp; &#149; &nbsp;<script language="javascript"> 
+						<li><a href="#" style="TEXT-DECORATION: NONE;"><span>Welcome: <asp:Label runat="server" ID="userLbl"></asp:Label> &nbsp; &#149;&nbsp;</span></a></li>
 <!-- 
     today = new Date();
     document.write(today.getDate(), "/", today.getMonth() + 1, "/", today.getYear());
@@ -137,7 +137,7 @@
         <asp:TextBox runat="server" ID="newPasswordConfTxtBx" CssClass="input-textareaPassword">New password confirm</asp:TextBox>
 
     </div>
-    <asp:Button runat="server" ID="passSubmitBtn" CssClass="takeFiveBtn" Text="Submit" />
+    <asp:Button runat="server" ID="passSubmitBtn" CssClass="takeFiveBtn" Text="Submit" OnClick="passSubmitBtn_Click" />
     </div>
     </div>
 
