@@ -51,7 +51,6 @@ namespace ConsoleTesting
             }
 
             Console.ReadLine();
-            */
 
             List<string> CarParts = new List<string>();
             CarParts.Add("Engine");
@@ -62,6 +61,9 @@ namespace ConsoleTesting
             //Project.AddCar("Big Red Car", 0, "Chugga Chugga big red car", CarParts);
 
             Project.addDefaultCar("NU17", 2015, "The car that James deserves", true);
+             */
+
+            Console.WriteLine(TaskInfo.getAssignedTask(1).TaskDescription);
 
             Console.ReadLine();
         }

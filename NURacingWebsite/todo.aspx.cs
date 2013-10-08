@@ -24,8 +24,9 @@ namespace NURacingWebsite
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("Task_Name");
             dataTable.Columns.Add("duedate");
+            dataTable.Columns.Add("Task_ID");
 
-            List<TaskInfo> tasks = TaskInfo.getUserTasks("TestAcc");
+            List<TaskInfo> tasks = TaskInfo.getUserTasks(Membership.GetUser().ToString());
 
             foreach (TaskInfo task in tasks)
             {
@@ -33,6 +34,7 @@ namespace NURacingWebsite
 
                 newRow["Task_Name"] = task.TaskName;
                 newRow["duedate"] = task.TaskDueDate;
+                newRow["Task_ID"] = task.TaskID;
 
                 dataTable.Rows.Add(newRow);
             }
