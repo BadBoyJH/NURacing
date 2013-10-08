@@ -1,54 +1,36 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="NURacingWebsite.WebForm1" %>
 
-<!DOCTYPE html>
+<%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ Register assembly="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" namespace="CrystalDecisions.Web" tagprefix="CR" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+
+
 <head id="Head1" runat="server">
-    <title>Home</title>
-        <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />	
-<link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css' />
-<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
-<link href='http://fonts.googleapis.com/css?family=Reenie+Beanie' rel='stylesheet' type='text/css' />
+    <title>NURacing System - Projects</title>
+        <link rel="icon" type="image/png" href="NURacing_Favicon.ico"/>
+		<link rel="stylesheet" media="all" href="css/style.css"/>
+		<link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css' />
+		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<!-- Javascripts -->
-<script type="text/javascript" src="js/jquery.js"></script>
-
-<!-- jQuery UI -->
-<script type="text/javascript" src="js/jquery-ui-1.8.5.min.js"></script>
-
-
-<!-- Google map -->
-<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
-
-<!-- Scripts -->
-<script type="text/javascript" src="js/scripts.js"></script>
-
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-<script type="text/javascript" src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"></script>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div id="topContentSection">
-		
-			<div id="topBarMenu">
-							
+  
+      <form id="form1" runat="server">
+  
+      <div id="header">
+			<div id="topBarMenu">	
 				<div id="topMenu">
 					<ul>
-						<li><a href="#" style="TEXT-DECORATION: NONE;"><span>Welcome, Test User&nbsp; &#149; &nbsp;<script language="javascript"> 
-<!-- 
-    today = new Date();
-    document.write(today.getDate(), "/", today.getMonth() + 1, "/", today.getYear());
-    document.write("&nbsp;&nbsp;", today.getHours(), ":", today.getMinutes());
-    //--> 
-</script> &nbsp; &#149;&nbsp; Log out </span></a></li>
+						<li><a href="#" style="TEXT-DECORATION: NONE;"><span>Text goes here &nbsp; &#149;&nbsp; More text goes here</span></a></li>
 					</ul>
-				</div>
-								
-			</div>
-		
-			<div id="topContent">
-				
-				<div id="logo" >
+			</div>	
+
+        </div>
+          <div id="logo" >
 					<a href="index.html">
 						<img src="images/logo.png" alt="Logo" />
 					</a>
@@ -64,38 +46,60 @@
 						<li><a href="#"><span><span>Idek Heading</span></span></a></li>
 					</ul>
 				</div>
-			</div>
-		</div>		
-		
-<div id="innerPageBottom">
-<div id="middlestrip"></div>
-<div class="innerContent">
-			<div id="pageFull" style="text-align:center;">
-								<br/><br/><br/>
-				<div style="width:100%;text-align:center;"></div>
-                <br/><br/>
-				</div>	
-                        <asp:Table ID="Table1" runat="server" GridLines="Horizontal" CssClass="projectTable" HorizontalAlign="Center">
+		</div>
+	
+<div class="colmask threecol">
+	<div class="colmid">
+		<div class="colleft">
+			<div class="col1">
+
+        <br /><br />
+       
+    <p style="text-align:center">Please click on a project below to review progress.</p>
+    	<asp:Table ID="tblProjects" runat="server" GridLines="Horizontal" CssClass="projectTable" HorizontalAlign="Center">
             <asp:TableRow >
-            <asp:TableCell BorderColor="Black" BorderStyle="Solid"><a href="">
-                <asp:Label runat="server" ID="projNameLbl" CssClass="projName">Epic car #1 <br /> <br /></asp:Label>
-                <asp:Label ID="Label1" runat="server" CssClass="projDesc">This is a nice project description that I thought I'd write. This is a nice project description that I thought I'd write This is a nice project description that I thought I'd write This is a nice project description that I thought I'd write This is a nice project description that I thought I'd write This is a nice project description that I thought I'd write This is a nice project description that I thought I'd writeThis is a nice project description that I thought I'd writeThis is a nice project description that I thought I'd write</asp:Label>
+            <asp:TableCell BorderColor="Black" BorderStyle="None"><a href="">
+                       <asp:Label runat="server" ID="Label1" CssClass="projName">Epic car #1 <br /> <br /></asp:Label>
+                <asp:Label ID="Label6" runat="server" CssClass="projDesc">This description is better than the previous one.</asp:Label>
             </a></asp:TableCell>
-            <asp:TableCell BorderColor="Black" BorderStyle="Solid"><a href="">
+            <asp:TableCell BorderColor="Black" BorderStyle="None"><a href="">
                 <asp:Label runat="server" ID="Label2" CssClass="projName">Epic car #2 <br /> <br /></asp:Label>
                 <asp:Label ID="Label3" runat="server" CssClass="projDesc">This description is better than the previous one.</asp:Label>
             </a></asp:TableCell>
-            <asp:TableCell BorderColor="Black" BorderStyle="Solid"><a href="">
-                <asp:Label runat="server" ID="Label4" CssClass="projName">No U Mobile <br /> <br /></asp:Label>
-                <asp:Label ID="Label5" runat="server" CssClass="projDesc">ffffffffffffffffffffffffffffffffffffffffffffffffffffff</asp:Label>
+            <asp:TableCell BorderColor="Black" BorderStyle="None"><a href="">
+               <asp:Label runat="server" ID="Label4" CssClass="projName">Epic car #3 <br /> <br /></asp:Label>
+                <asp:Label ID="Label5" runat="server" CssClass="projDesc">This description is better than the previous one.</asp:Label>
             </a></asp:TableCell>
             </asp:TableRow>       
             </asp:Table>
-	</div>
-			</div>
-    <div>
+                <br />
+                <rsweb:ReportViewer ID="reportViewerUsers" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
+                    
+                    <LocalReport ReportPath="Reporting\UserReport.rdlc" ReportEmbeddedResource="NURacingWebsite.Reporting.UserReport.rdlc">
+                        <DataSources>
+                            <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="dsUSERS" />
+                        </DataSources>
+                    </LocalReport>
+                </rsweb:ReportViewer>
+                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="DataAccessLayer.NuRacingDataSetTableAdapters.userTableAdapter">
+                </asp:ObjectDataSource>
+
     
-    </div>
-    </form>
+		    <asp:ScriptManager ID="ScriptManager1" runat="server">
+            </asp:ScriptManager>
+ 
+    
+</div>
+			<div class="col2">
+			</div>
+			<div class="col3">
+			</div>
+ 
+		</div>
+	</div>
+ </div>
+
+      </form>
+
 </body>
 </html>
