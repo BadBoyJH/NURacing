@@ -55,13 +55,10 @@
 						<img src="images/logo.png" alt="Logo" />
 					</a>
 				</div>
-				
+				<div id="menu">
 				<ul id="nav" class="menu" style="padding-top:10px;">
-						<li><a href="\index.aspx"><span><span>Projects</span></span></a></li>
-						<li><a href="\task.aspx"><span><span>Tasks</span></span></a></li>
-						<li><a href="\purchase.aspx"><span><span>Purchase</span></span></a></li>
-						<li><a href="\account.aspx"><span><span>Account</span></span></a></li>
-						<li><a href="\reporting.aspx"><span><span>Reporting</span></span></a></li>
+<li><a href="\index.aspx"><span><span>Projects</span></span></a></li> <li><a href="\todo.aspx"><span><span>Tasks</span></span></a></li> <li><a href="#"><span><span>Purchase</span></span></a></li> <li><a href="\account.aspx"><span><span>Account</span></span></a></li> <li><a href="\reports.aspx"><span><span>Reporting</span></span></a></li>
+
 				</ul>
 			</div>
 		</div>
