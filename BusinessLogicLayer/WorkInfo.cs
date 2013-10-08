@@ -9,7 +9,7 @@ using DataAccessLayer.NuRacingDataSetTableAdapters;
 
 namespace BusinessLogicLayer
 {
-    class WorkInfo
+    public class WorkInfo
     {
         int workID;
         int timeWorkedMins;

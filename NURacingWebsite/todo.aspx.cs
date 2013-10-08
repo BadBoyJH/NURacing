@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.OleDb;
 using System.Data;
+using System.Web.Security;
+
+using BusinessLogicLayer;
 
 namespace NURacingWebsite
 {
@@ -18,17 +21,26 @@ namespace NURacingWebsite
 
         public DataSet getData(String query)
         {
-            //test database to test out the formatting.
-            String sConn = "Provider=Microsoft.ACE.OLEDB.12.0; Data Source = \"" + "C:/Users/Callan/Source/Repos/NURacing/NURacingWebsite/testDB.accdb" + "\"";
-            OleDbConnection dbConn = new OleDbConnection(sConn);
-            dbConn.Open();
-            OleDbCommand dbCommand = new OleDbCommand(query, dbConn);
-            OleDbDataAdapter dbAdapter = new OleDbDataAdapter(dbCommand);
-            DataSet table = new DataSet();
-            dbAdapter.Fill(table);
-            todoTable.DataSource = table;
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("Task_Name");
+            dataTable.Columns.Add("duedate");
+
+            List<TaskInfo> tasks = TaskInfo.getUserTasks("TestAcc");
+
+            foreach (TaskInfo task in tasks)
+            {
+                DataRow newRow = dataTable.NewRow();
+
+                newRow["Task_Name"] = task.TaskName;
+                newRow["duedate"] = task.TaskDueDate;
+
+                dataTable.Rows.Add(newRow);
+            }
+
+            todoTable.DataSource = dataTable;
             todoTable.DataBind();
-            return table;
+
+            return dataTable.DataSet;
         }
 
     }

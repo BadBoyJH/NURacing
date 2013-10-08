@@ -56,26 +56,16 @@
 					</a>
 				</div>
 				
-				<div id="menu">			
-					<ul id="nav" class="menu" style="padding-top:10px;">
-						<li><a href="#"><span><span>Projects</span></span></a></li>
-						<li><a href="#"><span><span>Tasks</span></span></a></li>
-						<li><a href="#"><span><span>Purchase</span></span></a></li>
-						<li><a href="#"><span><span>Account</span></span></a></li>
-						<li><a href="#"><span><span>Reporting</span></span></a></li>
-						<li><a href="#"><span><span>Idek Heading</span></span></a></li>
-					</ul>
-				</div>
+				<ul id="nav" class="menu" style="padding-top:10px;">
+						<li><a href="\index.aspx"><span><span>Projects</span></span></a></li>
+						<li><a href="\task.aspx"><span><span>Tasks</span></span></a></li>
+						<li><a href="\purchase.aspx"><span><span>Purchase</span></span></a></li>
+						<li><a href="\account.aspx"><span><span>Account</span></span></a></li>
+						<li><a href="\reporting.aspx"><span><span>Reporting</span></span></a></li>
+				</ul>
 			</div>
 		</div>
         <br />		
-         <%-- <asp:SqlDataSource ID="taskDB" 
-             Runat="server" 
-             SelectCommand="SELECT a.Task_Name a.duedate FROM work w, assignedtask a WHERE w.User_Username = a.User_Username_AssignedTo"
-            ProviderName="System.Data.OleDb"
-             ConnectionString="Data Source=C:\Users\Callan\Source\Repos\NURacing\NURacingWebsite\testDB.accdb;" 
-         DataSourceMode="DataReader">
-        </asp:SqlDataSource>--%>
             <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="1">
                 <Columns>
                     <asp:HyperLinkField HeaderText="Test" DataTextField="Task_Name" />

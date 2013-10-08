@@ -9,7 +9,7 @@ using DataAccessLayer.NuRacingDataSetTableAdapters;
 
 namespace BusinessLogicLayer
 {
-    static class Work
+    public static class Work
     {
         public static void AddWork(string Username, DateTime DateCompleted, string Description, int WorkTypeID, int TimeWorkedMins, bool TakeFiveTaken)
         {

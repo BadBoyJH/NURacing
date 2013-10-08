@@ -9,7 +9,7 @@ using DataAccessLayer.NuRacingDataSetTableAdapters;
 
 namespace BusinessLogicLayer
 {
-    class TakeFiveResponseInfo
+    public class TakeFiveResponseInfo
     {
         private string responseTo;
         private string response;

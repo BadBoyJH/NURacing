@@ -11,7 +11,7 @@ using DataAccessLayer.NuRacingDataSetTableAdapters;
 
 namespace BusinessLogicLayer
 {
-    static class AssignedTask
+    public static class AssignedTask
     {
         /// <summary>
         /// Adds a task for the specified user and send them an email notification.
