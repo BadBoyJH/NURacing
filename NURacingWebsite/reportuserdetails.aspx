@@ -25,7 +25,14 @@
 			<div id="topBarMenu">	
 				<div id="topMenu">
 					<ul>
-						<li><a href="#" style="TEXT-DECORATION: NONE;"><span>Text goes here &nbsp; &#149;&nbsp; More text goes here</span></a></li>
+							<li><a href="#" style="TEXT-DECORATION: NONE;"><span>Welcome, <asp:Label runat="server" ID="userLbl"></asp:Label> &nbsp; &#149;&nbsp;
+<script  type="text/javascript" > 
+<!-- 
+    today = new Date();
+    document.write(today.getDate(), "/", today.getMonth() + 1, "/", today.getYear());
+    document.write("&nbsp;&nbsp;", today.getHours(), ":", today.getMinutes(), ":", today.getSeconds());
+    //--> 
+</script> &nbsp; &#149;&nbsp; Log out </span></a></li>
 					</ul>
 			</div>	
 

@@ -77,13 +77,13 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
     margin: 0px;
 	margin-bottom: 10px;
-    color: #656565;
+    color: #A8A8A8;
 	font-family: 'Oswald', sans-serif;
 	font-weight: 400;
 	text-shadow: 1px 1px 1px #282828;
 }
 
-h1 { font-size: 34px; line-height: 34px;}
+h1 { font-size: 60px; line-height: 60px; margin-bottom: 15px;}
 h2 { font-size: 30px; line-height: 30px;}
 h3 { font-size: 26px; line-height: 26px;}
 h4 { font-size: 22px; line-height: 22px;}
@@ -106,14 +106,6 @@ h6 { font-size: 14px; line-height: 14px;}
 	-webkit-box-shadow: 0px 9px 30px rgba(0, 0, 0, 1);
 	-moz-box-shadow:    0px 9px 30px rgba(0, 0, 0, 1);
 	box-shadow:         0px 9px 30px rgba(0, 0, 0, 1);
-}
-
-#sub-header { /* allows formatting of top shadow */
-	clear:both;
-	float:left;
-	width:100%;
-	height:105px;
-
 }
 
 
@@ -150,6 +142,7 @@ body {
     min-height: 100%;
 }
 
+
 .col1,
 .col2,
 .col3 {
@@ -165,22 +158,34 @@ body {
 	background: none;	
 	height: auto !important;
     min-height: 100%;
+   
 }
 
 .threecol .colmid {
 	right:25%;			
-	background:none;		
+	background:none;
+        	 		
 }
 
 .threecol .colleft {
 	right:50%;			
 	background: none;	
+
 }
 
 .threecol .col1 {
 	width:46%;			
 	left:102%;	
-   	
+     background-color:#0F0F0F;
+    padding-left:20px;
+    padding-right:40px;   
+    margin-bottom:30px;
+    -webkit-box-shadow: inset 0 30px 30px -30px rgba(0, 0, 0, 1);
+	-moz-box-shadow:    inset 0 30px 30px -30px rgba(0, 0, 0, 1);
+	box-shadow:         inset 0 30px 30px -30px rgba(0, 0, 0, 1);
+    -webkit-box-shadow:  9px 9px 30px  rgba(0, 0, 0, 1);
+	-moz-box-shadow:     9px 9px 30px rgba(0, 0, 0, 1);
+	box-shadow:          9px 9px 30px rgba(0, 0, 0, 1);
 }
 
 .threecol .col2 {
@@ -252,9 +257,9 @@ body {
 #logo {
 	width: auto;
 	height: 70px;
-	margin-top: 20px;
+	margin-top: 22px;
 	float: left;	
-	margin-left:22.5%;
+	margin-left:29.5%;
 }
 
 
@@ -266,7 +271,7 @@ body {
 	margin-top: 50px;
 	float: right;
 	z-index: 300;
-	margin-right:20%;
+	margin-right:27.5%;
 }
 
 #menu ul {
@@ -351,7 +356,7 @@ body {
     margin-left:10px;
 }
 
-.projectTable {
+.tblProjects {
 	margin-left:auto;
     margin-right:auto;
 	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
@@ -360,26 +365,40 @@ body {
     max-height:100px;
     border-collapse:inherit;
 }
-.projectTable td
+.tblProjects td
 {
     overflow:scroll;
-	background-color: none;
+	background-color: #E55F05;
     border:thick;
-	width:20%;	
-    max-width:100px;
-    max-height:100px;
-	height: 100px;
+	width:300px;	
+	height: 150px;
     padding:5px;
     text-align:center;
     white-space:pre-line;
     overflow-x:auto;
     overflow-y:auto;
+    vertical-align:top;
+    margin-left:5px;
+    -webkit-box-shadow: 9px 9px 30px rgba(0, 0, 0, 1);
+	-moz-box-shadow:    9px 9px 30px rgba(0, 0, 0, 1);
+	box-shadow:         9px 9px 30px rgba(0, 0, 0, 1);
 }
-.projName {}
+.tblProjects a {
+    text-transform:uppercase;
+    font-size:38px;
+    color:#FFFFFF;
+    vertical-align:bottom;
+}
+.projName {
+}
 .projDesc {
-        max-height:100px;
-    float:left;
-    font-size:medium;
+       
+    color:#ffffff;
+    text-align:center;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 11pt;
+	color:#ffffff;
+
 }
 .tasksTable {
 	border:solid;
@@ -483,11 +502,9 @@ cursor: pointer;
     margin-right:auto;
 }
 .taskTitleLbl {
-    float:left;
+    color: #A8A8A8; font-size: 60px; line-height: 60px; margin-bottom: 15px;
 	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
-    font-size:x-large;
-    color:#7F7F7F;
-        margin-bottom:10px;
+text-transform:uppercase;
 
 }
 .dueDateLbl {
@@ -626,3 +643,8 @@ cursor: pointer;
     border-style:none;
 
 }
+
+
+
+
+

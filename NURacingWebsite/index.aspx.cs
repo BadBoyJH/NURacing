@@ -12,6 +12,7 @@ namespace NURacingWebsite
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        String user;
         protected void Page_Load(object sender, EventArgs e)
         {
             String user = Membership.GetUser().ToString();
@@ -26,8 +27,8 @@ namespace NURacingWebsite
 
             foreach (ProjectInfo info in projects)
             {
-                cell.Text = "<a href =\"task.aspx?id=" + info.ProjectID + "\"><div class = projName>" + info.Name + "</div>"
-                    + "<div class = projDesc>" + info.Description + "</div></a>";
+                cell.Text = "<img src=\"images\\tools_white.png\"/><a href =\"task.aspx?id=" + info.ProjectID + "\"><div class = projName>" + info.Name + "</div></a>"
+                    + "<div class = projDesc>" + info.Description + "</div>";
                 TableCell cell1 = new TableCell();
                 cell1.Text = cell.Text.ToString();
                 row.Cells.Add(cell1);

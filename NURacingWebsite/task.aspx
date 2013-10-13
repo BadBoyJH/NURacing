@@ -5,7 +5,7 @@
 
 
 <head id="Head1" runat="server">
-    <title>NURacing System - Projects</title>
+    <title>NURacing System - Tasks</title>
         <link rel="icon" type="image/png" href="NURacing_Favicon.ico"/>
 		<link rel="stylesheet" media="all" href="css/style.css"/>
 		<link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css' />
@@ -14,13 +14,12 @@
 
 </head>
 <body>
-    <form id="form1" runat="server">
-
-         <div id="header">
+    <form id="frmLayout" runat="server">
+            <div id="header">
 			<div id="topBarMenu">	
 				<div id="topMenu">
 					<ul>
-					<li><a href="#" style="TEXT-DECORATION: NONE;"><span>Welcome, <asp:Label runat="server" ID="userLbl"></asp:Label> &nbsp; &#149;&nbsp;
+						<li><a href="#" style="TEXT-DECORATION: NONE;"><span>Welcome, <asp:Label runat="server" ID="userLbl"></asp:Label> &nbsp; &#149;&nbsp;
 <script  type="text/javascript" > 
 <!-- 
     today = new Date();
@@ -30,17 +29,15 @@
 </script> &nbsp; &#149;&nbsp; Log out </span></a></li>
 					</ul>
 			</div>	
-
         </div>
           <div id="logo" >
 					<a href="index.html">
 						<img src="images/logo.png" alt="Logo" />
 					</a>
 				</div>
-				
 				<div id="menu">			
 					<ul id="nav" class="menu" style="padding-top:10px;">
-<li><a href="\index.aspx"><span><span>Projects</span></span></a></li> <li><a href="\todo.aspx"><span><span>Tasks</span></span></a></li> <li><a href="#"><span><span>Purchase</span></span></a></li> <li><a href="\account.aspx"><span><span>Account</span></span></a></li> <li><a href="\reports.aspx"><span><span>Reporting</span></span></a></li>
+<li><a href="\index.aspx"><span><span>Projects</span></span></a></li> <li><a href="\todo.aspx"><span><span>Tasks</span></span></a></li> <li><a href="purchases.aspx"><span><span>Purchase</span></span></a></li> <li><a href="\account.aspx"><span><span>Account</span></span></a></li> <li><a href="\reporting.aspx"><span><span>Reporting</span></span></a></li>
 					</ul>
 				</div>
 		</div>
@@ -49,8 +46,9 @@
 		<div class="colleft">
 			<div class="col1">
                 <br /><br />
-
+                 
                      <div class="taskDetail">
+                    
          <asp:Label ID="taskTitleLbl" CssClass="taskTitleLbl" runat="server">Task title</asp:Label>
          <asp:Label ID="dueDateLbl" CssClass="dueDateLbl" runat="server">Due date</asp:Label>
          <br />

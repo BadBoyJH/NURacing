@@ -3,7 +3,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 
-
 <head  runat="server">
     <title>NURacing System - Account</title>
         <link rel="icon" type="image/png" href="NURacing_Favicon.ico"/>
@@ -73,8 +72,8 @@
 
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div id="header">
+   <form id="frmLayout" runat="server">
+            <div id="header">
 			<div id="topBarMenu">	
 				<div id="topMenu">
 					<ul>
@@ -83,12 +82,11 @@
 <!-- 
     today = new Date();
     document.write(today.getDate(), "/", today.getMonth() + 1, "/", today.getYear());
-    document.write("&nbsp;&nbsp;", today.getHours(), ":", today.getMinutes());
+    document.write("&nbsp;&nbsp;", today.getHours(), ":", today.getMinutes(), ":", today.getSeconds());
     //--> 
 </script> &nbsp; &#149;&nbsp; Log out </span></a></li>
 					</ul>
 			</div>	
-
         </div>
           <div id="logo" >
 					<a href="index.html">
@@ -97,7 +95,7 @@
 				</div>
 				<div id="menu">			
 					<ul id="nav" class="menu" style="padding-top:10px;">
-<li><a href="\index.aspx"><span><span>Projects</span></span></a></li> <li><a href="\todo.aspx"><span><span>Tasks</span></span></a></li> <li><a href="#"><span><span>Purchase</span></span></a></li> <li><a href="\account.aspx"><span><span>Account</span></span></a></li> <li><a href="\reports.aspx"><span><span>Reporting</span></span></a></li>
+<li><a href="\index.aspx"><span><span>Projects</span></span></a></li> <li><a href="\todo.aspx"><span><span>Tasks</span></span></a></li> <li><a href="purchases.aspx"><span><span>Purchase</span></span></a></li> <li><a href="\account.aspx"><span><span>Account</span></span></a></li> <li><a href="\reporting.aspx"><span><span>Reporting</span></span></a></li>
 					</ul>
 				</div>
 		</div>
@@ -105,11 +103,9 @@
 	<div class="colmid">
 		<div class="colleft">
 			<div class="col1">
-
-        <br /><br />	
-			
-<div class="accountOptions">
-                    <br /> <br /> <br />
+                <br /><br />
+                <h1>ACCOUNT SETTINGS</h1>
+                <div class="accountOptions">
     <p id="userRoleYouAre">You are a: <asp:Label runat="server" CssClass="userRole" ID="userRoleLbl">USER</asp:Label></p>
 	<select><option value="option1">Option 1</option> 
     <option value="option2">Option 2</option>

@@ -14,9 +14,12 @@ namespace NURacingWebsite
 {
     public partial class todo : System.Web.UI.Page
     {
+        String user;
         protected void Page_Load(object sender, EventArgs e)
         {
             this.getData("SELECT assignedtask.Task_Name, assignedtask.duedate FROM assignedtask, [work] WHERE work.User_Username = assignedtask.User_Username_AssignedTo");
+            user = Membership.GetUser().ToString();
+            userLbl.Text = user;
         }
 
         public DataSet getData(String query)
