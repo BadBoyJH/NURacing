@@ -179,7 +179,8 @@ body {
 
 .threecol .col1 {
 	width:46%;			
-	left:102%;			
+	left:102%;	
+   	
 }
 
 .threecol .col2 {
@@ -351,19 +352,18 @@ body {
 }
 
 .projectTable {
-	
 	margin-left:auto;
     margin-right:auto;
-		font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
-font-size:x-large;
-border-spacing:5px 5px;
+	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
+    font-size:x-large;
+    border-spacing:5px 5px;
     max-height:100px;
     border-collapse:inherit;
 }
 .projectTable td
 {
     overflow:scroll;
-	background-color:#7F7F7F;
+	background-color: none;
     border:thick;
 	width:20%;	
     max-width:100px;
@@ -393,14 +393,13 @@ background-color:#7F7F7F;
 	background-color:#7F7F7F;}
 
 .input-textareaPassword {	
-    border: 1px solid #d2d1cf;
-	width: 420px;
-	height: 16px;
+    border: 0px solid #d2d1cf;
 	margin-bottom: 10px;
 	font-size: 14px;
 	font-family: Arial,Verdana,sans-serif;
-	background-color: #fff;
-	color: #666;}
+	background-color: #2D2D2D;
+	color: #666;
+}
 .loginForm {
 }
 .input-submitLogin {
@@ -449,12 +448,11 @@ cursor: pointer;
 }
 
 .todoTable {
-	
 	margin-left:auto;
     margin-right:auto;
-		font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
-font-size:x-large;
-border-spacing:5px 5px;
+	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
+    font-size:x-large;
+    border-spacing:5px 5px;
     max-height:100px;
     width:40%;
 }
@@ -523,8 +521,7 @@ border-spacing:5px 5px;
 .taskDescLbl {
     width:100%;
     max-width:150%;
-    height:40%;
-    max-height:100%;
+    min-height:40%;
     font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
     font-size:large;
     margin-top:10px;
@@ -540,6 +537,7 @@ border-spacing:5px 5px;
     border:solid; 
     border-color:#7F7F7F; 
     background-color:white;
+    min-height: 40%;
 }
 .taskHrMinTxtBx {
     width:10px;
@@ -551,7 +549,10 @@ border-spacing:5px 5px;
     margin-left:auto;
 }
 .userRole {
-    font-size:x-large;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 11pt;
+	color: #7E7E7E;
+	text-shadow: 1px 1px 1px #000000;
 }
 .taskMngement {
     width:80%;
@@ -575,4 +576,53 @@ border-spacing:5px 5px;
 	box-shadow: 0px 1px 1px #2e2e2e;
     border: none;
 	float: right;
+}
+
+.grdVwProject {
+	margin-left:auto;
+    margin-right:auto;
+	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
+    font-size:x-large;
+    color: #111111;
+    border-spacing:0px;
+    max-height:100px;
+    width:100%;
+	font-weight: 400;
+
+    background-color:none;
+    border:none;	
+}
+
+.grdVwProject a {
+	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
+    font-size:x-large;
+    color: #111111;
+    text-transform:uppercase;
+	font-weight: 400;
+    vertical-align:top;
+}
+
+.grdVwProject th {
+    border:none;
+    color:#A8A8A8;
+    font-size:38px;
+    text-transform:uppercase;
+    background-color:none;
+    }
+
+.grdVwProject td
+{
+    overflow:scroll;
+	background-color:#EEEEEE;
+    border: none;
+	width:100%;	
+    max-height:100px;
+	height: 100px;
+    padding:5px;
+    margin-right:50px;
+    text-align:left;
+    overflow-x:auto;
+    overflow-y:auto;
+    border-style:none;
+
 }

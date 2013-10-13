@@ -29,14 +29,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+   
     <div id="topContentSection">
 		
 			<div id="topBarMenu">
 							
 				<div id="topMenu">
 					<ul>
-						<li><a href="#" style="TEXT-DECORATION: NONE;"><span>Welcome, Test User&nbsp; &#149; &nbsp;<script language="javascript"> 
+						<li><a href="#" style="TEXT-DECORATION: NONE;"><span>Welcome, <asp:Label runat="server" ID="userLbl"></asp:Label> &nbsp; &#149;&nbsp;
+<script> 
 <!-- 
     today = new Date();
     document.write(today.getDate(), "/", today.getMonth() + 1, "/", today.getYear());
@@ -71,7 +72,7 @@
 
             </asp:GridView>
         </div>
-    </div>
+    
     </form>
 </body>
 </html>
