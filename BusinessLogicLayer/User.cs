@@ -482,6 +482,11 @@ namespace BusinessLogicLayer
             userRow.User_StudentNumber = StudentNumber;
             userRow.User_EstGraduationYear = YearOfGradutation;
             userRow.User_Degree = DegreeName;
+            userRow.User_MedicareNo = MedicareNumber;
+            userRow.User_Allergies = Allergies;
+            userRow.User_MedicalConditions = MedicalConditions;
+            userRow.User_DietaryRequirements = DietaryRequirements;
+            userRow.User_IndemnityFormSigned = IndemnityFormSigned;
             userRow.User_SAE_MemberNo = SAEMembershipNumber;
             userRow.User_SAE_Expiry = SAEExpiryDate;
             userRow.User_CAMS_MemberNo = CAMSMembershipNumber;

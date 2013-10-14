@@ -57,13 +57,22 @@ namespace ConsoleTesting
             CarParts.Add("Chasis");
             CarParts.Add("Suspension");
             CarParts.Add("Electronics");
-
-            //Project.AddCar("Big Red Car", 0, "Chugga Chugga big red car", CarParts);
-
-            Project.addDefaultCar("NU17", 2015, "The car that James deserves", true);
              */
 
+            User.addUser("TestAcc", "abc123lol", "Administrator", "Steve", "McQueen", "NuRacingTest@westnet.com.au", "", "", "", "", "", "", "", true, "", DateTime.Now.AddYears(2), "", "", "", "", "", "");
+
+            Project.addDefaultCar("Big Red Car", 0, "Chugga Chugga big red car");
+
+            Project.addDefaultCar("NU17", 2015, "The car that James deserves", true);
+   
+            AssignedTask.addTask("TestAcc", "TestAcc", 1, new DateTime(2013, 10, 15), "Do Stuff", "Do some stuff really well", false);
+            AssignedTask.addTask("TestAcc", "TestAcc", 1, new DateTime(2013, 10, 15), "Do Moree Stuff", "Do some stuff even well", false);
+            AssignedTask.addTask("TestAcc", "TestAcc", 1, new DateTime(2013, 10, 15), "Do Even More Stuff", "Do some stuff very well", false);
+            AssignedTask.addTask("TestAcc", "TestAcc", 1, new DateTime(2013, 10, 15), "Do All The Stuff", "Yeah Whatever", false);
+
             Console.WriteLine(TaskInfo.getAssignedTask(1).TaskDescription);
+
+            Console.ReadLine();
 
             Console.ReadLine();
         }
