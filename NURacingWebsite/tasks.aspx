@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="section.aspx.cs" Inherits="NURacingWebsite.section" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="tasks.aspx.cs" Inherits="NURacingWebsite.tasks" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 
 <head id="Head1"  runat="server">
-    <title>NURacing System - Sections</title>
+    <title>NURacing System - Tasks</title>
         <link rel="icon" type="image/png" href="NURacing_Favicon.ico"/>
 		<link rel="stylesheet" media="all" href="css/style.css"/>
 		<link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css' />
@@ -12,8 +12,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 </head>
+
 <body>
-    <form id="frmLayout" runat="server">
+ <form id="frmLayout" runat="server">
      <div id="header">
 			<div id="topBarMenu">	
 				<div id="topMenu">
@@ -40,22 +41,25 @@
 					</ul>
 				</div>
 		</div>
-	
-	<div class="colmask threecol">
+     	<div class="colmask threecol">
 	<div class="colmid">
 		<div class="colleft">
 			<div class="col1">
 
         <br /><br />
-       <h1>SECTIONS</h1>
-    <p style="text-align:center">Please click on a section below to review progress.</p>
+       <h1>TASKS - 'SECTION NAME'</h1>
+                    <p style="text-align:center">Please click on a task below to review progress.</p>
                 <br />
-    	<asp:Table ID="tblProjects" runat="server" GridLines="Horizontal" CssClass="tblProjects" class="tblProjects" HorizontalAlign="Center">
-            
-            </asp:Table>
+            <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="1">
+                <Columns>
+                    <asp:HyperLinkField HeaderText="NAME" DataTextField="Task_Name" DataNavigateUrlFields ="Task_ID" DataNavigateUrlFormatString ="task.aspx?id={0:G}" />
+                    <asp:BoundField HeaderText="DESCRIPTION" DataField="Task_Description"/>
+                    <asp:BoundField HeaderText="DUE DATE" DataField="duedate"/>
+                </Columns>
 
-                <br />
-</div>
+            </asp:GridView>
+        
+  </div>
 			<div class="col2">
 			</div>
 			<div class="col3">
@@ -66,6 +70,6 @@
  </div>
 
       </form>
-
 </body>
 </html>
+

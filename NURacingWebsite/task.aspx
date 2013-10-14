@@ -57,13 +57,13 @@
          <br />
          <br />
          <asp:Label runat="server" ID="taskDescLbl" CssClass="taskDescLbl"></asp:Label>
-         <h2>Time logging</h2>
+         <h2>TIME LOGGING</h2>
 
          <div id="timelogging" class="timeLogging">
-             <span>Hours: </span><asp:TextBox ID="HoursTxtBx" runat="server" CssClass="taskHrMinTxtBx"></asp:TextBox>
-              <span>Minutes: </span><asp:TextBox ID="MinTxtBx" runat="server" CssClass="taskHrMinTxtBx"></asp:TextBox>
+             <span>HOURS: </span><asp:TextBox ID="HoursTxtBx" runat="server" CssClass="taskHrMinTxtBx"></asp:TextBox>
+              <span>MINUTES: </span><asp:TextBox ID="MinTxtBx" runat="server" CssClass="taskHrMinTxtBx"></asp:TextBox>
               <br />
-             <span>Description: </span><asp:TextBox ID="descTxtBx" runat="server" CssClass="taskDescTxtBx"></asp:TextBox>
+             <span>DESCRIPTION: </span><asp:TextBox ID="descTxtBx" runat="server" CssClass="taskDescTxtBx"></asp:TextBox>
              <asp:Button ID="btnSubmitLabour" CssClass="takeFiveBtn" Text="SUBMIT" runat="server" />
         </div>
         </div>

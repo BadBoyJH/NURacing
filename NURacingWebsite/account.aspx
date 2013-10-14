@@ -106,7 +106,7 @@
                 <br /><br />
                 <h1>ACCOUNT SETTINGS</h1>
                 <div class="accountOptions">
-    <p id="userRoleYouAre">You are a: <asp:Label runat="server" CssClass="userRole" ID="userRoleLbl">USER</asp:Label></p>
+    <p id="userRoleYouAre">Role: <asp:Label runat="server" CssClass="userRole" ID="userRoleLbl">USER</asp:Label></p>
 	<select><option value="option1">Option 1</option> 
     <option value="option2">Option 2</option>
     </select>
@@ -118,14 +118,14 @@
     <div id ="passwordChangeForm">
         <table border="0" style="margin-left:auto; margin-right:auto; text-align:right;">
             <tr><td>
-                <asp:Label ID="lblOldPassword" runat="server" Text="Old Password: " CssClass="p"></asp:Label></td>
-                <td><asp:TextBox runat="server" ID="oldPasswordTxtBx" CssClass="input-textareaPassword" Width="160px">Old password</asp:TextBox> <br /></td></tr>
+                <asp:Label ID="lblOldPassword" class="lblOldPassword" runat="server" Text="Old Password: " CssClass="lblOldPassword"></asp:Label></td>
+                <td><asp:TextBox runat="server" ID="oldPasswordTxtBx" CssClass="input-textareaPassword" Width="180px">Old password</asp:TextBox> <br /></td></tr>
             <tr>
-       <td><asp:Label ID="lblNewPassword" runat="server" Text="New Password: " CssClass="p"></asp:Label></td><td><asp:TextBox runat="server" ID="newPasswordTxtBx" CssClass="input-textareaPassword" Width="160px">New password</asp:TextBox> <br /></td></tr>
-       <tr><td><asp:Label ID="lblNewPasswordConfirm" runat="server" Text="Confirm New Password: " CssClass="p"></asp:Label></td> <td><asp:TextBox runat="server" ID="newPasswordConfTxtBx" CssClass="input-textareaPassword" Width="160px">Confirm new password</asp:TextBox></td></tr>
+       <td><asp:Label ID="lblNewPassword" runat="server" Text="New Password: " CssClass="lblOldPassword"></asp:Label></td><td><asp:TextBox runat="server" ID="newPasswordTxtBx" CssClass="input-textareaPassword" Width="180px">New password</asp:TextBox> <br /></td></tr>
+       <tr><td><asp:Label ID="lblNewPasswordConfirm" runat="server" Text="Confirm New Password: " CssClass="lblOldPassword"></asp:Label></td> <td><asp:TextBox runat="server" ID="newPasswordConfTxtBx" CssClass="input-textareaPassword" Width="180px">Confirm new password</asp:TextBox></td></tr>
             </table>
     </div>
-    <asp:Button runat="server" ID="passSubmitBtn" CssClass="takeFiveBtn" Text="Submit" OnClick="passSubmitBtn_Click" />
+    <asp:Button runat="server" ID="passSubmitBtn" CssClass="takeFiveBtn" Text="SUBMIT" OnClick="passSubmitBtn_Click" />
     </div>
    </div>
 			<div class="col2">
@@ -140,5 +140,6 @@
       </form>
 
 
+    <div id="wrapper"> <div id="content"> </div> </div> <div id="footer"> © NURacing, 2013. Also include UON Logo, IT Team credit/support link, FB discussion board, NURacing Website and other resources. </div>
     </body>
 </html>
