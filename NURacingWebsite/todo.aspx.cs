@@ -17,7 +17,7 @@ namespace NURacingWebsite
         String user;
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.getData("SELECT assignedtask.Task_Name, assignedtask.duedate FROM assignedtask, [work] WHERE work.User_Username = assignedtask.User_Username_AssignedTo");
+            this.getData("SELECT assignedtask.Task_Name, assignedtask.duedate, assignedtask.Task_Description FROM assignedtask, [work] WHERE work.User_Username = assignedtask.User_Username_AssignedTo");
             user = Membership.GetUser().ToString();
             userLbl.Text = user;
         }
@@ -26,6 +26,7 @@ namespace NURacingWebsite
         {
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("Task_Name");
+            dataTable.Columns.Add("Task_Description");
             dataTable.Columns.Add("duedate");
             dataTable.Columns.Add("Task_ID");
 
@@ -36,6 +37,7 @@ namespace NURacingWebsite
                 DataRow newRow = dataTable.NewRow();
 
                 newRow["Task_Name"] = task.TaskName;
+                newRow["Task_Description"] = task.TaskName;
                 newRow["duedate"] = task.TaskDueDate;
                 newRow["Task_ID"] = task.TaskID;
 

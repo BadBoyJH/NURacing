@@ -10,7 +10,7 @@ using System.Web.UI.HtmlControls;
 
 namespace NURacingWebsite
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class section : System.Web.UI.Page
     {
         String user;
         protected void Page_Load(object sender, EventArgs e)
@@ -18,17 +18,17 @@ namespace NURacingWebsite
             String user = Membership.GetUser().ToString();
             userLbl.Text = user;
 
-            List<ProjectInfo> projects = ProjectInfo.getUserProjects(user, true);
+            List<WorkTypeInfo> sections = WorkTypeInfo.getProjectWorkTypes(Convert.ToInt32(Request.QueryString["id"]));
 
             TableRow row = new TableRow();
             Label cell = new Label();
 
             cell.Text = "<div class = \"tblProjects\">";
 
-            foreach (ProjectInfo info in projects)
+            foreach (WorkTypeInfo info in sections)
             {
-                cell.Text = "<img src=\"images\\tools_white.png\"/><a href =\"section.aspx?id=" + info.ProjectID + "\"><div class = projName>" + info.Name + "</div></a>"
-                    + "<div class = projDesc>" + info.Description + "</div>";
+                cell.Text = "<img src=\"images\\tools_white.png\"/><a href =\"task.aspx?id=" + info.WorkTypeID + "\"><div class = projName>" + info.Name + "</div></a>"
+                    + "<div class = projDesc>" + info.Status + "</div>";
                 TableCell cell1 = new TableCell();
                 cell1.Text = cell.Text.ToString();
                 row.Cells.Add(cell1);

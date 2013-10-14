@@ -53,6 +53,7 @@
             <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="1">
                 <Columns>
                     <asp:HyperLinkField HeaderText="NAME" DataTextField="Task_Name" DataNavigateUrlFields ="Task_ID" DataNavigateUrlFormatString ="task.aspx?id={0:G}" />
+                    <asp:BoundField HeaderText="DESCRIPTION" DataField="Task_Description"/>
                     <asp:BoundField HeaderText="DUE DATE" DataField="duedate"/>
                 </Columns>
 
