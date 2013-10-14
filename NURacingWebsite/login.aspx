@@ -25,7 +25,7 @@
 		<div id="topBarMenu">	
 				<div id="topMenu">
 					<ul>
-						<li><a href="#" style="TEXT-DECORATION: NONE;"><span>Text goes here &nbsp; &#149;&nbsp; More text goes here</span></a></li>
+						<li><a href="#" style="TEXT-DECORATION: NONE;"><span>TA Building, School of Engineering, University of Newcastle, Callaghan NSW 2308 &nbsp; &#149;&nbsp; (02) 4925 4937</span></a></li>
 					</ul>
 				</div>
 			</div>	
