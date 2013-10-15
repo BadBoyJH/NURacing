@@ -128,9 +128,9 @@
     <br />
     <div id ="passwordChangeForm">
 
-        <asp:TextBox runat="server" ID="oldPasswordTxtBx" CssClass="input-textareaPassword">Old password</asp:TextBox> <br />
-        <asp:TextBox runat="server" ID="newPasswordTxtBx" CssClass="input-textareaPassword">New password</asp:TextBox> <br />
-        <asp:TextBox runat="server" ID="newPasswordConfTxtBx" CssClass="input-textareaPassword">New password confirm</asp:TextBox>
+        <asp:TextBox runat="server" ID="oldPasswordTxtBx" CssClass="input-textareaPassword" TextMode="Password">Old password</asp:TextBox> <br />
+        <asp:TextBox runat="server" ID="newPasswordTxtBx" CssClass="input-textareaPassword" TextMode="Password">New password</asp:TextBox> <br />
+        <asp:TextBox runat="server" ID="newPasswordConfTxtBx" CssClass="input-textareaPassword" TextMode="Password">New password confirm</asp:TextBox>
 
     </div>
     <asp:Button runat="server" ID="passSubmitBtn" CssClass="takeFiveBtn" Text="Submit" OnClick="passSubmitBtn_Click" />
