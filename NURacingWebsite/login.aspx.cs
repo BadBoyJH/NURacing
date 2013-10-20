@@ -12,7 +12,7 @@ namespace NURacingWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            FormsAuthentication.SignOut();
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)

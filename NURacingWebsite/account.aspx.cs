@@ -11,19 +11,15 @@ namespace NURacingWebsite
 {
     public partial class account : System.Web.UI.Page
     {
-        String user;
         protected void Page_Load(object sender, EventArgs e)
         {
-            user = Membership.GetUser().ToString();
-            userLbl.Text = user;
-
         }
 
         protected void passSubmitBtn_Click(object sender, EventArgs e)
         {
             if (newPasswordTxtBx.Text == newPasswordConfTxtBx.Text)
             {
-                BusinessLogicLayer.User.setPassword(user, newPasswordTxtBx.Text, oldPasswordTxtBx.Text);
+                BusinessLogicLayer.User.setPassword(Membership.GetUser().UserName, newPasswordTxtBx.Text, oldPasswordTxtBx.Text);
             }
         }
     }

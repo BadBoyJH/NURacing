@@ -12,11 +12,8 @@ namespace NURacingWebsite
 {
     public partial class reporting : System.Web.UI.Page
     {
-        String user;
         protected void Page_Load(object sender, EventArgs e)
         {
-            String user = Membership.GetUser().ToString();
-            userLbl.Text = user;
         }
     }
 }

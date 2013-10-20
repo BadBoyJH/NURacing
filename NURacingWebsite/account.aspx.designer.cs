@@ -13,22 +13,13 @@ namespace NURacingWebsite {
     public partial class account {
         
         /// <summary>
-        /// frmLayout control.
+        /// userRoleYouLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm frmLayout;
-        
-        /// <summary>
-        /// userLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label userLbl;
+        protected global::System.Web.UI.WebControls.Label userRoleYouLbl;
         
         /// <summary>
         /// userRoleLbl control.
@@ -40,13 +31,13 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.Label userRoleLbl;
         
         /// <summary>
-        /// lblOldPassword control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOldPassword;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// oldPasswordTxtBx control.
@@ -58,15 +49,6 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.TextBox oldPasswordTxtBx;
         
         /// <summary>
-        /// lblNewPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNewPassword;
-        
-        /// <summary>
         /// newPasswordTxtBx control.
         /// </summary>
         /// <remarks>
@@ -74,15 +56,6 @@ namespace NURacingWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox newPasswordTxtBx;
-        
-        /// <summary>
-        /// lblNewPasswordConfirm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNewPasswordConfirm;
         
         /// <summary>
         /// newPasswordConfTxtBx control.

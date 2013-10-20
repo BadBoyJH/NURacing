@@ -247,9 +247,9 @@
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="reporting.aspx" />
-    <Content Include="reportlabourlog.aspx" />
-    <Content Include="reportprojectstatus.aspx" />
-    <Content Include="reportuserdetails.aspx" />
+    <Content Include="Reporting\reportlabourlog.aspx" />
+    <Content Include="Reporting\reportprojectstatus.aspx" />
+    <Content Include="Reporting\reportuserdetails.aspx" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
@@ -372,25 +372,25 @@
     <Compile Include="reporting.aspx.designer.cs">
       <DependentUpon>reporting.aspx</DependentUpon>
     </Compile>
-    <Compile Include="reportlabourlog.aspx.cs">
+    <Compile Include="Reporting\reportlabourlog.aspx.cs">
       <DependentUpon>reportlabourlog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="reportlabourlog.aspx.designer.cs">
+    <Compile Include="Reporting\reportlabourlog.aspx.designer.cs">
       <DependentUpon>reportlabourlog.aspx</DependentUpon>
     </Compile>
-    <Compile Include="reportprojectstatus.aspx.cs">
+    <Compile Include="Reporting\reportprojectstatus.aspx.cs">
       <DependentUpon>reportprojectstatus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="reportprojectstatus.aspx.designer.cs">
+    <Compile Include="Reporting\reportprojectstatus.aspx.designer.cs">
       <DependentUpon>reportprojectstatus.aspx</DependentUpon>
     </Compile>
-    <Compile Include="reportuserdetails.aspx.cs">
+    <Compile Include="Reporting\reportuserdetails.aspx.cs">
       <DependentUpon>reportuserdetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="reportuserdetails.aspx.designer.cs">
+    <Compile Include="Reporting\reportuserdetails.aspx.designer.cs">
       <DependentUpon>reportuserdetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="section.aspx.cs">
@@ -413,6 +413,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="LoggedIn.Master.cs">
+      <DependentUpon>LoggedIn.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoggedIn.Master.designer.cs">
+      <DependentUpon>LoggedIn.Master</DependentUpon>
     </Compile>
     <Compile Include="task.aspx.cs">
       <DependentUpon>task.aspx</DependentUpon>
@@ -460,12 +467,14 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ReportingOld\" />
+    <Folder Include="Reports\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="LoggedIn.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -480,8 +489,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="LabourReport.rdlc" />
-    <EmbeddedResource Include="ProjectStatusReport.rdlc" />
     <EmbeddedResource Include="Reporting\LabourReport.rdlc" />
     <EmbeddedResource Include="Reporting\ProjectStatusReport.rdlc" />
   </ItemGroup>
