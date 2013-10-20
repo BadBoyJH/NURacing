@@ -59,7 +59,7 @@ namespace ConsoleTesting
             CarParts.Add("Electronics");
              */
 
-            User.addUser("TestAcc", "abc123lol", "Administrator", "Steve", "McQueen", "NuRacingTest@westnet.com.au", "", "", "", "", "", "", "", true, "", DateTime.Now.AddYears(2), "", "", "", "", "", "");
+            User.addUser("TestAcc", "abc123lol", "Administrator", "Steve", "McQueen", "NuRacingTest@westnet.com.au", "StudentNumber", "YearOfGraduation Fake Data", "DegreeName Fake Data", "MedicareNumber Fake Data", "Allergies Fake Data", "MedicalConditions Fake Data", "DietaryRequirements Fake Data", true, "SAEMembershipNumber Fake Data", DateTime.Now.AddYears(2), "CAMSMembershipNumber Fake Data", "CAMSLicenseType Fake Data", "DriversLicenseNumber Fake Data", "DriversLicenseState Fake Data", "EmergencyContactName Fake Data", "EmergencyContactPhoneNumber Fake Data");
 
             Project.addDefaultCar("Big Red Car", 0, "Chugga Chugga big red car");
 
@@ -70,9 +70,7 @@ namespace ConsoleTesting
             AssignedTask.addTask("TestAcc", "TestAcc", 1, new DateTime(2013, 10, 15), "Do Even More Stuff", "Do some stuff very well", false);
             AssignedTask.addTask("TestAcc", "TestAcc", 1, new DateTime(2013, 10, 15), "Do All The Stuff", "Yeah Whatever", false);
 
-            Console.WriteLine(TaskInfo.getAssignedTask(1).TaskDescription);
-
-            Console.ReadLine();
+            Console.WriteLine("Done adding data");
 
             Console.ReadLine();
         }

@@ -220,6 +220,19 @@ namespace BusinessLogicLayer
             }
         }
 
+        static public bool isEmailValid(string Email)
+        {
+            try
+            {
+                new System.Net.Mail.MailAddress(Email);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
 
         //  Written By James Hibbard
         ///
@@ -454,6 +467,10 @@ namespace BusinessLogicLayer
             if (UsernameExists(Username))
             {
                 throw new ArgumentException("Username already exists");
+            }
+            if (isEmailValid(Email))
+            {
+                throw new ArgumentException("Email isn't in a valid format");
             }
             if (EmailExists(Email))
             {
