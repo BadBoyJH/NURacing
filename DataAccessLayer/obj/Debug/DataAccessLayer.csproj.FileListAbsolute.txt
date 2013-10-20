@@ -25,3 +25,4 @@ C:\Users\Callan\Source\Repos\NURacing\DataAccessLayer\bin\Debug\DataAccessLayer.
 C:\Users\Callan\Source\Repos\NURacing\DataAccessLayer\bin\Debug\MySql.Data.dll
 C:\Users\Callan\Source\Repos\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\Callan\Source\Repos\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Callan\Source\Repos\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache

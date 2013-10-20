@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="NURacingWebsite.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="section.aspx.cs" Inherits="NURacingWebsite.section" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 
 <head id="Head1"  runat="server">
-    <title>NURacing System - Account</title>
+    <title>NURacing System - Sections</title>
         <link rel="icon" type="image/png" href="NURacing_Favicon.ico"/>
 		<link rel="stylesheet" media="all" href="css/style.css"/>
 		<link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css' />
@@ -30,7 +30,7 @@
 			</div>	
         </div>
           <div id="logo" >
-					<a href="index.html">
+					<a href="index.aspx">
 						<img src="images/logo.png" alt="Logo" />
 					</a>
 				</div>
@@ -47,8 +47,8 @@
 			<div class="col1">
 
         <br /><br />
-       <h1>PROJECTS</h1>
-    <p style="text-align:center">Please click on a project below to review progress.</p>
+       <h1>SECTIONS</h1>
+    <p style="text-align:center">Please click on a section below to review progress.</p>
                 <br />
     	<asp:Table ID="tblProjects" runat="server" GridLines="Horizontal" CssClass="tblProjects" class="tblProjects" HorizontalAlign="Center">
             

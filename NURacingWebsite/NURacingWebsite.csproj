@@ -278,9 +278,12 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Global.asax" />
+    <Content Include="section.aspx" />
     <Content Include="task.aspx" />
     <Content Include="taskManagement.aspx" />
+    <Content Include="tasks.aspx" />
     <Content Include="todo.aspx" />
+    <Content Include="UserManagement.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -390,6 +393,13 @@
     <Compile Include="reportuserdetails.aspx.designer.cs">
       <DependentUpon>reportuserdetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="section.aspx.cs">
+      <DependentUpon>section.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="section.aspx.designer.cs">
+      <DependentUpon>section.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -418,12 +428,26 @@
     <Compile Include="taskManagement.aspx.designer.cs">
       <DependentUpon>taskManagement.aspx</DependentUpon>
     </Compile>
+    <Compile Include="tasks.aspx.cs">
+      <DependentUpon>tasks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tasks.aspx.designer.cs">
+      <DependentUpon>tasks.aspx</DependentUpon>
+    </Compile>
     <Compile Include="todo.aspx.cs">
       <DependentUpon>todo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="todo.aspx.designer.cs">
       <DependentUpon>todo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement.aspx.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManagement.aspx.designer.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -435,6 +459,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ReportingOld\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
@@ -455,10 +480,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ReportingOld\UserReport.rdlc" />
+    <EmbeddedResource Include="LabourReport.rdlc" />
+    <EmbeddedResource Include="ProjectStatusReport.rdlc" />
     <EmbeddedResource Include="Reporting\LabourReport.rdlc" />
     <EmbeddedResource Include="Reporting\ProjectStatusReport.rdlc" />
-    <EmbeddedResource Include="Reporting\UserReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

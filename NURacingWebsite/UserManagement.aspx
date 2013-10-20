@@ -1,6 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="NURacingWebsite.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserManagement.aspx.cs" Inherits="NURacingWebsite.UserManagement" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 
 <head id="Head1"  runat="server">
@@ -30,7 +31,7 @@
 			</div>	
         </div>
           <div id="logo" >
-					<a href="index.html">
+					<a href="index.aspx">
 						<img src="images/logo.png" alt="Logo" />
 					</a>
 				</div>
@@ -40,22 +41,27 @@
 					</ul>
 				</div>
 		</div>
-	
 	<div class="colmask threecol">
 	<div class="colmid">
 		<div class="colleft">
 			<div class="col1">
 
         <br /><br />
-       <h1>PROJECTS</h1>
-    <p style="text-align:center">Please click on a project below to review progress.</p>
+       <h1>USER MANAGEMENT</h1>
+                        <p style="text-align:center">Please click an action below</p>
                 <br />
-    	<asp:Table ID="tblProjects" runat="server" GridLines="Horizontal" CssClass="tblProjects" class="tblProjects" HorizontalAlign="Center">
-            
-            </asp:Table>
-
-                <br />
-</div>
+                    <div class="taskDetail">
+                     <asp:Button ID="btnUpdateUser" CssClass="takeFiveBtn" Text="Update User" runat="server" OnClick="btnUpdateUser_Click"  />
+                     <asp:Button ID="btnCreateUser" CssClass="takeFiveBtn" Text="Create User" runat="server" OnClick="btnCreateUser_Click"  />
+                        <br /><br /><br /><br /><br />
+                        <div class="taskMngement">
+                        <asp:PlaceHolder runat="server" ID="createUserFrm"></asp:PlaceHolder>
+                            <asp:TextBox runat="server" ID ="userNameTxtBx" Visible="false">TEXT</asp:TextBox>
+                            <asp:Button UseSubmitBehavior="false" runat="server" ID="createUserSubmitBtn" Visible="false" OnClick="submitCreateUserBtn_Click" CssClass="takeFiveBtn" Text="SUBMIT"/>
+                            </div>
+                        <%-- <asp:Label id="createUserFrm" runat="server" CssClass="taskMngement"></asp:Label>--%>
+                    </div>
+    </div>
 			<div class="col2">
 			</div>
 			<div class="col3">
@@ -66,6 +72,5 @@
  </div>
 
       </form>
-
 </body>
 </html>

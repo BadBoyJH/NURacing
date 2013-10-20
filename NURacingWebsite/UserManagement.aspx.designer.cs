@@ -10,7 +10,16 @@
 namespace NURacingWebsite {
     
     
-    public partial class account {
+    public partial class UserManagement {
+        
+        /// <summary>
+        /// Head1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
         /// frmLayout control.
@@ -31,75 +40,39 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.Label userLbl;
         
         /// <summary>
-        /// userRoleLbl control.
+        /// btnUpdateUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label userRoleLbl;
+        protected global::System.Web.UI.WebControls.Button btnUpdateUser;
         
         /// <summary>
-        /// lblOldPassword control.
+        /// btnCreateUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOldPassword;
+        protected global::System.Web.UI.WebControls.Button btnCreateUser;
         
         /// <summary>
-        /// oldPasswordTxtBx control.
+        /// createUserFrm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox oldPasswordTxtBx;
+        protected global::System.Web.UI.WebControls.PlaceHolder createUserFrm;
         
         /// <summary>
-        /// lblNewPassword control.
+        /// createUserSubmitBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNewPassword;
-        
-        /// <summary>
-        /// newPasswordTxtBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox newPasswordTxtBx;
-        
-        /// <summary>
-        /// lblNewPasswordConfirm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNewPasswordConfirm;
-        
-        /// <summary>
-        /// newPasswordConfTxtBx control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox newPasswordConfTxtBx;
-        
-        /// <summary>
-        /// passSubmitBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button passSubmitBtn;
+        protected global::System.Web.UI.WebControls.Button createUserSubmitBtn;
     }
 }

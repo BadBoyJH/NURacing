@@ -7,17 +7,16 @@ using System.Web.UI.WebControls;
 using System.Data.OleDb;
 using System.Data;
 using System.Web.Security;
-
 using BusinessLogicLayer;
 
 namespace NURacingWebsite
 {
-    public partial class todo : System.Web.UI.Page
+    public partial class tasks : System.Web.UI.Page
     {
         String user;
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.getData("SELECT assignedtask.Task_Name, assignedtask.duedate, assignedtask.Task_Description FROM assignedtask, [work] WHERE work.User_Username = assignedtask.User_Username_AssignedTo");
+            this.getData("SELECT assignedtask.Task_Name, assignedtask.duedate, assignedtask.Task_Description FROM assignedtask, [work] WHERE work.Work_PartWorkedOn =" + Convert.ToInt32(Request.QueryString["id"]));
             user = Membership.GetUser().ToString();
             userLbl.Text = user;
         }
@@ -30,7 +29,7 @@ namespace NURacingWebsite
             dataTable.Columns.Add("duedate");
             dataTable.Columns.Add("Task_ID");
 
-            List<TaskInfo> tasks = TaskInfo.getUserTasks(Membership.GetUser().ToString());
+            List<TaskInfo> tasks = TaskInfo.getWorkTypeTasks(Convert.ToInt32(Request.QueryString["id"]));
 
             foreach (TaskInfo task in tasks)
             {
@@ -49,6 +48,5 @@ namespace NURacingWebsite
 
             return dataTable.DataSet;
         }
-
     }
 }

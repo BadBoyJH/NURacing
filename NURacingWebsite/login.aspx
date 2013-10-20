@@ -21,17 +21,14 @@
 
 <body lang="en" runat="server">
    
-	<div id="header" style="height:auto;">
+	
 		<div id="topBarMenu">	
 				<div id="topMenu">
 					<ul>
-						<li><a href="#" style="TEXT-DECORATION: NONE;"><span>Text goes here &nbsp; &#149;&nbsp; More text goes here</span></a></li>
+						<li><a href="#" style="TEXT-DECORATION: NONE;"><span>TA Building, School of Engineering, University of Newcastle, Callaghan NSW 2308 &nbsp; &#149;&nbsp; (02) 4925 4937</span></a></li>
 					</ul>
 				</div>
 			</div>	
-        </div>
-
-            
      
 <div class="colmask threecol">
 	<div class="colmid">
@@ -44,7 +41,7 @@
     <p style="text-align:center">Welcome to the NURacing System. Please enter your login credentials below.</p>
     <div id ="loginForm" class="loginForm">
         <table border="0" style="margin-left:auto; margin-right:auto; text-align:right;">
-        <tr><td class="auto-style1"><asp:Label runat="server" ID="lblUsername" CssClass="lblUsername">Username: </asp:Label></td><td class="auto-style1"><asp:TextBox runat="server" Width="110px" ID="UsernameTxtBx" /></td></tr>
+        <tr><td class="auto-style1"><asp:Label runat="server" ID="lblUsername" CssClass="p">Username: </asp:Label></td><td class="auto-style1"><asp:TextBox runat="server" Width="110px" ID="UsernameTxtBx" /></td></tr>
         <tr><td><asp:Label runat="server" ID="lblPassword" CssClass="p">Password: </asp:Label></td><td><asp:TextBox runat="server" TextMode="Password" Width="110px" ID="PassTxtBx" /></td></tr>
             <tr>
                 <td>
