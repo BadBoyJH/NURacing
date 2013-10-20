@@ -55,9 +55,8 @@
                      <asp:Button ID="btnCreateUser" CssClass="takeFiveBtn" Text="Create User" runat="server" OnClick="btnCreateUser_Click"  />
                         <br /><br /><br /><br /><br />
                         <div class="taskMngement">
-                        <asp:PlaceHolder runat="server" ID="createUserFrm"></asp:PlaceHolder>
-                            <asp:TextBox runat="server" ID ="userNameTxtBx" Visible="false">TEXT</asp:TextBox>
-                            <asp:Button UseSubmitBehavior="false" runat="server" ID="createUserSubmitBtn" Visible="false" OnClick="submitCreateUserBtn_Click" CssClass="takeFiveBtn" Text="SUBMIT"/>
+                        <asp:PlaceHolder runat="server" ID="createUserFrm" Visible="false"></asp:PlaceHolder>
+                            <asp:Button runat="server" ID="createUserSubmitBtn" Visible="false" OnClick="submitCreateUserBtn_Click" CssClass="takeFiveBtn" Text="SUBMIT"/>
                             </div>
                         <%-- <asp:Label id="createUserFrm" runat="server" CssClass="taskMngement"></asp:Label>--%>
                     </div>
