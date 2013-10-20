@@ -13,15 +13,12 @@ namespace NURacingWebsite
 {
     public partial class tasks : System.Web.UI.Page
     {
-        String user;
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.getData("SELECT assignedtask.Task_Name, assignedtask.duedate, assignedtask.Task_Description FROM assignedtask, [work] WHERE work.Work_PartWorkedOn =" + Convert.ToInt32(Request.QueryString["id"]));
-            user = Membership.GetUser().ToString();
-            userLbl.Text = user;
+            this.fillData();
         }
 
-        public DataSet getData(String query)
+        public DataSet fillData()
         {
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("Task_Name");

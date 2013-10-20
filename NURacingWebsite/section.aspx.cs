@@ -12,11 +12,9 @@ namespace NURacingWebsite
 {
     public partial class section : System.Web.UI.Page
     {
-        String user;
         protected void Page_Load(object sender, EventArgs e)
         {
-            String user = Membership.GetUser().ToString();
-            userLbl.Text = user;
+            String user = Membership.GetUser().UserName;
 
             List<WorkTypeInfo> sections = WorkTypeInfo.getProjectWorkTypes(Convert.ToInt32(Request.QueryString["id"]));
 

@@ -17,12 +17,11 @@ namespace NURacingWebsite
         String user;
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.getData("SELECT assignedtask.Task_Name, assignedtask.duedate, assignedtask.Task_Description FROM assignedtask, [work] WHERE work.User_Username = assignedtask.User_Username_AssignedTo");
+            fillData();
             user = Membership.GetUser().ToString();
-            userLbl.Text = user;
         }
 
-        public DataSet getData(String query)
+        public DataSet fillData()
         {
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("Task_Name");

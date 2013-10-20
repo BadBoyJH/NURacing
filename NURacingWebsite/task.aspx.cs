@@ -12,12 +12,8 @@ namespace NURacingWebsite
 {
     public partial class task : System.Web.UI.Page
     {
-        String user = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            user = Membership.GetUser().ToString();
-            userLbl.Text = user;
-
             BusinessLogicLayer.TaskInfo info =  TaskInfo.getAssignedTask(Convert.ToInt32(Request.QueryString["id"]));
             HtmlGenericControl NewControl = new HtmlGenericControl("span");
             taskTitleLbl.Text = info.TaskName;
