@@ -6,45 +6,45 @@
 </asp:Content>
 
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">
-    <div class="colmask threecol">
-        <div class="colmid">
-            <div class="colleft">
-                <div class="col1">
+         <div class="colmask threecol">
+	<div class="colmid">
+		<div class="colleft">
+			<div class="col1">
                     <br />
                     <br />
+                 
+                     <div class="taskDetail">
+                    
+         <asp:Label ID="taskTitleLbl" CssClass="taskTitleLbl" runat="server">Task title</asp:Label>
+         <asp:Label ID="dueDateLbl" CssClass="dueDateLbl" runat="server">Due date</asp:Label>
+         <br />
+         <asp:Button ID="takeFiveBtn" CssClass="takeFiveBtn" Text="TAKE FIVE" runat="server" />
+         <br />
+         <br />
+         <br />
+         <asp:Label runat="server" ID="taskDescLbl" CssClass="taskDescLbl"></asp:Label>
+         <h2>TIME LOGGING</h2>
 
-                    <div class="taskDetail">
-
-                        <asp:Label ID="taskTitleLbl" CssClass="taskTitleLbl" runat="server">Task title</asp:Label>
-                        <asp:Label ID="dueDateLbl" CssClass="dueDateLbl" runat="server">Due date</asp:Label>
-                        <br />
-                        <asp:Button ID="takeFiveBtn" CssClass="takeFiveBtn" Text="TAKE FIVE" runat="server" />
-                        <br />
-                        <br />
-                        <br />
-                        <asp:Label runat="server" ID="taskDescLbl" CssClass="taskDescLbl"></asp:Label>
-                        <h2>TIME LOGGING</h2>
-
-                        <div id="timelogging" class="timeLogging">
+         <div id="timelogging" class="timeLogging">
                             <span>HOURS: </span>
                             <asp:TextBox ID="HoursTxtBx" runat="server" CssClass="taskHrMinTxtBx"></asp:TextBox>
                             <span>MINUTES: </span>
                             <asp:TextBox ID="MinTxtBx" runat="server" CssClass="taskHrMinTxtBx"></asp:TextBox>
-                            <br />
+              <br />
                             <span>DESCRIPTION: </span>
                             <asp:TextBox ID="descTxtBx" runat="server" CssClass="taskDescTxtBx"></asp:TextBox>
-                            <asp:Button ID="btnSubmitLabour" CssClass="takeFiveBtn" Text="SUBMIT" runat="server" />
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col2">
-                </div>
-                <div class="col3">
-                </div>
-
-            </div>
+             <asp:Button ID="btnSubmitLabour" CssClass="takeFiveBtn" Text="SUBMIT" runat="server" />
         </div>
-    </div>
+        </div>
+
+
+                   </div>
+			<div class="col2">
+			</div>
+			<div class="col3">
+			</div>
+ 
+		</div>
+	</div>
+ </div>
 </asp:Content>

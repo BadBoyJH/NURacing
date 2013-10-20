@@ -58,24 +58,6 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.TextBox PassTxtBx;
         
         /// <summary>
-        /// chkbxRemember control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkbxRemember;
-        
-        /// <summary>
-        /// lblRemember control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRemember;
-        
-        /// <summary>
         /// btnSubmit control.
         /// </summary>
         /// <remarks>
