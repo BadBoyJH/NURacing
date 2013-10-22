@@ -54,11 +54,19 @@ namespace BusinessLogicLayer
         private DateTime lastLockedOut;
         private bool isActive;
 
+        // Modification Detection
+        private bool beenChanged;
+
         public string GivenName
         {
             get
             {
                 return givenName;
+            }
+            set
+            {
+                givenName = value;
+                beenChanged = true;
             }
         }
 
@@ -67,6 +75,11 @@ namespace BusinessLogicLayer
             get
             {
                 return surname;
+            }
+            set
+            {
+                surname = value;
+                beenChanged = true;
             }
         }
 
@@ -84,6 +97,11 @@ namespace BusinessLogicLayer
             {
                 return email;
             }
+            set
+            {
+                email = value;
+                beenChanged = true;
+            }
         }
 
         public string StudentNumber
@@ -91,6 +109,11 @@ namespace BusinessLogicLayer
             get
             {
                 return studentnumber;
+            }
+            set
+            {
+                studentnumber = value;
+                beenChanged = true;
             }
         }
 
@@ -100,6 +123,11 @@ namespace BusinessLogicLayer
             {
                 return estimatedGraduationYear;
             }
+            set
+            {
+                estimatedGraduationYear = value;
+                beenChanged = true;
+            }
         }
 
         public string Degree
@@ -107,6 +135,11 @@ namespace BusinessLogicLayer
             get
             {
                 return degree;
+            }
+            set
+            {
+                degree = value;
+                beenChanged = true;
             }
         }
 
@@ -116,6 +149,11 @@ namespace BusinessLogicLayer
             {
                 return medicareNumber;
             }
+            set
+            {
+                medicareNumber = value;
+                beenChanged = true;
+            }
         }
 
         public string Allergies
@@ -123,6 +161,11 @@ namespace BusinessLogicLayer
             get
             {
                 return allergies;
+            }
+            set
+            {
+                allergies = value;
+                beenChanged = true;
             }
         }
 
@@ -132,6 +175,11 @@ namespace BusinessLogicLayer
             {
                 return medicalConditions;
             }
+            set
+            {
+                medicalConditions = value;
+                beenChanged = true;
+            }
         }
 
         public string DietaryRequirements
@@ -139,6 +187,11 @@ namespace BusinessLogicLayer
             get
             {
                 return dietaryRequirements;
+            }
+            set
+            {
+                dietaryRequirements = value;
+                beenChanged = true;
             }
         }
 
@@ -148,6 +201,11 @@ namespace BusinessLogicLayer
             {
                 return indemnityFormSigned;
             }
+            set
+            {
+                indemnityFormSigned = value;
+                beenChanged = true;
+            }
         }
 
         public string SAEMembershipNumber
@@ -155,6 +213,11 @@ namespace BusinessLogicLayer
             get
             {
                 return saeMembershipNumber;
+            }
+            set
+            {
+                saeMembershipNumber = value;
+                beenChanged = true;
             }
         }
 
@@ -164,6 +227,11 @@ namespace BusinessLogicLayer
             {
                 return saeMembershipExpiry;
             }
+            set
+            {
+                saeMembershipExpiry = value;
+                beenChanged = true;
+            }
         }
 
         public string CAMSMembershipNumber
@@ -171,6 +239,11 @@ namespace BusinessLogicLayer
             get
             {
                 return camsMembershipNumber;
+            }
+            set
+            {
+                camsMembershipNumber = value;
+                beenChanged = true;
             }
         }
 
@@ -180,6 +253,11 @@ namespace BusinessLogicLayer
             {
                 return camsLicenseType;
             }
+            set
+            {
+                camsLicenseType = value;
+                beenChanged = true;
+            }
         }
 
         public string DriversLicenseNumber
@@ -187,6 +265,11 @@ namespace BusinessLogicLayer
             get
             {
                 return driversLicenseNumber;
+            }
+            set
+            {
+                driversLicenseNumber = value;
+                beenChanged = true;
             }
         }
 
@@ -196,6 +279,11 @@ namespace BusinessLogicLayer
             {
                 return driversLicenseState;
             }
+            set
+            {
+                driversLicenseState = value;
+                beenChanged = true;
+            }
         }
 
         public string EmergencyContactName
@@ -204,6 +292,11 @@ namespace BusinessLogicLayer
             {
                 return emergencyContactName;
             }
+            set
+            {
+                emergencyContactName = value;
+                beenChanged = true;
+            }
         }
 
         public string EmergencyContactPhoneNumber
@@ -211,6 +304,11 @@ namespace BusinessLogicLayer
             get
             {
                 return emergencyContactPhoneNumber;
+            }
+            set
+            {
+                emergencyContactPhoneNumber = value;
+                beenChanged = true;
             }
         }
 
@@ -271,6 +369,11 @@ namespace BusinessLogicLayer
         /// <param name="userRow">A row from the User table in the database</param>
 
         private UserInfo(NuRacingDataSet.UserRow userRow)
+        {
+            setData(userRow);
+        }
+
+        private void setData(NuRacingDataSet.UserRow userRow)
         {
             givenName = userRow.User_GivenName;
             surname = userRow.User_Surname;
@@ -355,6 +458,55 @@ namespace BusinessLogicLayer
             }
 
             return userList;
+        }
+
+        public void updateDatabase()
+        {
+            UserTableAdapter userAdapter = new UserTableAdapter();
+            NuRacingDataSet.UserDataTable userTable = userAdapter.GetUser(username);
+            NuRacingDataSet.UserRow userRow = (NuRacingDataSet.UserRow) userTable.Rows[0];
+
+            userRow.User_GivenName = givenName;
+            userRow.User_Surname = surname;
+            userRow.User_Email = email;
+            userRow.User_StudentNumber = studentnumber;
+            userRow.User_EstGraduationYear = estimatedGraduationYear;
+            userRow.User_Degree = degree;
+            userRow.User_MedicareNo = medicareNumber;
+            userRow.User_Allergies = allergies;
+            userRow.User_MedicareNo = medicalConditions;
+            userRow.User_DietaryRequirements = dietaryRequirements;
+            userRow.User_IndemnityFormSigned = indemnityFormSigned;
+
+            userRow.User_SAE_MemberNo = saeMembershipNumber;
+            userRow.User_SAE_Expiry = saeMembershipExpiry;
+
+            userRow.User_CAMS_MemberNo = camsMembershipNumber;
+            userRow.User_CAMS_LicenseType = camsLicenseType;
+
+            userRow.User_LicenseNo = driversLicenseNumber;
+            userRow.User_LicenseState = driversLicenseState;
+
+            userRow.User_EmergencyContactName = emergencyContactName;
+            userRow.User_EmergencyContactNumber = emergencyContactPhoneNumber;
+
+            userRow.User_Created = dateCreated;
+            userRow.User_LastLogin = lastLoggedIn;
+            userRow.User_LastActivity = lastActivity;
+            userRow.User_LastPasswordChanged = passwordLastChanged;
+            userRow.User_LastLockoutDate = lastLockedOut;
+            userRow.User_Active = isActive;
+
+            userAdapter.Update(userTable);
+        }
+
+        public void resetData()
+        {
+            UserTableAdapter userAdapter = new UserTableAdapter();
+            NuRacingDataSet.UserDataTable userTable = userAdapter.GetUser(username);
+            NuRacingDataSet.UserRow userRow = (NuRacingDataSet.UserRow)userTable.Rows[0];
+
+            setData(userRow);
         }
     }
 }

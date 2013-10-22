@@ -43,14 +43,7 @@
         <table border="0" style="margin-left:auto; margin-right:auto; text-align:right;">
         <tr><td class="auto-style1"><asp:Label runat="server" ID="lblUsername" CssClass="p">Username: </asp:Label></td><td class="auto-style1"><asp:TextBox runat="server" Width="110px" ID="UsernameTxtBx" /></td></tr>
         <tr><td><asp:Label runat="server" ID="lblPassword" CssClass="p">Password: </asp:Label></td><td><asp:TextBox runat="server" TextMode="Password" Width="110px" ID="PassTxtBx" /></td></tr>
-            <tr>
-                <td>
-                    <asp:CheckBox runat="server" ID ="chkbxRemember" CssClass="p" />
-                </td>
-                <td style="text-align:left;">
-                    <asp:Label runat="server" ID="lblRemember" CssClass="p">Remember Me</asp:Label>
-                </td>
-            </tr>
+        
         </table>
         <table border="0" style="margin-left:auto; margin-right:auto; text-align:right;">
             <tr>
@@ -70,5 +63,10 @@
 		</div>
 	</div>
  </div>
+      <div id="footer"><h5><a href="http://www.newcastle.edu.au/"><img id="Img1" src="Images/logo2.png" alt="University of Newcastle" style="margin-right:30px; vertical-align:middle;"/></a>© NURacing, 2013 &nbsp;&#149;&nbsp; 
+        <a href="http://www.eng.newcastle.edu.au/~fsae/">Website</a> &nbsp;&#149;&nbsp; <a href="https://www.facebook.com/groups/403657373086331/">Discussion Board</a> &nbsp;&#149;&nbsp; 
+         <a href="http://www.saea.com.au/formula-sae-a/">FSAE</a> &nbsp;&#149;&nbsp; <a href="">Support</a></h5></div>
+
+
 </body>	
 </html>

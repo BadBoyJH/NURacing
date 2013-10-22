@@ -155,6 +155,15 @@ namespace NURacingWebsite
 
         public override MembershipUser GetUser(string username, bool LastActivityDate)
         {
+            if (username == null)
+            {
+                return null;
+            }
+            if (!User.UsernameExists(username))
+            {
+                return null;
+            }
+            
             if (LastActivityDate)
             {
                 User.wasActive(username);

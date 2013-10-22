@@ -12,13 +12,9 @@ namespace NURacingWebsite
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        String user;
         protected void Page_Load(object sender, EventArgs e)
         {
-            String user = Membership.GetUser().ToString();
-            userLbl.Text = user;
-
-            List<ProjectInfo> projects = ProjectInfo.getUserProjects(user, true);
+            List<ProjectInfo> projects = ProjectInfo.getUserProjects(Membership.GetUser(false).UserName, true);
 
             TableRow row = new TableRow();
             Label cell = new Label();
