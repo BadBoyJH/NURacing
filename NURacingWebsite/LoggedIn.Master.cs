@@ -18,11 +18,5 @@ namespace NURacingWebsite
                 Response.Redirect("login.aspx");
             }            
         }
-
-        protected string getUsername()
-        {
-            MembershipUser user = Membership.GetUser(false);
-            return user.UserName;
-        }
     }
 }
