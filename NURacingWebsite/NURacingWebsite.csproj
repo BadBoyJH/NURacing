@@ -247,6 +247,7 @@
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="reporting.aspx" />
+    <Content Include="Reporting\reportworkshop.aspx" />
     <Content Include="Reporting\reportlabourlog.aspx" />
     <Content Include="Reporting\reportprojectstatus.aspx" />
     <Content Include="Reporting\reportuserdetails.aspx" />
@@ -372,6 +373,13 @@
     <Compile Include="reporting.aspx.designer.cs">
       <DependentUpon>reporting.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reporting\reportworkshop.aspx.cs">
+      <DependentUpon>reportworkshop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporting\reportworkshop.aspx.designer.cs">
+      <DependentUpon>reportworkshop.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reporting\reportlabourlog.aspx.cs">
       <DependentUpon>reportlabourlog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -489,8 +497,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reporting\WorkshopReport.rdlc" />
     <EmbeddedResource Include="Reporting\LabourReport.rdlc" />
     <EmbeddedResource Include="Reporting\ProjectStatusReport.rdlc" />
+    <EmbeddedResource Include="Reporting\UserReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
