@@ -17,7 +17,7 @@
                     <p style="text-align: center">Please click on a project below to review progress.</p>
                 <br />
                 <form runat="server">
-                <asp:Button runat="server" ID="createProjBtn" Text="CREATE PROJECT" CssClass="takeFiveBtn" OnClick="createProjBtn_Click" />
+                <asp:Button runat="server" ID="createProjBtn" Text="CREATE PROJECT" CssClass="takeFiveBtn" OnClick="createProjBtn_Click"/>
     	<asp:Table ID="tblProjects" runat="server" GridLines="Horizontal" CssClass="tblProjects" class="tblProjects" HorizontalAlign="Center">
             </asp:Table>
                 </form>

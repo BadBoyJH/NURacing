@@ -17,6 +17,24 @@
                 height: 27px;
             }
         </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            function setHeight() {
+                var top = $('topBarMenu').outerHeight();
+                var bottom = $('footer').outerHeight();
+                var totHeight = $(window).height();
+                $('section').css({
+                    'height': totHeight - top - bottom + 'px'
+                });
+            }
+
+            $(window).on('resize', function () { setHeight(); });
+            setHeight();
+        });
+    </script>
 	</head>
 
 <body lang="en" runat="server">
@@ -29,7 +47,7 @@
 					</ul>
 				</div>
 			</div>	
-     
+
 <div class="colmask threecol">
 	<div class="colmid">
 		<div class="colleft">
@@ -63,6 +81,7 @@
 		</div>
 	</div>
  </div>
+       
       <div id="footer"><h5><a href="http://www.newcastle.edu.au/"><img id="Img1" src="Images/logo2.png" alt="University of Newcastle" style="margin-right:30px; vertical-align:middle;"/></a>© NURacing, 2013 &nbsp;&#149;&nbsp; 
         <a href="http://www.eng.newcastle.edu.au/~fsae/">Website</a> &nbsp;&#149;&nbsp; <a href="https://www.facebook.com/groups/403657373086331/">Discussion Board</a> &nbsp;&#149;&nbsp; 
          <a href="http://www.saea.com.au/formula-sae-a/">FSAE</a> &nbsp;&#149;&nbsp; <a href="">Support</a></h5></div>
