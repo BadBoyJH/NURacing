@@ -32,5 +32,10 @@ namespace NURacingWebsite
             tblProjects.Rows.Add(row);
             cell.Text += "</div>";
         }
+
+        protected void createProjBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/project.aspx");
+        }
     }
 }

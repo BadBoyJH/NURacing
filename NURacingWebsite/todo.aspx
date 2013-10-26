@@ -16,6 +16,7 @@
        <h1>TO DO LIST</h1>
                     <p style="text-align: center">Please click on a task below to review progress.</p>
                 <br />
+                <form id ="todo" runat="server">
             <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="1">
                 <Columns>
                             <asp:HyperLinkField HeaderText="NAME" DataTextField="Task_Name" DataNavigateUrlFields="Task_ID" DataNavigateUrlFormatString="task.aspx?id={0:G}" />
@@ -24,6 +25,7 @@
                 </Columns>
 
             </asp:GridView>
+                </form>
         
   </div>
 			<div class="col2">

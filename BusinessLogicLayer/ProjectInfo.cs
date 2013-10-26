@@ -104,7 +104,7 @@ namespace BusinessLogicLayer
                 throw new ArgumentException("Project doesn't exist");
             }
 
-            return new ProjectInfo((NuRacingDataSet.ProjectRow) projectTable.Rows[1]);
+            return new ProjectInfo((NuRacingDataSet.ProjectRow) projectTable.Rows[0]);
         }
 
         public static List<ProjectInfo> getUserProjects(string Username, bool OnlyActive)

@@ -17,6 +17,7 @@
                     <p style="text-align: center">Please click an action below</p>
                 <br />
                     <div class="taskDetail">
+                     <form id ="Form1" runat="server">
                      <asp:Button ID="updateTaskBtn" CssClass="takeFiveBtn" Text="Update task" runat="server" OnClick="updateTaskBtn_Click" />
                      <asp:Button ID="createTaskBtn" CssClass="takeFiveBtn" Text="Create task" runat="server" OnClick="createTaskBtn_Click" />
                         <br />
@@ -24,7 +25,15 @@
                         <br />
                         <br />
                         <br />
+                         
+                        <div class="taskMngement">
+                            
+                        <asp:PlaceHolder ID="taskFrm" runat="server" Visible="false"></asp:PlaceHolder>
+                            <asp:Button runat="server" ID="createSubmitTaskBtn" Visible="false" Text="SUBMIT"  OnClick="createSubmitTaskBtn_Click"/>
+                            <asp:Button runat="server" ID="updateSubmitBtn" Visible="false" Text="SUBMIT"  OnClick="updateSubmitBtn_Click"/>
+                            </div>
                         <asp:Label ID="createTaskFrm" runat="server" CssClass="taskMngement"></asp:Label>
+                    </form>
                     </div>
     </div>
 			<div class="col2">

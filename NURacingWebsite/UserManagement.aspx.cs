@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using BusinessLogicLayer;
+using System.Web.Security;
 
 namespace NURacingWebsite
 {
@@ -99,8 +100,10 @@ namespace NURacingWebsite
           Label lblemerContNum = new Label();
           TextBox emerContNumTxtBx = new TextBox();
           Button submitBtn;
-          DropDownList chooseUserDrpLst = new DropDownList();
+          DropDownList userDrpList = new DropDownList();
           Label lblWhichUser = new Label();
+          Label lblChange = new Label();
+          bool update;
     
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -109,31 +112,56 @@ namespace NURacingWebsite
 
         protected void btnUpdateUser_Click(object sender, EventArgs e)
         {
-          chooseUserDrpLst.Visible = true;
-          createUserSubmitBtn.Visible = true;
           lblWhichUser.Visible = true;
+          userDrpList.Visible = true;
+          LblUserName.Visible = false;
+          userNameTxtBx.Visible = false;
+
+          createUserFrm.Visible = true;
+          updateUserSubmitBtn.Visible = true;
+          update = true;
+          createUserSubmitBtn.Visible = false;
         }
 
         private void createForm(bool pageLoad)
         {
+            userDrpList.Items.Clear();
          foreach (UserInfo user in BusinessLogicLayer.UserInfo.getAllUsers())
          {
-             chooseUserDrpLst.Items.Add(user.GivenName);
+             userDrpList.Items.Add(user.UserName);
          }
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lblWhichUser.Text = "Which user? ";
          createUserFrm.Controls.Add(lblWhichUser);
-         createUserFrm.Controls.Add(chooseUserDrpLst);
+         createUserFrm.Controls.Add(userDrpList);
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
-         lblWhichUser.Visible = false;
-         chooseUserDrpLst.Visible = false;
+         if (update)
+         {
+             lblWhichUser.Visible = true;
+             userDrpList.Visible = true;
+         }
+         else
+         {
+             lblWhichUser.Visible = false;
+             userDrpList.Visible = false;
+         }
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          LblUserName.Text = "Username: ";
-         createUserFrm.Controls.Add(LblUserName);
          userNameTxtBx.ID = "userNameTxtBx";
+         createUserFrm.Controls.Add(LblUserName);
          createUserFrm.Controls.Add(userNameTxtBx);
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
+         if (update)
+         {
+             LblUserName.Visible = false;
+             userNameTxtBx.Visible = false;
+         }
+         else
+         {
+             LblUserName.Visible = true;
+             userNameTxtBx.Visible = true;
+         }
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lblPassword.Text = "Password: ";
@@ -287,13 +315,126 @@ namespace NURacingWebsite
         {
          createUserFrm.Visible = true;
          createUserSubmitBtn.Visible = true;
+         updateUserSubmitBtn.Visible = false;
+         update = false;
         }
 
         protected void submitCreateUserBtn_Click(object sender, EventArgs e)
         {
-        BusinessLogicLayer.User.addUser(userNameTxtBx.Text, passwordTxtBx.Text, userRoleDrpLst.SelectedItem.ToString(), givenNameTxtBx.Text, surnameTxtBx.Text, emailTxtBx.Text, stdNumTxtBx.Text, gradYearTxtBx.Text, degreeNameTxtBx.Text, medicareNumTxtBx.Text, allergiesTxtBx.Text, medicalCondTxtBx.Text, dietryReqTxtBx.Text, indemSignChkBx.Checked,
-            SAEMemshpTxtBx.Text, DateTime.Now, CAMSMbrshpNum.Text, CAMSLicTypeTxtBx.Text, drivLicNumTxtBx.Text, drivLicStateTxtBx.Text, emerContNameTxtBx.Text, emerContNumTxtBx.Text);
-        Response.Redirect("UserManagement.aspx");
+         BusinessLogicLayer.User.addUser(userNameTxtBx.Text, passwordTxtBx.Text, userRoleDrpLst.SelectedItem.ToString(), givenNameTxtBx.Text, surnameTxtBx.Text, emailTxtBx.Text, stdNumTxtBx.Text, gradYearTxtBx.Text, degreeNameTxtBx.Text, medicareNumTxtBx.Text, allergiesTxtBx.Text, medicalCondTxtBx.Text, dietryReqTxtBx.Text, indemSignChkBx.Checked,
+             SAEMemshpTxtBx.Text, DateTime.Now, CAMSMbrshpNum.Text, CAMSLicTypeTxtBx.Text, drivLicNumTxtBx.Text, drivLicStateTxtBx.Text, emerContNameTxtBx.Text, emerContNumTxtBx.Text);
+         Response.Redirect("UserManagement.aspx");
+         
+        }
+
+        protected void submitUpdateUserBtn_Click(object sender, EventArgs e)
+        {
+            UserInfo editUser = BusinessLogicLayer.UserInfo.getUser(userDrpList.SelectedItem.ToString());
+            if (givenNameTxtBx.Text != "")
+            {
+                editUser.GivenName = givenNameTxtBx.Text;   
+            }
+
+            if (surnameTxtBx.Text != "")
+            {
+                editUser.Surname = surnameTxtBx.Text;
+            }
+
+            if (stdNumTxtBx.Text != "")
+            {
+                editUser.StudentNumber = stdNumTxtBx.Text;
+            }
+
+            if (gradYearTxtBx.Text != "")
+            {
+                editUser.EstimatedGraduationYear = gradYearTxtBx.Text;
+            }
+
+            if (degreeNameTxtBx.Text != "")
+            {
+                editUser.Degree = degreeNameTxtBx.Text;
+            }
+
+            if (medicareNumTxtBx.Text != "")
+            {
+                editUser.MedicareNumber = medicareNumTxtBx.Text;
+            }
+
+            if (allergiesTxtBx.Text != "")
+            {
+                editUser.Allergies = allergiesTxtBx.Text;
+            }
+
+            if (medicalCondTxtBx.Text != "")
+            {
+                editUser.MedicalConditions = medicalCondTxtBx.Text;
+            }
+
+            if (dietryReqTxtBx.Text != "")
+            {
+                editUser.DietaryRequirements = dietryReqTxtBx.Text;
+            }
+
+            indemSignChkBx.CheckedChanged += indemSignChkBx_CheckedChanged;
+            if (indemSignChkBx.Checked || !indemSignChkBx.Checked)
+            {
+                editUser.IndemnityFormSigned = indemSignChkBx.Checked;
+            }
+
+            if (SAEMemshpTxtBx.Text != "")
+            {
+                editUser.SAEMembershipNumber = SAEMemshpTxtBx.Text;
+            }
+
+            //SAE MEMBERSHIP ENQUIRY GOES HERE
+
+            if (CAMSMbrshpNum.Text != "")
+            {
+                editUser.CAMSMembershipNumber = CAMSMbrshpNum.Text;
+            }
+
+            if (CAMSLicTypeTxtBx.Text != "")
+            {
+                editUser.CAMSLicenseType = CAMSLicTypeTxtBx.Text;
+            }
+
+            if (drivLicNumTxtBx.Text != "")
+            {
+                editUser.DriversLicenseNumber = drivLicNumTxtBx.Text;
+            }
+
+            if (drivLicStateTxtBx.Text != "")
+            {
+                editUser.DriversLicenseState = drivLicStateTxtBx.Text;
+            }
+
+            if (emerContNameTxtBx.Text != "")
+            {
+                editUser.EmergencyContactName = emerContNameTxtBx.Text;
+            }
+
+            if (emerContNumTxtBx.Text != "")
+            {
+                editUser.EmergencyContactPhoneNumber = emerContNumTxtBx.Text;
+            }
+
+            if (emailTxtBx.Text != "")
+            {
+                editUser.Email = emailTxtBx.Text;
+            }
+            editUser.updateDatabase();
+        }
+
+        void indemSignChkBx_CheckedChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        protected void chooseUserDrpLst_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            createUserFrm.Visible = true;
+            createUserSubmitBtn.Visible = true;
         }
     }
 }

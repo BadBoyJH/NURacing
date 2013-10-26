@@ -246,6 +246,7 @@
     <Content Include="favicon.ico" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="project.aspx" />
     <Content Include="reporting.aspx" />
     <Content Include="Reporting\reportlabourlog.aspx" />
     <Content Include="Reporting\reportprojectstatus.aspx" />
@@ -364,6 +365,13 @@
     </Compile>
     <Compile Include="NURacingMembershipProvider.cs" />
     <Compile Include="NuRacingRoleProvider.cs" />
+    <Compile Include="project.aspx.cs">
+      <DependentUpon>project.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="project.aspx.designer.cs">
+      <DependentUpon>project.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reporting.aspx.cs">
       <DependentUpon>reporting.aspx</DependentUpon>

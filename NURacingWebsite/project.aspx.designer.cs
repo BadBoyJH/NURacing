@@ -10,24 +10,24 @@
 namespace NURacingWebsite {
     
     
-    public partial class WebForm1 {
+    public partial class project {
         
         /// <summary>
-        /// createProjBtn control.
+        /// createProjFrm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button createProjBtn;
+        protected global::System.Web.UI.WebControls.PlaceHolder createProjFrm;
         
         /// <summary>
-        /// tblProjects control.
+        /// submitProjBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblProjects;
+        protected global::System.Web.UI.WebControls.Button submitProjBtn;
     }
 }
