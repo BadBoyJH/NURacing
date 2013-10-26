@@ -34,6 +34,8 @@ namespace BusinessLogicLayer
 
         private DateTime dueDate;
 
+        private bool beenChanged;
+
         public int TaskID
         {
             get
@@ -64,6 +66,11 @@ namespace BusinessLogicLayer
             {
                 return workTypeID;
             }
+            set
+            {
+                workTypeID = value;
+                beenChanged = true;
+            }
         }
 
         public string TaskName
@@ -71,6 +78,11 @@ namespace BusinessLogicLayer
             get
             {
                 return taskName;
+            }
+            set
+            {
+                taskName = value;
+                beenChanged = true;
             }
         }
 
@@ -80,6 +92,11 @@ namespace BusinessLogicLayer
             {
                 return taskDescription;
             }
+            set
+            {
+                taskDescription = value;
+                beenChanged = true;
+            }
         }
 
         public bool TakeFiveNeeded
@@ -87,6 +104,11 @@ namespace BusinessLogicLayer
             get
             {
                 return takeFiveNeeded;
+            }
+            set
+            {
+                takeFiveNeeded = value;
+                beenChanged = true;
             }
         }
 
@@ -96,6 +118,11 @@ namespace BusinessLogicLayer
             {
                 return taskStatus;
             }
+            set
+            {
+                taskStatus = value;
+                beenChanged = true;
+            }
         }
 
         public string TaskIncompleteReason
@@ -104,6 +131,11 @@ namespace BusinessLogicLayer
             {
                 return taskIncompleteReason;
             }
+            set
+            {
+                taskIncompleteReason = value;
+                beenChanged = true;
+            }
         }
 
         public DateTime TaskDueDate
@@ -111,6 +143,11 @@ namespace BusinessLogicLayer
             get
             {
                 return dueDate;
+            }
+            set
+            {
+                dueDate = value;
+                beenChanged = true;
             }
         }
 
@@ -252,6 +289,53 @@ namespace BusinessLogicLayer
             }
 
             return result;         
+        }
+
+        public void updateDatabase()
+        {
+            AssignedTaskTableAdapter taskAdapter = new AssignedTaskTableAdapter();
+            NuRacingDataSet.AssignedTaskDataTable taskTable = taskAdapter.GetAssignedTask(taskID);
+            NuRacingDataSet.AssignedTaskRow taskRow = (NuRacingDataSet.AssignedTaskRow) taskTable.Rows[0];
+            taskRow.WorkType_UID = workTypeID;
+            taskRow.Task_Name = taskName;
+            taskRow.Task_Description = taskDescription;
+            taskRow.Task_TakeFiveNeeded = takeFiveNeeded;
+            taskRow.Task_DueDate = dueDate;
+
+            taskAdapter.Update(taskTable);
+        }
+
+        public void resetData()
+        {
+            AssignedTaskTableAdapter assignedTaskAdapter = new AssignedTaskTableAdapter();
+            NuRacingDataSet.AssignedTaskDataTable assignedTaskTable = assignedTaskAdapter.GetAssignedTask(taskID);
+            NuRacingDataSet.AssignedTaskRow taskRow = (NuRacingDataSet.AssignedTaskRow)assignedTaskTable.Rows[0];
+
+            assigningUserInfo = UserInfo.getUser(taskRow.User_Username_AssignedBy);
+
+            userAssignedInfo = UserInfo.getUser(taskRow.User_Username_AssignedTo);
+
+            taskID = taskRow.Task_UID;
+
+            workTypeID = taskRow.WorkType_UID;
+
+            taskName = taskRow.Task_Name;
+
+            taskDescription = taskRow.Task_Description;
+
+            takeFiveNeeded = taskRow.Task_TakeFiveNeeded;
+
+            if (!taskRow.IsTask_StatusNull())
+            {
+                taskStatus = taskRow.Task_Status;
+
+                if (!taskRow.IsTask_IncompleteReasonNull())
+                {
+                    taskIncompleteReason = taskRow.Task_IncompleteReason;
+                }
+            }
+
+            dueDate = taskRow.Task_DueDate;
         }
     }
 }
