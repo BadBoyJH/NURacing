@@ -17,7 +17,8 @@
                 </DataSources>
             </LocalReport>
         </rsweb:ReportViewer>
-            <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" SelectMethod="GetData" TypeName="DataAccessLayer.NuRacingDataSetTableAdapters.ProjectTableAdapter, DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"></asp:ObjectDataSource>
+            <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" SelectMethod="GetData" TypeName="DataAccessLayer.NuRacingDataSetTableAdapters.WorkTypeExtendedTableAdapter, DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"></asp:ObjectDataSource>
+            <!-- I HATE THE LINE ABOVE THIS ONE.... YOU HAVE NO IDEA -->
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
     
