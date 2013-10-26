@@ -291,6 +291,22 @@ namespace BusinessLogicLayer
             return result;         
         }
 
+        public List<TaskInfo> getUserProjectTasks(int ProjectID, string Username)
+        {
+            List<TaskInfo> ProjectTasks = getProjectTasks(ProjectID);
+            List<TaskInfo> UserTasks = getUserTasks(Username);
+
+            return (List<TaskInfo>)UserTasks.Intersect<TaskInfo>(ProjectTasks);
+        }
+
+        public List<TaskInfo> getUserWorkTypeTasks(int WorkTypeID, string Username)
+        {
+            List<TaskInfo> WorkTypeTasks = getWorkTypeTasks(WorkTypeID);
+            List<TaskInfo> UserTasks = getUserTasks(Username);
+
+            return (List<TaskInfo>) UserTasks.Intersect<TaskInfo>(WorkTypeTasks);
+        }
+
         public void updateDatabase()
         {
             AssignedTaskTableAdapter taskAdapter = new AssignedTaskTableAdapter();
