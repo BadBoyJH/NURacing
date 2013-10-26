@@ -803,7 +803,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>3b56597d-9cd1-418f-b370-5d154c68ede2</rd:DataSourceID>
+      <rd:DataSourceID>e6ccc5e9-29a5-4986-8fe8-edf07e12fab4</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -857,176 +857,12 @@
           <DataField>WorkType_StatusChangedDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="Task_UID">
-          <DataField>Task_UID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="User_Username_AssignedTo">
-          <DataField>User_Username_AssignedTo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_Username_AssignedBy">
-          <DataField>User_Username_AssignedBy</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Task_Name">
-          <DataField>Task_Name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Task_Description">
-          <DataField>Task_Description</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Task_TakeFiveNeeded">
-          <DataField>Task_TakeFiveNeeded</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="Task_DueDate">
-          <DataField>Task_DueDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="Work_UID">
-          <DataField>Work_UID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Work_DateCompleted">
-          <DataField>Work_DateCompleted</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="Work_Description">
-          <DataField>Work_Description</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Work_TimeWorkedMins">
-          <DataField>Work_TimeWorkedMins</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Work_TakeFiveTaken">
-          <DataField>Work_TakeFiveTaken</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="User_Username">
-          <DataField>User_Username</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_PasswordHash">
-          <DataField>User_PasswordHash</DataField>
-          <rd:TypeName>System.Byte[]</rd:TypeName>
-        </Field>
-        <Field Name="User_PasswordSalt">
-          <DataField>User_PasswordSalt</DataField>
-          <rd:TypeName>System.Byte[]</rd:TypeName>
-        </Field>
-        <Field Name="User_Role">
-          <DataField>User_Role</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_Active">
-          <DataField>User_Active</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="User_Surname">
-          <DataField>User_Surname</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_GivenName">
-          <DataField>User_GivenName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_Email">
-          <DataField>User_Email</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_StudentNumber">
-          <DataField>User_StudentNumber</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_EstGraduationYear">
-          <DataField>User_EstGraduationYear</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_Degree">
-          <DataField>User_Degree</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_SAE_MemberNo">
-          <DataField>User_SAE_MemberNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_SAE_Expiry">
-          <DataField>User_SAE_Expiry</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="User_CAMS_MemberNo">
-          <DataField>User_CAMS_MemberNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_CAMS_LicenseType">
-          <DataField>User_CAMS_LicenseType</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_LicenseNo">
-          <DataField>User_LicenseNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_LicenseState">
-          <DataField>User_LicenseState</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_EmergencyContactName">
-          <DataField>User_EmergencyContactName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_EmergencyContactNumber">
-          <DataField>User_EmergencyContactNumber</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_MedicareNo">
-          <DataField>User_MedicareNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_Allergies">
-          <DataField>User_Allergies</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_DietaryRequirements">
-          <DataField>User_DietaryRequirements</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_MedicalConditions">
-          <DataField>User_MedicalConditions</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_IndemnityFormSigned">
-          <DataField>User_IndemnityFormSigned</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="User_Created">
-          <DataField>User_Created</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="User_LastLogin">
-          <DataField>User_LastLogin</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="User_LastActivity">
-          <DataField>User_LastActivity</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="User_LastPasswordChanged">
-          <DataField>User_LastPasswordChanged</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="User_LastLockoutDate">
-          <DataField>User_LastLockoutDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataAccessLayer.NuRacingDataSetTableAdapters</rd:DataSetName>
-        <rd:TableName>ProjectTasksDoneTableAdapter</rd:TableName>
+        <rd:TableName>WorkTypeExtendedTableAdapter</rd:TableName>
         <rd:ObjectDataSourceSelectMethod>GetData</rd:ObjectDataSourceSelectMethod>
-        <rd:ObjectDataSourceType>DataAccessLayer.NuRacingDataSetTableAdapters.ProjectTasksDoneTableAdapter, DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:ObjectDataSourceType>DataAccessLayer.NuRacingDataSetTableAdapters.WorkTypeExtendedTableAdapter, DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

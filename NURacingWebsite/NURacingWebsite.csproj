@@ -247,7 +247,6 @@
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="reporting.aspx" />
-    <Content Include="Reporting\reportworkshop.aspx" />
     <Content Include="Reporting\reportlabourlog.aspx" />
     <Content Include="Reporting\reportprojectstatus.aspx" />
     <Content Include="Reporting\reportuserdetails.aspx" />
@@ -373,13 +372,6 @@
     <Compile Include="reporting.aspx.designer.cs">
       <DependentUpon>reporting.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reporting\reportworkshop.aspx.cs">
-      <DependentUpon>reportworkshop.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reporting\reportworkshop.aspx.designer.cs">
-      <DependentUpon>reportworkshop.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Reporting\reportlabourlog.aspx.cs">
       <DependentUpon>reportlabourlog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -494,6 +486,10 @@
     <ProjectReference Include="..\BusinessLogicLayer\BusinessLogicLayer.csproj">
       <Project>{f1240379-ca96-4ba7-9d30-c454f08ef81a}</Project>
       <Name>BusinessLogicLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{83a6717d-1e20-4a85-bd4a-1464852d157d}</Project>
+      <Name>DataAccessLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
