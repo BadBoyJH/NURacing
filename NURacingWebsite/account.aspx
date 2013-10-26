@@ -5,8 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Scripts" ContentPlaceHolderID="Scripts" runat="server">
-
-<!-- Javascripts -->
+<!-- Scripts -->
 <script type="text/javascript" src="js/jquery.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
      <script type="text/javascript">
@@ -29,14 +28,6 @@
          }
    </script>
 
-<!-- jQuery UI -->
-<script type="text/javascript" src="js/jquery-ui-1.8.5.min.js"></script>
-
-
-<!-- Google map -->
-<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
-
-<!-- Scripts -->
 <script type="text/javascript" src="js/scripts.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js">jQuery(document).ready(function(){
     jQuery('#hideshow').live('click', function(event) {        
@@ -72,42 +63,51 @@
         });
     });*/
 </script>
-
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-<script type="text/javascript" src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"></script>
-		
 </asp:Content>
 							
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">
+
+
+        	<div class="colmask threecol">
+	<div class="colmid">
+		<div class="colleft">
+			<div class="col1">
+                <br />
+                    <br />
+                    <form id="form1" runat="server">
+                        <h1>ACCOUNT</h1>
 <div class="accountOptions">
-        <br />
-        <br />
-        <br />
+  
         <p id="userRoleYouAre" style="font-size: medium">
             <asp:Label runat="server" ID="userRoleYouLbl">You are a: </asp:Label>
             <asp:Label runat="server" CssClass="userRole" ID="userRoleLbl">USER.</asp:Label>
         </p>
-        <form id="form1" runat="server">
-            <select>
-                <option value="option1">Option 1</option>
-    <option value="option2">Option 2</option>
-    </select>
-    <br />
-            <select>
-                <option value="option1">Option 1</option>
-    <option value="option2">Option 2</option>
-    </select>
+    
     <br />
             <div id="passwordChangeForm">
 
+            <asp:Label runat="server" ID="lblPasswordOld" CssClass="userRole">Old Password: </asp:Label>
+
                 <asp:TextBox runat="server" ID="oldPasswordTxtBx" CssClass="input-textareaPassword" TextMode="Password">Old password</asp:TextBox>
                 <br />
+            <asp:Label runat="server" ID="lblPasswordNew" CssClass="userRole">New Password: </asp:Label>
                 <asp:TextBox runat="server" ID="newPasswordTxtBx" CssClass="input-textareaPassword" TextMode="Password">New password</asp:TextBox>
                 <br />
+            <asp:Label runat="server" ID="lblPasswordNewConfirm" CssClass="userRole">Confirm New Password: </asp:Label>
         <asp:TextBox runat="server" ID="newPasswordConfTxtBx" CssClass="input-textareaPassword" TextMode="Password">New password confirm</asp:TextBox>
 
     </div>
-    <asp:Button runat="server" ID="passSubmitBtn" CssClass="takeFiveBtn" Text="Submit" OnClick="passSubmitBtn_Click" />
-        </form>
+    <asp:Button runat="server" ID="passSubmitBtn" CssClass="takeFiveBtn" Text="SUBMIT" OnClick="passSubmitBtn_Click" />
+       
 		</div>
+         </form>
+  </div>
+			<div class="col2">
+			</div>
+			<div class="col3">
+			</div>
+ 
+		</div>
+	</div>
+ </div>
 </asp:Content>

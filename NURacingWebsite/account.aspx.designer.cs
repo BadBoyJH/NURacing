@@ -22,15 +22,6 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// userLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label userLbl;
-        
-        /// <summary>
         /// userRoleYouLbl control.
         /// </summary>
         /// <remarks>
@@ -49,6 +40,15 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.Label userRoleLbl;
         
         /// <summary>
+        /// lblPasswordOld control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPasswordOld;
+        
+        /// <summary>
         /// oldPasswordTxtBx control.
         /// </summary>
         /// <remarks>
@@ -58,6 +58,15 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.TextBox oldPasswordTxtBx;
         
         /// <summary>
+        /// lblPasswordNew control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPasswordNew;
+        
+        /// <summary>
         /// newPasswordTxtBx control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace NURacingWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox newPasswordTxtBx;
+        
+        /// <summary>
+        /// lblPasswordNewConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPasswordNewConfirm;
         
         /// <summary>
         /// newPasswordConfTxtBx control.

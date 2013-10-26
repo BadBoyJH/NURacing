@@ -16,6 +16,17 @@ namespace NURacingWebsite
         protected void Page_Load(object sender, EventArgs e)
         {
             this.fillData();
+
+            WorkTypeInfo workTypeInfo = WorkTypeInfo.getWorkType(Convert.ToInt32(Request.QueryString["id"]));
+
+            if (workTypeInfo.Project.Name == workTypeInfo.Name)
+            {
+                lblSectionTitle.Text = workTypeInfo.Project.Name;
+            }
+            else
+            {
+                lblSectionTitle.Text = workTypeInfo.Project.Name + " " + workTypeInfo.Name;
+            }
         }
 
         public DataSet fillData()
