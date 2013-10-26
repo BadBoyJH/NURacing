@@ -130,5 +130,6 @@ namespace BusinessLogicLayer
             }
 
             return result;
+        }
     }
 }
