@@ -5,7 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Scripts" ContentPlaceHolderID="Scripts" runat="server">
-<!-- Scripts -->
+    <!-- Scripts -->
 <script type="text/javascript" src="js/jquery.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
      <script type="text/javascript">
@@ -77,7 +77,7 @@
                     <form id="form1" runat="server">
                         <h1>ACCOUNT</h1>
 <div class="accountOptions">
-  
+      <asp:Button ID="btnRecover" runat="server" Text="?"  CssClass="btnSubmit" />
         <p id="userRoleYouAre" style="font-size: medium">
             <asp:Label runat="server" ID="userRoleYouLbl">You are a: </asp:Label>
             <asp:Label runat="server" CssClass="userRole" ID="userRoleLbl">USER.</asp:Label>
@@ -88,13 +88,13 @@
 
             <asp:Label runat="server" ID="lblPasswordOld" CssClass="userRole">Old Password: </asp:Label>
 
-                <asp:TextBox runat="server" ID="oldPasswordTxtBx" CssClass="input-textareaPassword" TextMode="Password">Old password</asp:TextBox>
+                <asp:TextBox runat="server" ID="oldPasswordTxtBx" CssClass="textareaPassword" TextMode="Password">Old password</asp:TextBox>
                 <br />
             <asp:Label runat="server" ID="lblPasswordNew" CssClass="userRole">New Password: </asp:Label>
-                <asp:TextBox runat="server" ID="newPasswordTxtBx" CssClass="input-textareaPassword" TextMode="Password">New password</asp:TextBox>
+                <asp:TextBox runat="server" ID="newPasswordTxtBx" CssClass="textareaPassword" TextMode="Password">New password</asp:TextBox>
                 <br />
             <asp:Label runat="server" ID="lblPasswordNewConfirm" CssClass="userRole">Confirm New Password: </asp:Label>
-        <asp:TextBox runat="server" ID="newPasswordConfTxtBx" CssClass="input-textareaPassword" TextMode="Password">New password confirm</asp:TextBox>
+        <asp:TextBox runat="server" ID="newPasswordConfTxtBx" CssClass="textareaPassword" TextMode="Password">New password confirm</asp:TextBox>
 
     </div>
     <asp:Button runat="server" ID="passSubmitBtn" CssClass="takeFiveBtn" Text="SUBMIT" OnClick="passSubmitBtn_Click" />

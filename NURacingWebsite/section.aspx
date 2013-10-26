@@ -13,13 +13,15 @@
 
                     <br />
                     <br />
-       <h1>SECTIONS</h1>
+       <h1>SECTIONS</h1>         
+                <form id ="Form1" runat="server">
                     <p style="text-align: center">Please click on a section below to review progress.</p>
+                  <asp:Button ID="btnRecover" runat="server" Text="?"  CssClass="btnSubmit" />
                 <br />
     	<asp:Table ID="tblProjects" runat="server" GridLines="Horizontal" CssClass="tblProjects" class="tblProjects" HorizontalAlign="Center">
             </asp:Table>
 
-                <br />
+                <br /></form>
 </div>
 			<div class="col2">
 			</div>

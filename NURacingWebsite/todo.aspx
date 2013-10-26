@@ -15,13 +15,17 @@
                     <br />
        <h1>TO DO LIST</h1>
                     <p style="text-align: center">Please click on a task below to review progress.</p>
+                 
                 <br />
                 <form id ="todo" runat="server">
-            <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="1">
+                     <asp:Button ID="btnRecover" runat="server" Text="?"  CssClass="btnSubmit" />
+            <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="0" GridLines="None">
                 <Columns>
-                            <asp:HyperLinkField HeaderText="NAME" DataTextField="Task_Name" DataNavigateUrlFields="Task_ID" DataNavigateUrlFormatString="task.aspx?id={0:G}" />
+                            <asp:BoundField HeaderText="NAME" DataField="Task_Name"/>
                             <asp:BoundField HeaderText="DESCRIPTION" DataField="Task_Description" />
                             <asp:BoundField HeaderText="DUE DATE" DataField="duedate" />
+                             <asp:HyperLinkField HeaderText="LOG LABOUR" DataTextField="duedate"  DataNavigateUrlFields="Task_ID" DataNavigateUrlFormatString="task.aspx?id={0:G}" />
+                             <asp:HyperLinkField HeaderText="UPDATE TASK" DataTextField="duedate"  DataNavigateUrlFields="Task_ID" DataNavigateUrlFormatString="task.aspx?id={0:G}" />
                 </Columns>
 
             </asp:GridView>

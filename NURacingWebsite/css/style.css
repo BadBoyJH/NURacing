@@ -29,12 +29,6 @@ html{
     border-color: inherit;
     border-width: 0;    
     margin: 0 0 2px 0;
-
-}
-
-article, aside, canvas, figure, figure img, figcaption, hgroup,
-footer, header, nav, section, audio, video {
-	display: block;
 }
 
 a img {border: 0;}
@@ -49,14 +43,12 @@ p {
 	text-shadow: 1px 1px 1px #000000;
 }
 
-
 #lblUsername {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 11pt;
 	color: #7E7E7E;
 	text-shadow: 1px 1px 1px #000000;
 }
-
 
 #lblPassword {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -66,7 +58,7 @@ p {
 }
 
 #lblRemember{
-    	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 11pt;
 	color: #7E7E7E;
 	text-shadow: 1px 1px 1px #000000;
@@ -85,18 +77,17 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
     margin: 0px;
 	margin-bottom: 10px;
-
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Oswald', sans-serif; font-size: 30px; 
 	font-weight: 400;
 	text-shadow: 1px 1px 1px #282828;
     text-transform:uppercase;
 }
 
-h1 { font-size: 60px; line-height: 60px; margin-bottom: 15px;    color: #A8A8A8;}
+h1 { font-size: 60px; line-height: 60px;    margin-bottom: 15px;    color: #A8A8A8;}
 h2 { font-size: 30px; line-height: 30px;    color: #A8A8A8;}
 h3 { font-size: 26px; line-height: 26px;    color: #A8A8A8;}
 h4 { font-size: 22px; line-height: 22px;    color: #A8A8A8;}
-h5 { font-size: 18px; line-height: 18px;  color: #FFFFFF;}
+h5 { font-size: 18px; line-height: 18px;    color: #FFFFFF;}
 h6 { font-size: 14px; line-height: 14px;    color: #A8A8A8;}
 
 
@@ -126,10 +117,9 @@ body {
 	padding:0;
     height:auto;
 	border:0;			
-	width:100%;
 	background: url("../images/background/bg_vertical_1.png") repeat;
 	text-align:center;
-	margin-bottom:0px;
+
 	}
     
 .colmask {
@@ -140,7 +130,6 @@ body {
 	height: auto !important;
     min-height: 100%;
     position: relative;
-
 	}
 
 .colright,
@@ -434,7 +423,7 @@ background-color:#7F7F7F;
 	border:none;
 	background-color:#7F7F7F;}
 
-.input-textareaPassword {	
+.textareaPassword {	
     border: 0px solid #d2d1cf;
 	margin-bottom: 10px;
     padding:4px;
@@ -444,8 +433,20 @@ background-color:#7F7F7F;
 	color: #7E7E7E;
     vertical-align:middle;
 }
-.loginForm {
+
+
+.lstBxFormat {	
+    border: 0px solid #d2d1cf;
+	margin-bottom: 10px;
+    padding:4px;
+    background-color: #2D2D2D;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 11pt;
+	color: #7E7E7E;
+    vertical-align:middle;
 }
+
+
 .input-submitLogin {
 width: 135px;
 color: #fff;
@@ -497,18 +498,21 @@ cursor: pointer;
 	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
     font-size:x-large;
     border-spacing:5px 5px;
+    border:none;
 }
 
 .todoTable th {
-    background-color:white;
+    background-color:none;
     border:none;
+    font-family: 'Oswald', sans-serif; font-size: 30px; line-height: 30px;    color: #A8A8A8;
     }
 
 .todoTable td
 {
+    vertical-align: top;
     overflow:scroll;
-	background-color:#7F7F7F;
-    border:thick;
+	background-color:none;
+    border-top:2px #A8A8A8;
 	width:500px;	
 	height: 100px;
     padding:5px;
@@ -516,7 +520,8 @@ cursor: pointer;
     white-space:pre-line;
     overflow-x:auto;
     overflow-y:auto;
-    border-style:solid;
+    text-transform:uppercase;
+     color: #A8A8A8;
 }
 .taskDetail {
     width:80%;

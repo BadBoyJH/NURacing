@@ -146,7 +146,6 @@
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="bin\NURacingWebsite.dll" />
     <Content Include="bin\NURacingWebsite.pdb" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -250,7 +249,9 @@
     <Content Include="reporting.aspx" />
     <Content Include="Reporting\reportlabourlog.aspx" />
     <Content Include="Reporting\reportprojectstatus.aspx" />
+    <Content Include="Reporting\reporttakefives.aspx" />
     <Content Include="Reporting\reportuserdetails.aspx" />
+    <Content Include="Reporting\reportworkshop.aspx" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
@@ -281,7 +282,7 @@
     <Content Include="Global.asax" />
     <Content Include="section.aspx" />
     <Content Include="task.aspx" />
-    <Content Include="taskManagement.aspx" />
+    <Content Include="taskmanagement.aspx" />
     <Content Include="tasks.aspx" />
     <Content Include="todo.aspx" />
     <Content Include="usermanagement.aspx" />
@@ -336,13 +337,6 @@
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -394,12 +388,26 @@
     <Compile Include="Reporting\reportprojectstatus.aspx.designer.cs">
       <DependentUpon>reportprojectstatus.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reporting\reporttakefives.aspx.cs">
+      <DependentUpon>reporttakefives.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporting\reporttakefives.aspx.designer.cs">
+      <DependentUpon>reporttakefives.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reporting\reportuserdetails.aspx.cs">
       <DependentUpon>reportuserdetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reporting\reportuserdetails.aspx.designer.cs">
       <DependentUpon>reportuserdetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\reportworkshop.aspx.cs">
+      <DependentUpon>reportworkshop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporting\reportworkshop.aspx.designer.cs">
+      <DependentUpon>reportworkshop.aspx</DependentUpon>
     </Compile>
     <Compile Include="section.aspx.cs">
       <DependentUpon>section.aspx</DependentUpon>
@@ -436,12 +444,12 @@
     <Compile Include="task.aspx.designer.cs">
       <DependentUpon>task.aspx</DependentUpon>
     </Compile>
-    <Compile Include="taskManagement.aspx.cs">
-      <DependentUpon>taskManagement.aspx</DependentUpon>
+    <Compile Include="taskmanagement.aspx.cs">
+      <DependentUpon>taskmanagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="taskManagement.aspx.designer.cs">
-      <DependentUpon>taskManagement.aspx</DependentUpon>
+    <Compile Include="taskmanagement.aspx.designer.cs">
+      <DependentUpon>taskmanagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="tasks.aspx.cs">
       <DependentUpon>tasks.aspx</DependentUpon>
@@ -501,6 +509,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reporting\TakeFiveReport.rdlc" />
     <EmbeddedResource Include="Reporting\WorkshopReport.rdlc" />
     <EmbeddedResource Include="Reporting\LabourReport.rdlc" />
     <EmbeddedResource Include="Reporting\ProjectStatusReport.rdlc" />

@@ -14,6 +14,7 @@
                 <h1>CREATE A PROJECT</h1>
                 <form runat="server">
                 <div class="taskMngement">
+                      <asp:Button ID="btnRecover" runat="server" Text="?"  CssClass="btnSubmit" />
                 <asp:PlaceHolder runat="server" ID="createProjFrm"></asp:PlaceHolder>
                     <asp:Button runat="server" ID="submitProjBtn" CssClass="takeFiveBtn" Text="SUBMIT" OnClick="submitProjBtn_Click"/>
                     </div>

@@ -14,8 +14,9 @@
                     <br />
                     <br />
        <h1>REPORTS</h1>
-       
+                <form id ="Form1" runat="server">
                     <p style="text-align: center">Please click on a report title to view.</p>
+                  <asp:Button ID="btnRecover" runat="server" Text="?"  CssClass="btnSubmit" />
     	<asp:Table ID="projectTable" runat="server" GridLines="Horizontal" CssClass="tblProjects" HorizontalAlign="Center" Height="10px" Width="250px">
                         <asp:TableRow>
                             <asp:TableCell BorderColor="Black" BorderStyle="None">
@@ -41,10 +42,17 @@
                <asp:Label runat="server" ID="Label3" CssClass="projectName">Workshop Report <br /> <br /></asp:Label>
                                 </a>
                             </asp:TableCell>
-            </asp:TableRow>       
+            </asp:TableRow>  
+            <asp:TableRow>
+                 <asp:TableCell BorderColor="Black" BorderStyle="None">
+                                <a href="\Reporting\reporttakefives.aspx">
+               <asp:Label runat="server" ID="Label5" CssClass="projectName">Take Five Report <br /> <br /></asp:Label>
+                                </a>
+                            </asp:TableCell>
+            </asp:TableRow>     
             </asp:Table>
                 <br />
-
+                    </form>
     
 </div>
 			<div class="col2">

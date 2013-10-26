@@ -14,9 +14,11 @@
                     <br />
                     <br />
        <h1>PROJECTS</h1>
+                         <form id ="Form1" runat="server">
                     <p style="text-align: center">Please click on a project below to review progress.</p>
+                  <asp:Button ID="btnRecover" runat="server" Text="?"  CssClass="btnSubmit" />
                 <br />
-                <form runat="server">
+          
                 <asp:Button runat="server" ID="createProjBtn" Text="CREATE PROJECT" CssClass="takeFiveBtn" OnClick="createProjBtn_Click"/>
     	<asp:Table ID="tblProjects" runat="server" GridLines="Horizontal" CssClass="tblProjects" class="tblProjects" HorizontalAlign="Center">
             </asp:Table>

@@ -12,29 +12,6 @@
 		<link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css' />
 		<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	    <style type="text/css">
-            .auto-style1 {
-                height: 27px;
-            }
-        </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            function setHeight() {
-                var top = $('topBarMenu').outerHeight();
-                var bottom = $('footer').outerHeight();
-                var totHeight = $(window).height();
-                $('section').css({
-                    'height': totHeight - top - bottom + 'px'
-                });
-            }
-
-            $(window).on('resize', function () { setHeight(); });
-            setHeight();
-        });
-    </script>
 	</head>
 
 <body lang="en" runat="server">
@@ -59,8 +36,8 @@
     <p style="text-align:center">Welcome to the NURacing System. Please enter your login credentials below.</p>
     <div id ="loginForm" class="loginForm">
         <table border="0" style="margin-left:auto; margin-right:auto; text-align:right;">
-        <tr><td class="auto-style1"><asp:Label runat="server" ID="lblUsername" CssClass="p">Username: </asp:Label></td><td class="auto-style1"><asp:TextBox runat="server" Width="110px" ID="UsernameTxtBx" /></td></tr>
-        <tr><td><asp:Label runat="server" ID="lblPassword" CssClass="p">Password: </asp:Label></td><td><asp:TextBox runat="server" TextMode="Password" Width="110px" ID="PassTxtBx" /></td></tr>
+        <tr><td><asp:Label runat="server" ID="lblUsername" CssClass="p">Username: </asp:Label></td><td><asp:TextBox runat="server" Width="100%" ID="UsernameTxtBx" CssClass="textareaPassword" BackColor="#2D2D2D" Font-Names="Lucida Sans Unicode" Font-Size="11pt" ForeColor="#7E7E7E" /></td></tr>
+        <tr><td class="auto-style1"><asp:Label runat="server" ID="lblPassword" CssClass="p">Password: </asp:Label></td><td class="auto-style1"><asp:TextBox runat="server" TextMode="Password" Width="100%" ID="PassTxtBx" CssClass="textareaPassword" BackColor="#2D2D2D" Font-Names="Lucida Sans Unicode" Font-Size="11pt" ForeColor="#7E7E7E" /></td></tr>
         
         </table>
         <table border="0" style="margin-left:auto; margin-right:auto; text-align:right;">

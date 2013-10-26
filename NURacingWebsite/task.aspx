@@ -14,10 +14,11 @@
                     <br />
                  
                      <div class="taskDetail">
-                    
+                             <form id ="Form1" runat="server">
          <asp:Label ID="taskTitleLbl" CssClass="taskTitleLbl" runat="server">Task title</asp:Label>
          <asp:Label ID="dueDateLbl" CssClass="dueDateLbl" runat="server">Due date</asp:Label>
          <br />
+                           <asp:Button ID="btnRecover" runat="server" Text="?"  CssClass="btnSubmit" />
          <asp:Button ID="takeFiveBtn" CssClass="takeFiveBtn" Text="TAKE FIVE" runat="server" />
          <br />
          <br />
@@ -34,9 +35,9 @@
                             <span>DESCRIPTION: </span>
                             <asp:TextBox ID="descTxtBx" runat="server" CssClass="taskDescTxtBx"></asp:TextBox>
              <asp:Button ID="btnSubmitLabour" CssClass="takeFiveBtn" Text="SUBMIT" runat="server" />
+        </div> </form>
         </div>
-        </div>
-
+               
 
                    </div>
 			<div class="col2">

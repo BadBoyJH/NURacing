@@ -18,6 +18,7 @@
            <asp:Label ID="lblSectionTitle" runat="server" Text="Label"></asp:Label>
                 </h1>
                     <p style="text-align: center">Please click on a task below to review progress.</p>
+                  <asp:Button ID="btnRecover" runat="server" Text="?"  CssClass="btnSubmit" />
                 <br />
             <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="1">
                 <Columns>

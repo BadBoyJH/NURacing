@@ -11,9 +11,11 @@
 
        <h1>USER MANAGEMENT</h1>
                     <p style="text-align: center">Please click an action below.</p>
+                
                 <br />
                     <div class="taskDetail">
                         <form id="frmLayout" runat="server">
+                              <asp:Button ID="btnRecover" runat="server" Text="?"  CssClass="btnSubmit" />
                             <asp:Button ID="btnUpdateUser" CssClass="takeFiveBtn" Text="UPDATE USER" runat="server" OnClick="btnUpdateUser_Click" />
                             <asp:Button ID="btnCreateUser" CssClass="takeFiveBtn" Text="CREATE USER" runat="server" OnClick="btnCreateUser_Click" />
                             <br />
