@@ -115,19 +115,7 @@ namespace NURacingWebsite
 
         protected void updateTaskBtn_Click(object sender, EventArgs e)
         {
-            HtmlGenericControl NewControl = new HtmlGenericControl("div");
-            NewControl.InnerHtml = "";
-            createTaskFrm.Controls.Add(NewControl);
-            NewControl.ID = "createTaskFrm";
-            NewControl.InnerHtml = "<form class=\"taskMngement\">"
-            + "<p>Task: <select value=\"taskSltBx\"><option value=\"task\">TASK NAME</option></select></p>"
-            + "<p>Task description: <input type=\"text\" name=\"taskDesc\"></p>"
-            + "<p>Due date: <input type=\"text\" name=\"dueDate\"></p>"
-            + "<p>Assign to: <input type=\"text\" name=\"assignTo\"></p>"
-            + "<p>Task status: <input type=\"text\" name=\"taskStatus\"></p>"
-            + "<input type=\"submit\" value=\"Submit\" class=\"taskManBtn\">"
-            + "</form>";
-            createTaskFrm.Controls.Add(NewControl);
+
         }
 
         protected void updateSubmitBtn_Click(object sender, EventArgs e)
