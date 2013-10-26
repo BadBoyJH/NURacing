@@ -48,11 +48,11 @@ namespace DataAccessLayer {
         
         private CompleteTaskInfoDataTable tableCompleteTaskInfo;
         
-        private ProjectWorkTypesDataTable tableProjectWorkTypes;
-        
         private SponsorsDataTable tableSponsors;
         
         private WorkshopTasksDoneDataTable tableWorkshopTasksDone;
+        
+        private WorkTypeExtendedDataTable tableWorkTypeExtended;
         
         private global::System.Data.DataRelation relationAssignedTask_ibfk_1;
         
@@ -146,14 +146,14 @@ namespace DataAccessLayer {
                 if ((ds.Tables["CompleteTaskInfo"] != null)) {
                     base.Tables.Add(new CompleteTaskInfoDataTable(ds.Tables["CompleteTaskInfo"]));
                 }
-                if ((ds.Tables["ProjectWorkTypes"] != null)) {
-                    base.Tables.Add(new ProjectWorkTypesDataTable(ds.Tables["ProjectWorkTypes"]));
-                }
                 if ((ds.Tables["Sponsors"] != null)) {
                     base.Tables.Add(new SponsorsDataTable(ds.Tables["Sponsors"]));
                 }
                 if ((ds.Tables["WorkshopTasksDone"] != null)) {
                     base.Tables.Add(new WorkshopTasksDoneDataTable(ds.Tables["WorkshopTasksDone"]));
+                }
+                if ((ds.Tables["WorkTypeExtended"] != null)) {
+                    base.Tables.Add(new WorkTypeExtendedDataTable(ds.Tables["WorkTypeExtended"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -297,16 +297,6 @@ namespace DataAccessLayer {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ProjectWorkTypesDataTable ProjectWorkTypes {
-            get {
-                return this.tableProjectWorkTypes;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public SponsorsDataTable Sponsors {
             get {
                 return this.tableSponsors;
@@ -320,6 +310,16 @@ namespace DataAccessLayer {
         public WorkshopTasksDoneDataTable WorkshopTasksDone {
             get {
                 return this.tableWorkshopTasksDone;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public WorkTypeExtendedDataTable WorkTypeExtended {
+            get {
+                return this.tableWorkTypeExtended;
             }
         }
         
@@ -426,14 +426,14 @@ namespace DataAccessLayer {
                 if ((ds.Tables["CompleteTaskInfo"] != null)) {
                     base.Tables.Add(new CompleteTaskInfoDataTable(ds.Tables["CompleteTaskInfo"]));
                 }
-                if ((ds.Tables["ProjectWorkTypes"] != null)) {
-                    base.Tables.Add(new ProjectWorkTypesDataTable(ds.Tables["ProjectWorkTypes"]));
-                }
                 if ((ds.Tables["Sponsors"] != null)) {
                     base.Tables.Add(new SponsorsDataTable(ds.Tables["Sponsors"]));
                 }
                 if ((ds.Tables["WorkshopTasksDone"] != null)) {
                     base.Tables.Add(new WorkshopTasksDoneDataTable(ds.Tables["WorkshopTasksDone"]));
+                }
+                if ((ds.Tables["WorkTypeExtended"] != null)) {
+                    base.Tables.Add(new WorkTypeExtendedDataTable(ds.Tables["WorkTypeExtended"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -540,12 +540,6 @@ namespace DataAccessLayer {
                     this.tableCompleteTaskInfo.InitVars();
                 }
             }
-            this.tableProjectWorkTypes = ((ProjectWorkTypesDataTable)(base.Tables["ProjectWorkTypes"]));
-            if ((initTable == true)) {
-                if ((this.tableProjectWorkTypes != null)) {
-                    this.tableProjectWorkTypes.InitVars();
-                }
-            }
             this.tableSponsors = ((SponsorsDataTable)(base.Tables["Sponsors"]));
             if ((initTable == true)) {
                 if ((this.tableSponsors != null)) {
@@ -556,6 +550,12 @@ namespace DataAccessLayer {
             if ((initTable == true)) {
                 if ((this.tableWorkshopTasksDone != null)) {
                     this.tableWorkshopTasksDone.InitVars();
+                }
+            }
+            this.tableWorkTypeExtended = ((WorkTypeExtendedDataTable)(base.Tables["WorkTypeExtended"]));
+            if ((initTable == true)) {
+                if ((this.tableWorkTypeExtended != null)) {
+                    this.tableWorkTypeExtended.InitVars();
                 }
             }
             this.relationAssignedTask_ibfk_1 = this.Relations["AssignedTask_ibfk_1"];
@@ -606,12 +606,12 @@ namespace DataAccessLayer {
             base.Tables.Add(this.tableProjectTasksDone);
             this.tableCompleteTaskInfo = new CompleteTaskInfoDataTable();
             base.Tables.Add(this.tableCompleteTaskInfo);
-            this.tableProjectWorkTypes = new ProjectWorkTypesDataTable();
-            base.Tables.Add(this.tableProjectWorkTypes);
             this.tableSponsors = new SponsorsDataTable();
             base.Tables.Add(this.tableSponsors);
             this.tableWorkshopTasksDone = new WorkshopTasksDoneDataTable();
             base.Tables.Add(this.tableWorkshopTasksDone);
+            this.tableWorkTypeExtended = new WorkTypeExtendedDataTable();
+            base.Tables.Add(this.tableWorkTypeExtended);
             this.relationAssignedTask_ibfk_1 = new global::System.Data.DataRelation("AssignedTask_ibfk_1", new global::System.Data.DataColumn[] {
                         this.tableUser.User_UsernameColumn}, new global::System.Data.DataColumn[] {
                         this.tableAssignedTask.User_Username_AssignedToColumn}, false);
@@ -744,12 +744,6 @@ namespace DataAccessLayer {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeProjectWorkTypes() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeSponsors() {
             return false;
         }
@@ -757,6 +751,12 @@ namespace DataAccessLayer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeWorkshopTasksDone() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeWorkTypeExtended() {
             return false;
         }
         
@@ -852,13 +852,13 @@ namespace DataAccessLayer {
         public delegate void CompleteTaskInfoRowChangeEventHandler(object sender, CompleteTaskInfoRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void ProjectWorkTypesRowChangeEventHandler(object sender, ProjectWorkTypesRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void SponsorsRowChangeEventHandler(object sender, SponsorsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void WorkshopTasksDoneRowChangeEventHandler(object sender, WorkshopTasksDoneRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void WorkTypeExtendedRowChangeEventHandler(object sender, WorkTypeExtendedRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -6575,398 +6575,6 @@ namespace DataAccessLayer {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ProjectWorkTypesDataTable : global::System.Data.TypedTableBase<ProjectWorkTypesRow> {
-            
-            private global::System.Data.DataColumn columnProject_UID;
-            
-            private global::System.Data.DataColumn columnProject_YearMade;
-            
-            private global::System.Data.DataColumn columnProject_Name;
-            
-            private global::System.Data.DataColumn columnProject_Description;
-            
-            private global::System.Data.DataColumn columnProject_Status;
-            
-            private global::System.Data.DataColumn columnProject_StatusChangedDate;
-            
-            private global::System.Data.DataColumn columnWorkType_UID;
-            
-            private global::System.Data.DataColumn columnWorkType_Name;
-            
-            private global::System.Data.DataColumn columnWorkType_Status;
-            
-            private global::System.Data.DataColumn columnWorkType_StatusChangedDate;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectWorkTypesDataTable() {
-                this.TableName = "ProjectWorkTypes";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ProjectWorkTypesDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected ProjectWorkTypesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Project_UIDColumn {
-                get {
-                    return this.columnProject_UID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Project_YearMadeColumn {
-                get {
-                    return this.columnProject_YearMade;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Project_NameColumn {
-                get {
-                    return this.columnProject_Name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Project_DescriptionColumn {
-                get {
-                    return this.columnProject_Description;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Project_StatusColumn {
-                get {
-                    return this.columnProject_Status;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Project_StatusChangedDateColumn {
-                get {
-                    return this.columnProject_StatusChangedDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn WorkType_UIDColumn {
-                get {
-                    return this.columnWorkType_UID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn WorkType_NameColumn {
-                get {
-                    return this.columnWorkType_Name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn WorkType_StatusColumn {
-                get {
-                    return this.columnWorkType_Status;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn WorkType_StatusChangedDateColumn {
-                get {
-                    return this.columnWorkType_StatusChangedDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectWorkTypesRow this[int index] {
-                get {
-                    return ((ProjectWorkTypesRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProjectWorkTypesRowChangeEventHandler ProjectWorkTypesRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProjectWorkTypesRowChangeEventHandler ProjectWorkTypesRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProjectWorkTypesRowChangeEventHandler ProjectWorkTypesRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProjectWorkTypesRowChangeEventHandler ProjectWorkTypesRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddProjectWorkTypesRow(ProjectWorkTypesRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectWorkTypesRow AddProjectWorkTypesRow(int Project_YearMade, string Project_Name, string Project_Description, string Project_Status, System.DateTime Project_StatusChangedDate, bool WorkType_UID, string WorkType_Name, string WorkType_Status, System.DateTime WorkType_StatusChangedDate) {
-                ProjectWorkTypesRow rowProjectWorkTypesRow = ((ProjectWorkTypesRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        Project_YearMade,
-                        Project_Name,
-                        Project_Description,
-                        Project_Status,
-                        Project_StatusChangedDate,
-                        WorkType_UID,
-                        WorkType_Name,
-                        WorkType_Status,
-                        WorkType_StatusChangedDate};
-                rowProjectWorkTypesRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowProjectWorkTypesRow);
-                return rowProjectWorkTypesRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectWorkTypesRow FindByProject_UID(int Project_UID) {
-                return ((ProjectWorkTypesRow)(this.Rows.Find(new object[] {
-                            Project_UID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                ProjectWorkTypesDataTable cln = ((ProjectWorkTypesDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new ProjectWorkTypesDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnProject_UID = base.Columns["Project_UID"];
-                this.columnProject_YearMade = base.Columns["Project_YearMade"];
-                this.columnProject_Name = base.Columns["Project_Name"];
-                this.columnProject_Description = base.Columns["Project_Description"];
-                this.columnProject_Status = base.Columns["Project_Status"];
-                this.columnProject_StatusChangedDate = base.Columns["Project_StatusChangedDate"];
-                this.columnWorkType_UID = base.Columns["WorkType_UID"];
-                this.columnWorkType_Name = base.Columns["WorkType_Name"];
-                this.columnWorkType_Status = base.Columns["WorkType_Status"];
-                this.columnWorkType_StatusChangedDate = base.Columns["WorkType_StatusChangedDate"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnProject_UID = new global::System.Data.DataColumn("Project_UID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProject_UID);
-                this.columnProject_YearMade = new global::System.Data.DataColumn("Project_YearMade", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProject_YearMade);
-                this.columnProject_Name = new global::System.Data.DataColumn("Project_Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProject_Name);
-                this.columnProject_Description = new global::System.Data.DataColumn("Project_Description", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProject_Description);
-                this.columnProject_Status = new global::System.Data.DataColumn("Project_Status", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProject_Status);
-                this.columnProject_StatusChangedDate = new global::System.Data.DataColumn("Project_StatusChangedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProject_StatusChangedDate);
-                this.columnWorkType_UID = new global::System.Data.DataColumn("WorkType_UID", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWorkType_UID);
-                this.columnWorkType_Name = new global::System.Data.DataColumn("WorkType_Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWorkType_Name);
-                this.columnWorkType_Status = new global::System.Data.DataColumn("WorkType_Status", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWorkType_Status);
-                this.columnWorkType_StatusChangedDate = new global::System.Data.DataColumn("WorkType_StatusChangedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWorkType_StatusChangedDate);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnProject_UID}, true));
-                this.columnProject_UID.AutoIncrement = true;
-                this.columnProject_UID.AutoIncrementSeed = -1;
-                this.columnProject_UID.AutoIncrementStep = -1;
-                this.columnProject_UID.AllowDBNull = false;
-                this.columnProject_UID.Unique = true;
-                this.columnProject_Name.MaxLength = 255;
-                this.columnProject_Description.MaxLength = 255;
-                this.columnProject_Status.MaxLength = 255;
-                this.columnWorkType_Name.MaxLength = 255;
-                this.columnWorkType_Status.MaxLength = 255;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectWorkTypesRow NewProjectWorkTypesRow() {
-                return ((ProjectWorkTypesRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ProjectWorkTypesRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(ProjectWorkTypesRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.ProjectWorkTypesRowChanged != null)) {
-                    this.ProjectWorkTypesRowChanged(this, new ProjectWorkTypesRowChangeEvent(((ProjectWorkTypesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.ProjectWorkTypesRowChanging != null)) {
-                    this.ProjectWorkTypesRowChanging(this, new ProjectWorkTypesRowChangeEvent(((ProjectWorkTypesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.ProjectWorkTypesRowDeleted != null)) {
-                    this.ProjectWorkTypesRowDeleted(this, new ProjectWorkTypesRowChangeEvent(((ProjectWorkTypesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.ProjectWorkTypesRowDeleting != null)) {
-                    this.ProjectWorkTypesRowDeleting(this, new ProjectWorkTypesRowChangeEvent(((ProjectWorkTypesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveProjectWorkTypesRow(ProjectWorkTypesRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                NuRacingDataSet ds = new NuRacingDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ProjectWorkTypesDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class SponsorsDataTable : global::System.Data.TypedTableBase<SponsorsRow> {
             
             private global::System.Data.DataColumn columnSponsored_UID;
@@ -8713,6 +8321,405 @@ namespace DataAccessLayer {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "WorkshopTasksDoneDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class WorkTypeExtendedDataTable : global::System.Data.TypedTableBase<WorkTypeExtendedRow> {
+            
+            private global::System.Data.DataColumn columnProject_UID;
+            
+            private global::System.Data.DataColumn columnProject_YearMade;
+            
+            private global::System.Data.DataColumn columnProject_Name;
+            
+            private global::System.Data.DataColumn columnProject_Description;
+            
+            private global::System.Data.DataColumn columnProject_Status;
+            
+            private global::System.Data.DataColumn columnProject_StatusChangedDate;
+            
+            private global::System.Data.DataColumn columnProject_Active;
+            
+            private global::System.Data.DataColumn columnWorkType_UID;
+            
+            private global::System.Data.DataColumn columnWorkType_Name;
+            
+            private global::System.Data.DataColumn columnWorkType_Status;
+            
+            private global::System.Data.DataColumn columnWorkType_StatusChangedDate;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public WorkTypeExtendedDataTable() {
+                this.TableName = "WorkTypeExtended";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal WorkTypeExtendedDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected WorkTypeExtendedDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Project_UIDColumn {
+                get {
+                    return this.columnProject_UID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Project_YearMadeColumn {
+                get {
+                    return this.columnProject_YearMade;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Project_NameColumn {
+                get {
+                    return this.columnProject_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Project_DescriptionColumn {
+                get {
+                    return this.columnProject_Description;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Project_StatusColumn {
+                get {
+                    return this.columnProject_Status;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Project_StatusChangedDateColumn {
+                get {
+                    return this.columnProject_StatusChangedDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Project_ActiveColumn {
+                get {
+                    return this.columnProject_Active;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WorkType_UIDColumn {
+                get {
+                    return this.columnWorkType_UID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WorkType_NameColumn {
+                get {
+                    return this.columnWorkType_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WorkType_StatusColumn {
+                get {
+                    return this.columnWorkType_Status;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WorkType_StatusChangedDateColumn {
+                get {
+                    return this.columnWorkType_StatusChangedDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public WorkTypeExtendedRow this[int index] {
+                get {
+                    return ((WorkTypeExtendedRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event WorkTypeExtendedRowChangeEventHandler WorkTypeExtendedRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event WorkTypeExtendedRowChangeEventHandler WorkTypeExtendedRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event WorkTypeExtendedRowChangeEventHandler WorkTypeExtendedRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event WorkTypeExtendedRowChangeEventHandler WorkTypeExtendedRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddWorkTypeExtendedRow(WorkTypeExtendedRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public WorkTypeExtendedRow AddWorkTypeExtendedRow(int Project_YearMade, string Project_Name, string Project_Description, string Project_Status, System.DateTime Project_StatusChangedDate, bool Project_Active, string WorkType_Name, string WorkType_Status, System.DateTime WorkType_StatusChangedDate) {
+                WorkTypeExtendedRow rowWorkTypeExtendedRow = ((WorkTypeExtendedRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Project_YearMade,
+                        Project_Name,
+                        Project_Description,
+                        Project_Status,
+                        Project_StatusChangedDate,
+                        Project_Active,
+                        null,
+                        WorkType_Name,
+                        WorkType_Status,
+                        WorkType_StatusChangedDate};
+                rowWorkTypeExtendedRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowWorkTypeExtendedRow);
+                return rowWorkTypeExtendedRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                WorkTypeExtendedDataTable cln = ((WorkTypeExtendedDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new WorkTypeExtendedDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnProject_UID = base.Columns["Project_UID"];
+                this.columnProject_YearMade = base.Columns["Project_YearMade"];
+                this.columnProject_Name = base.Columns["Project_Name"];
+                this.columnProject_Description = base.Columns["Project_Description"];
+                this.columnProject_Status = base.Columns["Project_Status"];
+                this.columnProject_StatusChangedDate = base.Columns["Project_StatusChangedDate"];
+                this.columnProject_Active = base.Columns["Project_Active"];
+                this.columnWorkType_UID = base.Columns["WorkType_UID"];
+                this.columnWorkType_Name = base.Columns["WorkType_Name"];
+                this.columnWorkType_Status = base.Columns["WorkType_Status"];
+                this.columnWorkType_StatusChangedDate = base.Columns["WorkType_StatusChangedDate"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnProject_UID = new global::System.Data.DataColumn("Project_UID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject_UID);
+                this.columnProject_YearMade = new global::System.Data.DataColumn("Project_YearMade", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject_YearMade);
+                this.columnProject_Name = new global::System.Data.DataColumn("Project_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject_Name);
+                this.columnProject_Description = new global::System.Data.DataColumn("Project_Description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject_Description);
+                this.columnProject_Status = new global::System.Data.DataColumn("Project_Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject_Status);
+                this.columnProject_StatusChangedDate = new global::System.Data.DataColumn("Project_StatusChangedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject_StatusChangedDate);
+                this.columnProject_Active = new global::System.Data.DataColumn("Project_Active", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject_Active);
+                this.columnWorkType_UID = new global::System.Data.DataColumn("WorkType_UID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkType_UID);
+                this.columnWorkType_Name = new global::System.Data.DataColumn("WorkType_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkType_Name);
+                this.columnWorkType_Status = new global::System.Data.DataColumn("WorkType_Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkType_Status);
+                this.columnWorkType_StatusChangedDate = new global::System.Data.DataColumn("WorkType_StatusChangedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkType_StatusChangedDate);
+                this.columnProject_UID.AutoIncrement = true;
+                this.columnProject_UID.AutoIncrementSeed = -1;
+                this.columnProject_UID.AutoIncrementStep = -1;
+                this.columnProject_UID.AllowDBNull = false;
+                this.columnProject_Name.MaxLength = 255;
+                this.columnProject_Description.MaxLength = 255;
+                this.columnProject_Status.MaxLength = 255;
+                this.columnWorkType_UID.AutoIncrement = true;
+                this.columnWorkType_UID.AutoIncrementSeed = -1;
+                this.columnWorkType_UID.AutoIncrementStep = -1;
+                this.columnWorkType_Name.MaxLength = 255;
+                this.columnWorkType_Status.MaxLength = 255;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public WorkTypeExtendedRow NewWorkTypeExtendedRow() {
+                return ((WorkTypeExtendedRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new WorkTypeExtendedRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(WorkTypeExtendedRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.WorkTypeExtendedRowChanged != null)) {
+                    this.WorkTypeExtendedRowChanged(this, new WorkTypeExtendedRowChangeEvent(((WorkTypeExtendedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.WorkTypeExtendedRowChanging != null)) {
+                    this.WorkTypeExtendedRowChanging(this, new WorkTypeExtendedRowChangeEvent(((WorkTypeExtendedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.WorkTypeExtendedRowDeleted != null)) {
+                    this.WorkTypeExtendedRowDeleted(this, new WorkTypeExtendedRowChangeEvent(((WorkTypeExtendedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.WorkTypeExtendedRowDeleting != null)) {
+                    this.WorkTypeExtendedRowDeleting(this, new WorkTypeExtendedRowChangeEvent(((WorkTypeExtendedRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveWorkTypeExtendedRow(WorkTypeExtendedRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                NuRacingDataSet ds = new NuRacingDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "WorkTypeExtendedDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -13088,287 +13095,6 @@ namespace DataAccessLayer {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ProjectWorkTypesRow : global::System.Data.DataRow {
-            
-            private ProjectWorkTypesDataTable tableProjectWorkTypes;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ProjectWorkTypesRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableProjectWorkTypes = ((ProjectWorkTypesDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Project_UID {
-                get {
-                    return ((int)(this[this.tableProjectWorkTypes.Project_UIDColumn]));
-                }
-                set {
-                    this[this.tableProjectWorkTypes.Project_UIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Project_YearMade {
-                get {
-                    try {
-                        return ((int)(this[this.tableProjectWorkTypes.Project_YearMadeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Project_YearMade\' in table \'ProjectWorkTypes\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectWorkTypes.Project_YearMadeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Project_Name {
-                get {
-                    try {
-                        return ((string)(this[this.tableProjectWorkTypes.Project_NameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Project_Name\' in table \'ProjectWorkTypes\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectWorkTypes.Project_NameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Project_Description {
-                get {
-                    try {
-                        return ((string)(this[this.tableProjectWorkTypes.Project_DescriptionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Project_Description\' in table \'ProjectWorkTypes\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectWorkTypes.Project_DescriptionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Project_Status {
-                get {
-                    try {
-                        return ((string)(this[this.tableProjectWorkTypes.Project_StatusColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Project_Status\' in table \'ProjectWorkTypes\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectWorkTypes.Project_StatusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Project_StatusChangedDate {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableProjectWorkTypes.Project_StatusChangedDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Project_StatusChangedDate\' in table \'ProjectWorkTypes\' is D" +
-                                "BNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectWorkTypes.Project_StatusChangedDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool WorkType_UID {
-                get {
-                    try {
-                        return ((bool)(this[this.tableProjectWorkTypes.WorkType_UIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_UID\' in table \'ProjectWorkTypes\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectWorkTypes.WorkType_UIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string WorkType_Name {
-                get {
-                    try {
-                        return ((string)(this[this.tableProjectWorkTypes.WorkType_NameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_Name\' in table \'ProjectWorkTypes\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectWorkTypes.WorkType_NameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string WorkType_Status {
-                get {
-                    try {
-                        return ((string)(this[this.tableProjectWorkTypes.WorkType_StatusColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_Status\' in table \'ProjectWorkTypes\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectWorkTypes.WorkType_StatusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime WorkType_StatusChangedDate {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableProjectWorkTypes.WorkType_StatusChangedDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_StatusChangedDate\' in table \'ProjectWorkTypes\' is " +
-                                "DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectWorkTypes.WorkType_StatusChangedDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsProject_YearMadeNull() {
-                return this.IsNull(this.tableProjectWorkTypes.Project_YearMadeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetProject_YearMadeNull() {
-                this[this.tableProjectWorkTypes.Project_YearMadeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsProject_NameNull() {
-                return this.IsNull(this.tableProjectWorkTypes.Project_NameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetProject_NameNull() {
-                this[this.tableProjectWorkTypes.Project_NameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsProject_DescriptionNull() {
-                return this.IsNull(this.tableProjectWorkTypes.Project_DescriptionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetProject_DescriptionNull() {
-                this[this.tableProjectWorkTypes.Project_DescriptionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsProject_StatusNull() {
-                return this.IsNull(this.tableProjectWorkTypes.Project_StatusColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetProject_StatusNull() {
-                this[this.tableProjectWorkTypes.Project_StatusColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsProject_StatusChangedDateNull() {
-                return this.IsNull(this.tableProjectWorkTypes.Project_StatusChangedDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetProject_StatusChangedDateNull() {
-                this[this.tableProjectWorkTypes.Project_StatusChangedDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsWorkType_UIDNull() {
-                return this.IsNull(this.tableProjectWorkTypes.WorkType_UIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetWorkType_UIDNull() {
-                this[this.tableProjectWorkTypes.WorkType_UIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsWorkType_NameNull() {
-                return this.IsNull(this.tableProjectWorkTypes.WorkType_NameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetWorkType_NameNull() {
-                this[this.tableProjectWorkTypes.WorkType_NameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsWorkType_StatusNull() {
-                return this.IsNull(this.tableProjectWorkTypes.WorkType_StatusColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetWorkType_StatusNull() {
-                this[this.tableProjectWorkTypes.WorkType_StatusColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsWorkType_StatusChangedDateNull() {
-                return this.IsNull(this.tableProjectWorkTypes.WorkType_StatusChangedDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetWorkType_StatusChangedDateNull() {
-                this[this.tableProjectWorkTypes.WorkType_StatusChangedDateColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class SponsorsRow : global::System.Data.DataRow {
             
             private SponsorsDataTable tableSponsors;
@@ -15365,6 +15091,315 @@ namespace DataAccessLayer {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class WorkTypeExtendedRow : global::System.Data.DataRow {
+            
+            private WorkTypeExtendedDataTable tableWorkTypeExtended;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal WorkTypeExtendedRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableWorkTypeExtended = ((WorkTypeExtendedDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Project_UID {
+                get {
+                    return ((int)(this[this.tableWorkTypeExtended.Project_UIDColumn]));
+                }
+                set {
+                    this[this.tableWorkTypeExtended.Project_UIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Project_YearMade {
+                get {
+                    try {
+                        return ((int)(this[this.tableWorkTypeExtended.Project_YearMadeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Project_YearMade\' in table \'WorkTypeExtended\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWorkTypeExtended.Project_YearMadeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Project_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableWorkTypeExtended.Project_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Project_Name\' in table \'WorkTypeExtended\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWorkTypeExtended.Project_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Project_Description {
+                get {
+                    try {
+                        return ((string)(this[this.tableWorkTypeExtended.Project_DescriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Project_Description\' in table \'WorkTypeExtended\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableWorkTypeExtended.Project_DescriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Project_Status {
+                get {
+                    try {
+                        return ((string)(this[this.tableWorkTypeExtended.Project_StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Project_Status\' in table \'WorkTypeExtended\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWorkTypeExtended.Project_StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Project_StatusChangedDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableWorkTypeExtended.Project_StatusChangedDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Project_StatusChangedDate\' in table \'WorkTypeExtended\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWorkTypeExtended.Project_StatusChangedDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Project_Active {
+                get {
+                    try {
+                        return ((bool)(this[this.tableWorkTypeExtended.Project_ActiveColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Project_Active\' in table \'WorkTypeExtended\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWorkTypeExtended.Project_ActiveColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int WorkType_UID {
+                get {
+                    try {
+                        return ((int)(this[this.tableWorkTypeExtended.WorkType_UIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_UID\' in table \'WorkTypeExtended\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWorkTypeExtended.WorkType_UIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string WorkType_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableWorkTypeExtended.WorkType_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_Name\' in table \'WorkTypeExtended\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWorkTypeExtended.WorkType_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string WorkType_Status {
+                get {
+                    try {
+                        return ((string)(this[this.tableWorkTypeExtended.WorkType_StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_Status\' in table \'WorkTypeExtended\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWorkTypeExtended.WorkType_StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime WorkType_StatusChangedDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableWorkTypeExtended.WorkType_StatusChangedDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_StatusChangedDate\' in table \'WorkTypeExtended\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableWorkTypeExtended.WorkType_StatusChangedDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProject_YearMadeNull() {
+                return this.IsNull(this.tableWorkTypeExtended.Project_YearMadeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProject_YearMadeNull() {
+                this[this.tableWorkTypeExtended.Project_YearMadeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProject_NameNull() {
+                return this.IsNull(this.tableWorkTypeExtended.Project_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProject_NameNull() {
+                this[this.tableWorkTypeExtended.Project_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProject_DescriptionNull() {
+                return this.IsNull(this.tableWorkTypeExtended.Project_DescriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProject_DescriptionNull() {
+                this[this.tableWorkTypeExtended.Project_DescriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProject_StatusNull() {
+                return this.IsNull(this.tableWorkTypeExtended.Project_StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProject_StatusNull() {
+                this[this.tableWorkTypeExtended.Project_StatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProject_StatusChangedDateNull() {
+                return this.IsNull(this.tableWorkTypeExtended.Project_StatusChangedDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProject_StatusChangedDateNull() {
+                this[this.tableWorkTypeExtended.Project_StatusChangedDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProject_ActiveNull() {
+                return this.IsNull(this.tableWorkTypeExtended.Project_ActiveColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProject_ActiveNull() {
+                this[this.tableWorkTypeExtended.Project_ActiveColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWorkType_UIDNull() {
+                return this.IsNull(this.tableWorkTypeExtended.WorkType_UIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWorkType_UIDNull() {
+                this[this.tableWorkTypeExtended.WorkType_UIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWorkType_NameNull() {
+                return this.IsNull(this.tableWorkTypeExtended.WorkType_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWorkType_NameNull() {
+                this[this.tableWorkTypeExtended.WorkType_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWorkType_StatusNull() {
+                return this.IsNull(this.tableWorkTypeExtended.WorkType_StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWorkType_StatusNull() {
+                this[this.tableWorkTypeExtended.WorkType_StatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWorkType_StatusChangedDateNull() {
+                return this.IsNull(this.tableWorkTypeExtended.WorkType_StatusChangedDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWorkType_StatusChangedDateNull() {
+                this[this.tableWorkTypeExtended.WorkType_StatusChangedDateColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -15776,40 +15811,6 @@ namespace DataAccessLayer {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class ProjectWorkTypesRowChangeEvent : global::System.EventArgs {
-            
-            private ProjectWorkTypesRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectWorkTypesRowChangeEvent(ProjectWorkTypesRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectWorkTypesRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public class SponsorsRowChangeEvent : global::System.EventArgs {
             
             private SponsorsRow eventRow;
@@ -15860,6 +15861,40 @@ namespace DataAccessLayer {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public WorkshopTasksDoneRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class WorkTypeExtendedRowChangeEvent : global::System.EventArgs {
+            
+            private WorkTypeExtendedRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public WorkTypeExtendedRowChangeEvent(WorkTypeExtendedRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public WorkTypeExtendedRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -25117,182 +25152,6 @@ WHERE User_Username = @Username";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ProjectWorkTypesTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
-        
-        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
-        
-        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
-        
-        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public ProjectWorkTypesTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ProjectWorkTypes";
-            tableMapping.ColumnMappings.Add("Project_UID", "Project_UID");
-            tableMapping.ColumnMappings.Add("Project_YearMade", "Project_YearMade");
-            tableMapping.ColumnMappings.Add("Project_Name", "Project_Name");
-            tableMapping.ColumnMappings.Add("Project_Description", "Project_Description");
-            tableMapping.ColumnMappings.Add("Project_Status", "Project_Status");
-            tableMapping.ColumnMappings.Add("Project_StatusChangedDate", "Project_StatusChangedDate");
-            tableMapping.ColumnMappings.Add("WorkType_UID", "WorkType_UID");
-            tableMapping.ColumnMappings.Add("WorkType_Name", "WorkType_Name");
-            tableMapping.ColumnMappings.Add("WorkType_Status", "WorkType_Status");
-            tableMapping.ColumnMappings.Add("WorkType_StatusChangedDate", "WorkType_StatusChangedDate");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.NuRacingConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
-            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        ProjectWorkTypes.*\r\nFROM            ProjectWorkTypes";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(NuRacingDataSet.ProjectWorkTypesDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual NuRacingDataSet.ProjectWorkTypesDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            NuRacingDataSet.ProjectWorkTypesDataTable dataTable = new NuRacingDataSet.ProjectWorkTypesDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class SponsorsTableAdapter : global::System.ComponentModel.Component {
         
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
@@ -25694,6 +25553,183 @@ WHERE User_Username = @Username";
         public virtual NuRacingDataSet.WorkshopTasksDoneDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             NuRacingDataSet.WorkshopTasksDoneDataTable dataTable = new NuRacingDataSet.WorkshopTasksDoneDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class WorkTypeExtendedTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public WorkTypeExtendedTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "WorkTypeExtended";
+            tableMapping.ColumnMappings.Add("Project_UID", "Project_UID");
+            tableMapping.ColumnMappings.Add("Project_YearMade", "Project_YearMade");
+            tableMapping.ColumnMappings.Add("Project_Name", "Project_Name");
+            tableMapping.ColumnMappings.Add("Project_Description", "Project_Description");
+            tableMapping.ColumnMappings.Add("Project_Status", "Project_Status");
+            tableMapping.ColumnMappings.Add("Project_StatusChangedDate", "Project_StatusChangedDate");
+            tableMapping.ColumnMappings.Add("Project_Active", "Project_Active");
+            tableMapping.ColumnMappings.Add("WorkType_UID", "WorkType_UID");
+            tableMapping.ColumnMappings.Add("WorkType_Name", "WorkType_Name");
+            tableMapping.ColumnMappings.Add("WorkType_Status", "WorkType_Status");
+            tableMapping.ColumnMappings.Add("WorkType_StatusChangedDate", "WorkType_StatusChangedDate");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.NuRacingConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT        ProjectWorkTypes.*\r\nFROM            ProjectWorkTypes";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(NuRacingDataSet.WorkTypeExtendedDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual NuRacingDataSet.WorkTypeExtendedDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            NuRacingDataSet.WorkTypeExtendedDataTable dataTable = new NuRacingDataSet.WorkTypeExtendedDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

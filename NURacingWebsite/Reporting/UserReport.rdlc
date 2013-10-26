@@ -45,37 +45,37 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.44967cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>2cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.635cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.14817cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.665cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.83067cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.0635cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.35917cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.35983cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.38683cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.1cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1cm</Width>
@@ -822,7 +822,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Team Join Date</Value>
+                            <Value>Join Date</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -858,7 +858,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User Given Name</Value>
+                            <Value>Given Name</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -897,7 +897,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User Surname</Value>
+                            <Value>Surname</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -969,7 +969,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User Role</Value>
+                            <Value>Role</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -1005,7 +1005,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User Email</Value>
+                            <Value>Email</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -1041,7 +1041,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User Est Graduation Year</Value>
+                            <Value>Est Graduation Year</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -1077,7 +1077,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User Degree</Value>
+                            <Value>Degree</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -1113,7 +1113,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User SAE Member No</Value>
+                            <Value>SAE Member No</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -1149,7 +1149,9 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User SAE Expiry</Value>
+                            <Value>SAE 
+Member
+Expiry</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -1185,7 +1187,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User CAMS Member No</Value>
+                            <Value>CAMS Member No</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -1221,7 +1223,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User CAMS License Type</Value>
+                            <Value>CAMS License Type</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -1257,7 +1259,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User License No</Value>
+                            <Value>Drivers License No</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -1293,7 +1295,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User License State</Value>
+                            <Value>Drivers License State</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -1329,7 +1331,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User Emergency Contact Name</Value>
+                            <Value>Emergency Contact Name</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -1365,7 +1367,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User Emergency Contact Number</Value>
+                            <Value>Emergency Contact Number</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -1401,7 +1403,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User Medicare No</Value>
+                            <Value>Medicare No</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -1437,7 +1439,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User Allergies</Value>
+                            <Value>Allergies</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -1473,7 +1475,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User Dietary Requirements</Value>
+                            <Value>Dietary Requirements</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -1509,7 +1511,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User Medical Conditions</Value>
+                            <Value>Medical Conditions</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -1545,7 +1547,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>User Indemnity Form Signed</Value>
+                            <Value>Indemnity Form Signed</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>
@@ -1586,7 +1588,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>1cm</Size>
+                <Size>1.70217cm</Size>
                 <CellContents>
                   <Textbox Name="User_Username">
                     <CanGrow>true</CanGrow>
@@ -1625,7 +1627,7 @@
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>dsUSERS</DataSetName>
         <Height>1.1cm</Height>
-        <Width>22cm</Width>
+        <Width>27.7cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1633,7 +1635,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.44838in</Height>
+    <Height>0.43307in</Height>
     <Style>
       <BackgroundColor>White</BackgroundColor>
     </Style>
@@ -1751,6 +1753,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
+          <Top>0cm</Top>
           <Height>0.5cm</Height>
           <Width>9.3cm</Width>
           <Style>
@@ -1786,6 +1789,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
+          <Top>0cm</Top>
           <Left>9.3cm</Left>
           <Height>0.5cm</Height>
           <Width>9.3cm</Width>
@@ -1823,6 +1827,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
+          <Top>0cm</Top>
           <Left>18.6cm</Left>
           <Height>0.5cm</Height>
           <Width>9.1cm</Width>

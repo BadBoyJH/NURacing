@@ -19,22 +19,26 @@
     	<asp:Table ID="projectTable" runat="server" GridLines="Horizontal" CssClass="tblProjects" HorizontalAlign="Center" Height="10px" Width="250px">
                         <asp:TableRow>
                             <asp:TableCell BorderColor="Black" BorderStyle="None">
-                                <a href="\Reports\reportuserdetails.aspx">
+                                <a href="\Reporting\reportuserdetails.aspx">
                        <asp:Label runat="server" ID="Label1" CssClass="projectName">User Details Report <br /> <br /></asp:Label>
                                 </a>
                             </asp:TableCell>
-                 </asp:TableRow>   
-                        <asp:TableRow>
                             <asp:TableCell BorderColor="Black" BorderStyle="None">
-                                <a href="\Reports\reportprojectstatus.aspx">
+                                <a href="\Reporting\reportprojectstatus.aspx">
                 <asp:Label runat="server" ID="Label2" CssClass="projectName">Project Status Report <br /> <br /></asp:Label>
                                 </a>
                             </asp:TableCell>
                      </asp:TableRow>   
                         <asp:TableRow>
                             <asp:TableCell BorderColor="Black" BorderStyle="None">
-                                <a href="\Reports\reportlabourlog.aspx">
+                                <a href="\Reporting\reportlabourlog.aspx">
                <asp:Label runat="server" ID="Label4" CssClass="projectName">Labour Logging Report <br /> <br /></asp:Label>
+                                </a>
+                            </asp:TableCell>
+
+                               <asp:TableCell BorderColor="Black" BorderStyle="None">
+                                <a href="\Reporting\reportworkshop.aspx">
+               <asp:Label runat="server" ID="Label3" CssClass="projectName">Workshop Report <br /> <br /></asp:Label>
                                 </a>
                             </asp:TableCell>
             </asp:TableRow>       

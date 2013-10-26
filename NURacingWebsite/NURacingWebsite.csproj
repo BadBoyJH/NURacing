@@ -495,10 +495,16 @@
       <Project>{f1240379-ca96-4ba7-9d30-c454f08ef81a}</Project>
       <Name>BusinessLogicLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{83a6717d-1e20-4a85-bd4a-1464852d157d}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reporting\WorkshopReport.rdlc" />
     <EmbeddedResource Include="Reporting\LabourReport.rdlc" />
     <EmbeddedResource Include="Reporting\ProjectStatusReport.rdlc" />
+    <EmbeddedResource Include="Reporting\UserReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

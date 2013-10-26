@@ -1217,32 +1217,6 @@ FROM            CompleteTaskInfo</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProjectWorkTypesTableAdapter" GeneratorDataComponentClassName="ProjectWorkTypesTableAdapter" Name="ProjectWorkTypes" UserDataComponentName="ProjectWorkTypesTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="NuRacingConnectionString (Settings)" DbObjectName="nuracing.ProjectWorkTypes" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        ProjectWorkTypes.*
-FROM            ProjectWorkTypes</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="Project_UID" DataSetColumn="Project_UID" />
-              <Mapping SourceColumn="Project_YearMade" DataSetColumn="Project_YearMade" />
-              <Mapping SourceColumn="Project_Name" DataSetColumn="Project_Name" />
-              <Mapping SourceColumn="Project_Description" DataSetColumn="Project_Description" />
-              <Mapping SourceColumn="Project_Status" DataSetColumn="Project_Status" />
-              <Mapping SourceColumn="Project_StatusChangedDate" DataSetColumn="Project_StatusChangedDate" />
-              <Mapping SourceColumn="WorkType_UID" DataSetColumn="WorkType_UID" />
-              <Mapping SourceColumn="WorkType_Name" DataSetColumn="WorkType_Name" />
-              <Mapping SourceColumn="WorkType_Status" DataSetColumn="WorkType_Status" />
-              <Mapping SourceColumn="WorkType_StatusChangedDate" DataSetColumn="WorkType_StatusChangedDate" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SponsorsTableAdapter" GeneratorDataComponentClassName="SponsorsTableAdapter" Name="Sponsors" UserDataComponentName="SponsorsTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="NuRacingConnectionString (Settings)" DbObjectName="nuracing.Sponsors" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -1355,6 +1329,33 @@ FROM            WorkshopTasksDone</CommandText>
               <Mapping SourceColumn="User_LastActivity" DataSetColumn="User_LastActivity" />
               <Mapping SourceColumn="User_LastPasswordChanged" DataSetColumn="User_LastPasswordChanged" />
               <Mapping SourceColumn="User_LastLockoutDate" DataSetColumn="User_LastLockoutDate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="WorkTypeExtendedTableAdapter" GeneratorDataComponentClassName="WorkTypeExtendedTableAdapter" Name="WorkTypeExtended" UserDataComponentName="WorkTypeExtendedTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="NuRacingConnectionString (Settings)" DbObjectName="nuracing.ProjectWorkTypes" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ProjectWorkTypes.*
+FROM            ProjectWorkTypes</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Project_UID" DataSetColumn="Project_UID" />
+              <Mapping SourceColumn="Project_YearMade" DataSetColumn="Project_YearMade" />
+              <Mapping SourceColumn="Project_Name" DataSetColumn="Project_Name" />
+              <Mapping SourceColumn="Project_Description" DataSetColumn="Project_Description" />
+              <Mapping SourceColumn="Project_Status" DataSetColumn="Project_Status" />
+              <Mapping SourceColumn="Project_StatusChangedDate" DataSetColumn="Project_StatusChangedDate" />
+              <Mapping SourceColumn="Project_Active" DataSetColumn="Project_Active" />
+              <Mapping SourceColumn="WorkType_UID" DataSetColumn="WorkType_UID" />
+              <Mapping SourceColumn="WorkType_Name" DataSetColumn="WorkType_Name" />
+              <Mapping SourceColumn="WorkType_Status" DataSetColumn="WorkType_Status" />
+              <Mapping SourceColumn="WorkType_StatusChangedDate" DataSetColumn="WorkType_StatusChangedDate" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -2170,52 +2171,6 @@ FROM            WorkshopTasksDone</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ProjectWorkTypes" msprop:Generator_TableClassName="ProjectWorkTypesDataTable" msprop:Generator_TableVarName="tableProjectWorkTypes" msprop:Generator_TablePropName="ProjectWorkTypes" msprop:Generator_RowDeletingName="ProjectWorkTypesRowDeleting" msprop:Generator_RowChangingName="ProjectWorkTypesRowChanging" msprop:Generator_RowEvHandlerName="ProjectWorkTypesRowChangeEventHandler" msprop:Generator_RowDeletedName="ProjectWorkTypesRowDeleted" msprop:Generator_UserTableName="ProjectWorkTypes" msprop:Generator_RowChangedName="ProjectWorkTypesRowChanged" msprop:Generator_RowEvArgName="ProjectWorkTypesRowChangeEvent" msprop:Generator_RowClassName="ProjectWorkTypesRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Project_UID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProject_UID" msprop:Generator_ColumnPropNameInRow="Project_UID" msprop:Generator_ColumnPropNameInTable="Project_UIDColumn" msprop:Generator_UserColumnName="Project_UID" type="xs:int" />
-              <xs:element name="Project_YearMade" msprop:Generator_ColumnVarNameInTable="columnProject_YearMade" msprop:Generator_ColumnPropNameInRow="Project_YearMade" msprop:Generator_ColumnPropNameInTable="Project_YearMadeColumn" msprop:Generator_UserColumnName="Project_YearMade" type="xs:int" minOccurs="0" />
-              <xs:element name="Project_Name" msprop:Generator_ColumnVarNameInTable="columnProject_Name" msprop:Generator_ColumnPropNameInRow="Project_Name" msprop:Generator_ColumnPropNameInTable="Project_NameColumn" msprop:Generator_UserColumnName="Project_Name" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Project_Description" msprop:Generator_ColumnVarNameInTable="columnProject_Description" msprop:Generator_ColumnPropNameInRow="Project_Description" msprop:Generator_ColumnPropNameInTable="Project_DescriptionColumn" msprop:Generator_UserColumnName="Project_Description" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Project_Status" msprop:Generator_ColumnVarNameInTable="columnProject_Status" msprop:Generator_ColumnPropNameInRow="Project_Status" msprop:Generator_ColumnPropNameInTable="Project_StatusColumn" msprop:Generator_UserColumnName="Project_Status" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Project_StatusChangedDate" msprop:Generator_ColumnVarNameInTable="columnProject_StatusChangedDate" msprop:Generator_ColumnPropNameInRow="Project_StatusChangedDate" msprop:Generator_ColumnPropNameInTable="Project_StatusChangedDateColumn" msprop:Generator_UserColumnName="Project_StatusChangedDate" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="WorkType_UID" msprop:Generator_ColumnVarNameInTable="columnWorkType_UID" msprop:Generator_ColumnPropNameInRow="WorkType_UID" msprop:Generator_ColumnPropNameInTable="WorkType_UIDColumn" msprop:Generator_UserColumnName="WorkType_UID" type="xs:boolean" minOccurs="0" />
-              <xs:element name="WorkType_Name" msprop:Generator_ColumnVarNameInTable="columnWorkType_Name" msprop:Generator_ColumnPropNameInRow="WorkType_Name" msprop:Generator_ColumnPropNameInTable="WorkType_NameColumn" msprop:Generator_UserColumnName="WorkType_Name" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="WorkType_Status" msprop:Generator_ColumnVarNameInTable="columnWorkType_Status" msprop:Generator_ColumnPropNameInRow="WorkType_Status" msprop:Generator_ColumnPropNameInTable="WorkType_StatusColumn" msprop:Generator_UserColumnName="WorkType_Status" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="WorkType_StatusChangedDate" msprop:Generator_ColumnVarNameInTable="columnWorkType_StatusChangedDate" msprop:Generator_ColumnPropNameInRow="WorkType_StatusChangedDate" msprop:Generator_ColumnPropNameInTable="WorkType_StatusChangedDateColumn" msprop:Generator_UserColumnName="WorkType_StatusChangedDate" type="xs:dateTime" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
         <xs:element name="Sponsors" msprop:Generator_TableClassName="SponsorsDataTable" msprop:Generator_TableVarName="tableSponsors" msprop:Generator_TablePropName="Sponsors" msprop:Generator_RowDeletingName="SponsorsRowDeleting" msprop:Generator_RowChangingName="SponsorsRowChanging" msprop:Generator_RowEvHandlerName="SponsorsRowChangeEventHandler" msprop:Generator_RowDeletedName="SponsorsRowDeleted" msprop:Generator_UserTableName="Sponsors" msprop:Generator_RowChangedName="SponsorsRowChanged" msprop:Generator_RowEvArgName="SponsorsRowChangeEvent" msprop:Generator_RowClassName="SponsorsRow">
           <xs:complexType>
             <xs:sequence>
@@ -2599,6 +2554,53 @@ FROM            WorkshopTasksDone</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="WorkTypeExtended" msprop:Generator_TableClassName="WorkTypeExtendedDataTable" msprop:Generator_TableVarName="tableWorkTypeExtended" msprop:Generator_TablePropName="WorkTypeExtended" msprop:Generator_RowDeletingName="WorkTypeExtendedRowDeleting" msprop:Generator_RowChangingName="WorkTypeExtendedRowChanging" msprop:Generator_RowEvHandlerName="WorkTypeExtendedRowChangeEventHandler" msprop:Generator_RowDeletedName="WorkTypeExtendedRowDeleted" msprop:Generator_UserTableName="WorkTypeExtended" msprop:Generator_RowChangedName="WorkTypeExtendedRowChanged" msprop:Generator_RowEvArgName="WorkTypeExtendedRowChangeEvent" msprop:Generator_RowClassName="WorkTypeExtendedRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Project_UID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProject_UID" msprop:Generator_ColumnPropNameInRow="Project_UID" msprop:Generator_ColumnPropNameInTable="Project_UIDColumn" msprop:Generator_UserColumnName="Project_UID" type="xs:int" />
+              <xs:element name="Project_YearMade" msprop:Generator_ColumnVarNameInTable="columnProject_YearMade" msprop:Generator_ColumnPropNameInRow="Project_YearMade" msprop:Generator_ColumnPropNameInTable="Project_YearMadeColumn" msprop:Generator_UserColumnName="Project_YearMade" type="xs:int" minOccurs="0" />
+              <xs:element name="Project_Name" msprop:Generator_ColumnVarNameInTable="columnProject_Name" msprop:Generator_ColumnPropNameInRow="Project_Name" msprop:Generator_ColumnPropNameInTable="Project_NameColumn" msprop:Generator_UserColumnName="Project_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Project_Description" msprop:Generator_ColumnVarNameInTable="columnProject_Description" msprop:Generator_ColumnPropNameInRow="Project_Description" msprop:Generator_ColumnPropNameInTable="Project_DescriptionColumn" msprop:Generator_UserColumnName="Project_Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Project_Status" msprop:Generator_ColumnVarNameInTable="columnProject_Status" msprop:Generator_ColumnPropNameInRow="Project_Status" msprop:Generator_ColumnPropNameInTable="Project_StatusColumn" msprop:Generator_UserColumnName="Project_Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Project_StatusChangedDate" msprop:Generator_ColumnVarNameInTable="columnProject_StatusChangedDate" msprop:Generator_ColumnPropNameInRow="Project_StatusChangedDate" msprop:Generator_ColumnPropNameInTable="Project_StatusChangedDateColumn" msprop:Generator_UserColumnName="Project_StatusChangedDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Project_Active" msprop:Generator_ColumnVarNameInTable="columnProject_Active" msprop:Generator_ColumnPropNameInRow="Project_Active" msprop:Generator_ColumnPropNameInTable="Project_ActiveColumn" msprop:Generator_UserColumnName="Project_Active" type="xs:boolean" minOccurs="0" />
+              <xs:element name="WorkType_UID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnWorkType_UID" msprop:Generator_ColumnPropNameInRow="WorkType_UID" msprop:Generator_ColumnPropNameInTable="WorkType_UIDColumn" msprop:Generator_UserColumnName="WorkType_UID" type="xs:int" minOccurs="0" />
+              <xs:element name="WorkType_Name" msprop:Generator_ColumnVarNameInTable="columnWorkType_Name" msprop:Generator_ColumnPropNameInRow="WorkType_Name" msprop:Generator_ColumnPropNameInTable="WorkType_NameColumn" msprop:Generator_UserColumnName="WorkType_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WorkType_Status" msprop:Generator_ColumnVarNameInTable="columnWorkType_Status" msprop:Generator_ColumnPropNameInRow="WorkType_Status" msprop:Generator_ColumnPropNameInTable="WorkType_StatusColumn" msprop:Generator_UserColumnName="WorkType_Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WorkType_StatusChangedDate" msprop:Generator_ColumnVarNameInTable="columnWorkType_StatusChangedDate" msprop:Generator_ColumnPropNameInRow="WorkType_StatusChangedDate" msprop:Generator_ColumnPropNameInTable="WorkType_StatusChangedDateColumn" msprop:Generator_UserColumnName="WorkType_StatusChangedDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -2651,10 +2653,6 @@ FROM            WorkshopTasksDone</CommandText>
       <xs:field xpath="mstns:Task_UID" />
       <xs:field xpath="mstns:Work_UID" />
       <xs:field xpath="mstns:TakeFiveResponse_UID" />
-    </xs:unique>
-    <xs:unique name="ProjectWorkTypes_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:ProjectWorkTypes" />
-      <xs:field xpath="mstns:Project_UID" />
     </xs:unique>
   </xs:element>
   <xs:annotation>
