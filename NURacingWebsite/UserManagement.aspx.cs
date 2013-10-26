@@ -12,8 +12,6 @@ namespace NURacingWebsite
 {
     public partial class UserManagement : System.Web.UI.Page
     {
-                  //Man the battle stations, boys! Because we're about to unleash...
-          //THE LABEL-TEXTBOX-POCALYPSE.
           Label LblUserName = new Label();
           TextBox userNameTxtBx = new TextBox();
           Label lblPassword = new Label();
@@ -40,10 +38,6 @@ namespace NURacingWebsite
           TextBox medicalCondTxtBx = new TextBox();
           Label lbldietryReq = new Label();
           TextBox dietryReqTxtBx = new TextBox();
-
-          //*HUFF* *HUFF* Sarge, I don't think I can take much longer!
-          //Man up, sonny! Didn't the doctors prescribe you enough purses???
-
           Label lblindemSign = new Label();
           CheckBox indemSignChkBx = new CheckBox();
           Label lblSAEMemshpNum = new Label();
@@ -52,49 +46,12 @@ namespace NURacingWebsite
           //DateTimePicker SAEExpDatDtPckr = new DateTimePicker();
           Label lblCAMSMbrshpNum = new Label();
           TextBox CAMSMbrshpNum = new TextBox();
-
-          //I'm out of bullets, Sarge!
-          //Here you go, you can borrow mine!
-          //  /-\______________
-          //  |                |
-          //  \-----------------
-          //   /    /)  /
-          //  /    /----
-          // /    /
-          ///____/ 
-          ///
-
           Label lblCAMSLicType = new Label();
           TextBox CAMSLicTypeTxtBx = new TextBox();
           Label lblDrivLicNum = new Label();
           TextBox drivLicNumTxtBx = new TextBox();
           Label lblDrivLicState = new Label();
           TextBox drivLicStateTxtBx = new TextBox();
-
-          //SARGE! DON'T DIE ON ME!!! That's it, prepare to eat lead, YOU FILTHY CASUALS!!!
-          //                       _________
-          //         /'        /|
-          //        /         / |_
-          //       /         /  //|
-          //      /_________/  ////|
-          //     |   _ _    | 8o////|
-          //     | /'// )_  |   8///|
-          //     |/ // // ) |   8o///|
-          //     / // // //,|  /  8//|
-          //    / // // /// | /   8//|
-          //   / // // ///__|/    8//|
-          //  /.(_)// /// |       8///|
-          // (_)' `(_)//| |       8////|___________
-          //(_) /_\ (_)'| |        8///////////////
-          //(_) \"/ (_)'|_|         8/////////////
-          // (_)._.(_) d' Hb         8oooooooopb'
-          //   `(_)'  d'  H`b
-          //         d'   `b`b
-          //        d'     H `b
-          //       d'      `b `b
-          //      d'           `b
-          //     d'             `b
-
           Label lblemerContName = new Label();
           TextBox emerContNameTxtBx = new TextBox();
           Label lblemerContNum = new Label();

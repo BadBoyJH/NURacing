@@ -284,7 +284,7 @@
     <Content Include="taskManagement.aspx" />
     <Content Include="tasks.aspx" />
     <Content Include="todo.aspx" />
-    <Content Include="UserManagement.aspx" />
+    <Content Include="usermanagement.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -457,12 +457,12 @@
     <Compile Include="todo.aspx.designer.cs">
       <DependentUpon>todo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UserManagement.aspx.cs">
-      <DependentUpon>UserManagement.aspx</DependentUpon>
+    <Compile Include="usermanagement.aspx.cs">
+      <DependentUpon>usermanagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserManagement.aspx.designer.cs">
-      <DependentUpon>UserManagement.aspx</DependentUpon>
+    <Compile Include="usermanagement.aspx.designer.cs">
+      <DependentUpon>usermanagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

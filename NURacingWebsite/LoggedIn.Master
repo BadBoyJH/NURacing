@@ -22,7 +22,7 @@
                 <ul>
                     <li><a href="#" style="TEXT-DECORATION: NONE;"><span>Welcome,
                         <%= Membership.GetUser().UserName %>
-                        &nbsp; &#149;&nbsp; <%= DateTime.Now.ToString() %>&nbsp; &#149;&nbsp; <a href ="\logout.aspx">Log out</a></span></a></li>
+                        &nbsp; &#149;&nbsp; <%= DateTime.Now.ToString() %>&nbsp; &#149;&nbsp; <a href ="\login.aspx">Log out</a></span></a></li>
                 </ul>
             </div>
         </div>
