@@ -26,18 +26,14 @@
                 </ul>
             </div>
         </div>
-        <div id="logo">
-            <a href="index.html">
-                <img src="images/logo.png" alt="Logo" />
-            </a>
-        </div>
         <div id="menu">
             <ul id="nav" class="menu" style="padding-top: 10px;">
-                <li><a href="\index.aspx"><span><span>Projects</span></span></a></li>
-                <li><a href="\todo.aspx"><span><span>Tasks</span></span></a></li>
-                <li><a href="\purchases.aspx"><span><span>Purchase</span></span></a></li>
-                <li><a href="\account.aspx"><span><span>Account</span></span></a></li>
-                <li><a href="\reporting.aspx"><span><span>Reporting</span></span></a></li>
+                <li><a href="\index.aspx"><span><span>  <img src="images/logo.png" alt="Logo"  /></span></span></a></li>
+                <li><a href="\index.aspx"><span><span style="margin-top:25px;">Projects</span></span></a></li>
+                <li><a href="\todo.aspx"><span><span style="margin-top:25px;">Tasks</span></span></a></li>
+                <li><a href="\purchases.aspx"><span><span style="margin-top:25px;">Purchase</span></span></a></li>
+                <li><a href="\account.aspx"><span><span style="margin-top:25px;">Account</span></span></a></li>
+                <li><a href="\reporting.aspx"><span><span style="margin-top:25px;">Reporting</span></span></a></li>
             </ul>
         </div>
     </div>
