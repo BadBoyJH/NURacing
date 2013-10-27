@@ -113,5 +113,23 @@ namespace BusinessLogicLayer
 
             return result;
         }
+
+        public static List<WorkTypeInfo> getActiveWorkTypes()
+        {
+            WorkTypeTableAdapter workTypeAdapter = new WorkTypeTableAdapter();
+            NuRacingDataSet.WorkTypeDataTable WorkTypeTable = workTypeAdapter.GetData();
+
+            List<WorkTypeInfo> result = new List<WorkTypeInfo>();
+
+            foreach (NuRacingDataSet.WorkTypeRow WorkTypeRow in WorkTypeTable.Rows)
+            {
+                if (BusinessLogicLayer.Project.projectActive(WorkTypeRow.Project_UID))
+                {
+                    result.Add(new WorkTypeInfo(WorkTypeRow));
+                }
+            }
+
+            return result;
+        }
     }
 }

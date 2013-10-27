@@ -462,51 +462,57 @@ namespace BusinessLogicLayer
 
         public void updateDatabase()
         {
-            UserTableAdapter userAdapter = new UserTableAdapter();
-            NuRacingDataSet.UserDataTable userTable = userAdapter.GetUser(username);
-            NuRacingDataSet.UserRow userRow = (NuRacingDataSet.UserRow) userTable.Rows[0];
+            if (beenChanged)
+            {
+                UserTableAdapter userAdapter = new UserTableAdapter();
+                NuRacingDataSet.UserDataTable userTable = userAdapter.GetUser(username);
+                NuRacingDataSet.UserRow userRow = (NuRacingDataSet.UserRow)userTable.Rows[0];
 
-            userRow.User_GivenName = givenName;
-            userRow.User_Surname = surname;
-            userRow.User_Email = email;
-            userRow.User_StudentNumber = studentnumber;
-            userRow.User_EstGraduationYear = estimatedGraduationYear;
-            userRow.User_Degree = degree;
-            userRow.User_MedicareNo = medicareNumber;
-            userRow.User_Allergies = allergies;
-            userRow.User_MedicareNo = medicalConditions;
-            userRow.User_DietaryRequirements = dietaryRequirements;
-            userRow.User_IndemnityFormSigned = indemnityFormSigned;
+                userRow.User_GivenName = givenName;
+                userRow.User_Surname = surname;
+                userRow.User_Email = email;
+                userRow.User_StudentNumber = studentnumber;
+                userRow.User_EstGraduationYear = estimatedGraduationYear;
+                userRow.User_Degree = degree;
+                userRow.User_MedicareNo = medicareNumber;
+                userRow.User_Allergies = allergies;
+                userRow.User_MedicareNo = medicalConditions;
+                userRow.User_DietaryRequirements = dietaryRequirements;
+                userRow.User_IndemnityFormSigned = indemnityFormSigned;
 
-            userRow.User_SAE_MemberNo = saeMembershipNumber;
-            userRow.User_SAE_Expiry = saeMembershipExpiry;
+                userRow.User_SAE_MemberNo = saeMembershipNumber;
+                userRow.User_SAE_Expiry = saeMembershipExpiry;
 
-            userRow.User_CAMS_MemberNo = camsMembershipNumber;
-            userRow.User_CAMS_LicenseType = camsLicenseType;
+                userRow.User_CAMS_MemberNo = camsMembershipNumber;
+                userRow.User_CAMS_LicenseType = camsLicenseType;
 
-            userRow.User_LicenseNo = driversLicenseNumber;
-            userRow.User_LicenseState = driversLicenseState;
+                userRow.User_LicenseNo = driversLicenseNumber;
+                userRow.User_LicenseState = driversLicenseState;
 
-            userRow.User_EmergencyContactName = emergencyContactName;
-            userRow.User_EmergencyContactNumber = emergencyContactPhoneNumber;
+                userRow.User_EmergencyContactName = emergencyContactName;
+                userRow.User_EmergencyContactNumber = emergencyContactPhoneNumber;
 
-            userRow.User_Created = dateCreated;
-            userRow.User_LastLogin = lastLoggedIn;
-            userRow.User_LastActivity = lastActivity;
-            userRow.User_LastPasswordChanged = passwordLastChanged;
-            userRow.User_LastLockoutDate = lastLockedOut;
-            userRow.User_Active = isActive;
+                userRow.User_Created = dateCreated;
+                userRow.User_LastLogin = lastLoggedIn;
+                userRow.User_LastActivity = lastActivity;
+                userRow.User_LastPasswordChanged = passwordLastChanged;
+                userRow.User_LastLockoutDate = lastLockedOut;
+                userRow.User_Active = isActive;
 
-            userAdapter.Update(userTable);
+                userAdapter.Update(userTable);
+            }
         }
 
         public void resetData()
         {
-            UserTableAdapter userAdapter = new UserTableAdapter();
-            NuRacingDataSet.UserDataTable userTable = userAdapter.GetUser(username);
-            NuRacingDataSet.UserRow userRow = (NuRacingDataSet.UserRow)userTable.Rows[0];
+            if (!beenChanged)
+            {
+                UserTableAdapter userAdapter = new UserTableAdapter();
+                NuRacingDataSet.UserDataTable userTable = userAdapter.GetUser(username);
+                NuRacingDataSet.UserRow userRow = (NuRacingDataSet.UserRow)userTable.Rows[0];
 
-            setData(userRow);
+                setData(userRow);
+            }
         }
     }
 }

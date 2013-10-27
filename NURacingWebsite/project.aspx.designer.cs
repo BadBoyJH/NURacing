@@ -10,7 +10,7 @@
 namespace NURacingWebsite {
     
     
-    public partial class tasks {
+    public partial class project {
         
         /// <summary>
         /// Form1 control.
@@ -31,21 +31,21 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.Button btnEnquiry;
         
         /// <summary>
-        /// lblSectionTitle control.
+        /// createProjFrm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSectionTitle;
+        protected global::System.Web.UI.WebControls.PlaceHolder createProjFrm;
         
         /// <summary>
-        /// todoTable control.
+        /// submitProjBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView todoTable;
+        protected global::System.Web.UI.WebControls.Button submitProjBtn;
     }
 }

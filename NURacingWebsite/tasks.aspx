@@ -11,10 +11,15 @@
 		<div class="colleft">
 			<div class="col1">
 
-                    <br />
-                    <br />
-       <h1>TASKS - 'SECTION NAME'</h1>
+      <form id ="Form1" runat="server">
+             <br />
+                            <br />
+                      <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />  
+       <h1>TASKS -
+           <asp:Label ID="lblSectionTitle" runat="server" Text="Label"></asp:Label>
+                </h1>
                     <p style="text-align: center">Please click on a task below to review progress.</p>
+\
                 <br />
             <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="1">
                 <Columns>
@@ -24,7 +29,7 @@
                 </Columns>
 
             </asp:GridView>
-        
+        </form>
   </div>
 			<div class="col2">
 			</div>

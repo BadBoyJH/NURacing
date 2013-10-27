@@ -7,38 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NURacingWebsite
-{
-
-
-    public partial class SiteMaster
-    {
-
+namespace NURacingWebsite {
+    
+    
+    public partial class reporttakefives {
+        
         /// <summary>
-        /// HeadContent control.
+        /// Report control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
-
+        protected global::System.Web.UI.HtmlControls.HtmlForm Report;
+        
         /// <summary>
-        /// FeaturedContent control.
+        /// ReportViewer1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder FeaturedContent;
-
+        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer1;
+        
         /// <summary>
-        /// MainContent control.
+        /// ObjectDataSource6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource6;
+        
+        /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
     }
 }
