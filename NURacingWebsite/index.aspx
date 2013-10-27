@@ -10,13 +10,14 @@
 	<div class="colmid">
 		<div class="colleft">
 			<div class="col1">
-
-                    <br />
-                    <br />
+                                           <form id ="Form1" runat="server">
+                                                  <br />
+                            <br />
+                                                                    <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />  
        <h1>PROJECTS</h1>
-                         <form id ="Form1" runat="server">
+
                     <p style="text-align: center">Please click on a project below to review progress.</p>
-                  <asp:Button ID="btnRecover" runat="server" Text="?"  CssClass="btnSubmit" />
+
                 <br />
           
                 <asp:Button runat="server" ID="createProjBtn" Text="CREATE PROJECT" CssClass="takeFiveBtn" OnClick="createProjBtn_Click"/>

@@ -26,6 +26,10 @@
                 </ul>
             </div>
         </div>
+        <div class="colmaskhead threecolhead">
+	<div class="colmidhead">
+		<div class="collefthead">
+			<div class="col1head">
         <div id="menu">
             <ul id="nav" class="menu" style="padding-top: 10px;">
                 <li><a href="\index.aspx"><span><span>  <img src="images/logo.png" alt="Logo"  /></span></span></a></li>
@@ -36,6 +40,15 @@
                 <li><a href="\reporting.aspx"><span><span style="margin-top:25px;">Reporting</span></span></a></li>
             </ul>
         </div>
+                </div>
+			<div class="col2head">
+			</div>
+			<div class="col3head">
+			</div>
+ 
+		</div>
+	</div>
+ </div>
     </div>
     <asp:ContentPlaceHolder ID="Body" runat="server" />
 

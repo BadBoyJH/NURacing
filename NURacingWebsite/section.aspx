@@ -10,13 +10,12 @@
 	<div class="colmid">
 		<div class="colleft">
 			<div class="col1">
-
-                    <br />
-                    <br />
+         <form id ="Form1" runat="server">        
+                <br />
+                            <br />
+       <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />  
        <h1>SECTIONS</h1>         
-                <form id ="Form1" runat="server">
-                    <p style="text-align: center">Please click on a section below to review progress.</p>
-                  <asp:Button ID="btnRecover" runat="server" Text="?"  CssClass="btnSubmit" />
+                    <p style="text-align: center">Please click on a section below to review progress.</p>        
                 <br />
     	<asp:Table ID="tblProjects" runat="server" GridLines="Horizontal" CssClass="tblProjects" class="tblProjects" HorizontalAlign="Center">
             </asp:Table>
@@ -27,7 +26,7 @@
 			</div>
 			<div class="col3">
 			</div>
- 
+             
 		</div>
 	</div>
  </div>

@@ -11,17 +11,17 @@
 		<div class="colleft">
 			<div class="col1">
 
-                    <br />
-                    <br />
-       <h1>TASK MANAGEMENT</h1>
                  <form id ="Form1" runat="server">
-                    <p style="text-align: center">Please click an action below</p>
-                  <asp:Button ID="btnRecover" runat="server" Text="?"  CssClass="btnSubmit" />
+                        <br />
+                            <br />
+                      <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />  
+       <h1>TASK MANAGEMENT</h1>
+                 <p style="text-align: center">Please click an action below</p>
                 <br />
                     <div class="taskDetail">
                     
-                     <asp:Button ID="updateTaskBtn" CssClass="takeFiveBtn" Text="Update task" runat="server" OnClick="updateTaskBtn_Click" />
-                     <asp:Button ID="createTaskBtn" CssClass="takeFiveBtn" Text="Create task" runat="server" OnClick="createTaskBtn_Click" />
+                     <asp:Button ID="updateTaskBtn" CssClass="takeFiveBtn" Text="UPDATE TASK" runat="server" OnClick="updateTaskBtn_Click" />
+                     <asp:Button ID="createTaskBtn" CssClass="takeFiveBtn" Text="CREATE TASK" runat="server" OnClick="createTaskBtn_Click" />
                         <br />
                         <br />
                         <br />

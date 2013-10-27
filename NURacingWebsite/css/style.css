@@ -21,14 +21,14 @@ menu, footer, header, nav, section, summary, time, mark, audio, video {
 	border-style: none;
     border-color: inherit;
     border-width: 0;    
-    margin: 0 0 2px 0;
+    margin: 0 0 0 0;
 
 }
 
 html{
     border-color: inherit;
     border-width: 0;    
-    margin: 0 0 2px 0;
+    margin: 0 0 0 0;
 }
 
 a img {border: 0;}
@@ -108,6 +108,74 @@ h6 { font-size: 14px; line-height: 14px;    color: #A8A8A8;}
 	box-shadow:         0px 9px 30px rgba(0, 0, 0, 1);
     z-index:3;
 }
+.colmaskhead {
+	clear:both;
+	float:left;
+	width:100%;		
+	overflow:hidden;	
+	height: auto !important;
+    min-height: 100%;
+    position: relative;
+	}
+
+.colrighthead,
+.colmidhead,
+.collefthead {
+	float:left;
+	width:100%;			
+	position:relative;
+	height: auto !important;
+    min-height: 100%;
+}
+
+
+.col1head,
+.col2head,
+.col3head {
+	float:left;
+	position:relative;
+	padding:0 0 1em 0;	
+	height: auto !important;
+    min-height: 100%;
+    text-align:center;
+}
+
+.threecolhead {
+	background: none;	
+	height: auto !important;
+    min-height: 100%;
+   
+}
+
+.threecolhead .colmidhead {
+	right:25%;			
+	background:none;
+        	 		
+}
+
+.threecolhead .collefthead {
+	right:50%;			
+	background: none;	
+
+}
+
+.threecolhead .col1head {
+	width:65%;			
+	left:93%;	
+     background-color:none;
+}
+
+.threecolhead .col2head {
+	width:21%;			
+	left:31%;			
+}
+
+.threecolhead .col3head {
+	width:21%;			
+	left:85%;			
+}
+
+
 
 
 /* BODY */
@@ -221,14 +289,14 @@ body {
 
 }
 /* FOOTER COMPATIBILITY WITH IE10*/
-* html #footer {
+#footer {
    position:relative;
    top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
    margin-top:20px;
 }
 
 
-/* TOP ORANGE BAR */
+/* TOP ORANGE BAR*/
 
 #topBarMenu {
 	width: 100%;
@@ -236,7 +304,7 @@ body {
     min-height:30px;
 	float: left;
 	background: #E55F05;
-	padding-left:5%;
+	/*padding-left:5%;*/
 	-webkit-box-shadow: 0px 9px 30px rgba(0, 0, 0, 1);
 	-moz-box-shadow:    0px 9px 30px rgba(0, 0, 0, 1);
 	box-shadow:         0px 9px 30px rgba(0, 0, 0, 1);
@@ -275,12 +343,19 @@ body {
 /* NAVIGATION (NOT VISIBLE ON LOGIN PAGE) */
 
 #menu {
+
+     position:relative;
+    left:0px;
+    top:0px;
+    height:auto;
+    width:100%;
+    clear:both;
+    float:left;
     clear:both;
 	height: auto;
 	float: left;
-	width:100%;		
-    position: relative;
-    margin-left:22.5%;
+	width:100%;	
+    text-align:center;
     margin-top:30px;
 }
 
@@ -363,6 +438,28 @@ body {
 	box-shadow: 0px 1px 1px #2e2e2e;
     border: none;
 	float: left;
+    margin-left:10px;
+}
+
+
+.btnEnquiry {
+	color: #FFFFFF;
+	font-family: 'Cuprum', sans-serif;
+	margin-top: 10px;
+	font-size: 16px;
+	line-height: 34px;
+    display: inline-block;
+    padding: 1px 15px 6px 15px;
+	height: 36px;
+	background-color: #E55F05;
+	-moz-border-radius: 7px; 
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	-webkit-box-shadow: 0px 1px 1px #2e2e2e;
+	-moz-box-shadow: 0px 1px 1px #2e2e2e;
+	box-shadow: 0px 1px 1px #2e2e2e;
+    border: none;
+	float: right;
     margin-left:10px;
 }
 
@@ -683,6 +780,44 @@ text-transform:uppercase;
     text-shadow: 1px 1px 1px #000000;
 }
 
+.tblReports{
+	margin-left:auto;
+    margin-right:auto;
+	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
+    font-size:x-large;
+    border-spacing:5px 5px;
+ 
+    border-collapse:inherit;
+    table-layout:auto;
+}
+.tblReports td
+{
+	background-color: #E55F05;
+    border:thick;
+    height:20px;
+    min-height:20px;
+    width:100%;
+    padding:2px;
+    padding-left:15px;
+     padding-right:15px;
+    text-align:center;
+    overflow-x:auto;
+    overflow-y:auto;
+    vertical-align:top;
+    -webkit-box-shadow: 9px 9px 30px rgba(0, 0, 0, 1);
+	-moz-box-shadow:    9px 9px 30px rgba(0, 0, 0, 1);
+	box-shadow:         9px 9px 30px rgba(0, 0, 0, 1);
+}
+.tblReports a {
+    text-transform:uppercase;
+    font-size:38px;
+    color:#FFFFFF;
+}
 
-
+.projectIcon {
+    font-family: 'Wingdings';
+    font-weight:bold;
+    font-size:45px;
+    margin-right:15px;
+}
 

@@ -11,13 +11,15 @@
 		<div class="colleft">
 			<div class="col1">
 
-                    <br />
-                    <br />
+      <form id ="Form1" runat="server">
+             <br />
+                            <br />
+                      <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />  
        <h1>TO DO LIST</h1>
                     <p style="text-align: center">Please click on a task below to review progress.</p>
                  
                 <br />
-                <form id ="todo" runat="server">
+       
                      <asp:Button ID="btnRecover" runat="server" Text="?"  CssClass="btnSubmit" />
             <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="0" GridLines="None">
                 <Columns>

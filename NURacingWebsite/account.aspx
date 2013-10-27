@@ -75,9 +75,9 @@
                 <br />
                     <br />
                     <form id="form1" runat="server">
+                                <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />
                         <h1>ACCOUNT</h1>
 <div class="accountOptions">
-      <asp:Button ID="btnRecover" runat="server" Text="?"  CssClass="btnSubmit" />
         <p id="userRoleYouAre" style="font-size: medium">
             <asp:Label runat="server" ID="userRoleYouLbl">You are a: </asp:Label>
             <asp:Label runat="server" CssClass="userRole" ID="userRoleLbl">USER.</asp:Label>
