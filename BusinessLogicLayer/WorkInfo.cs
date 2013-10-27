@@ -11,19 +11,16 @@ namespace BusinessLogicLayer
 {
     public class WorkInfo
     {
+        List<string> usernames;
+
         int workID;
         int timeWorkedMins;
-        string username;
         DateTime dateCompleted;
         string description;
         bool takeFiveTaken;
         int workTypeID;
         int taskID;
-
-        /*
         WorkTypeInfo workType;
-        */
-
         TaskInfo task;        
         List<TakeFiveResponseInfo> responses;
 
@@ -35,11 +32,11 @@ namespace BusinessLogicLayer
             }
         }
 
-        public string Username
+        public List<string> Usernames
         {
             get
             {
-                return username;
+                return usernames;
             }
         }
 
@@ -75,7 +72,6 @@ namespace BusinessLogicLayer
             }
         }
 
-        /*
         public WorkTypeInfo WorkType
         {
             get
@@ -87,7 +83,6 @@ namespace BusinessLogicLayer
                 return workType;
             }
         }
-        */
 
         public TaskInfo Task
         {
@@ -117,12 +112,21 @@ namespace BusinessLogicLayer
         {
             workID = row.Work_UID;
             timeWorkedMins = row.Work_TimeWorkedMins;
-            username = row.User_Username;
             dateCompleted = row.Work_DateCompleted;
             description = row.Work_Description;
             takeFiveTaken = row.Work_TakeFiveTaken;
             workTypeID = row.WorkType_UID;
             taskID = row.Task_UID;
+
+            WorkDoneByTableAdapter workDoneByAdapter = new WorkDoneByTableAdapter();
+            NuRacingDataSet.WorkDoneByDataTable workDoneByTable = workDoneByAdapter.GetDataByWorkID(row.Work_UID);
+
+            usernames = new List<string>(workDoneByTable.Rows.Count);
+            
+            foreach(NuRacingDataSet.WorkDoneByRow workDoneByRow in workDoneByTable)
+            {
+                usernames.Add(workDoneByRow.User_Username);
+            }
         }
 
         // Written by James Hibbard

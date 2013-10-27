@@ -26,8 +26,8 @@ namespace DataAccessLayer.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("server=db4free.net;User Id=webaccessaccount;password=MaskHipsterHeadphonesChopsti" +
-            "cks;Persist Security Info=True;database=nuracing")]
+        [global::System.Configuration.DefaultSettingValueAttribute("server=localhost;User Id=webaccessaccount;password=MaskHipsterHeadphonesChopstick" +
+            "s;Persist Security Info=True;database=nuracing")]
         public string NuRacingConnectionString {
             get {
                 return ((string)(this["NuRacingConnectionString"]));

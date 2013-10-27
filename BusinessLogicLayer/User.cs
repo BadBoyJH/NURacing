@@ -468,14 +468,14 @@ namespace BusinessLogicLayer
             {
                 throw new ArgumentException("Username already exists");
             }
-            if (isEmailValid(Email))
+            if (!isEmailValid(Email))
             {
                 throw new ArgumentException("Email isn't in a valid format");
             }
-            if (EmailExists(Email))
-            {
-                throw new ArgumentException("Email already exists");
-            }
+            //if (EmailExists(Email))
+            //{
+            //    throw new ArgumentException("Email already exists");
+            //}
             if (!validPassword(Password))
             {
                 throw new ArgumentException("Invalid Password");

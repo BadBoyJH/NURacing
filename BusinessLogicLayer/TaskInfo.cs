@@ -18,7 +18,7 @@ namespace BusinessLogicLayer
 
         private UserInfo assigningUserInfo;
 
-        private UserInfo userAssignedInfo;
+        private List<UserInfo> userAssignedInfo;
 
         private int workTypeID;
 
@@ -50,7 +50,7 @@ namespace BusinessLogicLayer
             }
         }
 
-        public UserInfo UserAssignedInfo
+        public List<UserInfo> UserAssignedInfo
         {
             get
             {
@@ -123,8 +123,6 @@ namespace BusinessLogicLayer
         {
             assigningUserInfo = UserInfo.getUser(taskRow.User_Username_AssignedBy);
 
-            userAssignedInfo = UserInfo.getUser(taskRow.User_Username_AssignedTo);
-
             taskID = taskRow.Task_UID;
 
             workTypeID = taskRow.WorkType_UID;
@@ -146,6 +144,16 @@ namespace BusinessLogicLayer
             }
 
             dueDate = taskRow.Task_DueDate;
+
+            AssignedUserTableAdapter assignedUserAdapter = new AssignedUserTableAdapter();
+            NuRacingDataSet.AssignedUserDataTable assignedUserTable = assignedUserAdapter.GetDataByTaskID(TaskID);
+
+            userAssignedInfo = new List<UserInfo>(assignedUserTable.Rows.Count);
+
+            foreach (NuRacingDataSet.AssignedUserRow assignedUserRow in assignedUserTable.Rows)
+            {
+                userAssignedInfo.Add(UserInfo.getUser(assignedUserRow.User_Username));
+            }
         }
 
         /// <summary>
