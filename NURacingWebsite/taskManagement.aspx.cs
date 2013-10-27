@@ -27,16 +27,29 @@ namespace NURacingWebsite
         CheckBox takeFiveChkBx = new CheckBox();
         Label lblTaskStatus = new Label();
         TextBox taskStatusTxtBx = new TextBox();
+        Label lblSelectProj = new Label();
+        DropDownList projDrpList = new DropDownList();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             createForm();
+            //projDrpList.SelectedIndexChanged += projDrpList_SelectedIndexChanged;
+           // projDrpList.AutoPostBack = true;
+        }
+
+        void projDrpList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            //workTypeDrpList.SelectedValue = projDrpList.SelectedIte;
+            //throw new NotImplementedException();
         }
 
         protected void createTaskBtn_Click(object sender, EventArgs e)
         {
             taskFrm.Visible = true;
             createSubmitTaskBtn.Visible = true;
+            lblSelectProj.Visible = false;
+            projDrpList.Visible = false;
             //HtmlGenericControl NewControl = new HtmlGenericControl("div");
             //NewControl.InnerHtml = "";
             //createTaskFrm.Controls.Add(NewControl);
@@ -54,6 +67,17 @@ namespace NURacingWebsite
 
         private void createForm()
         {
+            taskFrm.Controls.Add(new LiteralControl("<p>"));
+            lblSelectProj.Text = "Select task: ";
+            taskFrm.Controls.Add(lblSelectProj);
+            projDrpList.Items.Clear();
+            foreach (TaskInfo info in BusinessLogicLayer.TaskInfo.getTasks())
+            {
+                projDrpList.Items.Add(info.TaskName.ToString());
+            }
+            taskFrm.Controls.Add(projDrpList);
+            taskFrm.Controls.Add(new LiteralControl("</p>"));
+
             taskFrm.Controls.Add(new LiteralControl("<p>"));
             lblTaskName.Text = "Task name: ";
             taskFrm.Controls.Add(lblTaskName);
@@ -115,12 +139,36 @@ namespace NURacingWebsite
 
         protected void updateTaskBtn_Click(object sender, EventArgs e)
         {
-
+            taskFrm.Visible = true;
+            updateSubmitBtn.Visible = true;
+            lblSelectProj.Visible = true;
+            projDrpList.Visible = true;
         }
 
         protected void updateSubmitBtn_Click(object sender, EventArgs e)
         {
+            TaskInfo info = BusinessLogicLayer.TaskInfo.getTasks()[projDrpList.SelectedIndex];
 
+            if (taskNameTxtBx.Text != "")
+            {
+                info.TaskName = taskNameTxtBx.Text;
+            }
+
+            if (taskDescTxtBx.Text != "")
+            {
+                info.TaskDescription = taskDescTxtBx.Text;
+            }
+
+            if (takeFiveChkBx.Checked || !takeFiveChkBx.Checked)
+            {
+                info.TakeFiveNeeded = takeFiveChkBx.Checked;
+            }
+
+            if (taskStatusTxtBx.Text != "")
+            {
+                info.TaskStatus = taskStatusTxtBx.Text;
+            }
+            info.updateDatabase();
         }
 
         protected void createSubmitTaskBtn_Click(object sender, EventArgs e)
