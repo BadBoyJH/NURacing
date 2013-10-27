@@ -18,43 +18,7 @@
                         </DataSources>
                     </LocalReport>
                 </rsweb:ReportViewer>
-                <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" SelectMethod="GetData" TypeName="DataAccessLayer.NuRacingDataSetTableAdapters.WorkTableAdapter" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" UpdateMethod="Update">
-                    <DeleteParameters>
-                        <asp:Parameter Name="Original_Work_UID" Type="Int32" />
-                        <asp:Parameter Name="Original_Work_DateCompleted" Type="DateTime" />
-                        <asp:Parameter Name="Original_Work_Description" Type="String" />
-                        <asp:Parameter Name="Original_WorkType_UID" Type="Int32" />
-                        <asp:Parameter Name="Original_Work_TimeWorkedMins" Type="Int32" />
-                        <asp:Parameter Name="Original_User_Username" Type="String" />
-                        <asp:Parameter Name="Original_Task_UID" Type="Int32" />
-                        <asp:Parameter Name="Original_Work_TakeFiveTaken" Type="Byte" />
-                    </DeleteParameters>
-                    <InsertParameters>
-                        <asp:Parameter Name="Work_DateCompleted" Type="DateTime" />
-                        <asp:Parameter Name="Work_Description" Type="String" />
-                        <asp:Parameter Name="WorkType_UID" Type="Int32" />
-                        <asp:Parameter Name="Work_TimeWorkedMins" Type="Int32" />
-                        <asp:Parameter Name="User_Username" Type="String" />
-                        <asp:Parameter Name="Task_UID" Type="Int32" />
-                        <asp:Parameter Name="Work_TakeFiveTaken" Type="Byte" />
-                    </InsertParameters>
-                    <UpdateParameters>
-                        <asp:Parameter Name="Work_DateCompleted" Type="DateTime" />
-                        <asp:Parameter Name="Work_Description" Type="String" />
-                        <asp:Parameter Name="WorkType_UID" Type="Int32" />
-                        <asp:Parameter Name="Work_TimeWorkedMins" Type="Int32" />
-                        <asp:Parameter Name="User_Username" Type="String" />
-                        <asp:Parameter Name="Task_UID" Type="Int32" />
-                        <asp:Parameter Name="Work_TakeFiveTaken" Type="Byte" />
-                        <asp:Parameter Name="Original_Work_UID" Type="Int32" />
-                        <asp:Parameter Name="Original_Work_DateCompleted" Type="DateTime" />
-                        <asp:Parameter Name="Original_Work_Description" Type="String" />
-                        <asp:Parameter Name="Original_WorkType_UID" Type="Int32" />
-                        <asp:Parameter Name="Original_Work_TimeWorkedMins" Type="Int32" />
-                        <asp:Parameter Name="Original_User_Username" Type="String" />
-                        <asp:Parameter Name="Original_Task_UID" Type="Int32" />
-                        <asp:Parameter Name="Original_Work_TakeFiveTaken" Type="Byte" />
-                    </UpdateParameters>
+                <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" SelectMethod="GetData" TypeName="DataAccessLayer.NuRacingDataSetTableAdapters.ProjectTasksDoneTableAdapter" OldValuesParameterFormatString="original_{0}">
                 </asp:ObjectDataSource>
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>

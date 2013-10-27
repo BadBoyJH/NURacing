@@ -17,11 +17,14 @@
                           <TextRun>
                             <Value>Student Number</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox4</rd:DefaultName>
@@ -31,6 +34,7 @@
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -45,67 +49,70 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.44967cm</Width>
+              <Width>1.17584cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2cm</Width>
+              <Width>1.45cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.635cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.14817cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.665cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.83067cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.0635cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.35917cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.35983cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.38683cm</Width>
+              <Width>1.5cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.1cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.15799cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.15334cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.0635cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.25916cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.019cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.0905cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.23067cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.096cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.3cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1cm</Width>
+              <Width>1.3cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.0635cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.9365cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.04233cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.50217cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.2cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.55434cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.61167cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.82267cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -123,11 +130,13 @@
                             <TextRun>
                               <Value>=Fields!User_Created.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_Created</rd:DefaultName>
@@ -137,6 +146,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -156,11 +166,13 @@
                             <TextRun>
                               <Value>=Fields!User_GivenName.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_GivenName</rd:DefaultName>
@@ -170,6 +182,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -189,11 +202,13 @@
                             <TextRun>
                               <Value>=Fields!User_Surname.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_Surname</rd:DefaultName>
@@ -203,6 +218,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -222,11 +238,13 @@
                             <TextRun>
                               <Value>=Fields!User_Active.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_Active</rd:DefaultName>
@@ -236,6 +254,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -255,11 +274,13 @@
                             <TextRun>
                               <Value>=Fields!User_Role.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_Role</rd:DefaultName>
@@ -269,6 +290,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -288,11 +310,13 @@
                             <TextRun>
                               <Value>=Fields!User_Email.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_Email</rd:DefaultName>
@@ -302,6 +326,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -321,11 +346,13 @@
                             <TextRun>
                               <Value>=Fields!User_EstGraduationYear.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_EstGraduationYear</rd:DefaultName>
@@ -335,6 +362,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -354,11 +382,13 @@
                             <TextRun>
                               <Value>=Fields!User_Degree.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_Degree</rd:DefaultName>
@@ -368,6 +398,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -387,11 +418,13 @@
                             <TextRun>
                               <Value>=Fields!User_SAE_MemberNo.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_SAE_MemberNo</rd:DefaultName>
@@ -401,6 +434,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -420,11 +454,13 @@
                             <TextRun>
                               <Value>=Fields!User_SAE_Expiry.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_SAE_Expiry</rd:DefaultName>
@@ -434,6 +470,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -453,11 +490,13 @@
                             <TextRun>
                               <Value>=Fields!User_CAMS_MemberNo.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_CAMS_MemberNo</rd:DefaultName>
@@ -467,6 +506,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -486,11 +526,13 @@
                             <TextRun>
                               <Value>=Fields!User_CAMS_LicenseType.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_CAMS_LicenseType</rd:DefaultName>
@@ -500,6 +542,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -519,11 +562,13 @@
                             <TextRun>
                               <Value>=Fields!User_LicenseNo.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_LicenseNo</rd:DefaultName>
@@ -533,6 +578,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -552,11 +598,13 @@
                             <TextRun>
                               <Value>=Fields!User_LicenseState.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_LicenseState</rd:DefaultName>
@@ -566,6 +614,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -585,11 +634,13 @@
                             <TextRun>
                               <Value>=Fields!User_EmergencyContactName.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_EmergencyContactName</rd:DefaultName>
@@ -599,6 +650,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -618,11 +670,13 @@
                             <TextRun>
                               <Value>=Fields!User_EmergencyContactNumber.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_EmergencyContactNumber</rd:DefaultName>
@@ -632,6 +686,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -651,11 +706,13 @@
                             <TextRun>
                               <Value>=Fields!User_MedicareNo.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_MedicareNo</rd:DefaultName>
@@ -665,6 +722,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -684,11 +742,13 @@
                             <TextRun>
                               <Value>=Fields!User_Allergies.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_Allergies</rd:DefaultName>
@@ -698,6 +758,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -717,11 +778,13 @@
                             <TextRun>
                               <Value>=Fields!User_DietaryRequirements.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_DietaryRequirements</rd:DefaultName>
@@ -731,6 +794,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -750,11 +814,13 @@
                             <TextRun>
                               <Value>=Fields!User_MedicalConditions.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_MedicalConditions</rd:DefaultName>
@@ -764,6 +830,7 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -783,11 +850,13 @@
                             <TextRun>
                               <Value>=Fields!User_IndemnityFormSigned.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_IndemnityFormSigned</rd:DefaultName>
@@ -797,6 +866,43 @@
                           <Style>None</Style>
                         </Border>
                         <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Project_UID">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Project_UID.Value</Value>
+                              <Style>
+                                <FontSize>8.5pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Project_UID</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -813,7 +919,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox57">
                     <CanGrow>true</CanGrow>
@@ -824,11 +930,14 @@
                           <TextRun>
                             <Value>Join Date</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox57</rd:DefaultName>
@@ -838,6 +947,7 @@
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -849,7 +959,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox7">
                     <CanGrow>true</CanGrow>
@@ -858,13 +968,17 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Given Name</Value>
+                            <Value>Given 
+Name</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox7</rd:DefaultName>
@@ -874,6 +988,7 @@
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -888,7 +1003,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox11">
                     <CanGrow>true</CanGrow>
@@ -899,11 +1014,14 @@
                           <TextRun>
                             <Value>Surname</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox11</rd:DefaultName>
@@ -913,6 +1031,7 @@
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -924,7 +1043,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox13">
                     <CanGrow>true</CanGrow>
@@ -933,13 +1052,16 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Active?</Value>
+                            <Value>Active</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox13</rd:DefaultName>
@@ -949,6 +1071,7 @@
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -960,7 +1083,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox21">
                     <CanGrow>true</CanGrow>
@@ -971,11 +1094,14 @@
                           <TextRun>
                             <Value>Role</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox21</rd:DefaultName>
@@ -985,6 +1111,7 @@
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -996,7 +1123,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox23">
                     <CanGrow>true</CanGrow>
@@ -1007,11 +1134,14 @@
                           <TextRun>
                             <Value>Email</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox23</rd:DefaultName>
@@ -1021,6 +1151,7 @@
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1032,7 +1163,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox25">
                     <CanGrow>true</CanGrow>
@@ -1041,13 +1172,17 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Est Graduation Year</Value>
+                            <Value>Est Grad
+Year</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox25</rd:DefaultName>
@@ -1057,6 +1192,7 @@
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1068,7 +1204,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox27">
                     <CanGrow>true</CanGrow>
@@ -1079,11 +1215,14 @@
                           <TextRun>
                             <Value>Degree</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox27</rd:DefaultName>
@@ -1093,6 +1232,7 @@
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1104,7 +1244,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox29">
                     <CanGrow>true</CanGrow>
@@ -1113,13 +1253,17 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>SAE Member No</Value>
+                            <Value>SAE Mem
+No</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox29</rd:DefaultName>
@@ -1129,6 +1273,7 @@
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1140,7 +1285,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox31">
                     <CanGrow>true</CanGrow>
@@ -1150,14 +1295,17 @@
                         <TextRuns>
                           <TextRun>
                             <Value>SAE 
-Member
+Mem
 Expiry</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox31</rd:DefaultName>
@@ -1167,6 +1315,7 @@ Expiry</Value>
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1178,7 +1327,7 @@ Expiry</Value>
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox33">
                     <CanGrow>true</CanGrow>
@@ -1187,13 +1336,17 @@ Expiry</Value>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>CAMS Member No</Value>
+                            <Value>CAMS Mem
+No</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox33</rd:DefaultName>
@@ -1203,6 +1356,7 @@ Expiry</Value>
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1214,7 +1368,7 @@ Expiry</Value>
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox35">
                     <CanGrow>true</CanGrow>
@@ -1223,13 +1377,17 @@ Expiry</Value>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>CAMS License Type</Value>
+                            <Value>CAMS Lic 
+Type</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox35</rd:DefaultName>
@@ -1239,6 +1397,7 @@ Expiry</Value>
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1250,7 +1409,7 @@ Expiry</Value>
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox37">
                     <CanGrow>true</CanGrow>
@@ -1259,13 +1418,16 @@ Expiry</Value>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Drivers License No</Value>
+                            <Value>Drivers Lic No</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox37</rd:DefaultName>
@@ -1275,6 +1437,7 @@ Expiry</Value>
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1286,7 +1449,7 @@ Expiry</Value>
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox39">
                     <CanGrow>true</CanGrow>
@@ -1295,13 +1458,16 @@ Expiry</Value>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Drivers License State</Value>
+                            <Value>Drivers Lic State</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox39</rd:DefaultName>
@@ -1311,6 +1477,7 @@ Expiry</Value>
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1322,7 +1489,7 @@ Expiry</Value>
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox41">
                     <CanGrow>true</CanGrow>
@@ -1331,13 +1498,18 @@ Expiry</Value>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Emergency Contact Name</Value>
+                            <Value>Emer
+Cont
+Name</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox41</rd:DefaultName>
@@ -1347,6 +1519,7 @@ Expiry</Value>
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1358,7 +1531,7 @@ Expiry</Value>
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox43">
                     <CanGrow>true</CanGrow>
@@ -1367,13 +1540,18 @@ Expiry</Value>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Emergency Contact Number</Value>
+                            <Value>Emer
+Cont
+No</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox43</rd:DefaultName>
@@ -1383,6 +1561,7 @@ Expiry</Value>
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1394,7 +1573,7 @@ Expiry</Value>
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox45">
                     <CanGrow>true</CanGrow>
@@ -1405,11 +1584,14 @@ Expiry</Value>
                           <TextRun>
                             <Value>Medicare No</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox45</rd:DefaultName>
@@ -1419,6 +1601,7 @@ Expiry</Value>
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1430,7 +1613,7 @@ Expiry</Value>
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox49">
                     <CanGrow>true</CanGrow>
@@ -1441,11 +1624,14 @@ Expiry</Value>
                           <TextRun>
                             <Value>Allergies</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox49</rd:DefaultName>
@@ -1455,6 +1641,7 @@ Expiry</Value>
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1466,7 +1653,7 @@ Expiry</Value>
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox51">
                     <CanGrow>true</CanGrow>
@@ -1475,13 +1662,16 @@ Expiry</Value>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Dietary Requirements</Value>
+                            <Value>Dietary Reqs</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox51</rd:DefaultName>
@@ -1491,6 +1681,7 @@ Expiry</Value>
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1502,7 +1693,7 @@ Expiry</Value>
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox53">
                     <CanGrow>true</CanGrow>
@@ -1511,13 +1702,17 @@ Expiry</Value>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Medical Conditions</Value>
+                            <Value>Medical
+Conds</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox53</rd:DefaultName>
@@ -1527,6 +1722,7 @@ Expiry</Value>
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1538,7 +1734,7 @@ Expiry</Value>
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.6cm</Size>
+                <Size>1.5cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox55">
                     <CanGrow>true</CanGrow>
@@ -1549,11 +1745,14 @@ Expiry</Value>
                           <TextRun>
                             <Value>Indemnity Form Signed</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox55</rd:DefaultName>
@@ -1563,6 +1762,47 @@ Expiry</Value>
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixHeader>
+            </TablixMember>
+            <TablixMember>
+              <TablixHeader>
+                <Size>1.5cm</Size>
+                <CellContents>
+                  <Textbox Name="Textbox1">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>Project Sponsored</Value>
+                            <Style>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox1</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Color>LightGrey</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1588,7 +1828,7 @@ Expiry</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>1.70217cm</Size>
+                <Size>1.45cm</Size>
                 <CellContents>
                   <Textbox Name="User_Username">
                     <CanGrow>true</CanGrow>
@@ -1599,11 +1839,13 @@ Expiry</Value>
                           <TextRun>
                             <Value>=Fields!User_Username.Value</Value>
                             <Style>
-                              <FontSize>7pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>User_Username</rd:DefaultName>
@@ -1613,6 +1855,7 @@ Expiry</Value>
                         <Style>None</Style>
                       </Border>
                       <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
                       <PaddingTop>2pt</PaddingTop>
@@ -1626,8 +1869,8 @@ Expiry</Value>
         </TablixRowHierarchy>
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>dsUSERS</DataSetName>
-        <Height>1.1cm</Height>
-        <Width>27.7cm</Width>
+        <Height>2cm</Height>
+        <Width>29.07918cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1635,12 +1878,12 @@ Expiry</Value>
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.43307in</Height>
+    <Height>0.98425in</Height>
     <Style>
       <BackgroundColor>White</BackgroundColor>
     </Style>
   </Body>
-  <Width>27.7cm</Width>
+  <Width>30.20002cm</Width>
   <Page>
     <PageHeader>
       <Height>2cm</Height>
@@ -1732,7 +1975,7 @@ Expiry</Value>
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.5cm</Height>
+      <Height>0.53528cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1753,7 +1996,7 @@ Expiry</Value>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
-          <Top>0cm</Top>
+          <Top>0.03528cm</Top>
           <Height>0.5cm</Height>
           <Width>9.3cm</Width>
           <Style>
@@ -1789,7 +2032,6 @@ Expiry</Value>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
-          <Top>0cm</Top>
           <Left>9.3cm</Left>
           <Height>0.5cm</Height>
           <Width>9.3cm</Width>
@@ -1827,7 +2069,6 @@ Expiry</Value>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
-          <Top>0cm</Top>
           <Left>18.6cm</Left>
           <Height>0.5cm</Height>
           <Width>9.1cm</Width>
@@ -1882,6 +2123,14 @@ Expiry</Value>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
+        <Field Name="Sponsored_UID">
+          <DataField>Sponsored_UID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Project_UID">
+          <DataField>Project_UID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="User_Username">
           <DataField>User_Username</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -2001,9 +2250,9 @@ Expiry</Value>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataAccessLayer.NuRacingDataSetTableAdapters</rd:DataSetName>
-        <rd:TableName>UserTableAdapter</rd:TableName>
+        <rd:TableName>SponsorsTableAdapter</rd:TableName>
         <rd:ObjectDataSourceSelectMethod>GetData</rd:ObjectDataSourceSelectMethod>
-        <rd:ObjectDataSourceType>DataAccessLayer.NuRacingDataSetTableAdapters.UserTableAdapter, DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:ObjectDataSourceType>DataAccessLayer.NuRacingDataSetTableAdapters.SponsorsTableAdapter, DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

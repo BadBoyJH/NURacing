@@ -20,7 +20,7 @@
 		<div id="topBarMenu">	
 				<div id="topMenu">
 					<ul>
-						<li><a href="#" style="TEXT-DECORATION: NONE;"><span>TA Building, School of Engineering, University of Newcastle, Callaghan NSW 2308 &nbsp; &#149;&nbsp; (02) 4925 4937</span></a></li>
+						<li><a href="#" style="TEXT-DECORATION: NONE;"><span>TA Building, School of Engineering, University of Newcastle, Callaghan NSW 2308 &nbsp; &#149;&nbsp; (02) 4925 4937 &nbsp; &#149;&nbsp; <%= DateTime.Now.ToString() %></span></a></li>
 					</ul>
 				</div>
 			</div>	

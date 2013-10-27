@@ -12,9 +12,9 @@
             <div id="col1">
 
                 <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Width="100%" Height="650px">
-                    <LocalReport ReportPath="Reporting\WorkshopReport.rdlc" ReportEmbeddedResource="NURacingWebsite.Reporting.WorkshopReport.rdlc">
+                    <LocalReport ReportPath="Reporting\TakeFiveReport.rdlc" ReportEmbeddedResource="NURacingWebsite.Reporting.TakeFiveReport.rdlc">
                         <DataSources>
-                            <rsweb:ReportDataSource DataSourceId="ObjectDataSource2" Name="dsWORKSHOP" />
+                            <rsweb:ReportDataSource DataSourceId="ObjectDataSource6" Name="dsTAKEFIVES" />
                         </DataSources>
                     </LocalReport>
                 </rsweb:ReportViewer>
