@@ -27,7 +27,7 @@
          <br />
          <asp:Label runat="server" ID="taskDescLbl" CssClass="taskDescLbl"></asp:Label><br />
          <h2>TIME LOGGING</h2>
-         <p>Fill in details of your block of time spent on this task below.</p><br />
+         <p>Please log details of the block of time you have spent on this task below.</p><br />
 
          <div id="timelogging" class="timeLogging">
                             <span>HOURS:&nbsp; </span>

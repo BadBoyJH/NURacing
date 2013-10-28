@@ -18,7 +18,7 @@
        <h1>TASKS -
            <asp:Label ID="lblSectionTitle" runat="server" Text="Label"></asp:Label>
                 </h1>
-                    <p style="text-align: center">Please click on a task below to review progress.</p>
+                    <p style="text-align: center">Please click on a task button below to update a task or review a task and log time spent.</p>
 
                 <br />
  <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="0" GridLines="None">

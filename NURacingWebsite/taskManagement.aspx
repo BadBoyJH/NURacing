@@ -16,7 +16,7 @@
                             <br />
                       <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />  
        <h1>TASK MANAGEMENT</h1>
-                 <p style="text-align: center">Please click an action below</p>
+                 <p style="text-align: center">Please click an action below.</p>
                 <br />
                     <div class="taskDetail">
                     
