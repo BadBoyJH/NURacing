@@ -13,11 +13,11 @@
                  <form id ="Form2" runat="server">    
                         <br />
                             <br />    
-       <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />  
+       <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />         <p style="text-align: center; clear:both;"></p>
                      <div class="taskDetail">
   
          <asp:Label ID="taskTitleLbl" CssClass="taskTitleLbl" runat="server">Task title</asp:Label>
-
+                                <p style="text-align: center; clear:both;"></p>
          <asp:Button ID="takeFiveBtn" CssClass="takeFiveBtn" Text="TAKE FIVE" runat="server" />
          <asp:Label ID="dueDateLbl" CssClass="dueDateLbl" runat="server">Due date</asp:Label>
          <br />

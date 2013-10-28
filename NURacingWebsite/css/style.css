@@ -469,7 +469,8 @@ body {
 	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
     font-size:x-large;
     border-spacing:5px 5px;
-    max-height:100px;
+    height:auto;
+    min-height:50px;
     border-collapse:inherit;
     table-layout:auto;
 }
@@ -739,7 +740,7 @@ text-transform:uppercase;
 }
 .userRole {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    font-size: 11pt;
+    font-size: 12pt;
 	color: #7E7E7E;
 	text-shadow: 1px 1px 1px #000000;
 }
