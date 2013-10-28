@@ -55,15 +55,17 @@ namespace NURacingWebsite
         private void createForm()
         {
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblTaskName.Text = "Task name: ";
+            lblTaskName.Text = "Task Name: ";
             taskFrm.Controls.Add(lblTaskName);
             taskFrm.Controls.Add(taskNameTxtBx);
+            taskNameTxtBx.CssClass = "textareaPassword";
             taskFrm.Controls.Add(new LiteralControl("</p>"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblworkType.Text = "Project type: ";
+            lblworkType.Text = "Project Type: ";
             taskFrm.Controls.Add(lblworkType);
             workTypeDrpList.Items.Clear();
+
             foreach (WorkTypeInfo type in BusinessLogicLayer.WorkTypeInfo.getAllWorkTypes())
             {
                 if (type.Project.Name == type.Name)
@@ -79,25 +81,27 @@ namespace NURacingWebsite
             taskFrm.Controls.Add(new LiteralControl("</p>"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblTaskDesc.Text = "Task description: ";
+            lblTaskDesc.Text = "Task Description: ";
             taskFrm.Controls.Add(lblTaskDesc);
             taskFrm.Controls.Add(taskDescTxtBx);
+            taskDescTxtBx.CssClass = "textareaPassword";
+            taskDescTxtBx.TextMode = TextBoxMode.MultiLine;
             taskFrm.Controls.Add(new LiteralControl("</p>"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblDueDate.Text = "Due date: ";
+            lblDueDate.Text = "Due Date: ";
             taskFrm.Controls.Add(lblDueDate);
             //taskFrm.Controls.Add(taskNaTxtBx);
             taskFrm.Controls.Add(new LiteralControl("</p>"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblTakeFiveNeeded.Text = "Take five needed: ";
+            lblTakeFiveNeeded.Text = "Take Five Needed: ";
             taskFrm.Controls.Add(lblTakeFiveNeeded);
             taskFrm.Controls.Add(takeFiveChkBx);
             taskFrm.Controls.Add(new LiteralControl("</p>"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblAssignTo.Text = "Assign to: ";
+            lblAssignTo.Text = "Assign To: ";
             taskFrm.Controls.Add(lblAssignTo);
             foreach (UserInfo user in BusinessLogicLayer.UserInfo.getAllUsers())
             {
@@ -107,9 +111,10 @@ namespace NURacingWebsite
             taskFrm.Controls.Add(new LiteralControl("</p>"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblTaskStatus.Text = "Task status: ";
+            lblTaskStatus.Text = "Task Status: ";
             taskFrm.Controls.Add(lblTaskStatus);
             taskFrm.Controls.Add(taskStatusTxtBx);
+            taskStatusTxtBx.CssClass = "textareaPassword";
             taskFrm.Controls.Add(new LiteralControl("</p>"));
         }
 
