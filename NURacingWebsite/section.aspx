@@ -10,22 +10,23 @@
 	<div class="colmid">
 		<div class="colleft">
 			<div class="col1">
-
-                    <br />
-                    <br />
-       <h1>SECTIONS</h1>
-                    <p style="text-align: center">Please click on a section below to review progress.</p>
+         <form id ="Form1" runat="server">        
+                <br />
+                            <br />
+       <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />         <p style="text-align: center; clear:both;"></p>
+       <h1>SECTIONS</h1>         
+                    <p style="text-align: center">Please click on a section below to review progress.</p>        
                 <br />
     	<asp:Table ID="tblProjects" runat="server" GridLines="Horizontal" CssClass="tblProjects" class="tblProjects" HorizontalAlign="Center">
             </asp:Table>
 
-                <br />
+                <br /></form>
 </div>
 			<div class="col2">
 			</div>
 			<div class="col3">
 			</div>
- 
+             
 		</div>
 	</div>
  </div>

@@ -60,16 +60,24 @@ namespace ConsoleTesting
              */
 
             User.addUser("TestAcc", "abc123lol", "Administrator", "Steve", "McQueen", "NuRacingTest@westnet.com.au", "StudentNumber", "YearOfGraduation Fake Data", "DegreeName Fake Data", "MedicareNumber Fake Data", "Allergies Fake Data", "MedicalConditions Fake Data", "DietaryRequirements Fake Data", true, "SAEMembershipNumber Fake Data", DateTime.Now.AddYears(2), "CAMSMembershipNumber Fake Data", "CAMSLicenseType Fake Data", "DriversLicenseNumber Fake Data", "DriversLicenseState Fake Data", "EmergencyContactName Fake Data", "EmergencyContactPhoneNumber Fake Data");
-
+            User.addUser("asdfsdfsd","abc123lol" ,"Administrator","ddddddd","sdgsdg","ddddddd@ddddd.com","c3145577", "YearOfGraduation Fake Data", "DegreeName Fake Data", "MedicareNumber Fake Data", "Allergies Fake Data", "MedicalConditions Fake Data", "DietaryRequirements Fake Data", true, "SAEMembershipNumber Fake Data", DateTime.Now.AddYears(2), "CAMSMembershipNumber Fake Data", "CAMSLicenseType Fake Data", "DriversLicenseNumber Fake Data", "DriversLicenseState Fake Data", "EmergencyContactName Fake Data", "EmergencyContactPhoneNumber Fake Data");
+            User.addUser("Bob Saget","abc123lol","Administrator","Sagettttt","Bobbbbbbb","Callanbush2@hotmail.com", "11111111111", "YearOfGraduation Fake Data", "DegreeName Fake Data", "MedicareNumber Fake Data", "Allergies Fake Data", "MedicalConditions Fake Data", "DietaryRequirements Fake Data", true, "SAEMembershipNumber Fake Data", DateTime.Now.AddYears(2), "CAMSMembershipNumber Fake Data", "CAMSLicenseType Fake Data", "DriversLicenseNumber Fake Data", "DriversLicenseState Fake Data", "EmergencyContactName Fake Data", "EmergencyContactPhoneNumber Fake Data");
+            User.addUser("Smoogy","abc123lol","Administrator","Cush","Ballan","Callanbush2@hotmail.com","c3145510", "YearOfGraduation Fake Data", "DegreeName Fake Data", "MedicareNumber Fake Data", "Allergies Fake Data", "MedicalConditions Fake Data", "DietaryRequirements Fake Data", true, "SAEMembershipNumber Fake Data", DateTime.Now.AddYears(2), "CAMSMembershipNumber Fake Data", "CAMSLicenseType Fake Data", "DriversLicenseNumber Fake Data", "DriversLicenseState Fake Data", "EmergencyContactName Fake Data", "EmergencyContactPhoneNumber Fake Data");
+            
+            
+            /*
             Project.addDefaultCar("Big Red Car", 0, "Chugga Chugga big red car");
 
             Project.addDefaultCar("NU17", 2015, "The car that James deserves", true);
-   
-            AssignedTask.addTask("TestAcc", "TestAcc", 1, new DateTime(2013, 10, 15), "Do Stuff", "Do some stuff really well", false);
-            AssignedTask.addTask("TestAcc", "TestAcc", 1, new DateTime(2013, 10, 15), "Do Moree Stuff", "Do some stuff even well", false);
-            AssignedTask.addTask("TestAcc", "TestAcc", 1, new DateTime(2013, 10, 15), "Do Even More Stuff", "Do some stuff very well", false);
-            AssignedTask.addTask("TestAcc", "TestAcc", 1, new DateTime(2013, 10, 15), "Do All The Stuff", "Yeah Whatever", false);
+    
+            List<string> assignedUser = new List<string>();
+            assignedUser.Add("TestAcc");
 
+            AssignedTask.addTask("TestAcc", assignedUser, 1, new DateTime(2013, 10, 15), "Do Stuff", "Do some stuff really well", false);
+            AssignedTask.addTask("TestAcc", assignedUser, 1, new DateTime(2013, 10, 15), "Do Moree Stuff", "Do some stuff even well", false);
+            AssignedTask.addTask("TestAcc", assignedUser, 1, new DateTime(2013, 10, 15), "Do Even More Stuff", "Do some stuff very well", false);
+            AssignedTask.addTask("TestAcc", assignedUser, 1, new DateTime(2013, 10, 15), "Do All The Stuff", "Yeah Whatever", false);
+            */
             Console.WriteLine("Done adding data");
 
             Console.ReadLine();

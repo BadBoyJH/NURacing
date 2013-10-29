@@ -8,21 +8,24 @@
 	<div class="colmid">
 		<div class="colleft">
 			<div class="col1">
-                <br />
-                <br />
-
+                <form id ="Form1" runat="server">
+                       <br />
+                            <br />
+                 <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />       <p style="text-align: center; clear:both;"></p>  
                 <h1>CREATE A PROJECT</h1>
-                <form runat="server">
+                    <p>Please fill in the following to create a new Project.</p>
+           <br />
                 <div class="taskMngement">
+        
                 <asp:PlaceHolder runat="server" ID="createProjFrm"></asp:PlaceHolder>
                     <asp:Button runat="server" ID="submitProjBtn" CssClass="takeFiveBtn" Text="SUBMIT" OnClick="submitProjBtn_Click"/>
                     </div>
-                </form>
+              
 			<div class="col2">
 			</div>
 			<div class="col3">
 			</div>
- 
+ </form>
 		</div>
 	</div>
  </div>

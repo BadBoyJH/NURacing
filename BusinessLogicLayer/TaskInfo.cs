@@ -18,7 +18,7 @@ namespace BusinessLogicLayer
 
         private UserInfo assigningUserInfo;
 
-        private UserInfo userAssignedInfo;
+        private List<UserInfo> userAssignedInfo;
 
         private int workTypeID;
 
@@ -52,7 +52,7 @@ namespace BusinessLogicLayer
             }
         }
 
-        public UserInfo UserAssignedInfo
+        public List<UserInfo> UserAssignedInfo
         {
             get
             {
@@ -160,8 +160,6 @@ namespace BusinessLogicLayer
         {
             assigningUserInfo = UserInfo.getUser(taskRow.User_Username_AssignedBy);
 
-            userAssignedInfo = UserInfo.getUser(taskRow.User_Username_AssignedTo);
-
             taskID = taskRow.Task_UID;
 
             workTypeID = taskRow.WorkType_UID;
@@ -183,6 +181,16 @@ namespace BusinessLogicLayer
             }
 
             dueDate = taskRow.Task_DueDate;
+
+            AssignedUserTableAdapter assignedUserAdapter = new AssignedUserTableAdapter();
+            NuRacingDataSet.AssignedUserDataTable assignedUserTable = assignedUserAdapter.GetDataByTaskID(TaskID);
+
+            userAssignedInfo = new List<UserInfo>(assignedUserTable.Rows.Count);
+
+            foreach (NuRacingDataSet.AssignedUserRow assignedUserRow in assignedUserTable.Rows)
+            {
+                userAssignedInfo.Add(UserInfo.getUser(assignedUserRow.User_Username));
+            }
         }
 
         /// <summary>
@@ -309,49 +317,63 @@ namespace BusinessLogicLayer
 
         public void updateDatabase()
         {
-            AssignedTaskTableAdapter taskAdapter = new AssignedTaskTableAdapter();
-            NuRacingDataSet.AssignedTaskDataTable taskTable = taskAdapter.GetAssignedTask(taskID);
-            NuRacingDataSet.AssignedTaskRow taskRow = (NuRacingDataSet.AssignedTaskRow) taskTable.Rows[0];
-            taskRow.WorkType_UID = workTypeID;
-            taskRow.Task_Name = taskName;
-            taskRow.Task_Description = taskDescription;
-            taskRow.Task_TakeFiveNeeded = takeFiveNeeded;
-            taskRow.Task_DueDate = dueDate;
+            if (beenChanged)
+            {
+                AssignedTaskTableAdapter taskAdapter = new AssignedTaskTableAdapter();
+                NuRacingDataSet.AssignedTaskDataTable taskTable = taskAdapter.GetAssignedTask(taskID);
+                NuRacingDataSet.AssignedTaskRow taskRow = (NuRacingDataSet.AssignedTaskRow)taskTable.Rows[0];
+                taskRow.WorkType_UID = workTypeID;
+                taskRow.Task_Name = taskName;
+                taskRow.Task_Description = taskDescription;
+                taskRow.Task_TakeFiveNeeded = takeFiveNeeded;
+                taskRow.Task_DueDate = dueDate;
 
-            taskAdapter.Update(taskTable);
+                taskAdapter.Update(taskTable);
+            }
         }
 
         public void resetData()
         {
-            AssignedTaskTableAdapter assignedTaskAdapter = new AssignedTaskTableAdapter();
-            NuRacingDataSet.AssignedTaskDataTable assignedTaskTable = assignedTaskAdapter.GetAssignedTask(taskID);
-            NuRacingDataSet.AssignedTaskRow taskRow = (NuRacingDataSet.AssignedTaskRow)assignedTaskTable.Rows[0];
-
-            assigningUserInfo = UserInfo.getUser(taskRow.User_Username_AssignedBy);
-
-            userAssignedInfo = UserInfo.getUser(taskRow.User_Username_AssignedTo);
-
-            taskID = taskRow.Task_UID;
-
-            workTypeID = taskRow.WorkType_UID;
-
-            taskName = taskRow.Task_Name;
-
-            taskDescription = taskRow.Task_Description;
-
-            takeFiveNeeded = taskRow.Task_TakeFiveNeeded;
-
-            if (!taskRow.IsTask_StatusNull())
+            if (!beenChanged)
             {
-                taskStatus = taskRow.Task_Status;
+                AssignedTaskTableAdapter assignedTaskAdapter = new AssignedTaskTableAdapter();
+                NuRacingDataSet.AssignedTaskDataTable assignedTaskTable = assignedTaskAdapter.GetAssignedTask(taskID);
+                NuRacingDataSet.AssignedTaskRow taskRow = (NuRacingDataSet.AssignedTaskRow)assignedTaskTable.Rows[0];
 
-                if (!taskRow.IsTask_IncompleteReasonNull())
+                assigningUserInfo = UserInfo.getUser(taskRow.User_Username_AssignedBy);
+
+                taskID = taskRow.Task_UID;
+
+                workTypeID = taskRow.WorkType_UID;
+
+                taskName = taskRow.Task_Name;
+
+                taskDescription = taskRow.Task_Description;
+
+                takeFiveNeeded = taskRow.Task_TakeFiveNeeded;
+
+                if (!taskRow.IsTask_StatusNull())
                 {
-                    taskIncompleteReason = taskRow.Task_IncompleteReason;
+                    taskStatus = taskRow.Task_Status;
+
+                    if (!taskRow.IsTask_IncompleteReasonNull())
+                    {
+                        taskIncompleteReason = taskRow.Task_IncompleteReason;
+                    }
+                }
+
+                dueDate = taskRow.Task_DueDate;
+
+                AssignedUserTableAdapter assignedUserAdapter = new AssignedUserTableAdapter();
+                NuRacingDataSet.AssignedUserDataTable assignedUserTable = assignedUserAdapter.GetDataByTaskID(TaskID);
+
+                userAssignedInfo = new List<UserInfo>(assignedUserTable.Rows.Count);
+
+                foreach (NuRacingDataSet.AssignedUserRow assignedUserRow in assignedUserTable.Rows)
+                {
+                    userAssignedInfo.Add(UserInfo.getUser(assignedUserRow.User_Username));
                 }
             }
-
-            dueDate = taskRow.Task_DueDate;
         }
     }
 }

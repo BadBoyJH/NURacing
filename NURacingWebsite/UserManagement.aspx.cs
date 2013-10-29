@@ -88,7 +88,7 @@ namespace NURacingWebsite
              userDrpList.Items.Add(user.UserName);
          }
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
-         lblWhichUser.Text = "Which user? ";
+         lblWhichUser.Text = "Username: ";
          createUserFrm.Controls.Add(lblWhichUser);
          createUserFrm.Controls.Add(userDrpList);
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
@@ -108,6 +108,7 @@ namespace NURacingWebsite
          userNameTxtBx.ID = "userNameTxtBx";
          createUserFrm.Controls.Add(LblUserName);
          createUserFrm.Controls.Add(userNameTxtBx);
+         userNameTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
          if (update)
          {
@@ -124,6 +125,8 @@ namespace NURacingWebsite
          lblPassword.Text = "Password: ";
          createUserFrm.Controls.Add(lblPassword);
          createUserFrm.Controls.Add(passwordTxtBx);
+         passwordTxtBx.CssClass = "textareaPassword";
+         passwordTxtBx.TextMode = TextBoxMode.Password;
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
@@ -140,60 +143,70 @@ namespace NURacingWebsite
          lblgivenName.Text = "Given name: ";
          createUserFrm.Controls.Add(lblgivenName);
          createUserFrm.Controls.Add(givenNameTxtBx);
+         givenNameTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lblsurname.Text = "Surname: ";
          createUserFrm.Controls.Add(lblsurname);
          createUserFrm.Controls.Add(surnameTxtBx);
+         surnameTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lblEmail.Text = "Email: ";
          createUserFrm.Controls.Add(lblEmail);
          createUserFrm.Controls.Add(emailTxtBx);
+         emailTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lblStdNum.Text = "Student number: ";
          createUserFrm.Controls.Add(lblStdNum);
          createUserFrm.Controls.Add(stdNumTxtBx);
+         stdNumTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lblGradYear.Text = "Graduation year: ";
          createUserFrm.Controls.Add(lblGradYear);
          createUserFrm.Controls.Add(gradYearTxtBx);
+         gradYearTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lblDegreeName.Text = "Degree name: ";
          createUserFrm.Controls.Add(lblDegreeName);
          createUserFrm.Controls.Add(degreeNameTxtBx);
+         degreeNameTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lblMedicareNum.Text = "Medicare number: ";
          createUserFrm.Controls.Add(lblMedicareNum);
          createUserFrm.Controls.Add(medicareNumTxtBx);
+         medicareNumTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lblAllergies.Text = "Allergies: ";
          createUserFrm.Controls.Add(lblAllergies);
          createUserFrm.Controls.Add(allergiesTxtBx);
+         allergiesTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lblMedicalCond.Text = "Medical conditions: ";
          createUserFrm.Controls.Add(lblMedicalCond);
          createUserFrm.Controls.Add(medicalCondTxtBx);
+         medicalCondTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lbldietryReq.Text = "Dietry requirements: ";
          createUserFrm.Controls.Add(lbldietryReq);
          createUserFrm.Controls.Add(dietryReqTxtBx);
+         dietryReqTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
@@ -206,12 +219,14 @@ namespace NURacingWebsite
          lblSAEMemshpNum.Text = "SAE Membership number: ";
          createUserFrm.Controls.Add(lblSAEMemshpNum);
          createUserFrm.Controls.Add(SAEMemshpTxtBx);
+         SAEMemshpTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lblSAEMemshpNum.Text = "SAE Membership number: ";
          createUserFrm.Controls.Add(lblSAEMemshpNum);
          createUserFrm.Controls.Add(SAEMemshpTxtBx);
+         SAEMemshpTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
@@ -224,42 +239,49 @@ namespace NURacingWebsite
          lblSAEMemshpNum.Text = "SAE Membership number: ";
          createUserFrm.Controls.Add(lblSAEMemshpNum);
          createUserFrm.Controls.Add(SAEMemshpTxtBx);
+         SAEMemshpTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lblCAMSMbrshpNum.Text = "CAMS Membership number: ";
          createUserFrm.Controls.Add(lblCAMSMbrshpNum);
          createUserFrm.Controls.Add(CAMSMbrshpNum);
+         CAMSMbrshpNum.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lblCAMSLicType.Text = "CAMS License type: ";
          createUserFrm.Controls.Add(lblCAMSLicType);
          createUserFrm.Controls.Add(CAMSLicTypeTxtBx);
+         CAMSLicTypeTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lblDrivLicNum.Text = "Driver's license number: ";
          createUserFrm.Controls.Add(lblDrivLicNum);
          createUserFrm.Controls.Add(drivLicNumTxtBx);
+         drivLicNumTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lblDrivLicState.Text = "Driver's license state: ";
          createUserFrm.Controls.Add(lblDrivLicState);
          createUserFrm.Controls.Add(drivLicStateTxtBx);
+         drivLicStateTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lblemerContName.Text = "Emergency contact name: ";
          createUserFrm.Controls.Add(lblemerContName);
          createUserFrm.Controls.Add(emerContNameTxtBx);
+         emerContNameTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          createUserFrm.Controls.Add(new LiteralControl("<p>"));
          lblemerContNum.Text = "Emergency contact phone number: ";
          createUserFrm.Controls.Add(lblemerContNum);
          createUserFrm.Controls.Add(emerContNumTxtBx);
+         emerContNumTxtBx.CssClass = "textareaPassword";
          createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
          if (!pageLoad)

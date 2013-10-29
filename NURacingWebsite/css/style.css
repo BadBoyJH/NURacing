@@ -21,20 +21,14 @@ menu, footer, header, nav, section, summary, time, mark, audio, video {
 	border-style: none;
     border-color: inherit;
     border-width: 0;    
-    margin: 0 0 2px 0;
+    margin: 0 0 0 0;
 
 }
 
 html{
     border-color: inherit;
     border-width: 0;    
-    margin: 0 0 2px 0;
-
-}
-
-article, aside, canvas, figure, figure img, figcaption, hgroup,
-footer, header, nav, section, audio, video {
-	display: block;
+    margin: 0 0 0 0;
 }
 
 a img {border: 0;}
@@ -49,14 +43,12 @@ p {
 	text-shadow: 1px 1px 1px #000000;
 }
 
-
 #lblUsername {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 11pt;
 	color: #7E7E7E;
 	text-shadow: 1px 1px 1px #000000;
 }
-
 
 #lblPassword {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -66,7 +58,7 @@ p {
 }
 
 #lblRemember{
-    	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 11pt;
 	color: #7E7E7E;
 	text-shadow: 1px 1px 1px #000000;
@@ -85,18 +77,17 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
     margin: 0px;
 	margin-bottom: 10px;
-
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Oswald', sans-serif; font-size: 30px; 
 	font-weight: 400;
 	text-shadow: 1px 1px 1px #282828;
     text-transform:uppercase;
 }
 
-h1 { font-size: 60px; line-height: 60px; margin-bottom: 15px;    color: #A8A8A8;}
+h1 { font-size: 60px; line-height: 60px;    margin-bottom: 15px;    color: #A8A8A8;}
 h2 { font-size: 30px; line-height: 30px;    color: #A8A8A8;}
 h3 { font-size: 26px; line-height: 26px;    color: #A8A8A8;}
 h4 { font-size: 22px; line-height: 22px;    color: #A8A8A8;}
-h5 { font-size: 18px; line-height: 18px;  color: #FFFFFF;}
+h5 { font-size: 18px; line-height: 18px;    color: #FFFFFF;}
 h6 { font-size: 14px; line-height: 14px;    color: #A8A8A8;}
 
 
@@ -117,6 +108,74 @@ h6 { font-size: 14px; line-height: 14px;    color: #A8A8A8;}
 	box-shadow:         0px 9px 30px rgba(0, 0, 0, 1);
     z-index:3;
 }
+.colmaskhead {
+	clear:both;
+	float:left;
+	width:100%;		
+	overflow:hidden;	
+	height: auto !important;
+    min-height: 100%;
+    position: relative;
+	}
+
+.colrighthead,
+.colmidhead,
+.collefthead {
+	float:left;
+	width:100%;			
+	position:relative;
+	height: auto !important;
+    min-height: 100%;
+}
+
+
+.col1head,
+.col2head,
+.col3head {
+	float:left;
+	position:relative;
+	padding:0 0 1em 0;	
+	height: auto !important;
+    min-height: 100%;
+    text-align:center;
+}
+
+.threecolhead {
+	background: none;	
+	height: auto !important;
+    min-height: 100%;
+   
+}
+
+.threecolhead .colmidhead {
+	right:25%;			
+	background:none;
+        	 		
+}
+
+.threecolhead .collefthead {
+	right:50%;			
+	background: none;	
+
+}
+
+.threecolhead .col1head {
+	width:65%;			
+	left:93%;	
+     background-color:none;
+}
+
+.threecolhead .col2head {
+	width:21%;			
+	left:31%;			
+}
+
+.threecolhead .col3head {
+	width:21%;			
+	left:85%;			
+}
+
+
 
 
 /* BODY */
@@ -126,10 +185,9 @@ body {
 	padding:0;
     height:auto;
 	border:0;			
-	width:100%;
 	background: url("../images/background/bg_vertical_1.png") repeat;
 	text-align:center;
-	margin-bottom:0px;
+
 	}
     
 .colmask {
@@ -140,7 +198,6 @@ body {
 	height: auto !important;
     min-height: 100%;
     position: relative;
-
 	}
 
 .colright,
@@ -232,14 +289,14 @@ body {
 
 }
 /* FOOTER COMPATIBILITY WITH IE10*/
-* html #footer {
+#footer {
    position:relative;
    top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
    margin-top:20px;
 }
 
 
-/* TOP ORANGE BAR */
+/* TOP ORANGE BAR*/
 
 #topBarMenu {
 	width: 100%;
@@ -247,7 +304,7 @@ body {
     min-height:30px;
 	float: left;
 	background: #E55F05;
-	padding-left:5%;
+	/*padding-left:5%;*/
 	-webkit-box-shadow: 0px 9px 30px rgba(0, 0, 0, 1);
 	-moz-box-shadow:    0px 9px 30px rgba(0, 0, 0, 1);
 	box-shadow:         0px 9px 30px rgba(0, 0, 0, 1);
@@ -286,12 +343,19 @@ body {
 /* NAVIGATION (NOT VISIBLE ON LOGIN PAGE) */
 
 #menu {
+
+     position:relative;
+    left:0px;
+    top:0px;
+    height:auto;
+    width:100%;
+    clear:both;
+    float:left;
     clear:both;
 	height: auto;
 	float: left;
-	width:100%;		
-    position: relative;
-    margin-left:22.5%;
+	width:100%;	
+    text-align:center;
     margin-top:30px;
 }
 
@@ -377,23 +441,48 @@ body {
     margin-left:10px;
 }
 
+
+.btnEnquiry {
+	color: #FFFFFF;
+	font-family: 'Cuprum', sans-serif;
+	margin-top: 10px;
+	font-size: 16px;
+	line-height: 34px;
+    display: inline-block;
+    padding: 1px 15px 6px 15px;
+	height: 36px;
+	background-color: #E55F05;
+	-moz-border-radius: 7px; 
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	-webkit-box-shadow: 0px 1px 1px #2e2e2e;
+	-moz-box-shadow: 0px 1px 1px #2e2e2e;
+	box-shadow: 0px 1px 1px #2e2e2e;
+    border: none;
+	float: right;
+    margin-left:10px;
+}
+
 .tblProjects {
 	margin-left:auto;
     margin-right:auto;
 	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
     font-size:x-large;
     border-spacing:5px 5px;
-    max-height:100px;
+    height:auto;
+    min-height:50px;
     border-collapse:inherit;
     table-layout:auto;
+    min-width:40%;
+    width:auto;
 }
 .tblProjects td
 {
     overflow:scroll;
 	background-color: #E55F05;
-    border:thick;
-	width:300px;
-	height: 150px;
+    width:300px;
+	min-height: 150px;
+    height:auto;
     padding:5px;
     text-align:center;
     white-space:pre-line;
@@ -405,6 +494,7 @@ body {
 	-moz-box-shadow:    9px 9px 30px rgba(0, 0, 0, 1);
 	box-shadow:         9px 9px 30px rgba(0, 0, 0, 1);
     padding-bottom:10px;
+
 }
 .tblProjects a {
     text-transform:uppercase;
@@ -434,7 +524,7 @@ background-color:#7F7F7F;
 	border:none;
 	background-color:#7F7F7F;}
 
-.input-textareaPassword {	
+.textareaPassword {	
     border: 0px solid #d2d1cf;
 	margin-bottom: 10px;
     padding:4px;
@@ -444,8 +534,20 @@ background-color:#7F7F7F;
 	color: #7E7E7E;
     vertical-align:middle;
 }
-.loginForm {
+
+
+.lstBxFormat {	
+    border: 0px solid #d2d1cf;
+	margin-bottom: 10px;
+    padding:4px;
+    background-color: #2D2D2D;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 11pt;
+	color: #7E7E7E;
+    vertical-align:middle;
 }
+
+
 .input-submitLogin {
 width: 135px;
 color: #fff;
@@ -497,18 +599,21 @@ cursor: pointer;
 	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
     font-size:x-large;
     border-spacing:5px 5px;
+    border:none;
 }
 
 .todoTable th {
-    background-color:white;
+    background-color:none;
     border:none;
+    font-family: 'Oswald', sans-serif; font-size: 30px; line-height: 30px;    color: #A8A8A8;
     }
 
 .todoTable td
 {
+    vertical-align: top;
     overflow:scroll;
-	background-color:#7F7F7F;
-    border:thick;
+	background-color:none;
+    border-top:2px #A8A8A8;
 	width:500px;	
 	height: 100px;
     padding:5px;
@@ -516,8 +621,32 @@ cursor: pointer;
     white-space:pre-line;
     overflow-x:auto;
     overflow-y:auto;
-    border-style:solid;
+    text-transform:uppercase;
+    color: #A8A8A8;
 }
+
+.todoTable a {
+    color: #FFFFFF;
+	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
+    text-transform:uppercase;
+	margin-top: 10px;
+	font-size:x-large;
+	line-height: 34px;
+    display: inline-block;
+    padding: 1px 15px 6px 15px;
+	height: 36px;
+	background-color: #E55F05;
+	-moz-border-radius: 7px; 
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	-webkit-box-shadow: 0px 1px 1px #2e2e2e;
+	-moz-box-shadow: 0px 1px 1px #2e2e2e;
+	box-shadow: 0px 1px 1px #2e2e2e;
+    border: none;
+	float: left;
+    }
+
+
 .taskDetail {
     width:80%;
     margin-left:auto;
@@ -530,7 +659,7 @@ text-transform:uppercase;
 
 }
 .dueDateLbl {
-    float:right;
+    float:left;
 	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
     font-size:30px;
     color:#7F7F7F;
@@ -563,38 +692,58 @@ text-transform:uppercase;
 }
 .taskDescLbl {
     width:100%;
-    max-width:150%;
     min-height:40%;
+    height:auto;
     font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
     font-size:large;
     margin-top:10px;
     overflow:scroll;
-    border:solid;
-    border-color:#7F7F7F;
+    border:none;
     float:left;
     text-align:left;
-    background-color:white;
+    color: #A8A8A8;
+    background-color:none;
 }
 .timeLogging {
     font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
-    border:solid; 
-    border-color:#7F7F7F; 
-    background-color:white;
+    border:none;
+    background-color:none;
     min-height: 40%;
     text-transform:uppercase;
+    color: #A8A8A8;
+ 
 }
+
 .taskHrMinTxtBx {
-    width:10px;
+    width:20px;
+    border: none;
+	margin-bottom: 10px;
+    padding:4px;
+    background-color: #2D2D2D;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 11pt;
+	color: #7E7E7E;
+    vertical-align:middle;
 }
 .taskDescTxtBx {
     width:80%;
+        border: none;
+	margin-bottom: 10px;
+    padding:4px;
+    background-color: #2D2D2D;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 11pt;
+	color: #7E7E7E;
+    vertical-align:middle;
+    min-height:50px;
+    height:auto;
 }
 .accountOptions {
     margin-left:auto;
 }
 .userRole {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    font-size: 11pt;
+    font-size: 12pt;
 	color: #7E7E7E;
 	text-shadow: 1px 1px 1px #000000;
 }
@@ -678,6 +827,44 @@ text-transform:uppercase;
     text-shadow: 1px 1px 1px #000000;
 }
 
+.tblReports{
+	margin-left:auto;
+    margin-right:auto;
+	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
+    font-size:x-large;
+    border-spacing:5px 5px;
+ 
+    border-collapse:inherit;
+    table-layout:auto;
+}
+.tblReports td
+{
+	background-color: #E55F05;
+    border:thick;
+    height:20px;
+    min-height:20px;
+    width:100%;
+    padding:2px;
+    padding-left:15px;
+     padding-right:15px;
+    text-align:center;
+    overflow-x:auto;
+    overflow-y:auto;
+    vertical-align:top;
+    -webkit-box-shadow: 9px 9px 30px rgba(0, 0, 0, 1);
+	-moz-box-shadow:    9px 9px 30px rgba(0, 0, 0, 1);
+	box-shadow:         9px 9px 30px rgba(0, 0, 0, 1);
+}
+.tblReports a {
+    text-transform:uppercase;
+    font-size:38px;
+    color:#FFFFFF;
+}
 
-
+.projectIcon {
+    font-family: 'Wingdings';
+    font-weight:bold;
+    font-size:45px;
+    margin-right:15px;
+}
 

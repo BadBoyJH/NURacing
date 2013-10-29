@@ -8,15 +8,20 @@ using System.Web.Security;
 
 namespace NURacingWebsite
 {
-    public partial class Site1 : System.Web.UI.MasterPage
+    public partial class LoggedIn : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             MembershipUser user = Membership.GetUser(false);
             if (user == null)
             {
-                Response.Redirect("login.aspx");
-            }            
+                Response.Redirect("/login.aspx");
+            }
+        }
+
+        public void hideFooter()
+        {
+            footer.Visible = false;
         }
     }
 }

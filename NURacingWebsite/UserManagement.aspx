@@ -5,15 +5,18 @@
 	<div class="colmid">
 		<div class="colleft">
 			<div class="col1">
-
-                    <br />
-                    <br />
+     <form id ="Form1" runat="server">
+         <br />
+                            <br />
+                      <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />         <p style="text-align: center; clear:both;"></p>
 
        <h1>USER MANAGEMENT</h1>
                     <p style="text-align: center">Please click an action below.</p>
+                
                 <br />
                     <div class="taskDetail">
-                        <form id="frmLayout" runat="server">
+
+
                             <asp:Button ID="btnUpdateUser" CssClass="takeFiveBtn" Text="UPDATE USER" runat="server" OnClick="btnUpdateUser_Click" />
                             <asp:Button ID="btnCreateUser" CssClass="takeFiveBtn" Text="CREATE USER" runat="server" OnClick="btnCreateUser_Click" />
                             <br />
@@ -27,8 +30,8 @@
                             </div>
                         <%-- <asp:Label id="createUserFrm" runat="server" CssClass="taskMngement"></asp:Label>--%>
 
-                        </form>
-                    </div>
+                        
+                    </div></form>
     </div>
 			<div class="col2">
 			</div>

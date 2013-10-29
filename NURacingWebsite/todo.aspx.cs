@@ -14,11 +14,9 @@ namespace NURacingWebsite
 {
     public partial class todo : System.Web.UI.Page
     {
-        String user;
         protected void Page_Load(object sender, EventArgs e)
         {
             fillData();
-            user = Membership.GetUser().ToString();
         }
 
         public DataSet fillData()
