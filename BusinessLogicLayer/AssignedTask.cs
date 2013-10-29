@@ -12,6 +12,28 @@ namespace BusinessLogicLayer
 {
     public static class AssignedTask
     {
+        private static int getTaskID(string assigningUser, int workType, DateTime dueDate, string name, string description, bool takeFiveNeeded)
+        {
+            AssignedTaskTableAdapter assignedTaskAdapter = new AssignedTaskTableAdapter();
+
+            NuRacingDataSet.AssignedTaskDataTable assignedTaskTable = assignedTaskAdapter.GetData();
+
+            foreach (NuRacingDataSet.AssignedTaskRow assignedTaskRow in assignedTaskTable.Rows)
+            {
+                if (assignedTaskRow.User_Username_AssignedBy == assigningUser &&
+                    assignedTaskRow.WorkType_UID == workType &&
+                    assignedTaskRow.Task_Name == name &&
+                    assignedTaskRow.Task_Description == description &&
+                    assignedTaskRow.Task_TakeFiveNeeded == takeFiveNeeded &&
+                    assignedTaskRow.Task_DueDate.Date == dueDate.Date)
+                {
+                    return assignedTaskRow.Task_UID;
+                }
+            }
+
+            throw new ArgumentException("Unknown error connecting adding work to database");
+        }
+
         /// <summary>
         /// Adds a task for the specified user and send them an email notification.
         /// </summary>
@@ -50,12 +72,14 @@ namespace BusinessLogicLayer
             AssignedUserTableAdapter assignedUserAdapter = new AssignedUserTableAdapter();
             NuRacingDataSet.AssignedUserDataTable assignedUserTable = assignedUserAdapter.GetData();
 
+            int TaskID = getTaskID(assigningUser, workType, dueDate, name, description, takeFiveNeeded);
+
             foreach (string assignedToUser in assignedToUsers)
             {
                 NuRacingDataSet.AssignedUserRow assignedUserRow = assignedUserTable.NewAssignedUserRow();
 
                 assignedUserRow.User_Username = assignedToUser;
-                assignedUserRow.AssignedTaskRow = assignedTaskRow;
+                assignedUserRow.Task_UID = TaskID;
 
                 assignedUserTable.AddAssignedUserRow(assignedUserRow);
 

@@ -4135,8 +4135,6 @@ namespace DataAccessLayer {
                 base.Columns.Add(this.columnTask_UID);
                 this.columnWork_TakeFiveTaken = new global::System.Data.DataColumn("Work_TakeFiveTaken", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWork_TakeFiveTaken);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnTask_UID}, false));
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint2", new global::System.Data.DataColumn[] {
                                 this.columnWork_UID}, true));
                 this.columnWork_UID.AutoIncrement = true;
@@ -4147,7 +4145,6 @@ namespace DataAccessLayer {
                 this.columnWork_DateCompleted.AllowDBNull = false;
                 this.columnWork_Description.MaxLength = 255;
                 this.columnWorkType_UID.AllowDBNull = false;
-                this.columnTask_UID.Unique = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -16839,7 +16836,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `assignedtask` WHERE ((`Task_UID` = @Original_Task_UID) AND (`User_Username_AssignedBy` = @Original_User_Username_AssignedBy) AND (`WorkType_UID` = @Original_WorkType_UID) AND ((@IsNull_Task_Name = 1 AND `Task_Name` IS NULL) OR (`Task_Name` = @Original_Task_Name)) AND ((@IsNull_Task_Description = 1 AND `Task_Description` IS NULL) OR (`Task_Description` = @Original_Task_Description)) AND ((@IsNull_Task_TakeFiveNeeded = 1 AND `Task_TakeFiveNeeded` IS NULL) OR (`Task_TakeFiveNeeded` = @Original_Task_TakeFiveNeeded)) AND ((@IsNull_Task_DueDate = 1 AND `Task_DueDate` IS NULL) OR (`Task_DueDate` = @Original_Task_DueDate)) AND ((@IsNull_Task_Status = 1 AND `Task_Status` IS NULL) OR (`Task_Status` = @Original_Task_Status)) AND ((@IsNull_Task_IncompleteReason = 1 AND `Task_IncompleteReason` IS NULL) OR (`Task_IncompleteReason` = @Original_Task_IncompleteReason)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `AssignedTask` WHERE ((`Task_UID` = @Original_Task_UID) AND (`User_Username_AssignedBy` = @Original_User_Username_AssignedBy) AND (`WorkType_UID` = @Original_WorkType_UID) AND ((@IsNull_Task_Name = 1 AND `Task_Name` IS NULL) OR (`Task_Name` = @Original_Task_Name)) AND ((@IsNull_Task_Description = 1 AND `Task_Description` IS NULL) OR (`Task_Description` = @Original_Task_Description)) AND ((@IsNull_Task_TakeFiveNeeded = 1 AND `Task_TakeFiveNeeded` IS NULL) OR (`Task_TakeFiveNeeded` = @Original_Task_TakeFiveNeeded)) AND ((@IsNull_Task_DueDate = 1 AND `Task_DueDate` IS NULL) OR (`Task_DueDate` = @Original_Task_DueDate)) AND ((@IsNull_Task_Status = 1 AND `Task_Status` IS NULL) OR (`Task_Status` = @Original_Task_Status)) AND ((@IsNull_Task_IncompleteReason = 1 AND `Task_IncompleteReason` IS NULL) OR (`Task_IncompleteReason` = @Original_Task_IncompleteReason)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Original_Task_UID";
@@ -16969,7 +16966,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `assignedtask` (`User_Username_AssignedBy`, `WorkType_UID`, `Task_Name`, `Task_Description`, `Task_TakeFiveNeeded`, `Task_DueDate`, `Task_Status`, `Task_IncompleteReason`) VALUES (@User_Username_AssignedBy, @WorkType_UID, @Task_Name, @Task_Description, @Task_TakeFiveNeeded, @Task_DueDate, @Task_Status, @Task_IncompleteReason)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `AssignedTask` (`User_Username_AssignedBy`, `WorkType_UID`, `Task_Name`, `Task_Description`, `Task_TakeFiveNeeded`, `Task_DueDate`, `Task_Status`, `Task_IncompleteReason`) VALUES (@User_Username_AssignedBy, @WorkType_UID, @Task_Name, @Task_Description, @Task_TakeFiveNeeded, @Task_DueDate, @Task_Status, @Task_IncompleteReason)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@User_Username_AssignedBy";
@@ -17029,7 +17026,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `assignedtask` SET `User_Username_AssignedBy` = @User_Username_AssignedBy, `WorkType_UID` = @WorkType_UID, `Task_Name` = @Task_Name, `Task_Description` = @Task_Description, `Task_TakeFiveNeeded` = @Task_TakeFiveNeeded, `Task_DueDate` = @Task_DueDate, `Task_Status` = @Task_Status, `Task_IncompleteReason` = @Task_IncompleteReason WHERE ((`Task_UID` = @Original_Task_UID) AND (`User_Username_AssignedBy` = @Original_User_Username_AssignedBy) AND (`WorkType_UID` = @Original_WorkType_UID) AND ((@IsNull_Task_Name = 1 AND `Task_Name` IS NULL) OR (`Task_Name` = @Original_Task_Name)) AND ((@IsNull_Task_Description = 1 AND `Task_Description` IS NULL) OR (`Task_Description` = @Original_Task_Description)) AND ((@IsNull_Task_TakeFiveNeeded = 1 AND `Task_TakeFiveNeeded` IS NULL) OR (`Task_TakeFiveNeeded` = @Original_Task_TakeFiveNeeded)) AND ((@IsNull_Task_DueDate = 1 AND `Task_DueDate` IS NULL) OR (`Task_DueDate` = @Original_Task_DueDate)) AND ((@IsNull_Task_Status = 1 AND `Task_Status` IS NULL) OR (`Task_Status` = @Original_Task_Status)) AND ((@IsNull_Task_IncompleteReason = 1 AND `Task_IncompleteReason` IS NULL) OR (`Task_IncompleteReason` = @Original_Task_IncompleteReason)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `AssignedTask` SET `User_Username_AssignedBy` = @User_Username_AssignedBy, `WorkType_UID` = @WorkType_UID, `Task_Name` = @Task_Name, `Task_Description` = @Task_Description, `Task_TakeFiveNeeded` = @Task_TakeFiveNeeded, `Task_DueDate` = @Task_DueDate, `Task_Status` = @Task_Status, `Task_IncompleteReason` = @Task_IncompleteReason WHERE ((`Task_UID` = @Original_Task_UID) AND (`User_Username_AssignedBy` = @Original_User_Username_AssignedBy) AND (`WorkType_UID` = @Original_WorkType_UID) AND ((@IsNull_Task_Name = 1 AND `Task_Name` IS NULL) OR (`Task_Name` = @Original_Task_Name)) AND ((@IsNull_Task_Description = 1 AND `Task_Description` IS NULL) OR (`Task_Description` = @Original_Task_Description)) AND ((@IsNull_Task_TakeFiveNeeded = 1 AND `Task_TakeFiveNeeded` IS NULL) OR (`Task_TakeFiveNeeded` = @Original_Task_TakeFiveNeeded)) AND ((@IsNull_Task_DueDate = 1 AND `Task_DueDate` IS NULL) OR (`Task_DueDate` = @Original_Task_DueDate)) AND ((@IsNull_Task_Status = 1 AND `Task_Status` IS NULL) OR (`Task_Status` = @Original_Task_Status)) AND ((@IsNull_Task_IncompleteReason = 1 AND `Task_IncompleteReason` IS NULL) OR (`Task_IncompleteReason` = @Original_Task_IncompleteReason)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@User_Username_AssignedBy";
@@ -17246,7 +17243,7 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = "SELECT Task_Description, Task_DueDate, Task_IncompleteReason, Task_Name, Task_Sta" +
                 "tus, Task_TakeFiveNeeded, Task_UID, User_Username_AssignedBy, WorkType_UID FROM " +
-                "assignedtask WHERE (User_Username_AssignedBy = @Username)";
+                "AssignedTask WHERE (User_Username_AssignedBy = @Username)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Username";
@@ -24045,7 +24042,7 @@ WHERE User_Username = @Username";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `work` WHERE ((`Work_UID` = @Original_Work_UID) AND ((@IsNull_Task_UI" +
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `Work` WHERE ((`Work_UID` = @Original_Work_UID) AND ((@IsNull_Task_UI" +
                 "D = 1 AND `Task_UID` IS NULL) OR (`Task_UID` = @Original_Task_UID)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -24075,7 +24072,7 @@ WHERE User_Username = @Username";
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `work` (`Work_DateCompleted`, `Work_Description`, `WorkType_UID`, `Wo" +
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Work` (`Work_DateCompleted`, `Work_Description`, `WorkType_UID`, `Wo" +
                 "rk_TimeWorkedMins`, `Task_UID`, `Work_TakeFiveTaken`) VALUES (@Work_DateComplete" +
                 "d, @Work_Description, @WorkType_UID, @Work_TimeWorkedMins, @Task_UID, @Work_Take" +
                 "FiveTaken)";
@@ -24124,7 +24121,7 @@ WHERE User_Username = @Username";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `work` SET `Work_DateCompleted` = @Work_DateCompleted, `Work_Description` = @Work_Description, `WorkType_UID` = @WorkType_UID, `Work_TimeWorkedMins` = @Work_TimeWorkedMins, `Task_UID` = @Task_UID, `Work_TakeFiveTaken` = @Work_TakeFiveTaken WHERE ((`Work_UID` = @Original_Work_UID) AND ((@IsNull_Task_UID = 1 AND `Task_UID` IS NULL) OR (`Task_UID` = @Original_Task_UID)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Work` SET `Work_DateCompleted` = @Work_DateCompleted, `Work_Description` = @Work_Description, `WorkType_UID` = @WorkType_UID, `Work_TimeWorkedMins` = @Work_TimeWorkedMins, `Task_UID` = @Task_UID, `Work_TakeFiveTaken` = @Work_TakeFiveTaken WHERE ((`Work_UID` = @Original_Work_UID) AND ((@IsNull_Task_UID = 1 AND `Task_UID` IS NULL) OR (`Task_UID` = @Original_Task_UID)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@Work_DateCompleted";
@@ -24208,12 +24205,12 @@ WHERE User_Username = @Username";
             this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[5];
             this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT * FROM work";
+            this._commandCollection[0].CommandText = "SELECT * FROM Work";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT Task_UID, WorkType_UID, Work_DateCompleted, Work_Description, Work_TakeFiv" +
-                "eTaken, Work_TimeWorkedMins, Work_UID FROM work WHERE (Task_UID = @TaskID)";
+                "eTaken, Work_TimeWorkedMins, Work_UID FROM Work WHERE (Task_UID = @TaskID)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
             param.ParameterName = "@TaskID";
@@ -24251,7 +24248,7 @@ WHERE User_Username = @Username";
             this._commandCollection[4] = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = "SELECT Task_UID, WorkType_UID, Work_DateCompleted, Work_Description, Work_TakeFiv" +
-                "eTaken, Work_TimeWorkedMins, Work_UID FROM work WHERE (WorkType_UID = @WorkTypeI" +
+                "eTaken, Work_TimeWorkedMins, Work_UID FROM Work WHERE (WorkType_UID = @WorkTypeI" +
                 "D)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
