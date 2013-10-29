@@ -35,7 +35,7 @@
                         <div id="menu">
                             <ul id="nav" class="menu" style="padding-top: 10px;">
                                 <li><a href="\index.aspx"><span><span>
-                                    <img src="images/logo.png" alt="Logo" /></span></span></a></li>
+                                    <img src="\images\logo.png" alt="Logo" /></span></span></a></li>
                                 <li><a href="\index.aspx"><span><span style="margin-top: 25px;">Projects</span></span></a></li>
                                 <li><a href="\todo.aspx"><span><span style="margin-top: 25px;">To Do</span></span></a></li>
                                 <li><a href="\purchases.aspx"><span><span style="margin-top: 25px;">Purchase</span></span></a></li>
