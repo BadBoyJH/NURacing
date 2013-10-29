@@ -14,9 +14,9 @@
                  <form id ="Form1" runat="server">
                         <br />
                             <br />
-                      <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />  
+                      <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />         <p style="text-align: center; clear:both;"></p>
        <h1>TASK MANAGEMENT</h1>
-                 <p style="text-align: center">Please click an action below</p>
+                 <p style="text-align: center">Please click an action below.</p>
                 <br />
                     <div class="taskDetail">
                     
@@ -31,8 +31,8 @@
                         <div class="taskMngement">
                             
                         <asp:PlaceHolder ID="taskFrm" runat="server" Visible="false"></asp:PlaceHolder>
-                            <asp:Button runat="server" ID="createSubmitTaskBtn" Visible="false" Text="SUBMIT"  OnClick="createSubmitTaskBtn_Click"/>
-                            <asp:Button runat="server" ID="updateSubmitBtn" Visible="false" Text="SUBMIT"  OnClick="updateSubmitBtn_Click"/>
+                            <asp:Button runat="server" ID="createSubmitTaskBtn" Visible="false" Text="SUBMIT"  OnClick="createSubmitTaskBtn_Click" CssClass="takeFiveBtn"/>
+                            <asp:Button runat="server" ID="updateSubmitBtn" Visible="false" Text="SUBMIT"  OnClick="updateSubmitBtn_Click" CssClass="takeFiveBtn"/>
                             </div>
                         <asp:Label ID="createTaskFrm" runat="server" CssClass="taskMngement"></asp:Label>
                     

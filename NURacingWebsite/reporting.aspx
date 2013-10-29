@@ -14,10 +14,10 @@
                     <br />
                     <br />
          <form id ="Form1" runat="server" style="text-align:center;">
-                                       <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />
+                                       <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />       <p style="text-align: center; clear:both;"></p>
              <h1 style="text-align:center;">REPORTS</h1>
  
-                    <p style="text-align: center">Please click on a report title to view.</p>
+                    <p style="text-align: center">Please click on a report title to view.</p><br />
                   
     	<asp:Table ID="reportTable" runat="server" GridLines="Horizontal" CssClass="tblReports" HorizontalAlign="Center">
                         <asp:TableRow>

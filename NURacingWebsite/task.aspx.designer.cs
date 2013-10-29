@@ -40,15 +40,6 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.Label taskTitleLbl;
         
         /// <summary>
-        /// dueDateLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label dueDateLbl;
-        
-        /// <summary>
         /// takeFiveBtn control.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,15 @@ namespace NURacingWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button takeFiveBtn;
+        
+        /// <summary>
+        /// dueDateLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label dueDateLbl;
         
         /// <summary>
         /// taskDescLbl control.

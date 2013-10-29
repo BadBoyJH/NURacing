@@ -469,17 +469,20 @@ body {
 	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
     font-size:x-large;
     border-spacing:5px 5px;
-    max-height:100px;
+    height:auto;
+    min-height:50px;
     border-collapse:inherit;
     table-layout:auto;
+    min-width:40%;
+    width:auto;
 }
 .tblProjects td
 {
     overflow:scroll;
 	background-color: #E55F05;
-    border:thick;
-	width:300px;
-	height: 150px;
+    width:300px;
+	min-height: 150px;
+    height:auto;
     padding:5px;
     text-align:center;
     white-space:pre-line;
@@ -491,6 +494,7 @@ body {
 	-moz-box-shadow:    9px 9px 30px rgba(0, 0, 0, 1);
 	box-shadow:         9px 9px 30px rgba(0, 0, 0, 1);
     padding-bottom:10px;
+
 }
 .tblProjects a {
     text-transform:uppercase;
@@ -618,8 +622,31 @@ cursor: pointer;
     overflow-x:auto;
     overflow-y:auto;
     text-transform:uppercase;
-     color: #A8A8A8;
+    color: #A8A8A8;
 }
+
+.todoTable a {
+    color: #FFFFFF;
+	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
+    text-transform:uppercase;
+	margin-top: 10px;
+	font-size:x-large;
+	line-height: 34px;
+    display: inline-block;
+    padding: 1px 15px 6px 15px;
+	height: 36px;
+	background-color: #E55F05;
+	-moz-border-radius: 7px; 
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	-webkit-box-shadow: 0px 1px 1px #2e2e2e;
+	-moz-box-shadow: 0px 1px 1px #2e2e2e;
+	box-shadow: 0px 1px 1px #2e2e2e;
+    border: none;
+	float: left;
+    }
+
+
 .taskDetail {
     width:80%;
     margin-left:auto;
@@ -632,7 +659,7 @@ text-transform:uppercase;
 
 }
 .dueDateLbl {
-    float:right;
+    float:left;
 	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
     font-size:30px;
     color:#7F7F7F;
@@ -665,38 +692,58 @@ text-transform:uppercase;
 }
 .taskDescLbl {
     width:100%;
-    max-width:150%;
     min-height:40%;
+    height:auto;
     font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
     font-size:large;
     margin-top:10px;
     overflow:scroll;
-    border:solid;
-    border-color:#7F7F7F;
+    border:none;
     float:left;
     text-align:left;
-    background-color:white;
+    color: #A8A8A8;
+    background-color:none;
 }
 .timeLogging {
     font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
-    border:solid; 
-    border-color:#7F7F7F; 
-    background-color:white;
+    border:none;
+    background-color:none;
     min-height: 40%;
     text-transform:uppercase;
+    color: #A8A8A8;
+ 
 }
+
 .taskHrMinTxtBx {
-    width:10px;
+    width:20px;
+    border: none;
+	margin-bottom: 10px;
+    padding:4px;
+    background-color: #2D2D2D;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 11pt;
+	color: #7E7E7E;
+    vertical-align:middle;
 }
 .taskDescTxtBx {
     width:80%;
+        border: none;
+	margin-bottom: 10px;
+    padding:4px;
+    background-color: #2D2D2D;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 11pt;
+	color: #7E7E7E;
+    vertical-align:middle;
+    min-height:50px;
+    height:auto;
 }
 .accountOptions {
     margin-left:auto;
 }
 .userRole {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    font-size: 11pt;
+    font-size: 12pt;
 	color: #7E7E7E;
 	text-shadow: 1px 1px 1px #000000;
 }

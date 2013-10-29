@@ -13,28 +13,30 @@
                  <form id ="Form2" runat="server">    
                         <br />
                             <br />    
-       <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />  
+       <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />         <p style="text-align: center; clear:both;"></p>
                      <div class="taskDetail">
   
          <asp:Label ID="taskTitleLbl" CssClass="taskTitleLbl" runat="server">Task title</asp:Label>
+                                <p style="text-align: center; clear:both;"></p>
+         <asp:Button ID="takeFiveBtn" CssClass="takeFiveBtn" Text="TAKE FIVE" runat="server" />
          <asp:Label ID="dueDateLbl" CssClass="dueDateLbl" runat="server">Due date</asp:Label>
          <br />
 
-         <asp:Button ID="takeFiveBtn" CssClass="takeFiveBtn" Text="TAKE FIVE" runat="server" />
          <br />
          <br />
          <br />
-         <asp:Label runat="server" ID="taskDescLbl" CssClass="taskDescLbl"></asp:Label>
+         <asp:Label runat="server" ID="taskDescLbl" CssClass="taskDescLbl"></asp:Label><br />
          <h2>TIME LOGGING</h2>
+         <p>Please log details of the block of time you have spent on this task below.</p><br />
 
          <div id="timelogging" class="timeLogging">
-                            <span>HOURS: </span>
+                            <span>HOURS:&nbsp; </span>
                             <asp:TextBox ID="HoursTxtBx" runat="server" CssClass="taskHrMinTxtBx"></asp:TextBox>
-                            <span>MINUTES: </span>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;MINUTES:&nbsp; </span>
                             <asp:TextBox ID="MinTxtBx" runat="server" CssClass="taskHrMinTxtBx"></asp:TextBox>
               <br />
                             <span>DESCRIPTION: </span>
-                            <asp:TextBox ID="descTxtBx" runat="server" CssClass="taskDescTxtBx"></asp:TextBox>
+                            <asp:TextBox ID="descTxtBx" runat="server" CssClass="taskDescTxtBx" TextMode="MultiLine"></asp:TextBox>
              <asp:Button ID="btnSubmitLabour" CssClass="takeFiveBtn" Text="SUBMIT" runat="server" />
         </div> 
         </div></form>

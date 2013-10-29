@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="reportprojectstatus.aspx.cs" Inherits="NURacingWebsite.reportprojectstatus" MasterPageFile ="~/LoggedIn.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="reportprojectstatus.aspx.cs" Inherits="NURacingWebsite.reportprojectstatus" MasterPageFile ="~/Reporting.Master" %>
 
 <%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
 

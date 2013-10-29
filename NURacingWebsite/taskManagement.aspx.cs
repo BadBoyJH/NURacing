@@ -27,30 +27,16 @@ namespace NURacingWebsite
         CheckBox takeFiveChkBx = new CheckBox();
         Label lblTaskStatus = new Label();
         TextBox taskStatusTxtBx = new TextBox();
-        Label lblSelectProj = new Label();
-        ListBox projDrpList = new ListBox();
-        
 
         protected void Page_Load(object sender, EventArgs e)
         {
             createForm();
-            //projDrpList.SelectedIndexChanged += projDrpList_SelectedIndexChanged;
-           // projDrpList.AutoPostBack = true;
-        }
-
-        void projDrpList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            //workTypeDrpList.SelectedValue = projDrpList.SelectedIte;
-            //throw new NotImplementedException();
         }
 
         protected void createTaskBtn_Click(object sender, EventArgs e)
         {
             taskFrm.Visible = true;
             createSubmitTaskBtn.Visible = true;
-            lblSelectProj.Visible = false;
-            projDrpList.Visible = false;
             //HtmlGenericControl NewControl = new HtmlGenericControl("div");
             //NewControl.InnerHtml = "";
             //createTaskFrm.Controls.Add(NewControl);
@@ -69,27 +55,17 @@ namespace NURacingWebsite
         private void createForm()
         {
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblSelectProj.Text = "Select task:  ";
-            taskFrm.Controls.Add(lblSelectProj);
-            projDrpList.Items.Clear();
-            foreach (TaskInfo info in BusinessLogicLayer.TaskInfo.getTasks())
-            {
-                projDrpList.Items.Add(info.TaskName.ToString());
-            }
-            projDrpList.SelectionMode = ListSelectionMode.Multiple;
-            taskFrm.Controls.Add(projDrpList);
-            taskFrm.Controls.Add(new LiteralControl("</p>"));
-
-            taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblTaskName.Text = "Task name: ";
+            lblTaskName.Text = "Task Name: ";
             taskFrm.Controls.Add(lblTaskName);
             taskFrm.Controls.Add(taskNameTxtBx);
+            taskNameTxtBx.CssClass = "textareaPassword";
             taskFrm.Controls.Add(new LiteralControl("</p>"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblworkType.Text = "Project type: ";
+            lblworkType.Text = "Project Type: ";
             taskFrm.Controls.Add(lblworkType);
             workTypeDrpList.Items.Clear();
+
             foreach (WorkTypeInfo type in BusinessLogicLayer.WorkTypeInfo.getAllWorkTypes())
             {
                 if (type.Project.Name == type.Name)
@@ -105,25 +81,27 @@ namespace NURacingWebsite
             taskFrm.Controls.Add(new LiteralControl("</p>"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblTaskDesc.Text = "Task description: ";
+            lblTaskDesc.Text = "Task Description: ";
             taskFrm.Controls.Add(lblTaskDesc);
             taskFrm.Controls.Add(taskDescTxtBx);
+            taskDescTxtBx.CssClass = "textareaPassword";
+            taskDescTxtBx.TextMode = TextBoxMode.MultiLine;
             taskFrm.Controls.Add(new LiteralControl("</p>"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblDueDate.Text = "Due date: ";
+            lblDueDate.Text = "Due Date: ";
             taskFrm.Controls.Add(lblDueDate);
             //taskFrm.Controls.Add(taskNaTxtBx);
             taskFrm.Controls.Add(new LiteralControl("</p>"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblTakeFiveNeeded.Text = "Take five needed: ";
+            lblTakeFiveNeeded.Text = "Take Five Needed: ";
             taskFrm.Controls.Add(lblTakeFiveNeeded);
             taskFrm.Controls.Add(takeFiveChkBx);
             taskFrm.Controls.Add(new LiteralControl("</p>"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblAssignTo.Text = "Assign to: ";
+            lblAssignTo.Text = "Assign To: ";
             taskFrm.Controls.Add(lblAssignTo);
             foreach (UserInfo user in BusinessLogicLayer.UserInfo.getAllUsers())
             {
@@ -133,44 +111,21 @@ namespace NURacingWebsite
             taskFrm.Controls.Add(new LiteralControl("</p>"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblTaskStatus.Text = "Task status: ";
+            lblTaskStatus.Text = "Task Status: ";
             taskFrm.Controls.Add(lblTaskStatus);
             taskFrm.Controls.Add(taskStatusTxtBx);
+            taskStatusTxtBx.CssClass = "textareaPassword";
             taskFrm.Controls.Add(new LiteralControl("</p>"));
         }
 
         protected void updateTaskBtn_Click(object sender, EventArgs e)
         {
-            taskFrm.Visible = true;
-            updateSubmitBtn.Visible = true;
-            lblSelectProj.Visible = true;
-            projDrpList.Visible = true;
+
         }
 
         protected void updateSubmitBtn_Click(object sender, EventArgs e)
         {
-            TaskInfo info = BusinessLogicLayer.TaskInfo.getTasks()[projDrpList.SelectedIndex];
 
-            if (taskNameTxtBx.Text != "")
-            {
-                info.TaskName = taskNameTxtBx.Text;
-            }
-
-            if (taskDescTxtBx.Text != "")
-            {
-                info.TaskDescription = taskDescTxtBx.Text;
-            }
-
-            if (takeFiveChkBx.Checked || !takeFiveChkBx.Checked)
-            {
-                info.TakeFiveNeeded = takeFiveChkBx.Checked;
-            }
-
-            if (taskStatusTxtBx.Text != "")
-            {
-                info.TaskStatus = taskStatusTxtBx.Text;
-            }
-            info.updateDatabase();
         }
 
         protected void createSubmitTaskBtn_Click(object sender, EventArgs e)
@@ -194,8 +149,8 @@ namespace NURacingWebsite
                 }
             }
 
-            BusinessLogicLayer.AssignedTask.addTask(Membership.GetUser().ToString(), assignDrpList.SelectedItem.ToString(), 
-                workID, DateTime.Now, taskNameTxtBx.Text, taskDescTxtBx.Text, takeFiveChkBx.Checked);
+            //BusinessLogicLayer.AssignedTask.addTask(Membership.GetUser().ToString(), assignDrpList.SelectedItem.ToString(), 
+            //    workID, DateTime.Now, taskNameTxtBx.Text, taskDescTxtBx.Text, takeFiveChkBx.Checked);
         }
     }
 }

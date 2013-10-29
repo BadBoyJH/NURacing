@@ -22,7 +22,7 @@ namespace BusinessLogicLayer
         /// <param name="description">Description of task</param>
         /// <param name="takeFiveNeeded">Requires a take five</param>
         
-        static public void addTask(string assigningUser, string assignedToUser, int workType, DateTime dueDate, string name, string description, bool takeFiveNeeded)
+        static public void addTask(string assigningUser, List<string> assignedToUsers, int workType, DateTime dueDate, string name, string description, bool takeFiveNeeded)
         {
             AssignedTaskTableAdapter assignedTaskAdapter = new AssignedTaskTableAdapter();
 
@@ -31,8 +31,6 @@ namespace BusinessLogicLayer
             NuRacingDataSet.AssignedTaskRow assignedTaskRow = assignedTaskTable.NewAssignedTaskRow();
 
             assignedTaskRow.User_Username_AssignedBy = assigningUser;
-
-            assignedTaskRow.User_Username_AssignedTo = assignedToUser;
 
             assignedTaskRow.WorkType_UID = workType;
 
@@ -48,7 +46,23 @@ namespace BusinessLogicLayer
 
             assignedTaskAdapter.Update(assignedTaskTable);
 
-            EmailManager.taskNotification(assignedToUser, assigningUser, name, description, User.getEmail(assignedToUser));
+
+            AssignedUserTableAdapter assignedUserAdapter = new AssignedUserTableAdapter();
+            NuRacingDataSet.AssignedUserDataTable assignedUserTable = assignedUserAdapter.GetData();
+
+            foreach (string assignedToUser in assignedToUsers)
+            {
+                NuRacingDataSet.AssignedUserRow assignedUserRow = assignedUserTable.NewAssignedUserRow();
+
+                assignedUserRow.User_Username = assignedToUser;
+                assignedUserRow.AssignedTaskRow = assignedTaskRow;
+
+                assignedUserTable.AddAssignedUserRow(assignedUserRow);
+
+                EmailManager.taskNotification(assignedToUser, assigningUser, name, description, User.getEmail(assignedToUser));
+            }
+
+            assignedUserAdapter.Update(assignedUserTable);
         }
 
         /// <summary>
@@ -83,7 +97,7 @@ namespace BusinessLogicLayer
         /// <param name="taskID">ID of the task</param>
         /// <param name="reason">Reason for incomplete task</param>
 
-        static public void taskIncomplete(int taskID, string reason)
+        static public void changeTaskStatus(int taskID, string status, string reason)
         {
             if (taskExists(taskID))
             {
@@ -99,7 +113,6 @@ namespace BusinessLogicLayer
 
                 assignedTaskAdapter.Update(assignedTaskTable);
             }
-
             else
             {
                 throw new ArgumentException("Assigned Task Doesn't Exist");

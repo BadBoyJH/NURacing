@@ -28,18 +28,22 @@ namespace NURacingWebsite
             lblCarName.Text = "Car name: ";
             createProjFrm.Controls.Add(lblCarName);
             createProjFrm.Controls.Add(carNameTxtBx);
+            carNameTxtBx.CssClass = "textareaPassword";
             createProjFrm.Controls.Add(new LiteralControl("</p>"));
 
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
             lblYearMade.Text = "Year made: ";
             createProjFrm.Controls.Add(lblYearMade);
             createProjFrm.Controls.Add(yearMadeTxtBx);
+            yearMadeTxtBx.CssClass = "textareaPassword";
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
 
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
             lblDesc.Text = "Car description: ";
             createProjFrm.Controls.Add(lblDesc);
             createProjFrm.Controls.Add(carDescTxtBx);
+            carDescTxtBx.CssClass = "textareaPassword";
+            carDescTxtBx.TextMode = TextBoxMode.MultiLine;
             createProjFrm.Controls.Add(new LiteralControl("</p>"));
         }
 

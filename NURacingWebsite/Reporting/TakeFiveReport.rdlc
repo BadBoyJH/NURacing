@@ -17,7 +17,8 @@
                           <TextRun>
                             <Value>Student Number</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -69,7 +70,7 @@
                             <TextRun>
                               <Value>=Fields!User_GivenName.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -102,7 +103,7 @@
                             <TextRun>
                               <Value>=Fields!User_Surname.Value</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -135,7 +136,7 @@
                             <TextRun>
                               <Value>=Count(Fields!TakeFiveResponse_UID.Value)</Value>
                               <Style>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8.5pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -176,7 +177,8 @@
                           <TextRun>
                             <Value>Given Name</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -212,7 +214,8 @@
                           <TextRun>
                             <Value>Surname</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -251,7 +254,8 @@
                           <TextRun>
                             <Value>Number of Take Fives Completed</Value>
                             <Style>
-                              <FontSize>9pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
                             </Style>
                           </TextRun>
                         </TextRuns>
@@ -301,7 +305,7 @@
                           <TextRun>
                             <Value>=Fields!User_Username.Value</Value>
                             <Style>
-                              <FontSize>7pt</FontSize>
+                              <FontSize>8.5pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>

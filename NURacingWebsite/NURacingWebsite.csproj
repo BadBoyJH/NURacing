@@ -244,6 +244,8 @@
     <Content Include="login.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="packages.config" />
+    <Content Include="Reporting.Master" />
+    <Content Include="LoggedIn.Master" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="project.aspx" />
     <Content Include="purchase.aspx" />
@@ -342,6 +344,13 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LoggedIn.Master.cs">
+      <DependentUpon>LoggedIn.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoggedIn.Master.designer.cs">
+      <DependentUpon>LoggedIn.Master</DependentUpon>
+    </Compile>
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
@@ -378,6 +387,13 @@
     </Compile>
     <Compile Include="reporting.aspx.designer.cs">
       <DependentUpon>reporting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting.Master.cs">
+      <DependentUpon>Reporting.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporting.Master.designer.cs">
+      <DependentUpon>Reporting.Master</DependentUpon>
     </Compile>
     <Compile Include="Reporting\reportlabourlog.aspx.cs">
       <DependentUpon>reportlabourlog.aspx</DependentUpon>
@@ -420,13 +436,6 @@
     </Compile>
     <Compile Include="section.aspx.designer.cs">
       <DependentUpon>section.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LoggedIn.Master.cs">
-      <DependentUpon>LoggedIn.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LoggedIn.Master.designer.cs">
-      <DependentUpon>LoggedIn.Master</DependentUpon>
     </Compile>
     <Compile Include="task.aspx.cs">
       <DependentUpon>task.aspx</DependentUpon>
@@ -471,7 +480,6 @@
     <Content Include="Account\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LoggedIn.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
