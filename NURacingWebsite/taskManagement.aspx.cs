@@ -69,7 +69,7 @@ namespace NURacingWebsite
         private void createForm()
         {
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblSelectProj.Text = "Select task: ";
+            lblSelectProj.Text = "Select task:  ";
             taskFrm.Controls.Add(lblSelectProj);
             projDrpList.Items.Clear();
             foreach (TaskInfo info in BusinessLogicLayer.TaskInfo.getTasks())
