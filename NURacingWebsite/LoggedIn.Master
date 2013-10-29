@@ -39,7 +39,7 @@
                                 <li><a href="\index.aspx"><span><span style="margin-top: 25px;">Projects</span></span></a></li>
                                 <li><a href="\todo.aspx"><span><span style="margin-top: 25px;">To Do</span></span></a></li>
                                 <li><a href="\purchases.aspx"><span><span style="margin-top: 25px;">Purchase</span></span></a></li>
-                                <li><a href="\account.aspx"><span><span style="margin-top: 25px;">Account</span></span></a></li>
+                                <li><a href="\usermanagement.aspx"><span><span style="margin-top: 25px;">Account</span></span></a></li>
                                 <li><a href="\reporting.aspx"><span><span style="margin-top: 25px;">Reporting</span></span></a></li>
                             </ul>
                         </div>

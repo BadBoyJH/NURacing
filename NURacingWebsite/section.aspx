@@ -17,6 +17,8 @@
        <h1>SECTIONS</h1>         
                     <p style="text-align: center">Please click on a section below to review progress.</p>        
                 <br />
+             <asp:Button runat="server" ID="createProjBtn" Text="MANAGE SECTIONS" CssClass="takeFiveBtn" OnClick="createProjBtn_Click" />
+                <p style="text-align: center; clear:both;"></p>
     	<asp:Table ID="tblProjects" runat="server" GridLines="Horizontal" CssClass="tblProjects" class="tblProjects" HorizontalAlign="Center">
             </asp:Table>
 

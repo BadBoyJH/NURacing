@@ -347,13 +347,9 @@ body {
      position:relative;
     left:0px;
     top:0px;
-    height:auto;
-    width:100%;
     clear:both;
     float:left;
-    clear:both;
 	height: auto;
-	float: left;
 	width:100%;	
     text-align:center;
     margin-top:30px;
@@ -366,7 +362,6 @@ body {
 
 #menu li {
     float: left;
-    margin-left: 5px;
     position: relative;
 	list-style:none;
 }
@@ -888,3 +883,13 @@ text-transform:uppercase;
     margin-right:15px;
 }
 
+#dropDownListFormat {
+            border:none;
+              padding:4px;
+            -webkit-appearance: none; 
+            background-color: #2D2D2D;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            font-size: 11pt;
+	color: #7E7E7E;
+    vertical-align:middle;
+}

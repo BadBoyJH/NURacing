@@ -10,7 +10,7 @@
 namespace NURacingWebsite {
     
     
-    public partial class section {
+    public partial class sectionmanagement {
         
         /// <summary>
         /// Form1 control.
@@ -31,21 +31,21 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.Button btnEnquiry;
         
         /// <summary>
-        /// createProjBtn control.
+        /// createProjFrm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button createProjBtn;
+        protected global::System.Web.UI.WebControls.PlaceHolder createProjFrm;
         
         /// <summary>
-        /// tblProjects control.
+        /// updateSubmitBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblProjects;
+        protected global::System.Web.UI.WebControls.Button updateSubmitBtn;
     }
 }
