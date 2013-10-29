@@ -146,7 +146,6 @@
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="bin\NURacingWebsite.dll" />
     <Content Include="bin\NURacingWebsite.pdb" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -251,7 +250,9 @@
     <Content Include="reporting.aspx" />
     <Content Include="Reporting\reportlabourlog.aspx" />
     <Content Include="Reporting\reportprojectstatus.aspx" />
+    <Content Include="Reporting\reporttakefives.aspx" />
     <Content Include="Reporting\reportuserdetails.aspx" />
+    <Content Include="Reporting\reportworkshop.aspx" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
@@ -282,14 +283,11 @@
     <Content Include="Global.asax" />
     <Content Include="section.aspx" />
     <Content Include="task.aspx" />
-    <Content Include="taskManagement.aspx" />
+    <Content Include="taskmanagement.aspx" />
     <Content Include="tasks.aspx" />
     <Content Include="todo.aspx" />
-    <Content Include="UserManagement.aspx" />
-    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="usermanagement.aspx" />
     <Content Include="Web.config" />
-    <Content Include="Bundle.config" />
-    <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="account.aspx.cs">
@@ -337,13 +335,6 @@
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -402,6 +393,13 @@
     <Compile Include="Reporting\reportprojectstatus.aspx.designer.cs">
       <DependentUpon>reportprojectstatus.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reporting\reporttakefives.aspx.cs">
+      <DependentUpon>reporttakefives.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporting\reporttakefives.aspx.designer.cs">
+      <DependentUpon>reporttakefives.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reporting\reportuserdetails.aspx.cs">
       <DependentUpon>reportuserdetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -409,26 +407,19 @@
     <Compile Include="Reporting\reportuserdetails.aspx.designer.cs">
       <DependentUpon>reportuserdetails.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reporting\reportworkshop.aspx.cs">
+      <DependentUpon>reportworkshop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporting\reportworkshop.aspx.designer.cs">
+      <DependentUpon>reportworkshop.aspx</DependentUpon>
+    </Compile>
     <Compile Include="section.aspx.cs">
       <DependentUpon>section.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="section.aspx.designer.cs">
       <DependentUpon>section.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Site.Master.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Master.designer.cs">
-      <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Site.Mobile.Master.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Mobile.Master.designer.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="LoggedIn.Master.cs">
       <DependentUpon>LoggedIn.Master</DependentUpon>
@@ -444,12 +435,12 @@
     <Compile Include="task.aspx.designer.cs">
       <DependentUpon>task.aspx</DependentUpon>
     </Compile>
-    <Compile Include="taskManagement.aspx.cs">
-      <DependentUpon>taskManagement.aspx</DependentUpon>
+    <Compile Include="taskmanagement.aspx.cs">
+      <DependentUpon>taskmanagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="taskManagement.aspx.designer.cs">
-      <DependentUpon>taskManagement.aspx</DependentUpon>
+    <Compile Include="taskmanagement.aspx.designer.cs">
+      <DependentUpon>taskmanagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="tasks.aspx.cs">
       <DependentUpon>tasks.aspx</DependentUpon>
@@ -465,29 +456,19 @@
     <Compile Include="todo.aspx.designer.cs">
       <DependentUpon>todo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UserManagement.aspx.cs">
-      <DependentUpon>UserManagement.aspx</DependentUpon>
+    <Compile Include="usermanagement.aspx.cs">
+      <DependentUpon>usermanagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserManagement.aspx.designer.cs">
-      <DependentUpon>UserManagement.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewSwitcher.ascx.cs">
-      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewSwitcher.ascx.designer.cs">
-      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    <Compile Include="usermanagement.aspx.designer.cs">
+      <DependentUpon>usermanagement.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ReportingOld\" />
-    <Folder Include="Reports\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
-    <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="LoggedIn.Master" />
@@ -509,6 +490,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reporting\TakeFiveReport.rdlc" />
     <EmbeddedResource Include="Reporting\WorkshopReport.rdlc" />
     <EmbeddedResource Include="Reporting\LabourReport.rdlc" />
     <EmbeddedResource Include="Reporting\ProjectStatusReport.rdlc" />

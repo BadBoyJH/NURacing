@@ -28,7 +28,8 @@ namespace NURacingWebsite
         Label lblTaskStatus = new Label();
         TextBox taskStatusTxtBx = new TextBox();
         Label lblSelectProj = new Label();
-        DropDownList projDrpList = new DropDownList();
+        ListBox projDrpList = new ListBox();
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -75,6 +76,7 @@ namespace NURacingWebsite
             {
                 projDrpList.Items.Add(info.TaskName.ToString());
             }
+            projDrpList.SelectionMode = ListSelectionMode.Multiple;
             taskFrm.Controls.Add(projDrpList);
             taskFrm.Controls.Add(new LiteralControl("</p>"));
 

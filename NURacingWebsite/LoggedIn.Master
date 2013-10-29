@@ -22,20 +22,33 @@
                 <ul>
                     <li><a href="#" style="TEXT-DECORATION: NONE;"><span>Welcome,
                         <%= Membership.GetUser().UserName %>
-                        &nbsp; &#149;&nbsp; <%= DateTime.Now.ToString() %>&nbsp; &#149;&nbsp; <a href ="\logout.aspx">Log out</a></span></a></li>
+                        &nbsp; &#149;&nbsp; <%= DateTime.Now.ToString() %>&nbsp; &#149;&nbsp; <a href ="\login.aspx">Log out</a></span></a></li>
                 </ul>
             </div>
         </div>
+        <div class="colmaskhead threecolhead">
+	<div class="colmidhead">
+		<div class="collefthead">
+			<div class="col1head">
         <div id="menu">
             <ul id="nav" class="menu" style="padding-top: 10px;">
                 <li><a href="\index.aspx"><span><span>  <img src="images/logo.png" alt="Logo"  /></span></span></a></li>
                 <li><a href="\index.aspx"><span><span style="margin-top:25px;">Projects</span></span></a></li>
-                <li><a href="\todo.aspx"><span><span style="margin-top:25px;">Tasks</span></span></a></li>
+                <li><a href="\todo.aspx"><span><span style="margin-top:25px;">To Do</span></span></a></li>
                 <li><a href="\purchases.aspx"><span><span style="margin-top:25px;">Purchase</span></span></a></li>
                 <li><a href="\account.aspx"><span><span style="margin-top:25px;">Account</span></span></a></li>
                 <li><a href="\reporting.aspx"><span><span style="margin-top:25px;">Reporting</span></span></a></li>
             </ul>
         </div>
+                </div>
+			<div class="col2head">
+			</div>
+			<div class="col3head">
+			</div>
+ 
+		</div>
+	</div>
+ </div>
     </div>
     <asp:ContentPlaceHolder ID="Body" runat="server" />
 

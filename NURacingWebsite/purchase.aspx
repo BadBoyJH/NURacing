@@ -18,9 +18,10 @@
                     <div class="taskDetail">
                      <form id ="Form1" runat="server">
                          <p>Purchase good: <asp:TextBox runat="server" ID="goodTxtBx"></asp:TextBox></p>
+                         <p>Work type: <asp:DropDownList runat="server" ID="workTypeDrpList"></asp:DropDownList></p>
                          <p>Price: <asp:TextBox runat="server" ID="priceTxtBx"></asp:TextBox></p>
                          <p>Supplier: <asp:TextBox runat="server" ID="suppTxtBx"></asp:TextBox></p>
-                         <asp:Button runat="server" ID="purchaseBtn" CssClass="takeFiveBtn" Text="SUBMIT"/>
+                         <asp:Button runat="server" ID="purchaseBtn" CssClass="takeFiveBtn" Text="SUBMIT" OnClick="purchaseBtn_Click"/>
                         <br />
                         <br />
                         <br />
