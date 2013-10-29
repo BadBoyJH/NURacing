@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="purchase.aspx.cs" Inherits="NURacingWebsite.purchase" MasterPageFile="~/LoggedIn.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="takefive.aspx.cs" Inherits="NURacingWebsite.takefive" MasterPageFile="~/LoggedIn.Master" %>
 
 <asp:Content ContentPlaceHolderID="Title" ID="Title" runat="server">
     NURacing System - Purchase
@@ -12,7 +12,7 @@
 
                     <br />
                     <br />
-       <h1>PURCHASE</h1>
+       <h1>TAKE FIVE</h1>
                     <p style="text-align: center"></p>
                 <br />
                     <div class="taskDetail">
@@ -41,3 +41,4 @@
 	</div>
  </div>
 </asp:Content>
+

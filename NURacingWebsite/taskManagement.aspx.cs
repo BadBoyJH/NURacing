@@ -22,7 +22,7 @@ namespace NURacingWebsite
         Label lblDueDate = new Label();
         //DateTimePicker due date;
         Label lblAssignTo = new Label();
-        DropDownList assignDrpList = new DropDownList();
+        ListBox assignDrpList = new ListBox();
         Label lblTakeFiveNeeded = new Label();
         CheckBox takeFiveChkBx = new CheckBox();
         Label lblTaskStatus = new Label();
@@ -107,6 +107,7 @@ namespace NURacingWebsite
             {
                 assignDrpList.Items.Add(user.UserName);
             }
+            assignDrpList.SelectionMode = ListSelectionMode.Multiple;
             taskFrm.Controls.Add(assignDrpList);
             taskFrm.Controls.Add(new LiteralControl("</p>"));
 
@@ -132,6 +133,13 @@ namespace NURacingWebsite
         {
             int workID = 0;
 
+            List<string> addedUsers = new List<string>();
+
+            foreach (ListItem item in assignDrpList.Items)
+            {
+                addedUsers.Add(item.ToString());
+            }
+
             foreach (WorkTypeInfo type in BusinessLogicLayer.WorkTypeInfo.getAllWorkTypes())
             {
                 if (type.Project.Name == type.Name)
@@ -149,8 +157,8 @@ namespace NURacingWebsite
                 }
             }
 
-            //BusinessLogicLayer.AssignedTask.addTask(Membership.GetUser().ToString(), assignDrpList.SelectedItem.ToString(), 
-            //    workID, DateTime.Now, taskNameTxtBx.Text, taskDescTxtBx.Text, takeFiveChkBx.Checked);
+            BusinessLogicLayer.AssignedTask.addTask(Membership.GetUser().UserName, addedUsers, 
+                workID, DateTime.Now, taskNameTxtBx.Text, taskDescTxtBx.Text, takeFiveChkBx.Checked);
         }
     }
 }

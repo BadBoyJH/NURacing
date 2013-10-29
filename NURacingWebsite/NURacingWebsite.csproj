@@ -284,6 +284,7 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Global.asax" />
     <Content Include="section.aspx" />
+    <Content Include="takefive.aspx" />
     <Content Include="task.aspx" />
     <Content Include="taskmanagement.aspx" />
     <Content Include="tasks.aspx" />
@@ -435,6 +436,12 @@
     </Compile>
     <Compile Include="section.aspx.designer.cs">
       <DependentUpon>section.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="takefive.aspx.cs">
+      <DependentUpon>takefive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="takefive.aspx.designer.cs">
+      <DependentUpon>takefive.aspx</DependentUpon>
     </Compile>
     <Compile Include="task.aspx.cs">
       <DependentUpon>task.aspx</DependentUpon>
