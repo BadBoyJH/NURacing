@@ -25,7 +25,8 @@
          <br />
          <br />
          <br />
-         <asp:Label runat="server" ID="taskDescLbl" CssClass="taskDescLbl"></asp:Label><br />
+                          <span style="text-align:left;"><h2>TASK SUMMARY: </h2></span>
+         <asp:Label runat="server" ID="taskDescLbl" CssClass="taskDescLbl"></asp:Label><br />  <br />  <br />
          <h2>TIME LOGGING</h2>
          <p>Please log details of the block of time you have spent on this task below.</p><br />
 

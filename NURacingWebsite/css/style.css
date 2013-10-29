@@ -160,8 +160,8 @@ h6 { font-size: 14px; line-height: 14px;    color: #A8A8A8;}
 }
 
 .threecolhead .col1head {
-	width:65%;			
-	left:93%;	
+	width:auto;			
+	left:102%;
      background-color:none;
 }
 
@@ -463,6 +463,28 @@ body {
     margin-left:10px;
 }
 
+
+.btnPasswordRetrieve {
+	color: #FFFFFF;
+	font-family: 'Cuprum', sans-serif;
+	margin-top: 10px;
+	font-size: 16px;
+	line-height: 34px;
+    display: inline-block;
+    padding: 1px 15px 6px 15px;
+	height: 36px;
+	background-color: #E55F05;
+	-moz-border-radius: 7px; 
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+	-webkit-box-shadow: 0px 1px 1px #2e2e2e;
+	-moz-box-shadow: 0px 1px 1px #2e2e2e;
+	box-shadow: 0px 1px 1px #2e2e2e;
+    border: none;
+	float: left;
+    margin-left:10px;
+}
+
 .tblProjects {
 	margin-left:auto;
     margin-right:auto;
@@ -697,7 +719,6 @@ text-transform:uppercase;
     font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
     font-size:large;
     margin-top:10px;
-    overflow:scroll;
     border:none;
     float:left;
     text-align:left;
@@ -727,7 +748,7 @@ text-transform:uppercase;
 }
 .taskDescTxtBx {
     width:80%;
-        border: none;
+    border: none;
 	margin-bottom: 10px;
     padding:4px;
     background-color: #2D2D2D;
@@ -833,7 +854,7 @@ text-transform:uppercase;
 	font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
     font-size:x-large;
     border-spacing:5px 5px;
- 
+    width:100%;
     border-collapse:inherit;
     table-layout:auto;
 }
@@ -846,10 +867,9 @@ text-transform:uppercase;
     width:100%;
     padding:2px;
     padding-left:15px;
-     padding-right:15px;
+    padding-right:15px;
     text-align:center;
-    overflow-x:auto;
-    overflow-y:auto;
+    overflow-x:hidden;
     vertical-align:top;
     -webkit-box-shadow: 9px 9px 30px rgba(0, 0, 0, 1);
 	-moz-box-shadow:    9px 9px 30px rgba(0, 0, 0, 1);

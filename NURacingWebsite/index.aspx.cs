@@ -49,7 +49,7 @@ namespace NURacingWebsite
 
         protected void createProjBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/project.aspx");
+            Response.Redirect("/projectmanagement.aspx");
         }
     }
 }

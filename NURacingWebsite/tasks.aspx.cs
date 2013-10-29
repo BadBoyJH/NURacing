@@ -56,5 +56,10 @@ namespace NURacingWebsite
 
             return dataTable.DataSet;
         }
+
+        protected void createProjBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/taskmanagement.aspx");
+        }
     }
 }

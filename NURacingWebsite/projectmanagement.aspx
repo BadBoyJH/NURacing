@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="project.aspx.cs" Inherits="NURacingWebsite.project" MasterPageFile="~/LoggedIn.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="projectmanagement.aspx.cs" Inherits="NURacingWebsite.project" MasterPageFile="~/LoggedIn.Master" %>
 
     <asp:Content ContentPlaceHolderID="Title" ID="Title" runat="server">
     NURacing System - Create Project
@@ -12,8 +12,11 @@
                        <br />
                             <br />
                  <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />       <p style="text-align: center; clear:both;"></p>  
-                <h1>CREATE A PROJECT</h1>
-                    <p>Please fill in the following to create a new Project.</p>
+       
+
+
+                <h1>PROJECT MANAGEMENT</h1>
+                     <p style="text-align: center">Please click an action below.</p>
            <br />
                 <div class="taskMngement">
         
