@@ -1057,74 +1057,6 @@ WHERE WorkType_UID = @WorkTypeID</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProjectTasksDoneTableAdapter" GeneratorDataComponentClassName="ProjectTasksDoneTableAdapter" Name="ProjectTasksDone" UserDataComponentName="ProjectTasksDoneTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="NuRacingConnectionString (Settings)" DbObjectName="nuracing.ProjectTasksDone" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        ProjectTasksDone.*
-FROM            ProjectTasksDone</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="Project_UID" DataSetColumn="Project_UID" />
-              <Mapping SourceColumn="Project_YearMade" DataSetColumn="Project_YearMade" />
-              <Mapping SourceColumn="Project_Name" DataSetColumn="Project_Name" />
-              <Mapping SourceColumn="Project_Description" DataSetColumn="Project_Description" />
-              <Mapping SourceColumn="Project_Status" DataSetColumn="Project_Status" />
-              <Mapping SourceColumn="Project_StatusChangedDate" DataSetColumn="Project_StatusChangedDate" />
-              <Mapping SourceColumn="Project_Active" DataSetColumn="Project_Active" />
-              <Mapping SourceColumn="WorkType_UID" DataSetColumn="WorkType_UID" />
-              <Mapping SourceColumn="WorkType_Name" DataSetColumn="WorkType_Name" />
-              <Mapping SourceColumn="WorkType_Status" DataSetColumn="WorkType_Status" />
-              <Mapping SourceColumn="WorkType_StatusChangedDate" DataSetColumn="WorkType_StatusChangedDate" />
-              <Mapping SourceColumn="Task_UID" DataSetColumn="Task_UID" />
-              <Mapping SourceColumn="User_Username_AssignedTo" DataSetColumn="User_Username_AssignedTo" />
-              <Mapping SourceColumn="User_Username_AssignedBy" DataSetColumn="User_Username_AssignedBy" />
-              <Mapping SourceColumn="Task_Name" DataSetColumn="Task_Name" />
-              <Mapping SourceColumn="Task_Description" DataSetColumn="Task_Description" />
-              <Mapping SourceColumn="Task_TakeFiveNeeded" DataSetColumn="Task_TakeFiveNeeded" />
-              <Mapping SourceColumn="Task_DueDate" DataSetColumn="Task_DueDate" />
-              <Mapping SourceColumn="Work_UID" DataSetColumn="Work_UID" />
-              <Mapping SourceColumn="Work_DateCompleted" DataSetColumn="Work_DateCompleted" />
-              <Mapping SourceColumn="Work_Description" DataSetColumn="Work_Description" />
-              <Mapping SourceColumn="Work_TimeWorkedMins" DataSetColumn="Work_TimeWorkedMins" />
-              <Mapping SourceColumn="Work_TakeFiveTaken" DataSetColumn="Work_TakeFiveTaken" />
-              <Mapping SourceColumn="User_Username" DataSetColumn="User_Username" />
-              <Mapping SourceColumn="User_PasswordHash" DataSetColumn="User_PasswordHash" />
-              <Mapping SourceColumn="User_PasswordSalt" DataSetColumn="User_PasswordSalt" />
-              <Mapping SourceColumn="User_Role" DataSetColumn="User_Role" />
-              <Mapping SourceColumn="User_Active" DataSetColumn="User_Active" />
-              <Mapping SourceColumn="User_Surname" DataSetColumn="User_Surname" />
-              <Mapping SourceColumn="User_GivenName" DataSetColumn="User_GivenName" />
-              <Mapping SourceColumn="User_Email" DataSetColumn="User_Email" />
-              <Mapping SourceColumn="User_StudentNumber" DataSetColumn="User_StudentNumber" />
-              <Mapping SourceColumn="User_EstGraduationYear" DataSetColumn="User_EstGraduationYear" />
-              <Mapping SourceColumn="User_Degree" DataSetColumn="User_Degree" />
-              <Mapping SourceColumn="User_SAE_MemberNo" DataSetColumn="User_SAE_MemberNo" />
-              <Mapping SourceColumn="User_SAE_Expiry" DataSetColumn="User_SAE_Expiry" />
-              <Mapping SourceColumn="User_CAMS_MemberNo" DataSetColumn="User_CAMS_MemberNo" />
-              <Mapping SourceColumn="User_CAMS_LicenseType" DataSetColumn="User_CAMS_LicenseType" />
-              <Mapping SourceColumn="User_LicenseNo" DataSetColumn="User_LicenseNo" />
-              <Mapping SourceColumn="User_LicenseState" DataSetColumn="User_LicenseState" />
-              <Mapping SourceColumn="User_EmergencyContactName" DataSetColumn="User_EmergencyContactName" />
-              <Mapping SourceColumn="User_EmergencyContactNumber" DataSetColumn="User_EmergencyContactNumber" />
-              <Mapping SourceColumn="User_MedicareNo" DataSetColumn="User_MedicareNo" />
-              <Mapping SourceColumn="User_Allergies" DataSetColumn="User_Allergies" />
-              <Mapping SourceColumn="User_DietaryRequirements" DataSetColumn="User_DietaryRequirements" />
-              <Mapping SourceColumn="User_MedicalConditions" DataSetColumn="User_MedicalConditions" />
-              <Mapping SourceColumn="User_IndemnityFormSigned" DataSetColumn="User_IndemnityFormSigned" />
-              <Mapping SourceColumn="User_Created" DataSetColumn="User_Created" />
-              <Mapping SourceColumn="User_LastLogin" DataSetColumn="User_LastLogin" />
-              <Mapping SourceColumn="User_LastActivity" DataSetColumn="User_LastActivity" />
-              <Mapping SourceColumn="User_LastPasswordChanged" DataSetColumn="User_LastPasswordChanged" />
-              <Mapping SourceColumn="User_LastLockoutDate" DataSetColumn="User_LastLockoutDate" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CompleteTaskInfoTableAdapter" GeneratorDataComponentClassName="CompleteTaskInfoTableAdapter" Name="CompleteTaskInfo" UserDataComponentName="CompleteTaskInfoTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="NuRacingConnectionString (Settings)" DbObjectName="nuracing.CompleteTaskInfo" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -1182,32 +1114,6 @@ FROM            CompleteTaskInfo</CommandText>
               <Mapping SourceColumn="TakeFiveResponse_UID" DataSetColumn="TakeFiveResponse_UID" />
               <Mapping SourceColumn="TakeFiveResponse_Reason" DataSetColumn="TakeFiveResponse_Reason" />
               <Mapping SourceColumn="TakeFive_UID" DataSetColumn="TakeFive_UID" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProjectWorkTypesTableAdapter" GeneratorDataComponentClassName="ProjectWorkTypesTableAdapter" Name="ProjectWorkTypes" UserDataComponentName="ProjectWorkTypesTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="NuRacingConnectionString (Settings)" DbObjectName="nuracing.ProjectWorkTypes" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        ProjectWorkTypes.*
-FROM            ProjectWorkTypes</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="Project_UID" DataSetColumn="Project_UID" />
-              <Mapping SourceColumn="Project_YearMade" DataSetColumn="Project_YearMade" />
-              <Mapping SourceColumn="Project_Name" DataSetColumn="Project_Name" />
-              <Mapping SourceColumn="Project_Description" DataSetColumn="Project_Description" />
-              <Mapping SourceColumn="Project_Status" DataSetColumn="Project_Status" />
-              <Mapping SourceColumn="Project_StatusChangedDate" DataSetColumn="Project_StatusChangedDate" />
-              <Mapping SourceColumn="WorkType_UID" DataSetColumn="WorkType_UID" />
-              <Mapping SourceColumn="WorkType_Name" DataSetColumn="WorkType_Name" />
-              <Mapping SourceColumn="WorkType_Status" DataSetColumn="WorkType_Status" />
-              <Mapping SourceColumn="WorkType_StatusChangedDate" DataSetColumn="WorkType_StatusChangedDate" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -1489,6 +1395,97 @@ FROM            WorkDoneBy</CommandText>
                 </SelectCommand>
               </DbSource>
             </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProjectTasksDoneTableAdapter" GeneratorDataComponentClassName="ProjectTasksDoneTableAdapter" Name="ProjectTasksDone" UserDataComponentName="ProjectTasksDoneTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="NuRacingConnectionString (Settings)" DbObjectName="nuracing.ProjectTasksDone" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM ProjectTasksDone</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Project_UID" DataSetColumn="Project_UID" />
+              <Mapping SourceColumn="Project_YearMade" DataSetColumn="Project_YearMade" />
+              <Mapping SourceColumn="Project_Name" DataSetColumn="Project_Name" />
+              <Mapping SourceColumn="Project_Description" DataSetColumn="Project_Description" />
+              <Mapping SourceColumn="Project_Status" DataSetColumn="Project_Status" />
+              <Mapping SourceColumn="Project_StatusChangedDate" DataSetColumn="Project_StatusChangedDate" />
+              <Mapping SourceColumn="Project_Active" DataSetColumn="Project_Active" />
+              <Mapping SourceColumn="WorkType_UID" DataSetColumn="WorkType_UID" />
+              <Mapping SourceColumn="WorkType_Name" DataSetColumn="WorkType_Name" />
+              <Mapping SourceColumn="WorkType_Status" DataSetColumn="WorkType_Status" />
+              <Mapping SourceColumn="WorkType_StatusChangedDate" DataSetColumn="WorkType_StatusChangedDate" />
+              <Mapping SourceColumn="Task_UID" DataSetColumn="Task_UID" />
+              <Mapping SourceColumn="User_Username_AssignedBy" DataSetColumn="User_Username_AssignedBy" />
+              <Mapping SourceColumn="Task_Name" DataSetColumn="Task_Name" />
+              <Mapping SourceColumn="Task_Description" DataSetColumn="Task_Description" />
+              <Mapping SourceColumn="Task_TakeFiveNeeded" DataSetColumn="Task_TakeFiveNeeded" />
+              <Mapping SourceColumn="Task_DueDate" DataSetColumn="Task_DueDate" />
+              <Mapping SourceColumn="Work_UID" DataSetColumn="Work_UID" />
+              <Mapping SourceColumn="Work_DateCompleted" DataSetColumn="Work_DateCompleted" />
+              <Mapping SourceColumn="Work_Description" DataSetColumn="Work_Description" />
+              <Mapping SourceColumn="Work_TimeWorkedMins" DataSetColumn="Work_TimeWorkedMins" />
+              <Mapping SourceColumn="Work_TakeFiveTaken" DataSetColumn="Work_TakeFiveTaken" />
+              <Mapping SourceColumn="User_Username" DataSetColumn="User_Username" />
+              <Mapping SourceColumn="User_PasswordHash" DataSetColumn="User_PasswordHash" />
+              <Mapping SourceColumn="User_PasswordSalt" DataSetColumn="User_PasswordSalt" />
+              <Mapping SourceColumn="User_Role" DataSetColumn="User_Role" />
+              <Mapping SourceColumn="User_Active" DataSetColumn="User_Active" />
+              <Mapping SourceColumn="User_Surname" DataSetColumn="User_Surname" />
+              <Mapping SourceColumn="User_GivenName" DataSetColumn="User_GivenName" />
+              <Mapping SourceColumn="User_Email" DataSetColumn="User_Email" />
+              <Mapping SourceColumn="User_StudentNumber" DataSetColumn="User_StudentNumber" />
+              <Mapping SourceColumn="User_EstGraduationYear" DataSetColumn="User_EstGraduationYear" />
+              <Mapping SourceColumn="User_Degree" DataSetColumn="User_Degree" />
+              <Mapping SourceColumn="User_SAE_MemberNo" DataSetColumn="User_SAE_MemberNo" />
+              <Mapping SourceColumn="User_SAE_Expiry" DataSetColumn="User_SAE_Expiry" />
+              <Mapping SourceColumn="User_CAMS_MemberNo" DataSetColumn="User_CAMS_MemberNo" />
+              <Mapping SourceColumn="User_CAMS_LicenseType" DataSetColumn="User_CAMS_LicenseType" />
+              <Mapping SourceColumn="User_LicenseNo" DataSetColumn="User_LicenseNo" />
+              <Mapping SourceColumn="User_LicenseState" DataSetColumn="User_LicenseState" />
+              <Mapping SourceColumn="User_EmergencyContactName" DataSetColumn="User_EmergencyContactName" />
+              <Mapping SourceColumn="User_EmergencyContactNumber" DataSetColumn="User_EmergencyContactNumber" />
+              <Mapping SourceColumn="User_MedicareNo" DataSetColumn="User_MedicareNo" />
+              <Mapping SourceColumn="User_Allergies" DataSetColumn="User_Allergies" />
+              <Mapping SourceColumn="User_DietaryRequirements" DataSetColumn="User_DietaryRequirements" />
+              <Mapping SourceColumn="User_MedicalConditions" DataSetColumn="User_MedicalConditions" />
+              <Mapping SourceColumn="User_IndemnityFormSigned" DataSetColumn="User_IndemnityFormSigned" />
+              <Mapping SourceColumn="User_Created" DataSetColumn="User_Created" />
+              <Mapping SourceColumn="User_LastLogin" DataSetColumn="User_LastLogin" />
+              <Mapping SourceColumn="User_LastActivity" DataSetColumn="User_LastActivity" />
+              <Mapping SourceColumn="User_LastPasswordChanged" DataSetColumn="User_LastPasswordChanged" />
+              <Mapping SourceColumn="User_LastLockoutDate" DataSetColumn="User_LastLockoutDate" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="WorkTypeExtendedTableAdapter" GeneratorDataComponentClassName="WorkTypeExtendedTableAdapter" Name="WorkTypeExtended" UserDataComponentName="WorkTypeExtendedTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="NuRacingConnectionString (Settings)" DbObjectName="nuracing.ProjectWorkTypes" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT * FROM ProjectWorkTypes</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Project_UID" DataSetColumn="Project_UID" />
+              <Mapping SourceColumn="Project_YearMade" DataSetColumn="Project_YearMade" />
+              <Mapping SourceColumn="Project_Name" DataSetColumn="Project_Name" />
+              <Mapping SourceColumn="Project_Description" DataSetColumn="Project_Description" />
+              <Mapping SourceColumn="Project_Status" DataSetColumn="Project_Status" />
+              <Mapping SourceColumn="Project_StatusChangedDate" DataSetColumn="Project_StatusChangedDate" />
+              <Mapping SourceColumn="WorkType_UID" DataSetColumn="WorkType_UID" />
+              <Mapping SourceColumn="WorkType_Name" DataSetColumn="WorkType_Name" />
+              <Mapping SourceColumn="WorkType_Status" DataSetColumn="WorkType_Status" />
+              <Mapping SourceColumn="WorkType_StatusChangedDate" DataSetColumn="WorkType_StatusChangedDate" />
+            </Mappings>
+            <Sources />
           </TableAdapter>
         </Tables>
         <Sources />
@@ -1856,238 +1853,6 @@ FROM            WorkDoneBy</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ProjectTasksDone" msprop:Generator_TableClassName="ProjectTasksDoneDataTable" msprop:Generator_TableVarName="tableProjectTasksDone" msprop:Generator_RowChangedName="ProjectTasksDoneRowChanged" msprop:Generator_TablePropName="ProjectTasksDone" msprop:Generator_RowDeletingName="ProjectTasksDoneRowDeleting" msprop:Generator_RowChangingName="ProjectTasksDoneRowChanging" msprop:Generator_RowEvHandlerName="ProjectTasksDoneRowChangeEventHandler" msprop:Generator_RowDeletedName="ProjectTasksDoneRowDeleted" msprop:Generator_RowClassName="ProjectTasksDoneRow" msprop:Generator_UserTableName="ProjectTasksDone" msprop:Generator_RowEvArgName="ProjectTasksDoneRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Project_UID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProject_UID" msprop:Generator_ColumnPropNameInRow="Project_UID" msprop:Generator_ColumnPropNameInTable="Project_UIDColumn" msprop:Generator_UserColumnName="Project_UID" type="xs:int" />
-              <xs:element name="Project_YearMade" msprop:Generator_ColumnVarNameInTable="columnProject_YearMade" msprop:Generator_ColumnPropNameInRow="Project_YearMade" msprop:Generator_ColumnPropNameInTable="Project_YearMadeColumn" msprop:Generator_UserColumnName="Project_YearMade" type="xs:int" minOccurs="0" />
-              <xs:element name="Project_Name" msprop:Generator_ColumnVarNameInTable="columnProject_Name" msprop:Generator_ColumnPropNameInRow="Project_Name" msprop:Generator_ColumnPropNameInTable="Project_NameColumn" msprop:Generator_UserColumnName="Project_Name" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Project_Description" msprop:Generator_ColumnVarNameInTable="columnProject_Description" msprop:Generator_ColumnPropNameInRow="Project_Description" msprop:Generator_ColumnPropNameInTable="Project_DescriptionColumn" msprop:Generator_UserColumnName="Project_Description" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Project_Status" msprop:Generator_ColumnVarNameInTable="columnProject_Status" msprop:Generator_ColumnPropNameInRow="Project_Status" msprop:Generator_ColumnPropNameInTable="Project_StatusColumn" msprop:Generator_UserColumnName="Project_Status" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Project_StatusChangedDate" msprop:Generator_ColumnVarNameInTable="columnProject_StatusChangedDate" msprop:Generator_ColumnPropNameInRow="Project_StatusChangedDate" msprop:Generator_ColumnPropNameInTable="Project_StatusChangedDateColumn" msprop:Generator_UserColumnName="Project_StatusChangedDate" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Project_Active" msprop:Generator_ColumnVarNameInTable="columnProject_Active" msprop:Generator_ColumnPropNameInRow="Project_Active" msprop:Generator_ColumnPropNameInTable="Project_ActiveColumn" msprop:Generator_UserColumnName="Project_Active" type="xs:boolean" minOccurs="0" />
-              <xs:element name="WorkType_UID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnWorkType_UID" msprop:Generator_ColumnPropNameInRow="WorkType_UID" msprop:Generator_ColumnPropNameInTable="WorkType_UIDColumn" msprop:Generator_UserColumnName="WorkType_UID" type="xs:int" minOccurs="0" />
-              <xs:element name="WorkType_Name" msprop:Generator_ColumnVarNameInTable="columnWorkType_Name" msprop:Generator_ColumnPropNameInRow="WorkType_Name" msprop:Generator_ColumnPropNameInTable="WorkType_NameColumn" msprop:Generator_UserColumnName="WorkType_Name" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="WorkType_Status" msprop:Generator_ColumnVarNameInTable="columnWorkType_Status" msprop:Generator_ColumnPropNameInRow="WorkType_Status" msprop:Generator_ColumnPropNameInTable="WorkType_StatusColumn" msprop:Generator_UserColumnName="WorkType_Status" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="WorkType_StatusChangedDate" msprop:Generator_ColumnVarNameInTable="columnWorkType_StatusChangedDate" msprop:Generator_ColumnPropNameInRow="WorkType_StatusChangedDate" msprop:Generator_ColumnPropNameInTable="WorkType_StatusChangedDateColumn" msprop:Generator_UserColumnName="WorkType_StatusChangedDate" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Task_UID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnTask_UID" msprop:Generator_ColumnPropNameInRow="Task_UID" msprop:Generator_ColumnPropNameInTable="Task_UIDColumn" msprop:Generator_UserColumnName="Task_UID" type="xs:int" />
-              <xs:element name="User_Username_AssignedTo" msprop:Generator_ColumnVarNameInTable="columnUser_Username_AssignedTo" msprop:Generator_ColumnPropNameInRow="User_Username_AssignedTo" msprop:Generator_ColumnPropNameInTable="User_Username_AssignedToColumn" msprop:Generator_UserColumnName="User_Username_AssignedTo">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_Username_AssignedBy" msprop:Generator_ColumnVarNameInTable="columnUser_Username_AssignedBy" msprop:Generator_ColumnPropNameInRow="User_Username_AssignedBy" msprop:Generator_ColumnPropNameInTable="User_Username_AssignedByColumn" msprop:Generator_UserColumnName="User_Username_AssignedBy">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Task_Name" msprop:Generator_ColumnVarNameInTable="columnTask_Name" msprop:Generator_ColumnPropNameInRow="Task_Name" msprop:Generator_ColumnPropNameInTable="Task_NameColumn" msprop:Generator_UserColumnName="Task_Name" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Task_Description" msprop:Generator_ColumnVarNameInTable="columnTask_Description" msprop:Generator_ColumnPropNameInRow="Task_Description" msprop:Generator_ColumnPropNameInTable="Task_DescriptionColumn" msprop:Generator_UserColumnName="Task_Description" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Task_TakeFiveNeeded" msprop:Generator_ColumnVarNameInTable="columnTask_TakeFiveNeeded" msprop:Generator_ColumnPropNameInRow="Task_TakeFiveNeeded" msprop:Generator_ColumnPropNameInTable="Task_TakeFiveNeededColumn" msprop:Generator_UserColumnName="Task_TakeFiveNeeded" type="xs:boolean" minOccurs="0" />
-              <xs:element name="Task_DueDate" msprop:Generator_ColumnVarNameInTable="columnTask_DueDate" msprop:Generator_ColumnPropNameInRow="Task_DueDate" msprop:Generator_ColumnPropNameInTable="Task_DueDateColumn" msprop:Generator_UserColumnName="Task_DueDate" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Work_UID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnWork_UID" msprop:Generator_ColumnPropNameInRow="Work_UID" msprop:Generator_ColumnPropNameInTable="Work_UIDColumn" msprop:Generator_UserColumnName="Work_UID" type="xs:int" />
-              <xs:element name="Work_DateCompleted" msprop:Generator_ColumnVarNameInTable="columnWork_DateCompleted" msprop:Generator_ColumnPropNameInRow="Work_DateCompleted" msprop:Generator_ColumnPropNameInTable="Work_DateCompletedColumn" msprop:Generator_UserColumnName="Work_DateCompleted" type="xs:dateTime" />
-              <xs:element name="Work_Description" msprop:Generator_ColumnVarNameInTable="columnWork_Description" msprop:Generator_ColumnPropNameInRow="Work_Description" msprop:Generator_ColumnPropNameInTable="Work_DescriptionColumn" msprop:Generator_UserColumnName="Work_Description" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Work_TimeWorkedMins" msprop:Generator_ColumnVarNameInTable="columnWork_TimeWorkedMins" msprop:Generator_ColumnPropNameInRow="Work_TimeWorkedMins" msprop:Generator_ColumnPropNameInTable="Work_TimeWorkedMinsColumn" msprop:Generator_UserColumnName="Work_TimeWorkedMins" type="xs:int" minOccurs="0" />
-              <xs:element name="Work_TakeFiveTaken" msprop:Generator_ColumnVarNameInTable="columnWork_TakeFiveTaken" msprop:Generator_ColumnPropNameInRow="Work_TakeFiveTaken" msprop:Generator_ColumnPropNameInTable="Work_TakeFiveTakenColumn" msprop:Generator_UserColumnName="Work_TakeFiveTaken" type="xs:boolean" minOccurs="0" />
-              <xs:element name="User_Username" msprop:Generator_ColumnVarNameInTable="columnUser_Username" msprop:Generator_ColumnPropNameInRow="User_Username" msprop:Generator_ColumnPropNameInTable="User_UsernameColumn" msprop:Generator_UserColumnName="User_Username">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_PasswordHash" msprop:Generator_ColumnVarNameInTable="columnUser_PasswordHash" msprop:Generator_ColumnPropNameInRow="User_PasswordHash" msprop:Generator_ColumnPropNameInTable="User_PasswordHashColumn" msprop:Generator_UserColumnName="User_PasswordHash" type="xs:base64Binary" />
-              <xs:element name="User_PasswordSalt" msprop:Generator_ColumnVarNameInTable="columnUser_PasswordSalt" msprop:Generator_ColumnPropNameInRow="User_PasswordSalt" msprop:Generator_ColumnPropNameInTable="User_PasswordSaltColumn" msprop:Generator_UserColumnName="User_PasswordSalt" type="xs:base64Binary" />
-              <xs:element name="User_Role" msprop:Generator_ColumnVarNameInTable="columnUser_Role" msprop:Generator_ColumnPropNameInRow="User_Role" msprop:Generator_ColumnPropNameInTable="User_RoleColumn" msprop:Generator_UserColumnName="User_Role">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_Active" msprop:Generator_ColumnVarNameInTable="columnUser_Active" msprop:Generator_ColumnPropNameInRow="User_Active" msprop:Generator_ColumnPropNameInTable="User_ActiveColumn" msprop:Generator_UserColumnName="User_Active" type="xs:boolean" />
-              <xs:element name="User_Surname" msprop:Generator_ColumnVarNameInTable="columnUser_Surname" msprop:Generator_ColumnPropNameInRow="User_Surname" msprop:Generator_ColumnPropNameInTable="User_SurnameColumn" msprop:Generator_UserColumnName="User_Surname">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_GivenName" msprop:Generator_ColumnVarNameInTable="columnUser_GivenName" msprop:Generator_ColumnPropNameInRow="User_GivenName" msprop:Generator_ColumnPropNameInTable="User_GivenNameColumn" msprop:Generator_UserColumnName="User_GivenName">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_Email" msprop:Generator_ColumnVarNameInTable="columnUser_Email" msprop:Generator_ColumnPropNameInRow="User_Email" msprop:Generator_ColumnPropNameInTable="User_EmailColumn" msprop:Generator_UserColumnName="User_Email">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_StudentNumber" msprop:Generator_ColumnVarNameInTable="columnUser_StudentNumber" msprop:Generator_ColumnPropNameInRow="User_StudentNumber" msprop:Generator_ColumnPropNameInTable="User_StudentNumberColumn" msprop:Generator_UserColumnName="User_StudentNumber" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_EstGraduationYear" msprop:Generator_ColumnVarNameInTable="columnUser_EstGraduationYear" msprop:Generator_ColumnPropNameInRow="User_EstGraduationYear" msprop:Generator_ColumnPropNameInTable="User_EstGraduationYearColumn" msprop:Generator_UserColumnName="User_EstGraduationYear" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_Degree" msprop:Generator_ColumnVarNameInTable="columnUser_Degree" msprop:Generator_ColumnPropNameInRow="User_Degree" msprop:Generator_ColumnPropNameInTable="User_DegreeColumn" msprop:Generator_UserColumnName="User_Degree" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_SAE_MemberNo" msprop:Generator_ColumnVarNameInTable="columnUser_SAE_MemberNo" msprop:Generator_ColumnPropNameInRow="User_SAE_MemberNo" msprop:Generator_ColumnPropNameInTable="User_SAE_MemberNoColumn" msprop:Generator_UserColumnName="User_SAE_MemberNo" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_SAE_Expiry" msprop:Generator_ColumnVarNameInTable="columnUser_SAE_Expiry" msprop:Generator_ColumnPropNameInRow="User_SAE_Expiry" msprop:Generator_ColumnPropNameInTable="User_SAE_ExpiryColumn" msprop:Generator_UserColumnName="User_SAE_Expiry" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="User_CAMS_MemberNo" msprop:Generator_ColumnVarNameInTable="columnUser_CAMS_MemberNo" msprop:Generator_ColumnPropNameInRow="User_CAMS_MemberNo" msprop:Generator_ColumnPropNameInTable="User_CAMS_MemberNoColumn" msprop:Generator_UserColumnName="User_CAMS_MemberNo" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_CAMS_LicenseType" msprop:Generator_ColumnVarNameInTable="columnUser_CAMS_LicenseType" msprop:Generator_ColumnPropNameInRow="User_CAMS_LicenseType" msprop:Generator_ColumnPropNameInTable="User_CAMS_LicenseTypeColumn" msprop:Generator_UserColumnName="User_CAMS_LicenseType" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_LicenseNo" msprop:Generator_ColumnVarNameInTable="columnUser_LicenseNo" msprop:Generator_ColumnPropNameInRow="User_LicenseNo" msprop:Generator_ColumnPropNameInTable="User_LicenseNoColumn" msprop:Generator_UserColumnName="User_LicenseNo" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_LicenseState" msprop:Generator_ColumnVarNameInTable="columnUser_LicenseState" msprop:Generator_ColumnPropNameInRow="User_LicenseState" msprop:Generator_ColumnPropNameInTable="User_LicenseStateColumn" msprop:Generator_UserColumnName="User_LicenseState" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_EmergencyContactName" msprop:Generator_ColumnVarNameInTable="columnUser_EmergencyContactName" msprop:Generator_ColumnPropNameInRow="User_EmergencyContactName" msprop:Generator_ColumnPropNameInTable="User_EmergencyContactNameColumn" msprop:Generator_UserColumnName="User_EmergencyContactName" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_EmergencyContactNumber" msprop:Generator_ColumnVarNameInTable="columnUser_EmergencyContactNumber" msprop:Generator_ColumnPropNameInRow="User_EmergencyContactNumber" msprop:Generator_ColumnPropNameInTable="User_EmergencyContactNumberColumn" msprop:Generator_UserColumnName="User_EmergencyContactNumber" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_MedicareNo" msprop:Generator_ColumnVarNameInTable="columnUser_MedicareNo" msprop:Generator_ColumnPropNameInRow="User_MedicareNo" msprop:Generator_ColumnPropNameInTable="User_MedicareNoColumn" msprop:Generator_UserColumnName="User_MedicareNo" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_Allergies" msprop:Generator_ColumnVarNameInTable="columnUser_Allergies" msprop:Generator_ColumnPropNameInRow="User_Allergies" msprop:Generator_ColumnPropNameInTable="User_AllergiesColumn" msprop:Generator_UserColumnName="User_Allergies" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_DietaryRequirements" msprop:Generator_ColumnVarNameInTable="columnUser_DietaryRequirements" msprop:Generator_ColumnPropNameInRow="User_DietaryRequirements" msprop:Generator_ColumnPropNameInTable="User_DietaryRequirementsColumn" msprop:Generator_UserColumnName="User_DietaryRequirements" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_MedicalConditions" msprop:Generator_ColumnVarNameInTable="columnUser_MedicalConditions" msprop:Generator_ColumnPropNameInRow="User_MedicalConditions" msprop:Generator_ColumnPropNameInTable="User_MedicalConditionsColumn" msprop:Generator_UserColumnName="User_MedicalConditions" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="User_IndemnityFormSigned" msprop:Generator_ColumnVarNameInTable="columnUser_IndemnityFormSigned" msprop:Generator_ColumnPropNameInRow="User_IndemnityFormSigned" msprop:Generator_ColumnPropNameInTable="User_IndemnityFormSignedColumn" msprop:Generator_UserColumnName="User_IndemnityFormSigned" type="xs:boolean" minOccurs="0" />
-              <xs:element name="User_Created" msprop:Generator_ColumnVarNameInTable="columnUser_Created" msprop:Generator_ColumnPropNameInRow="User_Created" msprop:Generator_ColumnPropNameInTable="User_CreatedColumn" msprop:Generator_UserColumnName="User_Created" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="User_LastLogin" msprop:Generator_ColumnVarNameInTable="columnUser_LastLogin" msprop:Generator_ColumnPropNameInRow="User_LastLogin" msprop:Generator_ColumnPropNameInTable="User_LastLoginColumn" msprop:Generator_UserColumnName="User_LastLogin" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="User_LastActivity" msprop:Generator_ColumnVarNameInTable="columnUser_LastActivity" msprop:Generator_ColumnPropNameInRow="User_LastActivity" msprop:Generator_ColumnPropNameInTable="User_LastActivityColumn" msprop:Generator_UserColumnName="User_LastActivity" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="User_LastPasswordChanged" msprop:Generator_ColumnVarNameInTable="columnUser_LastPasswordChanged" msprop:Generator_ColumnPropNameInRow="User_LastPasswordChanged" msprop:Generator_ColumnPropNameInTable="User_LastPasswordChangedColumn" msprop:Generator_UserColumnName="User_LastPasswordChanged" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="User_LastLockoutDate" msprop:Generator_ColumnVarNameInTable="columnUser_LastLockoutDate" msprop:Generator_ColumnPropNameInRow="User_LastLockoutDate" msprop:Generator_ColumnPropNameInTable="User_LastLockoutDateColumn" msprop:Generator_UserColumnName="User_LastLockoutDate" type="xs:dateTime" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
         <xs:element name="CompleteTaskInfo" msprop:Generator_TableClassName="CompleteTaskInfoDataTable" msprop:Generator_TableVarName="tableCompleteTaskInfo" msprop:Generator_RowChangedName="CompleteTaskInfoRowChanged" msprop:Generator_TablePropName="CompleteTaskInfo" msprop:Generator_RowDeletingName="CompleteTaskInfoRowDeleting" msprop:Generator_RowChangingName="CompleteTaskInfoRowChanging" msprop:Generator_RowEvHandlerName="CompleteTaskInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="CompleteTaskInfoRowDeleted" msprop:Generator_RowClassName="CompleteTaskInfoRow" msprop:Generator_UserTableName="CompleteTaskInfo" msprop:Generator_RowEvArgName="CompleteTaskInfoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
@@ -2288,52 +2053,6 @@ FROM            WorkDoneBy</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ProjectWorkTypes" msprop:Generator_TableClassName="ProjectWorkTypesDataTable" msprop:Generator_TableVarName="tableProjectWorkTypes" msprop:Generator_RowChangedName="ProjectWorkTypesRowChanged" msprop:Generator_TablePropName="ProjectWorkTypes" msprop:Generator_RowDeletingName="ProjectWorkTypesRowDeleting" msprop:Generator_RowChangingName="ProjectWorkTypesRowChanging" msprop:Generator_RowEvHandlerName="ProjectWorkTypesRowChangeEventHandler" msprop:Generator_RowDeletedName="ProjectWorkTypesRowDeleted" msprop:Generator_RowClassName="ProjectWorkTypesRow" msprop:Generator_UserTableName="ProjectWorkTypes" msprop:Generator_RowEvArgName="ProjectWorkTypesRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Project_UID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProject_UID" msprop:Generator_ColumnPropNameInRow="Project_UID" msprop:Generator_ColumnPropNameInTable="Project_UIDColumn" msprop:Generator_UserColumnName="Project_UID" type="xs:int" />
-              <xs:element name="Project_YearMade" msprop:Generator_ColumnVarNameInTable="columnProject_YearMade" msprop:Generator_ColumnPropNameInRow="Project_YearMade" msprop:Generator_ColumnPropNameInTable="Project_YearMadeColumn" msprop:Generator_UserColumnName="Project_YearMade" type="xs:int" minOccurs="0" />
-              <xs:element name="Project_Name" msprop:Generator_ColumnVarNameInTable="columnProject_Name" msprop:Generator_ColumnPropNameInRow="Project_Name" msprop:Generator_ColumnPropNameInTable="Project_NameColumn" msprop:Generator_UserColumnName="Project_Name" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Project_Description" msprop:Generator_ColumnVarNameInTable="columnProject_Description" msprop:Generator_ColumnPropNameInRow="Project_Description" msprop:Generator_ColumnPropNameInTable="Project_DescriptionColumn" msprop:Generator_UserColumnName="Project_Description" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Project_Status" msprop:Generator_ColumnVarNameInTable="columnProject_Status" msprop:Generator_ColumnPropNameInRow="Project_Status" msprop:Generator_ColumnPropNameInTable="Project_StatusColumn" msprop:Generator_UserColumnName="Project_Status" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Project_StatusChangedDate" msprop:Generator_ColumnVarNameInTable="columnProject_StatusChangedDate" msprop:Generator_ColumnPropNameInRow="Project_StatusChangedDate" msprop:Generator_ColumnPropNameInTable="Project_StatusChangedDateColumn" msprop:Generator_UserColumnName="Project_StatusChangedDate" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="WorkType_UID" msprop:Generator_ColumnVarNameInTable="columnWorkType_UID" msprop:Generator_ColumnPropNameInRow="WorkType_UID" msprop:Generator_ColumnPropNameInTable="WorkType_UIDColumn" msprop:Generator_UserColumnName="WorkType_UID" type="xs:boolean" minOccurs="0" />
-              <xs:element name="WorkType_Name" msprop:Generator_ColumnVarNameInTable="columnWorkType_Name" msprop:Generator_ColumnPropNameInRow="WorkType_Name" msprop:Generator_ColumnPropNameInTable="WorkType_NameColumn" msprop:Generator_UserColumnName="WorkType_Name" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="WorkType_Status" msprop:Generator_ColumnVarNameInTable="columnWorkType_Status" msprop:Generator_ColumnPropNameInRow="WorkType_Status" msprop:Generator_ColumnPropNameInTable="WorkType_StatusColumn" msprop:Generator_UserColumnName="WorkType_Status" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="WorkType_StatusChangedDate" msprop:Generator_ColumnVarNameInTable="columnWorkType_StatusChangedDate" msprop:Generator_ColumnPropNameInRow="WorkType_StatusChangedDate" msprop:Generator_ColumnPropNameInTable="WorkType_StatusChangedDateColumn" msprop:Generator_UserColumnName="WorkType_StatusChangedDate" type="xs:dateTime" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
         <xs:element name="Sponsors" msprop:Generator_TableClassName="SponsorsDataTable" msprop:Generator_TableVarName="tableSponsors" msprop:Generator_RowChangedName="SponsorsRowChanged" msprop:Generator_TablePropName="Sponsors" msprop:Generator_RowDeletingName="SponsorsRowDeleting" msprop:Generator_RowChangingName="SponsorsRowChanging" msprop:Generator_RowEvHandlerName="SponsorsRowChangeEventHandler" msprop:Generator_RowDeletedName="SponsorsRowDeleted" msprop:Generator_RowClassName="SponsorsRow" msprop:Generator_UserTableName="Sponsors" msprop:Generator_RowEvArgName="SponsorsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
@@ -2482,6 +2201,36 @@ FROM            WorkDoneBy</CommandText>
               <xs:element name="User_LastActivity" msprop:Generator_ColumnVarNameInTable="columnUser_LastActivity" msprop:Generator_ColumnPropNameInRow="User_LastActivity" msprop:Generator_ColumnPropNameInTable="User_LastActivityColumn" msprop:Generator_UserColumnName="User_LastActivity" type="xs:dateTime" minOccurs="0" />
               <xs:element name="User_LastPasswordChanged" msprop:Generator_ColumnVarNameInTable="columnUser_LastPasswordChanged" msprop:Generator_ColumnPropNameInRow="User_LastPasswordChanged" msprop:Generator_ColumnPropNameInTable="User_LastPasswordChangedColumn" msprop:Generator_UserColumnName="User_LastPasswordChanged" type="xs:dateTime" minOccurs="0" />
               <xs:element name="User_LastLockoutDate" msprop:Generator_ColumnVarNameInTable="columnUser_LastLockoutDate" msprop:Generator_ColumnPropNameInRow="User_LastLockoutDate" msprop:Generator_ColumnPropNameInTable="User_LastLockoutDateColumn" msprop:Generator_UserColumnName="User_LastLockoutDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="AssignedUser" msprop:Generator_TableClassName="AssignedUserDataTable" msprop:Generator_TableVarName="tableAssignedUser" msprop:Generator_TablePropName="AssignedUser" msprop:Generator_RowDeletingName="AssignedUserRowDeleting" msprop:Generator_RowChangingName="AssignedUserRowChanging" msprop:Generator_RowEvHandlerName="AssignedUserRowChangeEventHandler" msprop:Generator_RowDeletedName="AssignedUserRowDeleted" msprop:Generator_UserTableName="AssignedUser" msprop:Generator_RowChangedName="AssignedUserRowChanged" msprop:Generator_RowEvArgName="AssignedUserRowChangeEvent" msprop:Generator_RowClassName="AssignedUserRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AssignedUser_UID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnAssignedUser_UID" msprop:Generator_ColumnPropNameInRow="AssignedUser_UID" msprop:Generator_ColumnPropNameInTable="AssignedUser_UIDColumn" msprop:Generator_UserColumnName="AssignedUser_UID" type="xs:int" />
+              <xs:element name="Task_UID" msprop:Generator_ColumnVarNameInTable="columnTask_UID" msprop:Generator_ColumnPropNameInRow="Task_UID" msprop:Generator_ColumnPropNameInTable="Task_UIDColumn" msprop:Generator_UserColumnName="Task_UID" type="xs:int" />
+              <xs:element name="User_Username" msprop:Generator_ColumnVarNameInTable="columnUser_Username" msprop:Generator_ColumnPropNameInRow="User_Username" msprop:Generator_ColumnPropNameInTable="User_UsernameColumn" msprop:Generator_UserColumnName="User_Username">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="WorkDoneBy" msprop:Generator_TableClassName="WorkDoneByDataTable" msprop:Generator_TableVarName="tableWorkDoneBy" msprop:Generator_TablePropName="WorkDoneBy" msprop:Generator_RowDeletingName="WorkDoneByRowDeleting" msprop:Generator_RowChangingName="WorkDoneByRowChanging" msprop:Generator_RowEvHandlerName="WorkDoneByRowChangeEventHandler" msprop:Generator_RowDeletedName="WorkDoneByRowDeleted" msprop:Generator_UserTableName="WorkDoneBy" msprop:Generator_RowChangedName="WorkDoneByRowChanged" msprop:Generator_RowEvArgName="WorkDoneByRowChangeEvent" msprop:Generator_RowClassName="WorkDoneByRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AssignedUser_UID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnAssignedUser_UID" msprop:Generator_ColumnPropNameInRow="AssignedUser_UID" msprop:Generator_ColumnPropNameInTable="AssignedUser_UIDColumn" msprop:Generator_UserColumnName="AssignedUser_UID" type="xs:int" />
+              <xs:element name="Work_UID" msprop:Generator_ColumnVarNameInTable="columnWork_UID" msprop:Generator_ColumnPropNameInRow="Work_UID" msprop:Generator_ColumnPropNameInTable="Work_UIDColumn" msprop:Generator_UserColumnName="Work_UID" type="xs:int" />
+              <xs:element name="User_Username" msprop:Generator_ColumnVarNameInTable="columnUser_Username" msprop:Generator_ColumnPropNameInRow="User_Username" msprop:Generator_ColumnPropNameInTable="User_UsernameColumn" msprop:Generator_UserColumnName="User_Username">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -2717,33 +2466,274 @@ FROM            WorkDoneBy</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AssignedUser" msprop:Generator_TableClassName="AssignedUserDataTable" msprop:Generator_TableVarName="tableAssignedUser" msprop:Generator_TablePropName="AssignedUser" msprop:Generator_RowDeletingName="AssignedUserRowDeleting" msprop:Generator_RowChangingName="AssignedUserRowChanging" msprop:Generator_RowEvHandlerName="AssignedUserRowChangeEventHandler" msprop:Generator_RowDeletedName="AssignedUserRowDeleted" msprop:Generator_UserTableName="AssignedUser" msprop:Generator_RowChangedName="AssignedUserRowChanged" msprop:Generator_RowEvArgName="AssignedUserRowChangeEvent" msprop:Generator_RowClassName="AssignedUserRow">
+        <xs:element name="ProjectTasksDone" msprop:Generator_TableClassName="ProjectTasksDoneDataTable" msprop:Generator_TableVarName="tableProjectTasksDone" msprop:Generator_RowChangedName="ProjectTasksDoneRowChanged" msprop:Generator_TablePropName="ProjectTasksDone" msprop:Generator_RowDeletingName="ProjectTasksDoneRowDeleting" msprop:Generator_RowChangingName="ProjectTasksDoneRowChanging" msprop:Generator_RowEvHandlerName="ProjectTasksDoneRowChangeEventHandler" msprop:Generator_RowDeletedName="ProjectTasksDoneRowDeleted" msprop:Generator_RowClassName="ProjectTasksDoneRow" msprop:Generator_UserTableName="ProjectTasksDone" msprop:Generator_RowEvArgName="ProjectTasksDoneRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="AssignedUser_UID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnAssignedUser_UID" msprop:Generator_ColumnPropNameInRow="AssignedUser_UID" msprop:Generator_ColumnPropNameInTable="AssignedUser_UIDColumn" msprop:Generator_UserColumnName="AssignedUser_UID" type="xs:int" />
-              <xs:element name="Task_UID" msprop:Generator_ColumnVarNameInTable="columnTask_UID" msprop:Generator_ColumnPropNameInRow="Task_UID" msprop:Generator_ColumnPropNameInTable="Task_UIDColumn" msprop:Generator_UserColumnName="Task_UID" type="xs:int" />
-              <xs:element name="User_Username" msprop:Generator_ColumnVarNameInTable="columnUser_Username" msprop:Generator_ColumnPropNameInRow="User_Username" msprop:Generator_ColumnPropNameInTable="User_UsernameColumn" msprop:Generator_UserColumnName="User_Username">
+              <xs:element name="Project_UID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProject_UID" msprop:Generator_ColumnPropNameInRow="Project_UID" msprop:Generator_ColumnPropNameInTable="Project_UIDColumn" msprop:Generator_UserColumnName="Project_UID" type="xs:int" />
+              <xs:element name="Project_YearMade" msprop:Generator_ColumnVarNameInTable="columnProject_YearMade" msprop:Generator_ColumnPropNameInRow="Project_YearMade" msprop:Generator_ColumnPropNameInTable="Project_YearMadeColumn" msprop:Generator_UserColumnName="Project_YearMade" type="xs:int" minOccurs="0" />
+              <xs:element name="Project_Name" msprop:Generator_ColumnVarNameInTable="columnProject_Name" msprop:Generator_ColumnPropNameInRow="Project_Name" msprop:Generator_ColumnPropNameInTable="Project_NameColumn" msprop:Generator_UserColumnName="Project_Name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Project_Description" msprop:Generator_ColumnVarNameInTable="columnProject_Description" msprop:Generator_ColumnPropNameInRow="Project_Description" msprop:Generator_ColumnPropNameInTable="Project_DescriptionColumn" msprop:Generator_UserColumnName="Project_Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Project_Status" msprop:Generator_ColumnVarNameInTable="columnProject_Status" msprop:Generator_ColumnPropNameInRow="Project_Status" msprop:Generator_ColumnPropNameInTable="Project_StatusColumn" msprop:Generator_UserColumnName="Project_Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Project_StatusChangedDate" msprop:Generator_ColumnVarNameInTable="columnProject_StatusChangedDate" msprop:Generator_ColumnPropNameInRow="Project_StatusChangedDate" msprop:Generator_ColumnPropNameInTable="Project_StatusChangedDateColumn" msprop:Generator_UserColumnName="Project_StatusChangedDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Project_Active" msprop:Generator_ColumnVarNameInTable="columnProject_Active" msprop:Generator_ColumnPropNameInRow="Project_Active" msprop:Generator_ColumnPropNameInTable="Project_ActiveColumn" msprop:Generator_UserColumnName="Project_Active" type="xs:boolean" minOccurs="0" />
+              <xs:element name="WorkType_UID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnWorkType_UID" msprop:Generator_ColumnPropNameInRow="WorkType_UID" msprop:Generator_ColumnPropNameInTable="WorkType_UIDColumn" msprop:Generator_UserColumnName="WorkType_UID" type="xs:int" minOccurs="0" />
+              <xs:element name="WorkType_Name" msprop:Generator_ColumnVarNameInTable="columnWorkType_Name" msprop:Generator_ColumnPropNameInRow="WorkType_Name" msprop:Generator_ColumnPropNameInTable="WorkType_NameColumn" msprop:Generator_UserColumnName="WorkType_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WorkType_Status" msprop:Generator_ColumnVarNameInTable="columnWorkType_Status" msprop:Generator_ColumnPropNameInRow="WorkType_Status" msprop:Generator_ColumnPropNameInTable="WorkType_StatusColumn" msprop:Generator_UserColumnName="WorkType_Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WorkType_StatusChangedDate" msprop:Generator_ColumnVarNameInTable="columnWorkType_StatusChangedDate" msprop:Generator_ColumnPropNameInRow="WorkType_StatusChangedDate" msprop:Generator_ColumnPropNameInTable="WorkType_StatusChangedDateColumn" msprop:Generator_UserColumnName="WorkType_StatusChangedDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Task_UID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnTask_UID" msprop:Generator_ColumnPropNameInRow="Task_UID" msprop:Generator_ColumnPropNameInTable="Task_UIDColumn" msprop:Generator_UserColumnName="Task_UID" type="xs:int" />
+              <xs:element name="User_Username_AssignedBy" msprop:Generator_ColumnVarNameInTable="columnUser_Username_AssignedBy" msprop:Generator_ColumnPropNameInRow="User_Username_AssignedBy" msprop:Generator_ColumnPropNameInTable="User_Username_AssignedByColumn" msprop:Generator_UserColumnName="User_Username_AssignedBy">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Task_Name" msprop:Generator_ColumnVarNameInTable="columnTask_Name" msprop:Generator_ColumnPropNameInRow="Task_Name" msprop:Generator_ColumnPropNameInTable="Task_NameColumn" msprop:Generator_UserColumnName="Task_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Task_Description" msprop:Generator_ColumnVarNameInTable="columnTask_Description" msprop:Generator_ColumnPropNameInRow="Task_Description" msprop:Generator_ColumnPropNameInTable="Task_DescriptionColumn" msprop:Generator_UserColumnName="Task_Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Task_TakeFiveNeeded" msprop:Generator_ColumnVarNameInTable="columnTask_TakeFiveNeeded" msprop:Generator_ColumnPropNameInRow="Task_TakeFiveNeeded" msprop:Generator_ColumnPropNameInTable="Task_TakeFiveNeededColumn" msprop:Generator_UserColumnName="Task_TakeFiveNeeded" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Task_DueDate" msprop:Generator_ColumnVarNameInTable="columnTask_DueDate" msprop:Generator_ColumnPropNameInRow="Task_DueDate" msprop:Generator_ColumnPropNameInTable="Task_DueDateColumn" msprop:Generator_UserColumnName="Task_DueDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Work_UID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnWork_UID" msprop:Generator_ColumnPropNameInRow="Work_UID" msprop:Generator_ColumnPropNameInTable="Work_UIDColumn" msprop:Generator_UserColumnName="Work_UID" type="xs:int" minOccurs="0" />
+              <xs:element name="Work_DateCompleted" msprop:Generator_ColumnVarNameInTable="columnWork_DateCompleted" msprop:Generator_ColumnPropNameInRow="Work_DateCompleted" msprop:Generator_ColumnPropNameInTable="Work_DateCompletedColumn" msprop:Generator_UserColumnName="Work_DateCompleted" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Work_Description" msprop:Generator_ColumnVarNameInTable="columnWork_Description" msprop:Generator_ColumnPropNameInRow="Work_Description" msprop:Generator_ColumnPropNameInTable="Work_DescriptionColumn" msprop:Generator_UserColumnName="Work_Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Work_TimeWorkedMins" msprop:Generator_ColumnVarNameInTable="columnWork_TimeWorkedMins" msprop:Generator_ColumnPropNameInRow="Work_TimeWorkedMins" msprop:Generator_ColumnPropNameInTable="Work_TimeWorkedMinsColumn" msprop:Generator_UserColumnName="Work_TimeWorkedMins" type="xs:int" minOccurs="0" />
+              <xs:element name="Work_TakeFiveTaken" msprop:Generator_ColumnVarNameInTable="columnWork_TakeFiveTaken" msprop:Generator_ColumnPropNameInRow="Work_TakeFiveTaken" msprop:Generator_ColumnPropNameInTable="Work_TakeFiveTakenColumn" msprop:Generator_UserColumnName="Work_TakeFiveTaken" type="xs:boolean" minOccurs="0" />
+              <xs:element name="User_Username" msprop:Generator_ColumnVarNameInTable="columnUser_Username" msprop:Generator_ColumnPropNameInRow="User_Username" msprop:Generator_ColumnPropNameInTable="User_UsernameColumn" msprop:Generator_UserColumnName="User_Username" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_PasswordHash" msprop:Generator_ColumnVarNameInTable="columnUser_PasswordHash" msprop:Generator_ColumnPropNameInRow="User_PasswordHash" msprop:Generator_ColumnPropNameInTable="User_PasswordHashColumn" msprop:Generator_UserColumnName="User_PasswordHash" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="User_PasswordSalt" msprop:Generator_ColumnVarNameInTable="columnUser_PasswordSalt" msprop:Generator_ColumnPropNameInRow="User_PasswordSalt" msprop:Generator_ColumnPropNameInTable="User_PasswordSaltColumn" msprop:Generator_UserColumnName="User_PasswordSalt" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="User_Role" msprop:Generator_ColumnVarNameInTable="columnUser_Role" msprop:Generator_ColumnPropNameInRow="User_Role" msprop:Generator_ColumnPropNameInTable="User_RoleColumn" msprop:Generator_UserColumnName="User_Role" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_Active" msprop:Generator_ColumnVarNameInTable="columnUser_Active" msprop:Generator_ColumnPropNameInRow="User_Active" msprop:Generator_ColumnPropNameInTable="User_ActiveColumn" msprop:Generator_UserColumnName="User_Active" type="xs:boolean" minOccurs="0" />
+              <xs:element name="User_Surname" msprop:Generator_ColumnVarNameInTable="columnUser_Surname" msprop:Generator_ColumnPropNameInRow="User_Surname" msprop:Generator_ColumnPropNameInTable="User_SurnameColumn" msprop:Generator_UserColumnName="User_Surname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_GivenName" msprop:Generator_ColumnVarNameInTable="columnUser_GivenName" msprop:Generator_ColumnPropNameInRow="User_GivenName" msprop:Generator_ColumnPropNameInTable="User_GivenNameColumn" msprop:Generator_UserColumnName="User_GivenName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_Email" msprop:Generator_ColumnVarNameInTable="columnUser_Email" msprop:Generator_ColumnPropNameInRow="User_Email" msprop:Generator_ColumnPropNameInTable="User_EmailColumn" msprop:Generator_UserColumnName="User_Email" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_StudentNumber" msprop:Generator_ColumnVarNameInTable="columnUser_StudentNumber" msprop:Generator_ColumnPropNameInRow="User_StudentNumber" msprop:Generator_ColumnPropNameInTable="User_StudentNumberColumn" msprop:Generator_UserColumnName="User_StudentNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_EstGraduationYear" msprop:Generator_ColumnVarNameInTable="columnUser_EstGraduationYear" msprop:Generator_ColumnPropNameInRow="User_EstGraduationYear" msprop:Generator_ColumnPropNameInTable="User_EstGraduationYearColumn" msprop:Generator_UserColumnName="User_EstGraduationYear" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_Degree" msprop:Generator_ColumnVarNameInTable="columnUser_Degree" msprop:Generator_ColumnPropNameInRow="User_Degree" msprop:Generator_ColumnPropNameInTable="User_DegreeColumn" msprop:Generator_UserColumnName="User_Degree" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_SAE_MemberNo" msprop:Generator_ColumnVarNameInTable="columnUser_SAE_MemberNo" msprop:Generator_ColumnPropNameInRow="User_SAE_MemberNo" msprop:Generator_ColumnPropNameInTable="User_SAE_MemberNoColumn" msprop:Generator_UserColumnName="User_SAE_MemberNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_SAE_Expiry" msprop:Generator_ColumnVarNameInTable="columnUser_SAE_Expiry" msprop:Generator_ColumnPropNameInRow="User_SAE_Expiry" msprop:Generator_ColumnPropNameInTable="User_SAE_ExpiryColumn" msprop:Generator_UserColumnName="User_SAE_Expiry" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="User_CAMS_MemberNo" msprop:Generator_ColumnVarNameInTable="columnUser_CAMS_MemberNo" msprop:Generator_ColumnPropNameInRow="User_CAMS_MemberNo" msprop:Generator_ColumnPropNameInTable="User_CAMS_MemberNoColumn" msprop:Generator_UserColumnName="User_CAMS_MemberNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_CAMS_LicenseType" msprop:Generator_ColumnVarNameInTable="columnUser_CAMS_LicenseType" msprop:Generator_ColumnPropNameInRow="User_CAMS_LicenseType" msprop:Generator_ColumnPropNameInTable="User_CAMS_LicenseTypeColumn" msprop:Generator_UserColumnName="User_CAMS_LicenseType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_LicenseNo" msprop:Generator_ColumnVarNameInTable="columnUser_LicenseNo" msprop:Generator_ColumnPropNameInRow="User_LicenseNo" msprop:Generator_ColumnPropNameInTable="User_LicenseNoColumn" msprop:Generator_UserColumnName="User_LicenseNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_LicenseState" msprop:Generator_ColumnVarNameInTable="columnUser_LicenseState" msprop:Generator_ColumnPropNameInRow="User_LicenseState" msprop:Generator_ColumnPropNameInTable="User_LicenseStateColumn" msprop:Generator_UserColumnName="User_LicenseState" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_EmergencyContactName" msprop:Generator_ColumnVarNameInTable="columnUser_EmergencyContactName" msprop:Generator_ColumnPropNameInRow="User_EmergencyContactName" msprop:Generator_ColumnPropNameInTable="User_EmergencyContactNameColumn" msprop:Generator_UserColumnName="User_EmergencyContactName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_EmergencyContactNumber" msprop:Generator_ColumnVarNameInTable="columnUser_EmergencyContactNumber" msprop:Generator_ColumnPropNameInRow="User_EmergencyContactNumber" msprop:Generator_ColumnPropNameInTable="User_EmergencyContactNumberColumn" msprop:Generator_UserColumnName="User_EmergencyContactNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_MedicareNo" msprop:Generator_ColumnVarNameInTable="columnUser_MedicareNo" msprop:Generator_ColumnPropNameInRow="User_MedicareNo" msprop:Generator_ColumnPropNameInTable="User_MedicareNoColumn" msprop:Generator_UserColumnName="User_MedicareNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_Allergies" msprop:Generator_ColumnVarNameInTable="columnUser_Allergies" msprop:Generator_ColumnPropNameInRow="User_Allergies" msprop:Generator_ColumnPropNameInTable="User_AllergiesColumn" msprop:Generator_UserColumnName="User_Allergies" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_DietaryRequirements" msprop:Generator_ColumnVarNameInTable="columnUser_DietaryRequirements" msprop:Generator_ColumnPropNameInRow="User_DietaryRequirements" msprop:Generator_ColumnPropNameInTable="User_DietaryRequirementsColumn" msprop:Generator_UserColumnName="User_DietaryRequirements" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_MedicalConditions" msprop:Generator_ColumnVarNameInTable="columnUser_MedicalConditions" msprop:Generator_ColumnPropNameInRow="User_MedicalConditions" msprop:Generator_ColumnPropNameInTable="User_MedicalConditionsColumn" msprop:Generator_UserColumnName="User_MedicalConditions" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="User_IndemnityFormSigned" msprop:Generator_ColumnVarNameInTable="columnUser_IndemnityFormSigned" msprop:Generator_ColumnPropNameInRow="User_IndemnityFormSigned" msprop:Generator_ColumnPropNameInTable="User_IndemnityFormSignedColumn" msprop:Generator_UserColumnName="User_IndemnityFormSigned" type="xs:boolean" minOccurs="0" />
+              <xs:element name="User_Created" msprop:Generator_ColumnVarNameInTable="columnUser_Created" msprop:Generator_ColumnPropNameInRow="User_Created" msprop:Generator_ColumnPropNameInTable="User_CreatedColumn" msprop:Generator_UserColumnName="User_Created" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="User_LastLogin" msprop:Generator_ColumnVarNameInTable="columnUser_LastLogin" msprop:Generator_ColumnPropNameInRow="User_LastLogin" msprop:Generator_ColumnPropNameInTable="User_LastLoginColumn" msprop:Generator_UserColumnName="User_LastLogin" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="User_LastActivity" msprop:Generator_ColumnVarNameInTable="columnUser_LastActivity" msprop:Generator_ColumnPropNameInRow="User_LastActivity" msprop:Generator_ColumnPropNameInTable="User_LastActivityColumn" msprop:Generator_UserColumnName="User_LastActivity" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="User_LastPasswordChanged" msprop:Generator_ColumnVarNameInTable="columnUser_LastPasswordChanged" msprop:Generator_ColumnPropNameInRow="User_LastPasswordChanged" msprop:Generator_ColumnPropNameInTable="User_LastPasswordChangedColumn" msprop:Generator_UserColumnName="User_LastPasswordChanged" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="User_LastLockoutDate" msprop:Generator_ColumnVarNameInTable="columnUser_LastLockoutDate" msprop:Generator_ColumnPropNameInRow="User_LastLockoutDate" msprop:Generator_ColumnPropNameInTable="User_LastLockoutDateColumn" msprop:Generator_UserColumnName="User_LastLockoutDate" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="WorkDoneBy" msprop:Generator_TableClassName="WorkDoneByDataTable" msprop:Generator_TableVarName="tableWorkDoneBy" msprop:Generator_TablePropName="WorkDoneBy" msprop:Generator_RowDeletingName="WorkDoneByRowDeleting" msprop:Generator_RowChangingName="WorkDoneByRowChanging" msprop:Generator_RowEvHandlerName="WorkDoneByRowChangeEventHandler" msprop:Generator_RowDeletedName="WorkDoneByRowDeleted" msprop:Generator_UserTableName="WorkDoneBy" msprop:Generator_RowChangedName="WorkDoneByRowChanged" msprop:Generator_RowEvArgName="WorkDoneByRowChangeEvent" msprop:Generator_RowClassName="WorkDoneByRow">
+        <xs:element name="WorkTypeExtended" msprop:Generator_TableClassName="WorkTypeExtendedDataTable" msprop:Generator_TableVarName="tableWorkTypeExtended" msprop:Generator_TablePropName="WorkTypeExtended" msprop:Generator_RowDeletingName="WorkTypeExtendedRowDeleting" msprop:Generator_RowChangingName="WorkTypeExtendedRowChanging" msprop:Generator_RowEvHandlerName="WorkTypeExtendedRowChangeEventHandler" msprop:Generator_RowDeletedName="WorkTypeExtendedRowDeleted" msprop:Generator_UserTableName="WorkTypeExtended" msprop:Generator_RowChangedName="WorkTypeExtendedRowChanged" msprop:Generator_RowEvArgName="WorkTypeExtendedRowChangeEvent" msprop:Generator_RowClassName="WorkTypeExtendedRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="AssignedUser_UID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnAssignedUser_UID" msprop:Generator_ColumnPropNameInRow="AssignedUser_UID" msprop:Generator_ColumnPropNameInTable="AssignedUser_UIDColumn" msprop:Generator_UserColumnName="AssignedUser_UID" type="xs:int" />
-              <xs:element name="Work_UID" msprop:Generator_ColumnVarNameInTable="columnWork_UID" msprop:Generator_ColumnPropNameInRow="Work_UID" msprop:Generator_ColumnPropNameInTable="Work_UIDColumn" msprop:Generator_UserColumnName="Work_UID" type="xs:int" />
-              <xs:element name="User_Username" msprop:Generator_ColumnVarNameInTable="columnUser_Username" msprop:Generator_ColumnPropNameInRow="User_Username" msprop:Generator_ColumnPropNameInTable="User_UsernameColumn" msprop:Generator_UserColumnName="User_Username">
+              <xs:element name="Project_UID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnProject_UID" msprop:Generator_ColumnPropNameInRow="Project_UID" msprop:Generator_ColumnPropNameInTable="Project_UIDColumn" msprop:Generator_UserColumnName="Project_UID" type="xs:int" />
+              <xs:element name="Project_YearMade" msprop:Generator_ColumnVarNameInTable="columnProject_YearMade" msprop:Generator_ColumnPropNameInRow="Project_YearMade" msprop:Generator_ColumnPropNameInTable="Project_YearMadeColumn" msprop:Generator_UserColumnName="Project_YearMade" type="xs:int" minOccurs="0" />
+              <xs:element name="Project_Name" msprop:Generator_ColumnVarNameInTable="columnProject_Name" msprop:Generator_ColumnPropNameInRow="Project_Name" msprop:Generator_ColumnPropNameInTable="Project_NameColumn" msprop:Generator_UserColumnName="Project_Name" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Project_Description" msprop:Generator_ColumnVarNameInTable="columnProject_Description" msprop:Generator_ColumnPropNameInRow="Project_Description" msprop:Generator_ColumnPropNameInTable="Project_DescriptionColumn" msprop:Generator_UserColumnName="Project_Description" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Project_Status" msprop:Generator_ColumnVarNameInTable="columnProject_Status" msprop:Generator_ColumnPropNameInRow="Project_Status" msprop:Generator_ColumnPropNameInTable="Project_StatusColumn" msprop:Generator_UserColumnName="Project_Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Project_StatusChangedDate" msprop:Generator_ColumnVarNameInTable="columnProject_StatusChangedDate" msprop:Generator_ColumnPropNameInRow="Project_StatusChangedDate" msprop:Generator_ColumnPropNameInTable="Project_StatusChangedDateColumn" msprop:Generator_UserColumnName="Project_StatusChangedDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="WorkType_UID" msprop:Generator_ColumnVarNameInTable="columnWorkType_UID" msprop:Generator_ColumnPropNameInRow="WorkType_UID" msprop:Generator_ColumnPropNameInTable="WorkType_UIDColumn" msprop:Generator_UserColumnName="WorkType_UID" type="xs:boolean" minOccurs="0" />
+              <xs:element name="WorkType_Name" msprop:Generator_ColumnVarNameInTable="columnWorkType_Name" msprop:Generator_ColumnPropNameInRow="WorkType_Name" msprop:Generator_ColumnPropNameInTable="WorkType_NameColumn" msprop:Generator_UserColumnName="WorkType_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WorkType_Status" msprop:Generator_ColumnVarNameInTable="columnWorkType_Status" msprop:Generator_ColumnPropNameInRow="WorkType_Status" msprop:Generator_ColumnPropNameInTable="WorkType_StatusColumn" msprop:Generator_UserColumnName="WorkType_Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WorkType_StatusChangedDate" msprop:Generator_ColumnVarNameInTable="columnWorkType_StatusChangedDate" msprop:Generator_ColumnPropNameInRow="WorkType_StatusChangedDate" msprop:Generator_ColumnPropNameInTable="WorkType_StatusChangedDateColumn" msprop:Generator_UserColumnName="WorkType_StatusChangedDate" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -2799,10 +2789,6 @@ FROM            WorkDoneBy</CommandText>
       <xs:field xpath="mstns:Task_UID" />
       <xs:field xpath="mstns:Work_UID" />
       <xs:field xpath="mstns:TakeFiveResponse_UID" />
-    </xs:unique>
-    <xs:unique name="ProjectWorkTypes_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:ProjectWorkTypes" />
-      <xs:field xpath="mstns:Project_UID" />
     </xs:unique>
     <xs:unique name="AssignedUser_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:AssignedUser" />

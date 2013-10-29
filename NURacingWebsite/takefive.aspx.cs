@@ -30,8 +30,8 @@ namespace NURacingWebsite
             }
             else
             {
-                response.Response = reasonTxtBx.Text;
-                BusinessLogicLayer.Work.
+                //response.Response = reasonTxtBx.Text;
+                //BusinessLogicLayer.Work.
             }
         }
     }

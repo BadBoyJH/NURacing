@@ -412,105 +412,41 @@
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
-              <Group Name="Project_Status">
+              <Group Name="Project_UID">
                 <GroupExpressions>
                   <GroupExpression>=Fields!Project_UID.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!Project_Name.Value</Value>
+                  <Value>=Fields!Project_UID.Value</Value>
                 </SortExpression>
               </SortExpressions>
-              <TablixHeader>
-                <Size>3.5cm</Size>
-                <CellContents>
-                  <Textbox Name="Project_Name">
-                    <CanGrow>true</CanGrow>
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>=Fields!Project_Name.Value</Value>
-                            <Style>
-                              <FontSize>8.5pt</FontSize>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style>
-                          <TextAlign>Left</TextAlign>
-                        </Style>
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>Project_Name</rd:DefaultName>
-                    <Style>
-                      <Border>
-                        <Color>LightGrey</Color>
-                        <Style>None</Style>
-                      </Border>
-                      <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
-                      <VerticalAlign>Top</VerticalAlign>
-                      <PaddingLeft>2pt</PaddingLeft>
-                      <PaddingRight>2pt</PaddingRight>
-                      <PaddingTop>2pt</PaddingTop>
-                      <PaddingBottom>2pt</PaddingBottom>
-                    </Style>
-                  </Textbox>
-                </CellContents>
-              </TablixHeader>
               <TablixMembers>
                 <TablixMember>
-                  <TablixHeader>
-                    <Size>7.3cm</Size>
-                    <CellContents>
-                      <Textbox Name="Project_Description2">
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>=Fields!Project_Description.Value</Value>
-                                <Style>
-                                  <FontSize>8.5pt</FontSize>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style>
-                              <TextAlign>Left</TextAlign>
-                            </Style>
-                          </Paragraph>
-                        </Paragraphs>
-                        <rd:DefaultName>Project_Description</rd:DefaultName>
-                        <Style>
-                          <Border>
-                            <Color>LightGrey</Color>
-                            <Style>None</Style>
-                          </Border>
-                          <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
-                          <VerticalAlign>Top</VerticalAlign>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
+                  <Group Name="WorkType_UID">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!WorkType_UID.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!WorkType_UID.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>2.5cm</Size>
+                        <Size>3.5cm</Size>
                         <CellContents>
-                          <Textbox Name="Project_Status2">
+                          <Textbox Name="Project_Name">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>=Fields!Project_Status.Value</Value>
+                                    <Value>=Fields!Project_Name.Value</Value>
                                     <Style>
                                       <FontSize>8.5pt</FontSize>
                                     </Style>
@@ -521,7 +457,7 @@
                                 </Style>
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>Project_Status</rd:DefaultName>
+                            <rd:DefaultName>Project_Name</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Color>LightGrey</Color>
@@ -540,16 +476,16 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>4.2cm</Size>
+                            <Size>7.3cm</Size>
                             <CellContents>
-                              <Textbox Name="Project_StatusChangedDate3">
+                              <Textbox Name="Project_Description2">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>=Fields!Project_StatusChangedDate.Value</Value>
+                                        <Value>=Fields!Project_Description.Value</Value>
                                         <Style>
                                           <FontSize>8.5pt</FontSize>
                                         </Style>
@@ -560,7 +496,7 @@
                                     </Style>
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>Project_StatusChangedDate</rd:DefaultName>
+                                <rd:DefaultName>Project_Description</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Color>LightGrey</Color>
@@ -578,18 +514,86 @@
                           </TablixHeader>
                           <TablixMembers>
                             <TablixMember>
-                              <Group Name="WorkType_UID">
-                                <GroupExpressions>
-                                  <GroupExpression>=Fields!WorkType_UID.Value</GroupExpression>
-                                </GroupExpressions>
-                              </Group>
-                              <SortExpressions>
-                                <SortExpression>
-                                  <Value>=Fields!WorkType_UID.Value</Value>
-                                </SortExpression>
-                              </SortExpressions>
+                              <TablixHeader>
+                                <Size>2.5cm</Size>
+                                <CellContents>
+                                  <Textbox Name="Project_Status2">
+                                    <CanGrow>true</CanGrow>
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value>=Fields!Project_Status.Value</Value>
+                                            <Style>
+                                              <FontSize>8.5pt</FontSize>
+                                            </Style>
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style>
+                                          <TextAlign>Left</TextAlign>
+                                        </Style>
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <rd:DefaultName>Project_Status</rd:DefaultName>
+                                    <Style>
+                                      <Border>
+                                        <Color>LightGrey</Color>
+                                        <Style>None</Style>
+                                      </Border>
+                                      <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                                      <VerticalAlign>Top</VerticalAlign>
+                                      <PaddingLeft>2pt</PaddingLeft>
+                                      <PaddingRight>2pt</PaddingRight>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixHeader>
                               <TablixMembers>
-                                <TablixMember />
+                                <TablixMember>
+                                  <TablixHeader>
+                                    <Size>4.2cm</Size>
+                                    <CellContents>
+                                      <Textbox Name="Project_StatusChangedDate3">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!Project_StatusChangedDate.Value</Value>
+                                                <Style>
+                                                  <FontSize>8.5pt</FontSize>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Left</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>Project_StatusChangedDate</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Color>LightGrey</Color>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                                          <VerticalAlign>Top</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixHeader>
+                                  <TablixMembers>
+                                    <TablixMember />
+                                  </TablixMembers>
+                                </TablixMember>
                               </TablixMembers>
                             </TablixMember>
                           </TablixMembers>
@@ -604,15 +608,6 @@
         </TablixRowHierarchy>
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>dsPROJECTS</DataSetName>
-        <Filters>
-          <Filter>
-            <FilterExpression>=Fields!Project_Active.Value = True</FilterExpression>
-            <Operator>Equal</Operator>
-            <FilterValues>
-              <FilterValue DataType="Boolean">true</FilterValue>
-            </FilterValues>
-          </Filter>
-        </Filters>
         <Height>1.2cm</Height>
         <Width>27.7cm</Width>
         <Style>
@@ -627,7 +622,7 @@
       <BackgroundColor>White</BackgroundColor>
     </Style>
   </Body>
-  <Width>27.7cm</Width>
+  <Width>32.7cm</Width>
   <Page>
     <PageHeader>
       <Height>2cm</Height>
