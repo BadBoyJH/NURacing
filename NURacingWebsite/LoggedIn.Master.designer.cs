@@ -10,7 +10,7 @@
 namespace NURacingWebsite {
     
     
-    public partial class Site1 {
+    public partial class LoggedIn {
         
         /// <summary>
         /// Head1 control.
@@ -31,6 +31,15 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder Title;
         
         /// <summary>
+        /// Link1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlLink Link1;
+        
+        /// <summary>
         /// Scripts control.
         /// </summary>
         /// <remarks>
@@ -47,5 +56,14 @@ namespace NURacingWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder Body;
+        
+        /// <summary>
+        /// footer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl footer;
     }
 }

@@ -26354,7 +26354,7 @@ WHERE User_Username = @Username";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `assigneduser` WHERE ((`AssignedUser_UID` = @Original_AssignedUser_UI" +
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `AssignedUser` WHERE ((`AssignedUser_UID` = @Original_AssignedUser_UI" +
                 "D) AND (`Task_UID` = @Original_Task_UID) AND (`User_Username` = @Original_User_U" +
                 "sername))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
@@ -26384,7 +26384,7 @@ WHERE User_Username = @Username";
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `assigneduser` (`Task_UID`, `User_Username`) VALUES (@Task_UID, @User" +
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `AssignedUser` (`Task_UID`, `User_Username`) VALUES (@Task_UID, @User" +
                 "_Username)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -26403,7 +26403,7 @@ WHERE User_Username = @Username";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `assigneduser` SET `Task_UID` = @Task_UID, `User_Username` = @User_Usernam" +
+            this._adapter.UpdateCommand.CommandText = "UPDATE `AssignedUser` SET `Task_UID` = @Task_UID, `User_Username` = @User_Usernam" +
                 "e WHERE ((`AssignedUser_UID` = @Original_AssignedUser_UID) AND (`Task_UID` = @Or" +
                 "iginal_Task_UID) AND (`User_Username` = @Original_User_Username))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
@@ -26883,7 +26883,7 @@ WHERE User_Username = @Username";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `workdoneby` WHERE ((`AssignedUser_UID` = @Original_AssignedUser_UID)" +
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM `WorkDoneBy` WHERE ((`AssignedUser_UID` = @Original_AssignedUser_UID)" +
                 " AND (`Work_UID` = @Original_Work_UID) AND (`User_Username` = @Original_User_Use" +
                 "rname))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
@@ -26913,7 +26913,7 @@ WHERE User_Username = @Username";
             this._adapter.DeleteCommand.Parameters.Add(param);
             this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `workdoneby` (`Work_UID`, `User_Username`) VALUES (@Work_UID, @User_U" +
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `WorkDoneBy` (`Work_UID`, `User_Username`) VALUES (@Work_UID, @User_U" +
                 "sername)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             param = new global::MySql.Data.MySqlClient.MySqlParameter();
@@ -26932,7 +26932,7 @@ WHERE User_Username = @Username";
             this._adapter.InsertCommand.Parameters.Add(param);
             this._adapter.UpdateCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE `workdoneby` SET `Work_UID` = @Work_UID, `User_Username` = @User_Username " +
+            this._adapter.UpdateCommand.CommandText = "UPDATE `WorkDoneBy` SET `Work_UID` = @Work_UID, `User_Username` = @User_Username " +
                 "WHERE ((`AssignedUser_UID` = @Original_AssignedUser_UID) AND (`Work_UID` = @Orig" +
                 "inal_Work_UID) AND (`User_Username` = @Original_User_Username))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;

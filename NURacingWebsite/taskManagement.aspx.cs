@@ -149,8 +149,8 @@ namespace NURacingWebsite
                 }
             }
 
-            BusinessLogicLayer.AssignedTask.addTask(Membership.GetUser().ToString(), assignDrpList.SelectedItem.ToString(), 
-                workID, DateTime.Now, taskNameTxtBx.Text, taskDescTxtBx.Text, takeFiveChkBx.Checked);
+            //BusinessLogicLayer.AssignedTask.addTask(Membership.GetUser().ToString(), assignDrpList.SelectedItem.ToString(), 
+            //    workID, DateTime.Now, taskNameTxtBx.Text, taskDescTxtBx.Text, takeFiveChkBx.Checked);
         }
     }
 }
