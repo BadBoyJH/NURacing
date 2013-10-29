@@ -1,0 +1,11 @@
+C:\Users\Callan\Source\Repos\NURacing\ConsoleTesting\bin\Debug\ConsoleTesting.exe.config
+C:\Users\Callan\Source\Repos\NURacing\ConsoleTesting\bin\Debug\ConsoleTesting.exe
+C:\Users\Callan\Source\Repos\NURacing\ConsoleTesting\bin\Debug\ConsoleTesting.pdb
+C:\Users\Callan\Source\Repos\NURacing\ConsoleTesting\bin\Debug\BusinessLogicLayer.dll
+C:\Users\Callan\Source\Repos\NURacing\ConsoleTesting\bin\Debug\DataAccessLayer.dll
+C:\Users\Callan\Source\Repos\NURacing\ConsoleTesting\bin\Debug\MySql.Data.dll
+C:\Users\Callan\Source\Repos\NURacing\ConsoleTesting\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\Callan\Source\Repos\NURacing\ConsoleTesting\bin\Debug\DataAccessLayer.pdb
+C:\Users\Callan\Source\Repos\NURacing\ConsoleTesting\obj\Debug\ConsoleTesting.csprojResolveAssemblyReference.cache
+C:\Users\Callan\Source\Repos\NURacing\ConsoleTesting\obj\Debug\ConsoleTesting.exe
+C:\Users\Callan\Source\Repos\NURacing\ConsoleTesting\obj\Debug\ConsoleTesting.pdb
