@@ -9,23 +9,16 @@ using DataAccessLayer.NuRacingDataSetTableAdapters;
 
 namespace BusinessLogicLayer
 {
+    struct TakeFiveResponse
+    {
+        public int TakeFiveID;
+        public string Response;
+    }
+
     public static class Work
     {
-        public static void AddWork(string[] Usernames, DateTime DateCompleted, string Description, int WorkTypeID, int TimeWorkedMins, bool TakeFiveTaken)
+        public static NuRacingDataSet.WorkRow StoreWork(DateTime DateCompleted, string Description, int WorkTypeID, int TimeWorkedMins, bool TakeFiveTaken)
         {
-            foreach (String Username in Usernames)
-            {
-                if (User.UsernameExists(Username))
-                {
-                    throw new ArgumentException("Username doesn't exist: " + Username);
-                }
-            }
-
-            if (WorkType.WorkTypeExists(WorkTypeID))
-            {
-                throw new ArgumentException("Work Type doesn't exist");
-            } 
-            
             WorkTableAdapter workAdapter = new WorkTableAdapter();
             NuRacingDataSet.WorkDataTable workTable = workAdapter.GetData();
             NuRacingDataSet.WorkRow workRow = workTable.NewWorkRow();
@@ -40,6 +33,11 @@ namespace BusinessLogicLayer
             workTable.AddWorkRow(workRow);
             workAdapter.Update(workTable);
 
+            return workRow;
+        }
+
+        public static void StoreWorkDoneBy(string[] Usernames, NuRacingDataSet.WorkRow workRow)
+        {
             WorkDoneByTableAdapter workDoneByAdapter = new WorkDoneByTableAdapter();
             NuRacingDataSet.WorkDoneByDataTable workDoneByTable = workDoneByAdapter.GetData();
 
@@ -56,7 +54,69 @@ namespace BusinessLogicLayer
             workDoneByAdapter.Update(workDoneByTable);
         }
 
-        public static void CompleteTask(string Username, DateTime DateCompleted, int AssignedTaskID, string Description, int TimeWorkedMins, bool TakeFiveTaken)
+        public static void StoreTakeFivesTaken(TakeFiveResponse[] responses, NuRacingDataSet.WorkRow workRow)
+        {
+            TakeFiveResponseTableAdapter responseAdapter = new TakeFiveResponseTableAdapter();
+            NuRacingDataSet.TakeFiveResponseDataTable responseTable = responseAdapter.GetData();
+
+            foreach (TakeFiveResponse response in responses)
+            {
+                NuRacingDataSet.TakeFiveResponseRow responseRow = responseTable.NewTakeFiveResponseRow();
+
+                responseRow.WorkRow = workRow;
+                responseRow.TakeFive_UID = response.TakeFiveID;
+                responseRow.TakeFiveResponse_Reason = response.Response;
+
+                responseTable.AddTakeFiveResponseRow(responseRow);
+            }
+
+            responseAdapter.Update(responseTable);
+
+        }
+
+        public static void AddWork(string[] Usernames, DateTime DateCompleted, string Description, int WorkTypeID, int TimeWorkedMins, bool TakeFiveTaken)
+        {
+            foreach (String Username in Usernames)
+            {
+                if (User.UsernameExists(Username))
+                {
+                    throw new ArgumentException("Username doesn't exist: " + Username);
+                }
+            }
+
+            if (WorkType.WorkTypeExists(WorkTypeID))
+            {
+                throw new ArgumentException("Work Type doesn't exist");
+            }
+
+            NuRacingDataSet.WorkRow workRow = StoreWork(DateCompleted, Description, WorkTypeID, TimeWorkedMins, TakeFiveTaken);
+
+            StoreWorkDoneBy(Usernames, workRow);
+        }
+
+        public static void AddWork(string[] Usernames, DateTime DateCompleted, string Description, int WorkTypeID, int TimeWorkedMins, TakeFiveResponse[] TakeFiveResponses)
+        {
+            foreach (String Username in Usernames)
+            {
+                if (User.UsernameExists(Username))
+                {
+                    throw new ArgumentException("Username doesn't exist: " + Username);
+                }
+            }
+
+            if (WorkType.WorkTypeExists(WorkTypeID))
+            {
+                throw new ArgumentException("Work Type doesn't exist");
+            }
+
+            NuRacingDataSet.WorkRow workRow = StoreWork(DateCompleted, Description, WorkTypeID, TimeWorkedMins, true);
+
+            StoreWorkDoneBy(Usernames, workRow);
+
+            StoreTakeFivesTaken(TakeFiveResponses, workRow);
+        }
+
+        public static void CompleteTask(string[] Usernames, DateTime DateCompleted, int AssignedTaskID, string Description, int TimeWorkedMins, bool TakeFiveTaken)
         {
             if (User.UsernameExists(Username))
             {
@@ -78,29 +138,36 @@ namespace BusinessLogicLayer
 
             int WorkTypeID = ((NuRacingDataSet.AssignedTaskRow)((new AssignedTaskTableAdapter()).GetAssignedTask(AssignedTaskID).Rows[0])).WorkType_UID;
 
-            WorkTableAdapter workAdapter = new WorkTableAdapter();
-            NuRacingDataSet.WorkDataTable workTable = workAdapter.GetData();
-            NuRacingDataSet.WorkRow workRow = workTable.NewWorkRow();
+            NuRacingDataSet.WorkRow workRow = StoreWork(DateCompleted, Description, WorkTypeID, TimeWorkedMins, TakeFiveTaken);
 
-            workRow.Work_DateCompleted = DateCompleted;
-            workRow.Work_Description = Description;
-            workRow.WorkType_UID = WorkTypeID;
-            workRow.Work_TimeWorkedMins = TimeWorkedMins;
-            workRow.Task_UID = AssignedTaskID;
-            workRow.Work_TakeFiveTaken = TakeFiveTaken;
+            StoreWorkDoneBy(Usernames, workRow);
+        }
 
-            workTable.AddWorkRow(workRow);
-            workAdapter.Update(workTable);
+        public static void CompleteTask(string[] Usernames, DateTime DateCompleted, int AssignedTaskID, string Description, int TimeWorkedMins, TakeFiveResponse[] takeFiveResponses)
+        {
+            foreach (string Username in Usernames)
+            {
+                if (User.UsernameExists(Username))
+                {
+                    throw new ArgumentException("Username doesn't exist");
+                }
+            }
+            if (AssignedTask.taskExists(AssignedTaskID))
+            {
+                throw new ArgumentException("Task doesn't exist");
+            }
+            if ((new AssignedUserTableAdapter()).GetDataByBoth(AssignedTaskID, Username).Rows.Count == 0)
+            {
+                throw new ArgumentException("Username wasn't consistant with Assigned Task record");
+            }
 
-            WorkDoneByTableAdapter workDoneByAdapter = new WorkDoneByTableAdapter();
-            NuRacingDataSet.WorkDoneByDataTable workDoneByTable = workDoneByAdapter.GetData();
-            NuRacingDataSet.WorkDoneByRow workDoneByRow = workDoneByTable.NewWorkDoneByRow();
+            int WorkTypeID = ((NuRacingDataSet.AssignedTaskRow)((new AssignedTaskTableAdapter()).GetAssignedTask(AssignedTaskID).Rows[0])).WorkType_UID;
 
-            workDoneByRow.User_Username = Username;
-            workDoneByRow.WorkRow = workRow;
+            NuRacingDataSet.WorkRow workRow = StoreWork(DateCompleted, Description, WorkTypeID, TimeWorkedMins, true);
 
-            workDoneByTable.AddWorkDoneByRow(workDoneByRow);
-            workDoneByAdapter.Update(workDoneByTable);
+            StoreWorkDoneBy(Usernames, workRow);
+
+            StoreTakeFivesTaken(takeFiveResponses, workRow);
         }
 
         public static bool WorkExists(int WorkID)
