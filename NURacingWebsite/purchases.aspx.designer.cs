@@ -10,16 +10,16 @@
 namespace NURacingWebsite {
     
     
-    public partial class tasks {
+    public partial class purchase {
         
         /// <summary>
-        /// Form1 control.
+        /// Form2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm Form2;
         
         /// <summary>
         /// btnEnquiry control.
@@ -31,30 +31,57 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.Button btnEnquiry;
         
         /// <summary>
-        /// lblSectionTitle control.
+        /// Form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSectionTitle;
+        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
         
         /// <summary>
-        /// createProjBtn control.
+        /// goodTxtBx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button createProjBtn;
+        protected global::System.Web.UI.WebControls.TextBox goodTxtBx;
         
         /// <summary>
-        /// todoTable control.
+        /// workTypeDrpList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView todoTable;
+        protected global::System.Web.UI.WebControls.DropDownList workTypeDrpList;
+        
+        /// <summary>
+        /// priceTxtBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox priceTxtBx;
+        
+        /// <summary>
+        /// suppTxtBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox suppTxtBx;
+        
+        /// <summary>
+        /// purchaseBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button purchaseBtn;
     }
 }
