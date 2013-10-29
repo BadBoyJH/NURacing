@@ -9,7 +9,7 @@ using DataAccessLayer.NuRacingDataSetTableAdapters;
 
 namespace BusinessLogicLayer
 {
-    public class Purchase
+    class Purchase
     {
         public static bool purchaseExists(int PurchaseID)
         {
