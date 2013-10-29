@@ -9,7 +9,7 @@ using DataAccessLayer.NuRacingDataSetTableAdapters;
 
 namespace BusinessLogicLayer
 {
-    struct TakeFiveResponse
+    public struct TakeFiveResponse
     {
         public int TakeFiveID;
         public string Response;
@@ -54,7 +54,7 @@ namespace BusinessLogicLayer
             workDoneByAdapter.Update(workDoneByTable);
         }
 
-        public static void StoreTakeFivesTaken(TakeFiveResponse[] responses, NuRacingDataSet.WorkRow workRow)
+        private static void StoreTakeFivesTaken(TakeFiveResponse[] responses, NuRacingDataSet.WorkRow workRow)
         {
             TakeFiveResponseTableAdapter responseAdapter = new TakeFiveResponseTableAdapter();
             NuRacingDataSet.TakeFiveResponseDataTable responseTable = responseAdapter.GetData();
@@ -118,9 +118,16 @@ namespace BusinessLogicLayer
 
         public static void CompleteTask(string[] Usernames, DateTime DateCompleted, int AssignedTaskID, string Description, int TimeWorkedMins, bool TakeFiveTaken)
         {
-            if (User.UsernameExists(Username))
+            foreach (string Username in Usernames)
             {
-                throw new ArgumentException("Username doesn't exist");
+                if (User.UsernameExists(Username))
+                {
+                    throw new ArgumentException("Username doesn't exist");
+                }
+                if ((new AssignedUserTableAdapter()).GetDataByBoth(AssignedTaskID, Username).Rows.Count == 0)
+                {
+                    throw new ArgumentException("Username wasn't consistant with Assigned Task record");
+                }
             }
             if (AssignedTask.taskExists(AssignedTaskID))
             {
@@ -129,11 +136,6 @@ namespace BusinessLogicLayer
             if (TaskInfo.getAssignedTask(AssignedTaskID).TakeFiveNeeded && !TakeFiveTaken)
             {
                 throw new ArgumentException("Take Five was required");
-            }
-
-            if ((new AssignedUserTableAdapter()).GetDataByBoth(AssignedTaskID, Username).Rows.Count == 0)
-            {
-                throw new ArgumentException("Username wasn't consistant with Assigned Task record");
             }
 
             int WorkTypeID = ((NuRacingDataSet.AssignedTaskRow)((new AssignedTaskTableAdapter()).GetAssignedTask(AssignedTaskID).Rows[0])).WorkType_UID;
@@ -151,14 +153,14 @@ namespace BusinessLogicLayer
                 {
                     throw new ArgumentException("Username doesn't exist");
                 }
+                if ((new AssignedUserTableAdapter()).GetDataByBoth(AssignedTaskID, Username).Rows.Count == 0)
+                {
+                    throw new ArgumentException("Username wasn't consistant with Assigned Task record");
+                }
             }
             if (AssignedTask.taskExists(AssignedTaskID))
             {
                 throw new ArgumentException("Task doesn't exist");
-            }
-            if ((new AssignedUserTableAdapter()).GetDataByBoth(AssignedTaskID, Username).Rows.Count == 0)
-            {
-                throw new ArgumentException("Username wasn't consistant with Assigned Task record");
             }
 
             int WorkTypeID = ((NuRacingDataSet.AssignedTaskRow)((new AssignedTaskTableAdapter()).GetAssignedTask(AssignedTaskID).Rows[0])).WorkType_UID;

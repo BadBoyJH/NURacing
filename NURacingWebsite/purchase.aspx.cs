@@ -46,6 +46,7 @@ namespace NURacingWebsite
                     break;
                 }
             }
+
             BusinessLogicLayer.Purchase.addPurchase(Membership.GetUser().UserName, suppTxtBx.Text, goodTxtBx.Text, Convert.ToDecimal(priceTxtBx.Text), workID); 
         }
     }
