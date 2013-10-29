@@ -11,16 +11,16 @@
     <Shape ID="DesignTable:Project" ZOrder="10" X="841" Y="974" Height="229" Width="249" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
     <Shape ID="DesignTable:Purchase" ZOrder="21" X="333" Y="745" Height="267" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:Sponsored" ZOrder="20" X="330" Y="1045" Height="172" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:TakeFive" ZOrder="11" X="1089" Y="615" Height="153" Width="276" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
+    <Shape ID="DesignTable:TakeFive" ZOrder="15" X="1089" Y="615" Height="153" Width="276" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:TakeFiveResponse" ZOrder="6" X="1131" Y="356" Height="172" Width="270" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
     <Shape ID="DesignTable:User" ZOrder="32" X="75" Y="13" Height="324" Width="245" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:Work" ZOrder="1" X="657" Y="389" Height="286" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
     <Shape ID="DesignTable:WorkType" ZOrder="24" X="1046" Y="24" Height="210" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
-    <Shape ID="DesignTable:ProjectTasksDone" ZOrder="19" X="1174" Y="833" Height="305" Width="248" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:CompleteTaskInfo" ZOrder="13" X="1405" Y="1059" Height="305" Width="250" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:ProjectWorkTypes" ZOrder="14" X="1403" Y="684" Height="267" Width="251" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="216" />
-    <Shape ID="DesignTable:Sponsors" ZOrder="18" X="1408" Y="25" Height="305" Width="218" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:WorkshopTasksDone" ZOrder="17" X="1385" Y="364" Height="305" Width="267" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:CompleteTaskInfo" ZOrder="3" X="1533" Y="1084" Height="305" Width="250" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:Sponsors" ZOrder="19" X="1528" Y="4" Height="305" Width="218" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:WorkshopTasksDone" ZOrder="4" X="1485" Y="349" Height="305" Width="267" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:AssignedUser" ZOrder="6" X="348" Y="116" Height="191" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
+    <Shape ID="DesignTable:WorkDoneBy" ZOrder="5" X="311" Y="404" Height="191" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:AssignedUser" ZOrder="3" X="348" Y="116" Height="191" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:WorkDoneBy" ZOrder="2" X="311" Y="404" Height="191" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
   </Shapes>
@@ -53,7 +53,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:Purchase_ibfk_1" ZOrder="12" LineWidth="11">
+    <Connector ID="DesignRelation:Purchase_ibfk_1" ZOrder="16" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1083</X>
@@ -177,7 +177,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:assigneduser_ibfk_1" ZOrder="16" LineWidth="11">
+    <Connector ID="DesignRelation:assigneduser_ibfk_1" ZOrder="18" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>320</X>
@@ -189,7 +189,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:assigneduser_ibfk_2" ZOrder="15" LineWidth="11">
+    <Connector ID="DesignRelation:assigneduser_ibfk_2" ZOrder="17" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>680</X>

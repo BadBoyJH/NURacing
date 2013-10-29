@@ -67,6 +67,15 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.Button btnSubmit;
         
         /// <summary>
+        /// btnPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPassword;
+        
+        /// <summary>
         /// btnRecover control.
         /// </summary>
         /// <remarks>

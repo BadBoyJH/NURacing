@@ -24,8 +24,7 @@
                             <asp:BoundField HeaderText="NAME" DataField="Task_Name"/>
                             <asp:BoundField HeaderText="DESCRIPTION" DataField="Task_Description" />
                             <asp:BoundField HeaderText="DUE DATE" DataField="duedate" />
-                             <asp:HyperLinkField HeaderText="LOG LABOUR" DataTextField="duedate"  DataNavigateUrlFields="Task_ID" DataNavigateUrlFormatString="task.aspx?id={0:G}" />
-                             <asp:HyperLinkField HeaderText="UPDATE TASK" DataTextField="duedate"  DataNavigateUrlFields="Task_ID" DataNavigateUrlFormatString="task.aspx?id={0:G}" />
+                            <asp:HyperLinkField HeaderText="&nbsp;" Text="DETAILS"  DataNavigateUrlFields="Task_ID" DataNavigateUrlFormatString="task.aspx?id={0:G}" />
                 </Columns>
 
             </asp:GridView>

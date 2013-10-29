@@ -31,6 +31,24 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.Button btnEnquiry;
         
         /// <summary>
+        /// updateProjBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button updateProjBtn;
+        
+        /// <summary>
+        /// createProjBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button createProjBtn;
+        
+        /// <summary>
         /// createProjFrm control.
         /// </summary>
         /// <remarks>
@@ -47,5 +65,14 @@ namespace NURacingWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button submitProjBtn;
+        
+        /// <summary>
+        /// updateSubmitBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button updateSubmitBtn;
     }
 }

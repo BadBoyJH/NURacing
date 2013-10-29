@@ -613,6 +613,7 @@
                                                 <Value>=Fields!Work_DateCompleted.Value</Value>
                                                 <Style>
                                                   <FontSize>8.5pt</FontSize>
+                                                  <Format>d</Format>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
@@ -650,7 +651,7 @@
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>dsWORK</DataSetName>
         <Height>1.1cm</Height>
-        <Width>27.7cm</Width>
+        <Width>27.69999cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -776,7 +777,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
-          <Top>0cm</Top>
           <Height>0.5cm</Height>
           <Width>9.3cm</Width>
           <Style>
@@ -812,7 +812,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
-          <Top>0cm</Top>
           <Left>9.3cm</Left>
           <Height>0.5cm</Height>
           <Width>9.3cm</Width>
@@ -850,7 +849,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
-          <Top>0cm</Top>
           <Left>18.6cm</Left>
           <Height>0.5cm</Height>
           <Width>9.1cm</Width>
