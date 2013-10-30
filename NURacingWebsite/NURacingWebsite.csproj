@@ -201,6 +201,8 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Reporting\reportpurchasing.aspx" />
+    <Content Include="Reporting\reportsponsordetails.aspx" />
     <Content Include="sectionmanagement.aspx" />
     <Content Include="css\style.css" />
     <Content Include="Images\accent.png" />
@@ -339,6 +341,20 @@
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Reporting\reportpurchasing.aspx.cs">
+      <DependentUpon>reportpurchasing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporting\reportpurchasing.aspx.designer.cs">
+      <DependentUpon>reportpurchasing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting\reportsponsordetails.aspx.cs">
+      <DependentUpon>reportsponsordetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reporting\reportsponsordetails.aspx.designer.cs">
+      <DependentUpon>reportsponsordetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="sectionmanagement.aspx.cs">
       <DependentUpon>sectionmanagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -514,6 +530,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reporting\PurchaseReport.rdlc" />
+    <EmbeddedResource Include="Reporting\SponsorReport.rdlc" />
     <EmbeddedResource Include="Reporting\TakeFiveReport.rdlc" />
     <EmbeddedResource Include="Reporting\WorkshopReport.rdlc" />
     <EmbeddedResource Include="Reporting\LabourReport.rdlc" />

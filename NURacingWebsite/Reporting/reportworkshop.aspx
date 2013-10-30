@@ -3,7 +3,7 @@
 <%@ Register assembly="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
 
 <asp:Content ContentPlaceHolderID="Title" ID="Title" runat="server">
-    System - Workshop Report
+     NURacing System - Workshop Report
 </asp:Content>
 
 <asp:Content ID ="Body" ContentPlaceHolderID ="Body" runat ="server">

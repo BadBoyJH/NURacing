@@ -111,9 +111,6 @@
             <TablixColumn>
               <Width>1.61167cm</Width>
             </TablixColumn>
-            <TablixColumn>
-              <Width>1.82267cm</Width>
-            </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
@@ -860,42 +857,6 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_IndemnityFormSigned</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>None</Style>
-                        </Border>
-                        <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
-                        <VerticalAlign>Top</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Project_UID">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!Project_UID.Value</Value>
-                              <Style>
-                                <FontSize>8.5pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Project_UID</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -1772,46 +1733,6 @@ Conds</Value>
                 </CellContents>
               </TablixHeader>
             </TablixMember>
-            <TablixMember>
-              <TablixHeader>
-                <Size>1.5cm</Size>
-                <CellContents>
-                  <Textbox Name="Textbox1">
-                    <CanGrow>true</CanGrow>
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>Project Sponsored</Value>
-                            <Style>
-                              <FontSize>8.5pt</FontSize>
-                              <FontWeight>Bold</FontWeight>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style>
-                          <TextAlign>Left</TextAlign>
-                        </Style>
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>Textbox1</rd:DefaultName>
-                    <Style>
-                      <Border>
-                        <Color>LightGrey</Color>
-                        <Style>None</Style>
-                      </Border>
-                      <BackgroundColor>#e28241</BackgroundColor>
-                      <VerticalAlign>Top</VerticalAlign>
-                      <PaddingLeft>2pt</PaddingLeft>
-                      <PaddingRight>2pt</PaddingRight>
-                      <PaddingTop>2pt</PaddingTop>
-                      <PaddingBottom>2pt</PaddingBottom>
-                    </Style>
-                  </Textbox>
-                </CellContents>
-              </TablixHeader>
-            </TablixMember>
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -1870,7 +1791,7 @@ Conds</Value>
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>dsUSERS</DataSetName>
         <Height>2cm</Height>
-        <Width>29.07918cm</Width>
+        <Width>27.25651cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1883,7 +1804,7 @@ Conds</Value>
       <BackgroundColor>White</BackgroundColor>
     </Style>
   </Body>
-  <Width>30.20002cm</Width>
+  <Width>27.7cm</Width>
   <Page>
     <PageHeader>
       <Height>2cm</Height>

@@ -7,9 +7,10 @@ using System.Web.UI.WebControls;
 using BusinessLogicLayer;
 using System.Web.Security;
 
+
 namespace NURacingWebsite
 {
-    public partial class reportuserdetails: System.Web.UI.Page
+    public partial class reportpurchasing : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

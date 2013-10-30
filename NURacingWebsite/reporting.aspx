@@ -28,6 +28,15 @@
                                 </a>
                             </asp:TableCell>
                                  </asp:TableRow>   
+
+             <asp:TableRow>
+                            <asp:TableCell BorderColor="Black" BorderStyle="None">
+                                <a href="\Reporting\reportsponsordetails.aspx">
+                                        <asp:Label runat="server" ID="Label11" CssClass="projectIcon">2</asp:Label>
+                       <asp:Label runat="server" ID="Label12" CssClass="projectName">Sponsor Details Report</asp:Label>
+                                </a>
+                            </asp:TableCell>
+                                 </asp:TableRow>   
                <asp:TableRow>
                             <asp:TableCell BorderColor="Black" BorderStyle="None">
                                 <a href="\Reporting\reportprojectstatus.aspx">
@@ -41,6 +50,15 @@
                                 <a href="\Reporting\reportlabourlog.aspx">
                                         <asp:Label runat="server" ID="Label8" CssClass="projectIcon">2</asp:Label>
                <asp:Label runat="server" ID="Label4" CssClass="projectName">Labour Logging Report</asp:Label>
+                                </a>
+                            </asp:TableCell>
+                                </asp:TableRow>   
+
+            <asp:TableRow>
+                            <asp:TableCell BorderColor="Black" BorderStyle="None">
+                                <a href="\Reporting\reportpurchasing.aspx">
+                                        <asp:Label runat="server" ID="Label13" CssClass="projectIcon">2</asp:Label>
+               <asp:Label runat="server" ID="Label14" CssClass="projectName">Purchasing Report</asp:Label>
                                 </a>
                             </asp:TableCell>
                                 </asp:TableRow>   

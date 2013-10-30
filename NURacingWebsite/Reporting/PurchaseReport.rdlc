@@ -41,7 +41,6 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixCornerCell>
               <TablixCornerCell>
@@ -79,7 +78,43 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
+                </CellContents>
+              </TablixCornerCell>
+              <TablixCornerCell>
+                <CellContents>
+                  <Textbox Name="Textbox3">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>Purchase Date Purchased</Value>
+                            <Style>
+                              <FontSize>8.5pt</FontSize>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox3</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Color>LightGrey</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <BackgroundColor>#e28241</BackgroundColor>
+                      <VerticalAlign>Top</VerticalAlign>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
                 </CellContents>
               </TablixCornerCell>
               <TablixCornerCell>
@@ -91,7 +126,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Task Name</Value>
+                            <Value>Purchase Date</Value>
                             <Style>
                               <FontSize>8.5pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -117,7 +152,6 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixCornerCell>
               <TablixCornerCell>
@@ -129,7 +163,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Task Description</Value>
+                            <Value>Purchase Good</Value>
                             <Style>
                               <FontSize>8.5pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -155,7 +189,6 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixCornerCell>
               <TablixCornerCell>
@@ -167,7 +200,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Work Description</Value>
+                            <Value>Purchase Supplier</Value>
                             <Style>
                               <FontSize>8.5pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -193,7 +226,6 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixCornerCell>
               <TablixCornerCell>
@@ -205,7 +237,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Work Date Completed</Value>
+                            <Value>Purchase Price</Value>
                             <Style>
                               <FontSize>8.5pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -231,7 +263,6 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixCornerCell>
             </TablixCornerRow>
@@ -239,9 +270,6 @@
         </TablixCorner>
         <TablixBody>
           <TablixColumns>
-            <TablixColumn>
-              <Width>3.11666cm</Width>
-            </TablixColumn>
             <TablixColumn>
               <Width>2.397cm</Width>
             </TablixColumn>
@@ -252,14 +280,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Work_TimeWorkedMins">
+                    <Textbox Name="Textbox2">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!Work_TimeWorkedMins.Value)</Value>
+                              <Value />
                               <Style>
                                 <FontSize>8.5pt</FontSize>
                               </Style>
@@ -270,7 +298,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Work_TimeWorkedMins</rd:DefaultName>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -284,44 +312,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="User_Username">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!User_Username.Value</Value>
-                              <Style>
-                                <FontSize>8.5pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>User_Username</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>None</Style>
-                        </Border>
-                        <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
-                        <VerticalAlign>Top</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -330,47 +320,6 @@
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
-            <TablixMember>
-              <TablixHeader>
-                <Size>0.6cm</Size>
-                <CellContents>
-                  <Textbox Name="Textbox6">
-                    <CanGrow>true</CanGrow>
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>Time Worked (mins)</Value>
-                            <Style>
-                              <FontSize>8.5pt</FontSize>
-                              <FontWeight>Bold</FontWeight>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style>
-                          <TextAlign>Left</TextAlign>
-                        </Style>
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>Textbox6</rd:DefaultName>
-                    <Style>
-                      <Border>
-                        <Color>LightGrey</Color>
-                        <Style>None</Style>
-                      </Border>
-                      <BackgroundColor>#e28241</BackgroundColor>
-                      <VerticalAlign>Top</VerticalAlign>
-                      <PaddingLeft>2pt</PaddingLeft>
-                      <PaddingRight>2pt</PaddingRight>
-                      <PaddingTop>2pt</PaddingTop>
-                      <PaddingBottom>2pt</PaddingBottom>
-                    </Style>
-                  </Textbox>
-                  <rd:Selected>true</rd:Selected>
-                </CellContents>
-              </TablixHeader>
-            </TablixMember>
             <TablixMember>
               <TablixHeader>
                 <Size>0.6cm</Size>
@@ -408,7 +357,6 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
@@ -465,19 +413,18 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
                 <TablixMember>
                   <Group Name="Work_UID">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Work_UID.Value</GroupExpression>
+                      <GroupExpression>=Fields!WorkType_UID.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Work_UID.Value</Value>
+                      <Value>=Fields!WorkType_UID.Value</Value>
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
@@ -515,32 +462,34 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
-                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
-                      <Group Name="Task_UID">
+                      <Group Name="Purchase_DatePurchased">
                         <GroupExpressions>
-                          <GroupExpression>=Fields!Task_UID.Value</GroupExpression>
+                          <GroupExpression>=Fields!Purchase_DatePurchased.Value</GroupExpression>
+                          <GroupExpression>=Fields!Purchase_Supplier.Value</GroupExpression>
+                          <GroupExpression>=Fields!Purchase_Good.Value</GroupExpression>
                         </GroupExpressions>
                       </Group>
                       <SortExpressions>
                         <SortExpression>
-                          <Value>=Fields!Task_UID.Value</Value>
+                          <Value>=Fields!Purchase_DatePurchased.Value</Value>
+                          <Direction>Descending</Direction>
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
                         <Size>2.5cm</Size>
                         <CellContents>
-                          <Textbox Name="Task_Name">
+                          <Textbox Name="Purchase_DatePurchased1">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>=Fields!Task_Name.Value</Value>
+                                    <Value>=Fields!Purchase_DatePurchased.Value</Value>
                                     <Style>
                                       <FontSize>8.5pt</FontSize>
                                     </Style>
@@ -551,7 +500,7 @@
                                 </Style>
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>Task_Name</rd:DefaultName>
+                            <rd:DefaultName>Purchase_DatePurchased1</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Color>LightGrey</Color>
@@ -565,22 +514,21 @@
                               <PaddingBottom>2pt</PaddingBottom>
                             </Style>
                           </Textbox>
-                          <rd:Selected>true</rd:Selected>
                         </CellContents>
                       </TablixHeader>
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>5.14583cm</Size>
+                            <Size>2.5cm</Size>
                             <CellContents>
-                              <Textbox Name="Task_Description">
+                              <Textbox Name="Purchase_DatePurchased">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>=Fields!Task_Description.Value</Value>
+                                        <Value>=Fields!Purchase_DatePurchased.Value</Value>
                                         <Style>
                                           <FontSize>8.5pt</FontSize>
                                         </Style>
@@ -591,7 +539,7 @@
                                     </Style>
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>Task_Description</rd:DefaultName>
+                                <rd:DefaultName>Purchase_DatePurchased</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Color>LightGrey</Color>
@@ -605,32 +553,21 @@
                                   <PaddingBottom>2pt</PaddingBottom>
                                 </Style>
                               </Textbox>
-                              <rd:Selected>true</rd:Selected>
                             </CellContents>
                           </TablixHeader>
                           <TablixMembers>
                             <TablixMember>
-                              <Group Name="Work_UID1">
-                                <GroupExpressions>
-                                  <GroupExpression>=Fields!Work_UID.Value</GroupExpression>
-                                </GroupExpressions>
-                              </Group>
-                              <SortExpressions>
-                                <SortExpression>
-                                  <Value>=Fields!Work_UID.Value</Value>
-                                </SortExpression>
-                              </SortExpressions>
                               <TablixHeader>
-                                <Size>5.8735cm</Size>
+                                <Size>5.14583cm</Size>
                                 <CellContents>
-                                  <Textbox Name="Work_Description">
+                                  <Textbox Name="Purchase_Good">
                                     <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>=Fields!Work_Description.Value</Value>
+                                            <Value>=Fields!Purchase_Good.Value</Value>
                                             <Style>
                                               <FontSize>8.5pt</FontSize>
                                             </Style>
@@ -641,7 +578,7 @@
                                         </Style>
                                       </Paragraph>
                                     </Paragraphs>
-                                    <rd:DefaultName>Work_Description</rd:DefaultName>
+                                    <rd:DefaultName>Purchase_Good</rd:DefaultName>
                                     <Style>
                                       <Border>
                                         <Color>LightGrey</Color>
@@ -655,25 +592,23 @@
                                       <PaddingBottom>2pt</PaddingBottom>
                                     </Style>
                                   </Textbox>
-                                  <rd:Selected>true</rd:Selected>
                                 </CellContents>
                               </TablixHeader>
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>3.667cm</Size>
+                                    <Size>5.8735cm</Size>
                                     <CellContents>
-                                      <Textbox Name="Work_DateCompleted">
+                                      <Textbox Name="Purchase_Supplier">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!Work_DateCompleted.Value</Value>
+                                                <Value>=Fields!Purchase_Supplier.Value</Value>
                                                 <Style>
                                                   <FontSize>8.5pt</FontSize>
-                                                  <Format>d</Format>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
@@ -682,7 +617,7 @@
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>Work_DateCompleted</rd:DefaultName>
+                                        <rd:DefaultName>Purchase_Supplier</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -696,9 +631,51 @@
                                           <PaddingBottom>2pt</PaddingBottom>
                                         </Style>
                                       </Textbox>
-                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixHeader>
+                                  <TablixMembers>
+                                    <TablixMember>
+                                      <TablixHeader>
+                                        <Size>3.667cm</Size>
+                                        <CellContents>
+                                          <Textbox Name="Purchase_TotalPrice">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value>=Fields!Purchase_TotalPrice.Value</Value>
+                                                    <Style>
+                                                      <FontSize>8.5pt</FontSize>
+                                                      <Format>'$'0.00;('$'0.00)</Format>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style>
+                                                  <TextAlign>Left</TextAlign>
+                                                </Style>
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Purchase_TotalPrice</rd:DefaultName>
+                                            <Style>
+                                              <Border>
+                                                <Color>LightGrey</Color>
+                                                <Style>None</Style>
+                                              </Border>
+                                              <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                                              <VerticalAlign>Top</VerticalAlign>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                              <rd:FormatSymbolCulture>en-AU</rd:FormatSymbolCulture>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixHeader>
+                                    </TablixMember>
+                                  </TablixMembers>
                                 </TablixMember>
                               </TablixMembers>
                             </TablixMember>
@@ -715,7 +692,7 @@
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>dsWORK</DataSetName>
         <Height>1.1cm</Height>
-        <Width>27.69999cm</Width>
+        <Width>27.08333cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -742,7 +719,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Labour Report</Value>
+                  <Value>Purchasing Report</Value>
                   <Style>
                     <FontSize>16pt</FontSize>
                     <Color>DimGray</Color>
@@ -841,6 +818,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
+          <Top>0cm</Top>
           <Height>0.5cm</Height>
           <Width>9.3cm</Width>
           <Style>
@@ -876,6 +854,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
+          <Top>0cm</Top>
           <Left>9.3cm</Left>
           <Height>0.5cm</Height>
           <Width>9.3cm</Width>
@@ -913,6 +892,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
+          <Top>0cm</Top>
           <Left>18.6cm</Left>
           <Height>0.5cm</Height>
           <Width>9.1cm</Width>
@@ -991,13 +971,9 @@
           <DataField>Project_StatusChangedDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="Project_Active">
-          <DataField>Project_Active</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
         <Field Name="WorkType_UID">
           <DataField>WorkType_UID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
         <Field Name="WorkType_Name">
           <DataField>WorkType_Name</DataField>
@@ -1011,176 +987,28 @@
           <DataField>WorkType_StatusChangedDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="Task_UID">
-          <DataField>Task_UID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="Purchase_TotalPrice">
+          <DataField>Purchase_TotalPrice</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="User_Username_AssignedTo">
-          <DataField>User_Username_AssignedTo</DataField>
+        <Field Name="Purchase_Good">
+          <DataField>Purchase_Good</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="User_Username_AssignedBy">
-          <DataField>User_Username_AssignedBy</DataField>
+        <Field Name="Purchase_Supplier">
+          <DataField>Purchase_Supplier</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Task_Name">
-          <DataField>Task_Name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Task_Description">
-          <DataField>Task_Description</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Task_TakeFiveNeeded">
-          <DataField>Task_TakeFiveNeeded</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="Task_DueDate">
-          <DataField>Task_DueDate</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="Work_UID">
-          <DataField>Work_UID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Work_DateCompleted">
-          <DataField>Work_DateCompleted</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="Work_Description">
-          <DataField>Work_Description</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Work_TimeWorkedMins">
-          <DataField>Work_TimeWorkedMins</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Work_TakeFiveTaken">
-          <DataField>Work_TakeFiveTaken</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="User_Username">
-          <DataField>User_Username</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_PasswordHash">
-          <DataField>User_PasswordHash</DataField>
-          <rd:TypeName>System.Byte[]</rd:TypeName>
-        </Field>
-        <Field Name="User_PasswordSalt">
-          <DataField>User_PasswordSalt</DataField>
-          <rd:TypeName>System.Byte[]</rd:TypeName>
-        </Field>
-        <Field Name="User_Role">
-          <DataField>User_Role</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_Active">
-          <DataField>User_Active</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="User_Surname">
-          <DataField>User_Surname</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_GivenName">
-          <DataField>User_GivenName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_Email">
-          <DataField>User_Email</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_StudentNumber">
-          <DataField>User_StudentNumber</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_EstGraduationYear">
-          <DataField>User_EstGraduationYear</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_Degree">
-          <DataField>User_Degree</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_SAE_MemberNo">
-          <DataField>User_SAE_MemberNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_SAE_Expiry">
-          <DataField>User_SAE_Expiry</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="User_CAMS_MemberNo">
-          <DataField>User_CAMS_MemberNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_CAMS_LicenseType">
-          <DataField>User_CAMS_LicenseType</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_LicenseNo">
-          <DataField>User_LicenseNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_LicenseState">
-          <DataField>User_LicenseState</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_EmergencyContactName">
-          <DataField>User_EmergencyContactName</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_EmergencyContactNumber">
-          <DataField>User_EmergencyContactNumber</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_MedicareNo">
-          <DataField>User_MedicareNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_Allergies">
-          <DataField>User_Allergies</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_DietaryRequirements">
-          <DataField>User_DietaryRequirements</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_MedicalConditions">
-          <DataField>User_MedicalConditions</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="User_IndemnityFormSigned">
-          <DataField>User_IndemnityFormSigned</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-        <Field Name="User_Created">
-          <DataField>User_Created</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="User_LastLogin">
-          <DataField>User_LastLogin</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="User_LastActivity">
-          <DataField>User_LastActivity</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="User_LastPasswordChanged">
-          <DataField>User_LastPasswordChanged</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="User_LastLockoutDate">
-          <DataField>User_LastLockoutDate</DataField>
+        <Field Name="Purchase_DatePurchased">
+          <DataField>Purchase_DatePurchased</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataAccessLayer.NuRacingDataSetTableAdapters</rd:DataSetName>
-        <rd:TableName>ProjectTasksDoneTableAdapter</rd:TableName>
+        <rd:TableName>ProjectPurchasesTableAdapter</rd:TableName>
         <rd:ObjectDataSourceSelectMethod>GetData</rd:ObjectDataSourceSelectMethod>
-        <rd:ObjectDataSourceType>DataAccessLayer.NuRacingDataSetTableAdapters.ProjectTasksDoneTableAdapter, DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:ObjectDataSourceType>DataAccessLayer.NuRacingDataSetTableAdapters.ProjectPurchasesTableAdapter, DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
