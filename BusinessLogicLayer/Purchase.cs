@@ -16,7 +16,7 @@ namespace BusinessLogicLayer
             return ((new PurchaseTableAdapter()).GetPurchase(PurchaseID).Rows.Count != 0);
         }
 
-        public static void addPurchase(string Username, string Supplier, string GoodPurchased, decimal totalPrice, int WorkTypeID)
+        public static void addPurchase(string Username, string Supplier, string GoodPurchased, decimal totalPrice, DateTime purchaseMade, int WorkTypeID)
         {
             PurchaseTableAdapter purchaseAdapter = new PurchaseTableAdapter();
             NuRacingDataSet.PurchaseDataTable purchaseTable = purchaseAdapter.GetData();
@@ -27,6 +27,7 @@ namespace BusinessLogicLayer
             newPurchaseRow.Purchase_Supplier = Supplier;
             newPurchaseRow.Purchase_TotalPrice = totalPrice;
             newPurchaseRow.User_Username = Username;
+            newPurchaseRow.Purchase_DatePurchased = purchaseMade;
             newPurchaseRow.WorkType_UID = WorkTypeID;
 
             purchaseTable.AddPurchaseRow(newPurchaseRow);
