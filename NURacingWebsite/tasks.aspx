@@ -20,7 +20,7 @@
                 </h1>
                                     <p style="text-align: center">Please click on a task button below to review a task and log time spent.</p>
           <asp:Button runat="server" ID="createProjBtn" Text="MANAGE AND ASSIGN TASKS" CssClass="takeFiveBtn" OnClick="createProjBtn_Click" />
-                <br />
+              <p style="text-align: center; clear:both;"></p>  <br />
  <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="0" GridLines="None">
                 <Columns>
                             <asp:BoundField HeaderText="NAME" DataField="Task_Name"/>
