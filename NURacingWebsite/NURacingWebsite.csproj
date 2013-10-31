@@ -201,6 +201,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Error.aspx" />
     <Content Include="Reporting\reportpurchasing.aspx" />
     <Content Include="Reporting\reportsponsordetails.aspx" />
     <Content Include="sectionmanagement.aspx" />
@@ -341,6 +342,13 @@
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reporting\reportpurchasing.aspx.cs">
       <DependentUpon>reportpurchasing.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

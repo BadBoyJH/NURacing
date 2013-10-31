@@ -31,3 +31,9 @@ C:\Users\James\Source\Repos\NuRacing\NURacing\DataAccessLayer\bin\Debug\DataAcce
 C:\Users\James\Source\Repos\NuRacing\NURacing\DataAccessLayer\bin\Debug\MySql.Data.dll
 C:\Users\James\Source\Repos\NuRacing\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\James\Source\Repos\NuRacing\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Cheesestringer\Source\Repos\NURacing\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\Cheesestringer\Source\Repos\NURacing\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Cheesestringer\Source\Repos\NURacing\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Cheesestringer\Source\Repos\NURacing\DataAccessLayer\bin\Debug\MySql.Data.dll
+C:\Users\Cheesestringer\Source\Repos\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\Cheesestringer\Source\Repos\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
