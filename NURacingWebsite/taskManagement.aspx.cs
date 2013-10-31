@@ -49,7 +49,7 @@ namespace NURacingWebsite
             taskFrm.Controls.Add(new LiteralControl("</p>"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblworkType.Text = "Project Type: ";
+            lblworkType.Text = "Project: ";
             taskFrm.Controls.Add(lblworkType);
             workTypeDrpList.Items.Clear();
 
