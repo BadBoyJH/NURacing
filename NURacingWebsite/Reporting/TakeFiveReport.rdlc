@@ -41,7 +41,6 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixCornerCell>
             </TablixCornerRow>
@@ -97,7 +96,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -134,7 +132,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -146,7 +143,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Count(Fields!TakeFiveResponse_UID.Value)</Value>
+                              <Value>=CountDistinct(IIf(Fields!Work_TakeFiveTaken.Value, Fields!Work_UID.Value, Nothing))</Value>
                               <Style>
                                 <FontSize>8.5pt</FontSize>
                               </Style>
@@ -217,7 +214,6 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
             </TablixMember>
@@ -258,7 +254,6 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
@@ -302,7 +297,6 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
             </TablixMember>
@@ -311,7 +305,7 @@
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
-              <Group Name="Project_Status">
+              <Group Name="Username">
                 <GroupExpressions>
                   <GroupExpression>=Fields!User_Username.Value</GroupExpression>
                 </GroupExpressions>
@@ -356,7 +350,6 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
@@ -494,6 +487,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
+          <Top>0cm</Top>
           <Height>0.5cm</Height>
           <Width>9.3cm</Width>
           <Style>
@@ -529,6 +523,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
+          <Top>0cm</Top>
           <Left>9.3cm</Left>
           <Height>0.5cm</Height>
           <Width>9.3cm</Width>
@@ -566,6 +561,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
+          <Top>0cm</Top>
           <Left>18.6cm</Left>
           <Height>0.5cm</Height>
           <Width>9.1cm</Width>

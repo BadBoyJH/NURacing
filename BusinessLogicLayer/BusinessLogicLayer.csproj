@@ -63,6 +63,7 @@
     <Compile Include="Purchase.cs" />
     <Compile Include="PurchaseInfo.cs" />
     <Compile Include="Role.cs" />
+    <Compile Include="Sponsor.cs" />
     <Compile Include="TakeFive.cs" />
     <Compile Include="TakeFiveResponseInfo.cs" />
     <Compile Include="TaskInfo.cs" />

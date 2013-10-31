@@ -79,13 +79,13 @@ namespace ConsoleTesting
             AssignedTask.addTask("TestAcc", assignedUser, 1, new DateTime(2013, 10, 15), "Do All The Stuff", "Yeah Whatever", false);
             */
 
-            string[] TestAccOnly = new string[1];
-            TestAccOnly[0] = "TestAcc";
+            //string[] TestAccOnly = new string[1];
+            //TestAccOnly[0] = "TestAcc";
 
             //Work.CompleteTask(TestAccOnly, DateTime.Now.AddDays(4), 3, "I did some stuff", 30, true);
             //Work.CompleteTask(TestAccOnly, DateTime.Now.AddDays(4), 3, "I did lots stuff", 30, true);
             //Work.CompleteTask(TestAccOnly, DateTime.Now.AddDays(4), 4, "Can I stop now?", 30, true);
-            Work.CompleteTask(TestAccOnly, DateTime.Now.AddDays(4), 7, "I am a dwarf, and I'm digging a hole, diggy diggy hole, I'm digging a hole", 1, true);
+            //Work.CompleteTask(TestAccOnly, DateTime.Now.AddDays(4), 7, "I am a dwarf, and I'm digging a hole, diggy diggy hole, I'm digging a hole", 1, true);
 
             //BusinessLogicLayer.TakeFiveResponse[] response1 = new BusinessLogicLayer.TakeFiveResponse[4];
 
@@ -102,6 +102,10 @@ namespace ConsoleTesting
 
 
             //Work.CompleteTask(TestAccOnly, DateTime.Now, 8, "Insulted now?", 2, response1);
+
+            User.addUser("LurgitSponsor", "abc123lol", "Sponsor", "Steve", "Jobs", "SteveJobs@hotmail.com", "c3145510", "YearOfGraduation Fake Data", "DegreeName Fake Data", "MedicareNumber Fake Data", "Allergies Fake Data", "MedicalConditions Fake Data", "DietaryRequirements Fake Data", true, "SAEMembershipNumber Fake Data", DateTime.Now.AddYears(2), "CAMSMembershipNumber Fake Data", "CAMSLicenseType Fake Data", "DriversLicenseNumber Fake Data", "DriversLicenseState Fake Data", "EmergencyContactName Fake Data", "EmergencyContactPhoneNumber Fake Data");
+
+            Sponsor.AddSponsor("LurgitSponsor", 3);
 
             Console.WriteLine("Done adding data");
 

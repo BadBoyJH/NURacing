@@ -13,6 +13,11 @@ namespace BusinessLogicLayer
     {
 		static public void AddWorkType(int ProjectID, string Name)
         {
+            if (!Project.projectExists(ProjectID))
+            {
+                throw new ArgumentException("ProjectID wasn't valid");
+            }
+
             WorkTypeTableAdapter workTypeAdapter = new WorkTypeTableAdapter();
             NuRacingDataSet.WorkTypeDataTable WorkTypeTable = workTypeAdapter.GetData();
             NuRacingDataSet.WorkTypeRow WorkTypeRow = WorkTypeTable.NewWorkTypeRow();
