@@ -22,6 +22,33 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
         
         /// <summary>
+        /// takeFiveUserLstBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox takeFiveUserLstBx;
+        
+        /// <summary>
+        /// descTxtBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox descTxtBx;
+        
+        /// <summary>
+        /// tkfvWorktypeDrpList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList tkfvWorktypeDrpList;
+        
+        /// <summary>
         /// a1 control.
         /// </summary>
         /// <remarks>
@@ -47,6 +74,15 @@ namespace NURacingWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton c1;
+        
+        /// <summary>
+        /// reason1TxtBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox reason1TxtBx;
         
         /// <summary>
         /// a2 control.
@@ -76,6 +112,15 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.RadioButton c2;
         
         /// <summary>
+        /// reason2TxtBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox reason2TxtBx;
+        
+        /// <summary>
         /// a3 control.
         /// </summary>
         /// <remarks>
@@ -101,6 +146,15 @@ namespace NURacingWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton c3;
+        
+        /// <summary>
+        /// reason3TxtBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox reason3TxtBx;
         
         /// <summary>
         /// a4 control.
@@ -130,6 +184,15 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.RadioButton c4;
         
         /// <summary>
+        /// reason4TxtBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox reason4TxtBx;
+        
+        /// <summary>
         /// a5 control.
         /// </summary>
         /// <remarks>
@@ -155,6 +218,15 @@ namespace NURacingWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton c5;
+        
+        /// <summary>
+        /// reason5TxtBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox reason5TxtBx;
         
         /// <summary>
         /// a6 control.
@@ -184,6 +256,15 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.RadioButton c6;
         
         /// <summary>
+        /// reason6TxtBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox reason6TxtBx;
+        
+        /// <summary>
         /// a7 control.
         /// </summary>
         /// <remarks>
@@ -209,6 +290,15 @@ namespace NURacingWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton c7;
+        
+        /// <summary>
+        /// reason7TxtBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox reason7TxtBx;
         
         /// <summary>
         /// a8 control.
@@ -238,6 +328,15 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.RadioButton c8;
         
         /// <summary>
+        /// reason8TxtBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox reason8TxtBx;
+        
+        /// <summary>
         /// a9 control.
         /// </summary>
         /// <remarks>
@@ -263,6 +362,15 @@ namespace NURacingWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton c9;
+        
+        /// <summary>
+        /// reason9TxtBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox reason9TxtBx;
         
         /// <summary>
         /// a10 control.
@@ -292,6 +400,15 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.RadioButton c10;
         
         /// <summary>
+        /// reason10TxtBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox reason10TxtBx;
+        
+        /// <summary>
         /// a11 control.
         /// </summary>
         /// <remarks>
@@ -317,6 +434,15 @@ namespace NURacingWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton c11;
+        
+        /// <summary>
+        /// reason11TxtBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox reason11TxtBx;
         
         /// <summary>
         /// a12 control.
@@ -346,13 +472,49 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.RadioButton c12;
         
         /// <summary>
-        /// reasonTxtBx control.
+        /// reason12TxtBx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox reasonTxtBx;
+        protected global::System.Web.UI.WebControls.TextBox reason12TxtBx;
+        
+        /// <summary>
+        /// a13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton a13;
+        
+        /// <summary>
+        /// b13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton b13;
+        
+        /// <summary>
+        /// c13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton c13;
+        
+        /// <summary>
+        /// reason13TxtBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox reason13TxtBx;
         
         /// <summary>
         /// goodTxtBx control.
@@ -391,12 +553,12 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.TextBox suppTxtBx;
         
         /// <summary>
-        /// takefiveBtn control.
+        /// submitTakefiveBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button takefiveBtn;
+        protected global::System.Web.UI.WebControls.Button submitTakefiveBtn;
     }
 }

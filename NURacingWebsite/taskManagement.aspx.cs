@@ -37,19 +37,6 @@ namespace NURacingWebsite
         {
             taskFrm.Visible = true;
             createSubmitTaskBtn.Visible = true;
-            //HtmlGenericControl NewControl = new HtmlGenericControl("div");
-            //NewControl.InnerHtml = "";
-            //createTaskFrm.Controls.Add(NewControl);
-            //NewControl.ID = "createTaskFrm";
-            //NewControl.InnerHtml = "<form class=\"taskMngement\">"
-            //+"<p>Task name: <input type=\"text\" name=\"taskName\"></p>"
-            //+ "<p>Task description: <input type=\"text\" name=\"taskDesc\"></p>"
-            //+ "<p>Due date: <input type=\"text\" name=\"dueDate\"></p>"
-            //+ "<p>Assign to: <input type=\"text\" name=\"assignTo\"></p>"
-            //+ "<p>Task status: <input type=\"text\" name=\"taskStatus\"></p>"
-            //+ "<input type=\"submit\" value=\"Submit\" class=\"taskManBtn\">"
-            //+"</form>";
-            //createTaskFrm.Controls.Add(NewControl);
         }
 
         private void createForm()
@@ -137,7 +124,10 @@ namespace NURacingWebsite
 
             foreach (ListItem item in assignDrpList.Items)
             {
-                addedUsers.Add(item.ToString());
+                if (item.Selected)
+                {
+                    addedUsers.Add(item.ToString());
+                }
             }
 
             foreach (WorkTypeInfo type in BusinessLogicLayer.WorkTypeInfo.getAllWorkTypes())

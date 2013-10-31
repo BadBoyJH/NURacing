@@ -5,7 +5,7 @@
 </asp:Content>
 
 <asp:Content ID = "Body" ContentPlaceHolderID = "Body" runat ="server">
-    </br>
+    <br />
 
     <h2>How embarassing, an error has occurred</h2>
 </asp:Content>

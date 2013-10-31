@@ -142,7 +142,7 @@ namespace BusinessLogicLayer
                 }
             }
 
-            if (WorkType.WorkTypeExists(WorkTypeID))
+            if (!WorkType.WorkTypeExists(WorkTypeID))
             {
                 throw new ArgumentException("Work Type doesn't exist");
             }
