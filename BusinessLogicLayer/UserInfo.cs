@@ -66,8 +66,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = givenName != value;
                 givenName = value;
-                beenChanged = true;
             }
         }
 
@@ -79,8 +79,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = surname != value;
                 surname = value;
-                beenChanged = true;
             }
         }
 
@@ -100,8 +100,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = email != value;
                 email = value;
-                beenChanged = true;
             }
         }
 
@@ -115,8 +115,8 @@ namespace BusinessLogicLayer
             {
                 if (Role.UserRoles.Contains<string>(value))
                 {
+                    beenChanged = givenName != userRole;
                     userRole = value;
-                    beenChanged = true;
                 }
                 else
                 {
@@ -133,8 +133,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = studentnumber != value;
                 studentnumber = value;
-                beenChanged = true;
             }
         }
 
@@ -146,8 +146,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = estimatedGraduationYear != value;
                 estimatedGraduationYear = value;
-                beenChanged = true;
             }
         }
 
@@ -159,8 +159,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = degree != value;
                 degree = value;
-                beenChanged = true;
             }
         }
 
@@ -172,8 +172,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = medicareNumber != value;
                 medicareNumber = value;
-                beenChanged = true;
             }
         }
 
@@ -185,8 +185,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = allergies != value;
                 allergies = value;
-                beenChanged = true;
             }
         }
 
@@ -198,8 +198,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = medicalConditions != value;
                 medicalConditions = value;
-                beenChanged = true;
             }
         }
 
@@ -211,8 +211,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = dietaryRequirements != value;
                 dietaryRequirements = value;
-                beenChanged = true;
             }
         }
 
@@ -224,8 +224,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = indemnityFormSigned != value;
                 indemnityFormSigned = value;
-                beenChanged = true;
             }
         }
 
@@ -237,8 +237,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = saeMembershipNumber != value;
                 saeMembershipNumber = value;
-                beenChanged = true;
             }
         }
 
@@ -250,8 +250,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = saeMembershipExpiry != value;
                 saeMembershipExpiry = value;
-                beenChanged = true;
             }
         }
 
@@ -263,8 +263,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = camsMembershipNumber != value;
                 camsMembershipNumber = value;
-                beenChanged = true;
             }
         }
 
@@ -276,8 +276,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = camsLicenseType != value;
                 camsLicenseType = value;
-                beenChanged = true;
             }
         }
 
@@ -289,8 +289,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = beenChanged || driversLicenseNumber != value;
                 driversLicenseNumber = value;
-                beenChanged = true;
             }
         }
 
@@ -302,8 +302,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = beenChanged || driversLicenseState != value;
                 driversLicenseState = value;
-                beenChanged = true;
             }
         }
 
@@ -315,8 +315,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = beenChanged || emergencyContactName != value;
                 emergencyContactName = value;
-                beenChanged = true;
             }
         }
 
@@ -328,8 +328,8 @@ namespace BusinessLogicLayer
             }
             set
             {
+                beenChanged = beenChanged || emergencyContactPhoneNumber != value;
                 emergencyContactPhoneNumber = value;
-                beenChanged = true;
             }
         }
 
