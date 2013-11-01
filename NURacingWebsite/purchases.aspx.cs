@@ -15,6 +15,7 @@ namespace NURacingWebsite
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            purchaseCal.DayRender += purchaseCal_DayRender;
             if (!IsPostBack || addedItem)
             {
                 workTypeDrpList.Items.Clear();
@@ -33,6 +34,11 @@ namespace NURacingWebsite
 
                 addedItem = false;
             }
+        }
+
+        void purchaseCal_DayRender(object sender, DayRenderEventArgs e)
+        {
+            e.Day.IsSelectable = e.Day.Date <= DateTime.Now;
         }
 
         protected void purchaseBtn_Click(object sender, EventArgs e)
@@ -60,7 +66,7 @@ namespace NURacingWebsite
             {
             }
 
-            //BusinessLogicLayer.Purchase.addPurchase(Membership.GetUser().UserName, suppTxtBx.Text, goodTxtBx.Text, Convert.ToDecimal(priceTxtBx.Text), workID);
+            BusinessLogicLayer.Purchase.addPurchase(Membership.GetUser().UserName, suppTxtBx.Text, goodTxtBx.Text, Convert.ToDecimal(priceTxtBx.Text), purchaseCal.SelectedDate, workID);
 
             addedItem = true;
         }

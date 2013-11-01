@@ -26,7 +26,7 @@
                                 <asp:TextBox runat="server" ID="priceTxtBx" CssClass="textareaPassword"></asp:TextBox></p>
                             <p>Supplier:
                                 <asp:TextBox runat="server" ID="suppTxtBx" CssClass="textareaPassword"></asp:TextBox></p>
-                            <p>Date Purchased: <asp:Te
+                            <p>Date Purchased: <asp:Calendar runat="server" ID="purchaseCal"></asp:Calendar>
                             </p>
                             <asp:Button runat="server" ID="purchaseBtn" CssClass="takeFiveBtn" Text="SUBMIT" OnClick="purchaseBtn_Click" />
                             <br />

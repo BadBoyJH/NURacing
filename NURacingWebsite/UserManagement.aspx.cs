@@ -16,6 +16,10 @@ namespace NURacingWebsite
         TextBox userNameTxtBx = new TextBox();
         Label lblPassword = new Label();
         TextBox passwordTxtBx = new TextBox();
+        Label lblPasswordNew = new Label();
+        TextBox passwordNewTxtBx = new TextBox();
+        Label lblPasswordConf = new Label();
+        TextBox passwordConfTxtBx = new TextBox();
         Label lblUserRole = new Label();
         DropDownList userRoleDrpLst = new DropDownList();
         Label lblgivenName = new Label();
@@ -43,7 +47,7 @@ namespace NURacingWebsite
         Label lblSAEMemshpNum = new Label();
         TextBox SAEMemshpTxtBx = new TextBox();
         Label lblSAEExpDat = new Label();
-        //DateTimePicker SAEExpDatDtPckr = new DateTimePicker();
+        Calendar SAEExpDatDtPckr = new Calendar();
         Label lblCAMSMbrshpNum = new Label();
         TextBox CAMSMbrshpNum = new TextBox();
         Label lblCAMSLicType = new Label();
@@ -56,7 +60,6 @@ namespace NURacingWebsite
         TextBox emerContNameTxtBx = new TextBox();
         Label lblemerContNum = new Label();
         TextBox emerContNumTxtBx = new TextBox();
-        Button submitBtn;
         DropDownList userDrpList = new DropDownList();
         Label lblWhichUser = new Label();
         Label lblChange = new Label();
@@ -163,11 +166,27 @@ namespace NURacingWebsite
             }
 
             createUserFrm.Controls.Add(new LiteralControl("<p>"));
-            lblPassword.Text = "Password: ";
+            lblPassword.Text = "Old Password: ";
             createUserFrm.Controls.Add(lblPassword);
             createUserFrm.Controls.Add(passwordTxtBx);
             passwordTxtBx.CssClass = "textareaPassword";
             passwordTxtBx.TextMode = TextBoxMode.Password;
+            createUserFrm.Controls.Add(new LiteralControl("</p>"));
+
+            createUserFrm.Controls.Add(new LiteralControl("<p>"));
+            lblPasswordNew.Text = "New Password: ";
+            createUserFrm.Controls.Add(lblPasswordNew);
+            createUserFrm.Controls.Add(passwordNewTxtBx);
+            passwordNewTxtBx.CssClass = "textareaPassword";
+            passwordNewTxtBx.TextMode = TextBoxMode.Password;
+            createUserFrm.Controls.Add(new LiteralControl("</p>"));
+
+            createUserFrm.Controls.Add(new LiteralControl("<p>"));
+            lblPasswordConf.Text = "New Password Confirm: ";
+            createUserFrm.Controls.Add(lblPasswordConf);
+            createUserFrm.Controls.Add(passwordConfTxtBx);
+            passwordConfTxtBx.CssClass = "textareaPassword";
+            passwordConfTxtBx.TextMode = TextBoxMode.Password;
             createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
             createUserFrm.Controls.Add(new LiteralControl("<p>"));
@@ -276,7 +295,7 @@ namespace NURacingWebsite
             createUserFrm.Controls.Add(new LiteralControl("<p>"));
             lblSAEExpDat.Text = "SAE Membership expiry date: ";
             createUserFrm.Controls.Add(lblSAEExpDat);
-            //createUserFrm.Controls.Add();
+            createUserFrm.Controls.Add(SAEExpDatDtPckr);
             createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
             createUserFrm.Controls.Add(new LiteralControl("<p>"));
@@ -349,6 +368,7 @@ namespace NURacingWebsite
             dietryReqTxtBx.Text = user.DietaryRequirements;
             indemSignChkBx.Checked = user.IndemnityFormSigned;
             SAEMemshpTxtBx.Text = user.SAEMembershipNumber;
+            SAEExpDatDtPckr.SelectedDate = user.SAEMembershipExpiry;
             CAMSMbrshpNum.Text = user.CAMSMembershipNumber;
             CAMSLicTypeTxtBx.Text = user.CAMSLicenseType;
             drivLicNumTxtBx.Text = user.DriversLicenseNumber;
@@ -374,7 +394,7 @@ namespace NURacingWebsite
                 userRole == "Team Leader")
             {
                 BusinessLogicLayer.User.addUser(userNameTxtBx.Text, passwordTxtBx.Text, userRoleDrpLst.SelectedItem.ToString(), givenNameTxtBx.Text, surnameTxtBx.Text, emailTxtBx.Text, stdNumTxtBx.Text, gradYearTxtBx.Text, degreeNameTxtBx.Text, medicareNumTxtBx.Text, allergiesTxtBx.Text, medicalCondTxtBx.Text, dietryReqTxtBx.Text, indemSignChkBx.Checked,
-                    SAEMemshpTxtBx.Text, DateTime.Now, CAMSMbrshpNum.Text, CAMSLicTypeTxtBx.Text, drivLicNumTxtBx.Text, drivLicStateTxtBx.Text, emerContNameTxtBx.Text, emerContNumTxtBx.Text);
+                    SAEMemshpTxtBx.Text, SAEExpDatDtPckr.SelectedDate, CAMSMbrshpNum.Text, CAMSLicTypeTxtBx.Text, drivLicNumTxtBx.Text, drivLicStateTxtBx.Text, emerContNameTxtBx.Text, emerContNumTxtBx.Text);
                 Response.Redirect("UserManagement.aspx");
             }
 
@@ -442,7 +462,7 @@ namespace NURacingWebsite
                     editUser.SAEMembershipNumber = SAEMemshpTxtBx.Text;
                 }
 
-                //SAE MEMBERSHIP ENQUIRY GOES HERE
+                editUser.SAEMembershipExpiry = SAEExpDatDtPckr.SelectedDate;
 
                 if (CAMSMbrshpNum.Text != "")
                 {
