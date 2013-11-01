@@ -43,7 +43,15 @@ namespace BusinessLogicLayer
             email.From = new MailAddress(ourEmail);
             email.Body = message;
 
-            smtp.Send(email);
+            try
+            {
+                smtp.Send(email);
+            }
+
+            catch
+            {
+                //Server error?
+            }
         }
 
         static public void sendPasswordResetEmail(string Password, string Recipient)

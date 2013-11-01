@@ -6,25 +6,35 @@
 
 <asp:Content ID="Scripts" ContentPlaceHolderID="Scripts" runat="server">
     <!-- Scripts -->
-<script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-     <script type="text/javascript">
-         function makeItPasswordOld() {
-             document.getElementById("passwordChangeForm")
+    
+    <script type="text/javascript">
+        function makeItPasswordOld()
+        {
+            document.getElementById("passwordChangeForm")
                 .innerHTML = "<input id=\"bOldPassword\" name=\"oldPassword\" class=\"input-textareaPassword\" type=\"password\" />" +
                 "<input id=\"passwordNew\" name=\"passwordNew\" type=\"password\" class=\"input-textareaPassword\"/>" +
                 "<input id=\"passwordNewConf\" name=\"passwordNewConf\" class=\"input-textareaPassword\" type=\"password\"/>";
-             // document.getElementById("bOldPassword").focus();
-         }
-         function makeItPasswordNew() {
-             document.getElementById("passwordChangeForm")
+
+            // document.getElementById("bOldPassword").focus();
+        }
+
+        function makeItPasswordNew()
+        {
+            document.getElementById("passwordChangeForm")
                 .innerHTML = "<input id=\"passwordNew\" name=\"passwordNew\" type=\"password\"/>";
-             document.getElementById("password").focus();
-         }
-         function makeItPasswordNewConf() {
-             document.getElementById("passwordChangeForm")
+
+            document.getElementById("password").focus();
+        }
+
+        function makeItPasswordNewConf()
+        {
+            document.getElementById("passwordChangeForm")
                 .innerHTML = "<input id=\"passwordNewConf\" name=\"passwordNewConf\" type=\"password\"/>";
-             document.getElementById("password").focus();
+
+            document.getElementById("password").focus();
          }
    </script>
 

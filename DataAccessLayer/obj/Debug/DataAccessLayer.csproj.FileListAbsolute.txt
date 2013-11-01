@@ -38,3 +38,4 @@ C:\Users\James\Source\Repos\NuRacing\NURacing\DataAccessLayer\bin\Debug\MySql.Da
 C:\Users\James\Source\Repos\NuRacing\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 C:\Users\James\Source\Repos\NuRacing\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\James\Source\Repos\NuRacing\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Cheesestringer\Source\Repos\NURacing\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
