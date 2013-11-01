@@ -18,6 +18,7 @@ namespace BusinessLogicLayer
             smtp = new SmtpClient("mail.westnet.com.au");
             smtp.UseDefaultCredentials = false;
             smtp.Credentials = new System.Net.NetworkCredential(ourEmail, ourPassword);
+            smtp.Port = 2525;
         }
 
         static public void SendPasswordResetRequest(byte[] ByteCode, string Recipient)

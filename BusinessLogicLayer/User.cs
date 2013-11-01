@@ -367,7 +367,7 @@ namespace BusinessLogicLayer
             }
         }
 
-        static private void generateNewPassword(string Username)
+        static private bool generateUserPassword(string Username)
         {
             StringBuilder builder = new StringBuilder();
             byte[] ByteCode = getByteString(8);
@@ -392,13 +392,23 @@ namespace BusinessLogicLayer
 
                     userAdapter.Update(userTable);
 
-                    EmailManager.sendPasswordResetEmail(newPassword, userRow.User_Email);
+
+                    try
+                    {
+                        EmailManager.sendPasswordResetEmail(newPassword, userRow.User_Email);
+                        return true;
+                    }
+                    catch (Exception)
+                    {
+                        return false;
+                    }
                 }
             }
+            return false;
         }
 
 
-        static public void generateNewPassword(string Username, string ResetRequestID)
+        static public bool generateNewPassword(string ResetRequestID)
         {
             if (ResetRequestID.Length != 32)
             {
@@ -417,19 +427,24 @@ namespace BusinessLogicLayer
 
             foreach (NuRacingDataSet.PasswordResetRequestRow prrRow in prrTable.Rows)
             {
-                if (ByteResetRequestID.SequenceEqual(prrRow.PasswordRR_UID) && Username == prrRow.User_UserName)
+                if (ByteResetRequestID.SequenceEqual(prrRow.PasswordRR_UID))
                 {
                     if (prrRow.PasswordRR_ExpiryDate < DateTime.Now)
                     {
                         throw new ArgumentException("Request Expired");
                     }
 
-                    generateNewPassword(Username);
+                    if (generateUserPassword(prrRow.User_UserName))
+                    {
+                        prrRow.Delete();
+                        prrAdapter.Update(prrTable);
 
-                    prrRow.Delete();
-                    prrAdapter.Update(prrTable);
-
-                    return;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
             }
             throw new ArgumentException("Can't find a matching record");
