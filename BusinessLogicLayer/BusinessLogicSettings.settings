@@ -25,6 +25,8 @@
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
   &lt;string&gt;Administrator&lt;/string&gt;
   &lt;string&gt;Staff&lt;/string&gt;
+  &lt;string&gt;Team Leader&lt;/string&gt;
+  &lt;string&gt;Section Manager&lt;/string&gt;
   &lt;string&gt;User&lt;/string&gt;
   &lt;string&gt;Sponsor&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>

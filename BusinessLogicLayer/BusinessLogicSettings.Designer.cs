@@ -83,6 +83,8 @@ namespace BusinessLogicLayer {
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
   <string>Administrator</string>
   <string>Staff</string>
+  <string>Team Leader</string>
+  <string>Section Manager</string>
   <string>User</string>
   <string>Sponsor</string>
 </ArrayOfString>")]

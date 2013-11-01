@@ -7635,7 +7635,7 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public WorkTypeExtendedRow AddWorkTypeExtendedRow(int Project_YearMade, string Project_Name, string Project_Description, string Project_Status, System.DateTime Project_StatusChangedDate, bool WorkType_UID, string WorkType_Name, string WorkType_Status, System.DateTime WorkType_StatusChangedDate) {
+            public WorkTypeExtendedRow AddWorkTypeExtendedRow(int Project_YearMade, string Project_Name, string Project_Description, string Project_Status, System.DateTime Project_StatusChangedDate, int WorkType_UID, string WorkType_Name, string WorkType_Status, System.DateTime WorkType_StatusChangedDate) {
                 WorkTypeExtendedRow rowWorkTypeExtendedRow = ((WorkTypeExtendedRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -7697,7 +7697,7 @@ namespace DataAccessLayer {
                 base.Columns.Add(this.columnProject_Status);
                 this.columnProject_StatusChangedDate = new global::System.Data.DataColumn("Project_StatusChangedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProject_StatusChangedDate);
-                this.columnWorkType_UID = new global::System.Data.DataColumn("WorkType_UID", typeof(bool), null, global::System.Data.MappingType.Element);
+                this.columnWorkType_UID = new global::System.Data.DataColumn("WorkType_UID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWorkType_UID);
                 this.columnWorkType_Name = new global::System.Data.DataColumn("WorkType_Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWorkType_Name);
@@ -15433,10 +15433,10 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool WorkType_UID {
+            public int WorkType_UID {
                 get {
                     try {
-                        return ((bool)(this[this.tableWorkTypeExtended.WorkType_UIDColumn]));
+                        return ((int)(this[this.tableWorkTypeExtended.WorkType_UIDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'WorkType_UID\' in table \'WorkTypeExtended\' is DBNull.", e);
