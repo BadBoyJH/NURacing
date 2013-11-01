@@ -201,9 +201,10 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="Error.aspx" />
+    <Content Include="error.aspx" />
     <Content Include="Reporting\reportpurchasing.aspx" />
     <Content Include="Reporting\reportsponsordetails.aspx" />
+    <Content Include="resetPassword.aspx" />
     <Content Include="sectionmanagement.aspx" />
     <Content Include="css\style.css" />
     <Content Include="Images\accent.png" />
@@ -343,12 +344,12 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="NuRacingIPrincipal.cs" />
-    <Compile Include="Error.aspx.cs">
-      <DependentUpon>Error.aspx</DependentUpon>
+    <Compile Include="error.aspx.cs">
+      <DependentUpon>error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Error.aspx.designer.cs">
-      <DependentUpon>Error.aspx</DependentUpon>
+    <Compile Include="error.aspx.designer.cs">
+      <DependentUpon>error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reporting\reportpurchasing.aspx.cs">
       <DependentUpon>reportpurchasing.aspx</DependentUpon>
@@ -363,6 +364,13 @@
     </Compile>
     <Compile Include="Reporting\reportsponsordetails.aspx.designer.cs">
       <DependentUpon>reportsponsordetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="resetPassword.aspx.cs">
+      <DependentUpon>resetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="resetPassword.aspx.designer.cs">
+      <DependentUpon>resetPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="sectionmanagement.aspx.cs">
       <DependentUpon>sectionmanagement.aspx</DependentUpon>
