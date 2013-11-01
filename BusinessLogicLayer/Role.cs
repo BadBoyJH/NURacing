@@ -49,5 +49,27 @@ namespace BusinessLogicLayer
 
             return results.ToArray();
         }
+
+        public static bool greaterRole(string userRole, string comparisonRole)
+        {
+            if (userRole == "Administrator")
+            {
+                return true;
+            }
+            else if (userRole == "Staff")
+            {
+                return comparisonRole != "Administrator";
+            }
+            else if (userRole == "Team Leader")
+            {
+                return (comparisonRole == "Section Manager" ||
+                    comparisonRole == "User" ||
+                    comparisonRole == "Sponsor");
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -10,78 +10,78 @@
 namespace NURacingWebsite {
     
     
-    public partial class UserManagement {
+    public partial class resetPassword {
         
         /// <summary>
-        /// Form1 control.
+        /// successDiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl successDiv;
         
         /// <summary>
-        /// btnEnquiry control.
+        /// failDiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEnquiry;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl failDiv;
         
         /// <summary>
-        /// RandomDiv control.
+        /// passwordResetFrm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RandomDiv;
+        protected global::System.Web.UI.HtmlControls.HtmlForm passwordResetFrm;
         
         /// <summary>
-        /// btnUpdateUser control.
+        /// usernameLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateUser;
+        protected global::System.Web.UI.WebControls.Label usernameLbl;
         
         /// <summary>
-        /// btnCreateUser control.
+        /// usernameTxtBx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreateUser;
+        protected global::System.Web.UI.WebControls.TextBox usernameTxtBx;
         
         /// <summary>
-        /// createUserFrm control.
+        /// emailLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder createUserFrm;
+        protected global::System.Web.UI.WebControls.Label emailLbl;
         
         /// <summary>
-        /// createUserSubmitBtn control.
+        /// emailTxtBx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button createUserSubmitBtn;
+        protected global::System.Web.UI.WebControls.TextBox emailTxtBx;
         
         /// <summary>
-        /// updateUserSubmitBtn control.
+        /// resetPasswordBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button updateUserSubmitBtn;
+        protected global::System.Web.UI.WebControls.Button resetPasswordBtn;
     }
 }

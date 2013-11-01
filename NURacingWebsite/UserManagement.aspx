@@ -1,5 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="usermanagement.aspx.cs" Inherits="NURacingWebsite.UserManagement" MasterPageFile="~/LoggedIn.Master" %>
 
+<asp:Content ContentPlaceHolderID ="Title" runat ="server">
+    NuRacing System - User Management
+</asp:Content>
+
 <asp:Content ContentPlaceHolderID="Body" runat ="server">
     <div class="colmask threecol">
 	<div class="colmid">
@@ -14,7 +18,7 @@
                     <p style="text-align: center">Please click an action below.</p>
                 
                 <br />
-                    <div class="taskDetail">
+                    <div class="taskDetail" id ="RandomDiv" runat ="server">
 
 
                             <asp:Button ID="btnUpdateUser" CssClass="takeFiveBtn" Text="UPDATE USER" runat="server" OnClick="btnUpdateUser_Click" />
