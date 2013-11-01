@@ -13,8 +13,8 @@ namespace NURacingWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            successDiv.Visible = false;
-            failDiv.Visible = false;
+            resetSuccess.Visible = false;
+            resetFail.Visible = false;
         }
 
         protected void resetPasswordBtn_Click(object sender, EventArgs e)
@@ -27,18 +27,18 @@ namespace NURacingWebsite
 
                     passwordResetFrm.Visible = false;
 
-                    successDiv.Visible = true;
+                    resetSuccess.Visible = true;
                 }
 
                 else
                 {
-                    failDiv.Visible = true;
+                    resetFail.Visible = true;
                 }
             }
 
             else
             {
-                failDiv.Visible = true;
+                resetFail.Visible = true;
             }
         }
     }

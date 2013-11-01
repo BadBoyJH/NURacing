@@ -13,22 +13,22 @@ namespace NURacingWebsite {
     public partial class resetPassword {
         
         /// <summary>
-        /// successDiv control.
+        /// resetSuccess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl successDiv;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl resetSuccess;
         
         /// <summary>
-        /// failDiv control.
+        /// resetFail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl failDiv;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl resetFail;
         
         /// <summary>
         /// passwordResetFrm control.

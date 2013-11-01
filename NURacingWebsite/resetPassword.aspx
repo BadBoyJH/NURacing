@@ -5,16 +5,16 @@
 </asp:Content>
 
 <asp:Content ID = "Body" ContentPlaceHolderID = "Body" runat ="server">
-    <div id="successDiv" runat="server">
+    <div id="resetSuccess" runat="server">
         <p>Success!!</p>
     </div>
 
-    <div id="failDiv" runat="server">
+    <div id="resetFail" runat="server">
         <p>Fail!!</p>
     </div>
 
     <form id="passwordResetFrm" runat="server">
-        <div id="resetPasswordFrm">
+        <div id="resetPassword">
             <asp:Label runat="server" ID="usernameLbl" CssClass="userRole">Username: </asp:Label>
             <asp:TextBox runat="server" ID="usernameTxtBx" CssClass="textareaPassword"></asp:TextBox>
             <br />
