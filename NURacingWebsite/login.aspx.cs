@@ -36,6 +36,10 @@ namespace NURacingWebsite
                 {
                     Response.Redirect("index.aspx");
                 }
+                else
+                {
+                    Response.Redirect(Request.Params.Get("ReturnURL"));
+                }
             }
         }
     }

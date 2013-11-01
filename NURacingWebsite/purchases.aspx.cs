@@ -11,18 +11,27 @@ namespace NURacingWebsite
 {
     public partial class purchase : System.Web.UI.Page
     {
+        bool addedItem = false;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            foreach (WorkTypeInfo type in BusinessLogicLayer.WorkTypeInfo.getAllWorkTypes())
+            if (!IsPostBack || addedItem)
             {
-                if (type.Project.Name == type.Name)
+                workTypeDrpList.Items.Clear();
+
+                foreach (WorkTypeInfo type in BusinessLogicLayer.WorkTypeInfo.getAllWorkTypes())
                 {
-                    workTypeDrpList.Items.Add(type.Project.Name);
+                    if (type.Project.Name == type.Name)
+                    {
+                        workTypeDrpList.Items.Add(type.Project.Name);
+                    }
+                    else
+                    {
+                        workTypeDrpList.Items.Add(type.Project.Name + " - " + type.Name);
+                    }
                 }
-                else
-                {
-                    workTypeDrpList.Items.Add(type.Project.Name + " - " + type.Name);
-                }
+
+                addedItem = false;
             }
         }
 
@@ -46,8 +55,14 @@ namespace NURacingWebsite
                     break;
                 }
             }
+            
+            if (workID == 0)
+            {
+            }
 
-            //BusinessLogicLayer.Purchase.addPurchase(Membership.GetUser().UserName, suppTxtBx.Text, goodTxtBx.Text, Convert.ToDecimal(priceTxtBx.Text), workID); 
+            //BusinessLogicLayer.Purchase.addPurchase(Membership.GetUser().UserName, suppTxtBx.Text, goodTxtBx.Text, Convert.ToDecimal(priceTxtBx.Text), workID);
+
+            addedItem = true;
         }
     }
 }
