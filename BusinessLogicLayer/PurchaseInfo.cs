@@ -11,8 +11,10 @@ namespace BusinessLogicLayer
 {
     class PurchaseInfo
     {
+
         public PurchaseInfo(NuRacingDataSet.PurchaseRow purchaseRow)
         {
+            
         }
 
         public static PurchaseInfo GetPurchase(int PurchaseID)

@@ -12,7 +12,17 @@ namespace NURacingWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            FormsAuthentication.SignOut();
+            if (Membership.GetUser() != null)
+            {
+                if (Request.Params.Get("ReturnUrl") == null)
+                {
+                    FormsAuthentication.SignOut();
+                }
+                else
+                {
+                    Response.Redirect("AccessDenied.aspx?RequestURL=" + Request.Params.Get("ReturnURL"));
+                }
+            }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -21,7 +31,11 @@ namespace NURacingWebsite
             if (BusinessLogicLayer.User.authenticateUser(UsernameTxtBx.Text, PassTxtBx.Text, out role))
             {
                 FormsAuthentication.SetAuthCookie(UsernameTxtBx.Text, true);
-                Response.Redirect("index.aspx");
+
+                if (Request.Params.Get("ReturnUrl") == null)
+                {
+                    Response.Redirect("index.aspx");
+                }
             }
         }
     }

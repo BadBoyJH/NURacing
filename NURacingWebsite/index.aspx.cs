@@ -14,6 +14,15 @@ namespace NURacingWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            showProjects();
+            if (BusinessLogicLayer.Role.GetUserRole(Membership.GetUser().UserName) != "Team Leader")
+            {
+                createProjBtn.Visible = false;
+            }
+        }
+
+        private void showProjects()
+        {
             List<ProjectInfo> projects = ProjectInfo.getUserProjects(Membership.GetUser(false).UserName, true);
 
             TableRow row = new TableRow();
@@ -31,7 +40,7 @@ namespace NURacingWebsite
                     TableCell cell1 = new TableCell();
                     cell1.Text = cell.Text.ToString();
                     row.Cells.Add(cell1);
-                i++;
+                    i++;
                 }
                 else
                 {

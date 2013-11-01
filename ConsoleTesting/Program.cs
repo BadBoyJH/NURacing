@@ -103,9 +103,7 @@ namespace ConsoleTesting
 
             //Work.CompleteTask(TestAccOnly, DateTime.Now, 8, "Insulted now?", 2, response1);
 
-            User.addUser("LurgitSponsor", "abc123lol", "Sponsor", "Steve", "Jobs", "SteveJobs@hotmail.com", "c3145510", "YearOfGraduation Fake Data", "DegreeName Fake Data", "MedicareNumber Fake Data", "Allergies Fake Data", "MedicalConditions Fake Data", "DietaryRequirements Fake Data", true, "SAEMembershipNumber Fake Data", DateTime.Now.AddYears(2), "CAMSMembershipNumber Fake Data", "CAMSLicenseType Fake Data", "DriversLicenseNumber Fake Data", "DriversLicenseState Fake Data", "EmergencyContactName Fake Data", "EmergencyContactPhoneNumber Fake Data");
-
-            Sponsor.AddSponsor("LurgitSponsor", 3);
+            User.addUser("ZebbieTheBoss", "abc123lol", "Sponsor", "Nicola", "Dawson", "3pro5u@hotmail.com", "c3145510", "YearOfGraduation Fake Data", "DegreeName Fake Data", "MedicareNumber Fake Data", "Allergies Fake Data", "MedicalConditions Fake Data", "DietaryRequirements Fake Data", true, "SAEMembershipNumber Fake Data", DateTime.Now.AddYears(2), "CAMSMembershipNumber Fake Data", "CAMSLicenseType Fake Data", "DriversLicenseNumber Fake Data", "DriversLicenseState Fake Data", "EmergencyContactName Fake Data", "EmergencyContactPhoneNumber Fake Data");
 
             Console.WriteLine("Done adding data");
 

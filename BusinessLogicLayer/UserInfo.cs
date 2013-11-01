@@ -21,6 +21,7 @@ namespace BusinessLogicLayer
         private string givenName;
         private string surname;
         private string email;
+        private string userRole;
         private string studentnumber;
         private string estimatedGraduationYear;
         private string degree;
@@ -101,6 +102,26 @@ namespace BusinessLogicLayer
             {
                 email = value;
                 beenChanged = true;
+            }
+        }
+
+        public string UserRole
+        {
+            get
+            {
+                return userRole;
+            }
+            set
+            {
+                if (Role.UserRoles.Contains<string>(value))
+                {
+                    userRole = value;
+                    beenChanged = true;
+                }
+                else
+                {
+                    throw new ArgumentException(value + " is not a valid role");
+                }
             }
         }
 
@@ -379,6 +400,8 @@ namespace BusinessLogicLayer
             surname = userRow.User_Surname;
             username = userRow.User_Username;
             email = userRow.User_Email;
+            userRole = userRow.User_Role;
+
             studentnumber = userRow.User_StudentNumber;
             estimatedGraduationYear = userRow.User_EstGraduationYear;
             degree = userRow.User_Degree;
@@ -471,6 +494,7 @@ namespace BusinessLogicLayer
                 userRow.User_GivenName = givenName;
                 userRow.User_Surname = surname;
                 userRow.User_Email = email;
+                userRow.User_Role = userRole;
                 userRow.User_StudentNumber = studentnumber;
                 userRow.User_EstGraduationYear = estimatedGraduationYear;
                 userRow.User_Degree = degree;

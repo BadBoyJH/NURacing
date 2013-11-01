@@ -17,7 +17,7 @@ namespace BusinessLogicLayer
 
     public static class Work
     {
-        public static NuRacingDataSet.WorkRow StoreWork(DateTime DateCompleted, string Description, int? taskID, int WorkTypeID, int TimeWorkedMins, bool TakeFiveTaken)
+        private static void StoreWork(DateTime DateCompleted, string Description, int? taskID, int WorkTypeID, int TimeWorkedMins, bool TakeFiveTaken)
         {
             WorkTableAdapter workAdapter = new WorkTableAdapter();
             NuRacingDataSet.WorkDataTable workTable = workAdapter.GetData();
@@ -39,8 +39,6 @@ namespace BusinessLogicLayer
 
             workTable.AddWorkRow(workRow);
             workAdapter.Update(workTable);
-
-            return workRow;
         }
 
         private static int findWorkID(DateTime DateCompleted, string Description, int? TaskID, int WorkTypeID, int TimeWorkedMins, bool TakeFiveTaken)
@@ -73,7 +71,7 @@ namespace BusinessLogicLayer
             throw new ArgumentException("Unknown error connecting adding work to database");
         }
 
-        public static void StoreWorkDoneBy(string[] Usernames, int WorkID)
+        private static void StoreWorkDoneBy(string[] Usernames, int WorkID)
         {
             WorkDoneByTableAdapter workDoneByAdapter = new WorkDoneByTableAdapter();
             NuRacingDataSet.WorkDoneByDataTable workDoneByTable = workDoneByAdapter.GetData();
@@ -179,7 +177,7 @@ namespace BusinessLogicLayer
 
             int WorkTypeID = ((NuRacingDataSet.AssignedTaskRow)((new AssignedTaskTableAdapter()).GetAssignedTask(AssignedTaskID).Rows[0])).WorkType_UID;
 
-            NuRacingDataSet.WorkRow workRow = StoreWork(DateCompleted, Description, AssignedTaskID, WorkTypeID, TimeWorkedMins, TakeFiveTaken);
+            StoreWork(DateCompleted, Description, AssignedTaskID, WorkTypeID, TimeWorkedMins, TakeFiveTaken);
             int WorkID = findWorkID(DateCompleted, Description, AssignedTaskID, WorkTypeID, TimeWorkedMins, TakeFiveTaken);
 
             StoreWorkDoneBy(Usernames, WorkID);

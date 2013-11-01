@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
+using System.Security.Principal;
 using NURacingWebsite;
 
 namespace NURacingWebsite
@@ -29,6 +30,10 @@ namespace NURacingWebsite
         {
             // Code that runs when an unhandled error occurs
 
+        }
+
+        void Application_AuthenticateRequest(object sender, EventArgs e)
+        {
         }
     }
 }
