@@ -385,7 +385,7 @@ namespace NURacingWebsite
             UserInfo editUser = BusinessLogicLayer.UserInfo.getUser(userDrpList.SelectedItem.ToString());
             
             if (editUser.UserName == Membership.GetUser().UserName ||
-                Role.greaterRole(Roles.GetRolesForUser()[0], editUser.UserRole)
+                Role.greaterRole(Roles.GetRolesForUser()[0], editUser.UserRole))
             {
                 if (givenNameTxtBx.Text != "")
                 {
