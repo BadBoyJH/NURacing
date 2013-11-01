@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using BusinessLogicLayer;
 using System.Web.Security;
-
+using AjaxControlToolkit.Design;
 
 namespace NURacingWebsite
 {
@@ -24,13 +24,20 @@ namespace NURacingWebsite
         Label lblAssignTo = new Label();
         ListBox assignDrpList = new ListBox();
         Label lblTakeFiveNeeded = new Label();
+        Label lblReason = new Label();
+        TextBox reasonTxtBx = new TextBox();
         CheckBox takeFiveChkBx = new CheckBox();
         Label lblTaskStatus = new Label();
         TextBox taskStatusTxtBx = new TextBox();
+        Label lblTaskDrpList = new Label();
+        DropDownList taskDrpList = new DropDownList();
+        Calendar dueDateCal = new Calendar();
+        int workTypeID = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             createForm();
+            workTypeID = Convert.ToInt32(Request.Params.Get("id"));
         }
 
         protected void createTaskBtn_Click(object sender, EventArgs e)
@@ -41,6 +48,20 @@ namespace NURacingWebsite
 
         private void createForm()
         {
+            taskFrm.Controls.Add(new LiteralControl("<p>"));
+            lblTaskDrpList.Text = "Which task? ";
+            taskFrm.Controls.Add(lblTaskDrpList);
+
+            foreach (TaskInfo info in BusinessLogicLayer.TaskInfo.getWorkTypeTasks(workTypeID))
+            {
+                taskDrpList.Items.Add(info.TaskName);
+            }
+
+            lblTaskDrpList.Visible = false;
+            taskDrpList.Visible = false;
+            taskFrm.Controls.Add(taskDrpList);
+            taskFrm.Controls.Add(new LiteralControl("</p>"));
+
             taskFrm.Controls.Add(new LiteralControl("<p>"));
             lblTaskName.Text = "Task Name: ";
             taskFrm.Controls.Add(lblTaskName);
@@ -64,6 +85,7 @@ namespace NURacingWebsite
                     workTypeDrpList.Items.Add(type.Project.Name + " - " + type.Name);
                 }
             }
+
             taskFrm.Controls.Add(workTypeDrpList);
             taskFrm.Controls.Add(new LiteralControl("</p>"));
 
@@ -78,7 +100,14 @@ namespace NURacingWebsite
             taskFrm.Controls.Add(new LiteralControl("<p>"));
             lblDueDate.Text = "Due Date: ";
             taskFrm.Controls.Add(lblDueDate);
-            //taskFrm.Controls.Add(taskNaTxtBx);
+            //taskFrm.Controls.Add(new LiteralControl("<div id=\"datepicker\"></div>"));
+            taskFrm.Controls.Add(dueDateCal);
+            taskFrm.Controls.Add(new LiteralControl("</p>"));
+
+            taskFrm.Controls.Add(new LiteralControl("<p>"));
+            lblReason.Text = "Incomplete reason: ";
+            taskFrm.Controls.Add(lblReason);
+            taskFrm.Controls.Add(reasonTxtBx);
             taskFrm.Controls.Add(new LiteralControl("</p>"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
@@ -108,12 +137,67 @@ namespace NURacingWebsite
 
         protected void updateTaskBtn_Click(object sender, EventArgs e)
         {
-
+            lblTaskDrpList.Visible = true;
+            taskDrpList.Visible = true;
+            taskFrm.Visible = true;
         }
 
         protected void updateSubmitBtn_Click(object sender, EventArgs e)
         {
+            int taskID = 0;
+            int workID = 0;
 
+            foreach (TaskInfo info in BusinessLogicLayer.TaskInfo.getTasks())
+            {
+                if (info.TaskName == taskDrpList.SelectedItem.ToString())
+                {
+                    taskID = info.TaskID;
+                    break;
+                }
+            }
+
+            BusinessLogicLayer.TaskInfo editTask = TaskInfo.getAssignedTask(taskID);
+
+            foreach (WorkTypeInfo type in BusinessLogicLayer.WorkTypeInfo.getAllWorkTypes())
+            {
+                if (type.Project.Name == type.Name)
+                {
+                    if (type.Project.Name == workTypeDrpList.SelectedItem.ToString())
+                    {
+                        workID = type.WorkTypeID;
+                        break;
+                    }
+                }
+                else if (type.Project.Name + " - " + type.Name == workTypeDrpList.SelectedItem.ToString())
+                {
+                    workID = type.WorkTypeID;
+                    break;
+                }
+            }
+
+            if (taskNameTxtBx.Text != "")
+            {
+                editTask.TaskName = taskNameTxtBx.Text;
+            }
+
+            if (taskDescTxtBx.Text != "")
+            {
+                editTask.TaskDescription = taskDescTxtBx.Text;
+            }
+
+            editTask.TakeFiveNeeded = takeFiveChkBx.Checked;
+
+            if (taskStatusTxtBx.Text != "")
+            {
+                editTask.TaskStatus = taskStatusTxtBx.Text;
+            }
+
+            if (reasonTxtBx.Text != "")
+            {
+                editTask.TaskIncompleteReason = reasonTxtBx.Text;
+            }
+
+            editTask.updateDatabase();
         }
 
         protected void createSubmitTaskBtn_Click(object sender, EventArgs e)
@@ -148,7 +232,7 @@ namespace NURacingWebsite
             }
 
             BusinessLogicLayer.AssignedTask.addTask(Membership.GetUser().UserName, addedUsers, 
-                workID, DateTime.Now, taskNameTxtBx.Text, taskDescTxtBx.Text, takeFiveChkBx.Checked);
+                workID, dueDateCal.SelectedDate, taskNameTxtBx.Text, taskDescTxtBx.Text, takeFiveChkBx.Checked);
         }
     }
 }

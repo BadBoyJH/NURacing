@@ -59,7 +59,7 @@ namespace NURacingWebsite
 
         protected void createProjBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/taskmanagement.aspx");
+            Response.Redirect("/taskmanagement.aspx?id=" + Request.Params.Get("id"));
         }
     }
 }
