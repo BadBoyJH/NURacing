@@ -201,6 +201,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="createNewPassword.aspx" />
     <Content Include="error.aspx" />
     <Content Include="Reporting\reportpurchasing.aspx" />
     <Content Include="Reporting\reportsponsordetails.aspx" />
@@ -343,6 +344,13 @@
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="createNewPassword.aspx.cs">
+      <DependentUpon>createNewPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="createNewPassword.aspx.designer.cs">
+      <DependentUpon>createNewPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NuRacingIPrincipal.cs" />
     <Compile Include="error.aspx.cs">
       <DependentUpon>error.aspx</DependentUpon>

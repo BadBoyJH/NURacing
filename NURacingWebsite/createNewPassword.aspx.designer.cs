@@ -13,75 +13,75 @@ namespace NURacingWebsite {
     public partial class resetPassword {
         
         /// <summary>
-        /// resetSuccess control.
+        /// newPasswordSuccess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl resetSuccess;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl newPasswordSuccess;
         
         /// <summary>
-        /// resetFail control.
+        /// newPasswordFail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl resetFail;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl newPasswordFail;
         
         /// <summary>
-        /// passwordResetFrm control.
+        /// setPasswordFrm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm passwordResetFrm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm setPasswordFrm;
         
         /// <summary>
-        /// usernameLbl control.
+        /// passwordLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label usernameLbl;
+        protected global::System.Web.UI.WebControls.Label passwordLbl;
         
         /// <summary>
-        /// usernameTxtBx control.
+        /// passwordTxtBx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox usernameTxtBx;
+        protected global::System.Web.UI.WebControls.TextBox passwordTxtBx;
         
         /// <summary>
-        /// emailLbl control.
+        /// confirmLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label emailLbl;
+        protected global::System.Web.UI.WebControls.Label confirmLbl;
         
         /// <summary>
-        /// emailTxtBx control.
+        /// confirmTxtBx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox emailTxtBx;
+        protected global::System.Web.UI.WebControls.TextBox confirmTxtBx;
         
         /// <summary>
-        /// resetPasswordBtn control.
+        /// createNewPasswordBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button resetPasswordBtn;
+        protected global::System.Web.UI.WebControls.Button createNewPasswordBtn;
     }
 }
