@@ -294,6 +294,7 @@ namespace BusinessLogicLayer
         }
 
         //  Written By James Hibbard
+        //  Modified By Simon Davis
         /// <summary>
         ///     Sets up a reset password reset request for a given user.
         ///     Throws ArgumentException if username is invalid.
@@ -319,7 +320,7 @@ namespace BusinessLogicLayer
                     prrTable.AddPasswordResetRequestRow(prrNewRow);
                     prrAdapter.Update(prrTable);
 
-                    EmailManager.SendPasswordResetRequest(byteCode, getEmail(Username));
+                    EmailManager.sendPasswordResetRequest(byteCode, Username, getEmail(Username));
                 }
                 else
                 {
@@ -395,7 +396,7 @@ namespace BusinessLogicLayer
 
                     try
                     {
-                        EmailManager.sendPasswordResetEmail(newPassword, userRow.User_Email);
+                        EmailManager.sendPasswordResetEmail(Username, newPassword, userRow.User_Email);
                         return true;
                     }
                     catch (Exception)
@@ -406,7 +407,6 @@ namespace BusinessLogicLayer
             }
             return false;
         }
-
 
         static public bool generateNewPassword(string ResetRequestID)
         {
