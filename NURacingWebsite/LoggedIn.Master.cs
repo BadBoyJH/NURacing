@@ -18,6 +18,21 @@ namespace NURacingWebsite
             {
                 Response.Redirect("/login.aspx");
             }
+
+            Page.Error += Page_Error;
+        }
+
+        void Page_Error(object sender, EventArgs e)
+        {
+            Exception exec = Server.GetLastError();
+
+            if (exec is MySql.Data.MySqlClient.MySqlException)
+            {
+                if (exec.Message.Contains("Timout"))
+                {
+                    Response.Redirect("/error.aspx");
+                }
+            }
         }
 
         public void hideFooter()
