@@ -196,6 +196,29 @@ namespace NURacingWebsite
                 editTask.TaskIncompleteReason = reasonTxtBx.Text;
             }
 
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is TextBox)
+                {
+                    TextBox txtBx = ctrl as TextBox;
+
+                    if (txtBx.Text != "")
+                    {
+                        txtBx.Text = "";
+                    }
+
+                    if (taskDrpList.SelectedIndex != 0)
+                    {
+                        taskDrpList.SelectedIndex = 0;
+                    }
+
+                    if (assignDrpList.SelectedIndex != 0)
+                    {
+                        assignDrpList.SelectedIndex = 0;
+                    }
+                }
+            }
+
             editTask.updateDatabase();
         }
 

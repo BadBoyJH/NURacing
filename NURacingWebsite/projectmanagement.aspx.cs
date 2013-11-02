@@ -35,20 +35,19 @@ namespace NURacingWebsite
             createProjFrm.Controls.Clear();
 
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
-            lblProjSubmit.Visible = false;
             lblProjSubmit.CssClass = "submitLbl";
+            lblProjSubmit.Visible = false;
             createProjFrm.Controls.Add(lblProjSubmit);
             createProjFrm.Controls.Add(new LiteralControl("</p>"));
 
-
-             projNameDrpList.Items.Clear();
+            projNameDrpList.Items.Clear();
 
             foreach (ProjectInfo project in BusinessLogicLayer.ProjectInfo.getProjects())
             {
                 projNameDrpList.Items.Add(project.Name);
             }
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
-            lblCarNameList.Text = "Project Name: ";
+            lblCarNameList.Text = "Project Section: ";
             createProjFrm.Controls.Add(lblCarNameList);
             createProjFrm.Controls.Add(projNameDrpList);
             projNameDrpList.CssClass = "drpList";
@@ -134,6 +133,9 @@ namespace NURacingWebsite
             BusinessLogicLayer.Project.addDefaultCar(carNameTxtBx.Text, Convert.ToInt32(yearMadeTxtBx.Text), carDescTxtBx.Text);
             lblProjSubmit.Text = "Project submitted.";
             lblProjSubmit.Visible = true;
+            submitProj.Visible = true;
+            submitProjBtn.Visible = false;
+            updateProjBtn.Visible = false;
         }
 
         protected void updateSubmitBtn_Click(object sender, EventArgs e)
@@ -168,12 +170,22 @@ namespace NURacingWebsite
 
             editProj.Status = projStatusDrpList.SelectedItem.ToString();
 
+            editProj.updateDatabase();
 
+            submitProj.InnerText = "Project updated.";
+
+            submitProj.Visible = true;
+
+            createProjFrm.Controls.Clear();
+
+            submitProjBtn.Visible = false;
+            updateProjBtn.Visible = false;
             
         }
 
         protected void createProjBtn_Click(object sender, EventArgs e)
         {
+            submitProj.Visible = false;
             lblCarName.Visible = true;
             carNameTxtBx.Visible = true;
             lblCarNameList.Visible = false;
@@ -186,16 +198,20 @@ namespace NURacingWebsite
             lblYearMade.Visible = true;
             yearMadeTxtBx.Visible = true;
             carDescTxtBx.Visible = true;
-            lblStatus.Visible = false;
             update = false;
+            lblStatus.Visible = false;
+            lblProjSubmit.Visible = false;
+            activeChkBx.Visible = false;
+            lblActive.Visible = false;
         }
 
         protected void updateProjBtn_Click(object sender, EventArgs e)
         {
+            submitProj.Visible = false;
             lblCarNameList.Visible = true;
             projNameDrpList.Visible = true;
-            //lblCarName.Visible = false;
-            //carNameTxtBx.Visible = false;
+            lblCarName.Visible = true;
+            carNameTxtBx.Visible = true;
             //lblDesc.Visible = false;
             //carDescTxtBx.Visible = false;
             //lblYearMade.Visible = false;
