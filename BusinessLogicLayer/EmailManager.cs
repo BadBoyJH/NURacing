@@ -97,7 +97,7 @@ namespace BusinessLogicLayer
                 "Thanks,\n\nNURacing Team";
 
             MailMessage email = new MailMessage();
-            email.To.Add(Recipient);
+            email.To.Add(recipient);
             email.Subject = "NURacing - Task Assigned";
             email.From = new MailAddress(ourEmail);
             email.Body = message;
