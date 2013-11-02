@@ -82,6 +82,7 @@ namespace NURacingWebsite
             {
                 taskDrpList.Items.Add(info.TaskName);
             }
+
             taskDrpList.SelectedIndexChanged += taskDrpList_SelectedIndexChanged;
             taskDrpList.AutoPostBack = true;
 
