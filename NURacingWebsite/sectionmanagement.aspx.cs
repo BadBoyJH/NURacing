@@ -28,9 +28,7 @@ namespace NURacingWebsite
 
         private void createForm()
         {
-             
-
-             projNameDrpList.Items.Clear();
+            projNameDrpList.Items.Clear();
 
             foreach (ProjectInfo project in BusinessLogicLayer.ProjectInfo.getProjects())
             {
