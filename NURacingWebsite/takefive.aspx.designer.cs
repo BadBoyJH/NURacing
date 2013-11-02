@@ -22,6 +22,15 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
         
         /// <summary>
+        /// takeFiveSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl takeFiveSubmit;
+        
+        /// <summary>
         /// takeFiveUserLstBx control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.ListBox takeFiveUserLstBx;
         
         /// <summary>
+        /// takeFiveCal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar takeFiveCal;
+        
+        /// <summary>
         /// descTxtBx control.
         /// </summary>
         /// <remarks>
@@ -38,6 +56,15 @@ namespace NURacingWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox descTxtBx;
+        
+        /// <summary>
+        /// minWordTxtBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox minWordTxtBx;
         
         /// <summary>
         /// tkfvWorktypeDrpList control.

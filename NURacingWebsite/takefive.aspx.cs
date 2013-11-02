@@ -48,6 +48,7 @@ namespace NURacingWebsite
         {
             List<string> usernameList = new List<string>();
             List<TakeFiveResponse> responseList = new List<TakeFiveResponse>();
+            bool updatable = true;
 
             foreach (ListItem item in takeFiveUserLstBx.Items)
             {
@@ -56,103 +57,6 @@ namespace NURacingWebsite
                     usernameList.Add(item.ToString());
                 }
             }
-
-
-            if (red)
-            {
-
-                if (b1.Checked)
-                {
-                    response.TakeFiveID = 1;
-                    response.Response = reason1TxtBx.Text;
-                    responseList.Add(response);
-                }
-
-                if (b2.Checked)
-                {
-                    response.TakeFiveID = 2;
-                    response.Response = reason2TxtBx.Text;
-                    responseList.Add(response);
-                }
-
-                if (b3.Checked)
-                {
-                    response.TakeFiveID = 3;
-                    response.Response = reason3TxtBx.Text;
-                    responseList.Add(response);
-                }
-
-                if (b4.Checked)
-                {
-                    response.TakeFiveID = 4;
-                    response.Response = reason4TxtBx.Text;
-                    responseList.Add(response);
-                }
-
-                if (b5.Checked)
-                {
-                    response.TakeFiveID = 5;
-                    response.Response = reason5TxtBx.Text;
-                    responseList.Add(response);
-                }
-
-                if (a6.Checked)
-                {
-                    response.TakeFiveID = 6;
-                    response.Response = reason6TxtBx.Text;
-                    responseList.Add(response);
-                }
-
-                if (a7.Checked)
-                {
-                    response.TakeFiveID = 7;
-                    response.Response = reason7TxtBx.Text;
-                    responseList.Add(response);
-                }
-
-                if (b8.Checked)
-                {
-                    response.TakeFiveID = 8;
-                    response.Response = reason8TxtBx.Text;
-                    responseList.Add(response);
-                }
-
-                if (a9.Checked)
-                {
-                    response.TakeFiveID = 9;
-                    response.Response = reason9TxtBx.Text;
-                    responseList.Add(response);
-                }
-
-                if (b10.Checked)
-                {
-                    response.TakeFiveID = 10;
-                    response.Response = reason10TxtBx.Text;
-                    responseList.Add(response);
-                }
-
-                if (b11.Checked)
-                {
-                    response.TakeFiveID = 11;
-                    response.Response = reason11TxtBx.Text;
-                    responseList.Add(response);
-                }
-
-                if (a12.Checked)
-                {
-                    response.TakeFiveID = 12;
-                    response.Response = reason12TxtBx.Text;
-                    responseList.Add(response);
-                }
-
-                if (b13.Checked)
-                {
-                    response.TakeFiveID = 13;
-                    response.Response = reason13TxtBx.Text;
-                    responseList.Add(response);
-                }
-            }
-
 
             int workID = 0;
 
@@ -173,10 +77,125 @@ namespace NURacingWebsite
                 }
             }
 
-            usernames = usernameList.ToArray();
-            responseArray = responseList.ToArray();
+            if (minWordTxtBx.Text != "")
+            {
+                updatable = false;
+            }
 
-            BusinessLogicLayer.Work.AddWork(usernames, DateTime.Now, descTxtBx.Text, workID, 100, responseArray);
+            if (red)
+            {
+
+                if (b1.Checked && reason1TxtBx.Text != "")
+                {
+                    response.TakeFiveID = 1;
+                    response.Response = reason1TxtBx.Text;
+                    responseList.Add(response);
+                }
+
+                else if (b2.Checked && reason2TxtBx.Text != "")
+                {
+                    response.TakeFiveID = 2;
+                    response.Response = reason2TxtBx.Text;
+                    responseList.Add(response);
+                }
+
+                else if (b3.Checked && reason3TxtBx.Text != "")
+                {
+                    response.TakeFiveID = 3;
+                    response.Response = reason3TxtBx.Text;
+                    responseList.Add(response);
+                }
+
+                else if (b4.Checked && reason4TxtBx.Text != "")
+                {
+                    response.TakeFiveID = 4;
+                    response.Response = reason4TxtBx.Text;
+                    responseList.Add(response);
+                }
+
+                else if (b5.Checked & reason5TxtBx.Text != "")
+                {
+                    response.TakeFiveID = 5;
+                    response.Response = reason5TxtBx.Text;
+                    responseList.Add(response);
+                }
+
+                else if (a6.Checked && reason6TxtBx.Text != "")
+                {
+                    response.TakeFiveID = 6;
+                    response.Response = reason6TxtBx.Text;
+                    responseList.Add(response);
+                }
+
+                else if (a7.Checked && reason7TxtBx.Text != "")
+                {
+                    response.TakeFiveID = 7;
+                    response.Response = reason7TxtBx.Text;
+                    responseList.Add(response);
+                }
+
+                else if (b8.Checked && reason8TxtBx.Text != "")
+                {
+                    response.TakeFiveID = 8;
+                    response.Response = reason8TxtBx.Text;
+                    responseList.Add(response);
+                }
+
+                else if (a9.Checked && reason9TxtBx.Text != "")
+                {
+                    response.TakeFiveID = 9;
+                    response.Response = reason9TxtBx.Text;
+                    responseList.Add(response);
+                }
+
+                else if (b10.Checked && reason10TxtBx.Text != "")
+                {
+                    response.TakeFiveID = 10;
+                    response.Response = reason10TxtBx.Text;
+                    responseList.Add(response);
+                }
+
+                else if (b11.Checked && reason11TxtBx.Text != "")
+                {
+                    response.TakeFiveID = 11;
+                    response.Response = reason11TxtBx.Text;
+                    responseList.Add(response);
+                }
+
+                else if (a12.Checked && reason12TxtBx.Text != "")
+                {
+                    response.TakeFiveID = 12;
+                    response.Response = reason12TxtBx.Text;
+                    responseList.Add(response);
+                }
+
+                else if (b13.Checked && reason13TxtBx.Text != "")
+                {
+                    response.TakeFiveID = 13;
+                    response.Response = reason13TxtBx.Text;
+                    responseList.Add(response);
+                }
+
+                else
+                {
+                    updatable = false;
+                }
+            }
+
+
+            if (updatable)
+            {
+                usernames = usernameList.ToArray();
+                responseArray = responseList.ToArray();
+
+                BusinessLogicLayer.Work.AddWork(usernames, takeFiveCal.SelectedDate, descTxtBx.Text, workID, Convert.ToInt32(minWordTxtBx.Text), responseArray);
+                takeFiveSubmit.Visible = true;
+            }
+            else
+            {
+                takeFiveSubmit.Visible = false;
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "ALERT", "<script>alert('Please enter a reason(s) for your answers.')</script>");
+            }
         }
     }
 }

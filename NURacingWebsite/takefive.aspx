@@ -16,18 +16,24 @@
                     <p style="text-align: center"></p>
                 <br />
                     <div class="taskDetail">
-                     <form id ="Form1" runat="server">
+                     <form id ="Form1" runat="server" onsubmit="">
+
+                         <p runat="server" id="takeFiveSubmit" class="submitLbl" visible="false">Take five submitted.</p>
 
                          <p>Which users? <br />
                              <asp:ListBox runat="server" ID="takeFiveUserLstBx"></asp:ListBox>
                          </p>
 
                          <p>Date completed: 
-                             <!--DATETIME PICKER -->
+                             <asp:Calendar runat="server" ID="takeFiveCal"></asp:Calendar>
                          </p>
 
                          <p>Description: 
                              <asp:TextBox runat="server" ID="descTxtBx"></asp:TextBox>
+                         </p>
+
+                         <p>Minutes worked: 
+                             <asp:TextBox runat="server" ID="minWordTxtBx"></asp:TextBox>
                          </p>
 
                          <p>Which work type? 
@@ -155,7 +161,7 @@
                          <p>Work type: <asp:DropDownList runat="server" ID="workTypeDrpList"></asp:DropDownList></p>
                          <p>Price: <asp:TextBox runat="server" ID="priceTxtBx"></asp:TextBox></p>
                          <p>Supplier: <asp:TextBox runat="server" ID="suppTxtBx"></asp:TextBox></p>-->
-                         <asp:Button runat="server" ID="submitTakefiveBtn" CssClass="takeFiveBtn" Text="SUBMIT" OnClick="submitTakefiveBtn_Click" />
+                         <asp:Button runat="server" ID="submitTakefiveBtn" CssClass="takeFiveBtn" Text="SUBMIT" OnClientClick="return checkTakeFive();" OnClick="submitTakefiveBtn_Click" />
                         <br />
                         <br />
                         <br />

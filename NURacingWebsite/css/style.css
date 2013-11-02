@@ -894,3 +894,8 @@ text-transform:uppercase;
 	color: #7E7E7E;
     vertical-align:middle;
 }
+
+.submitLbl {
+    font-weight:bold;
+    color:red;
+}

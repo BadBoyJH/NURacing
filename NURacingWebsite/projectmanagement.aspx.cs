@@ -21,6 +21,9 @@ namespace NURacingWebsite
         Label lblCarNameList = new Label();
         DropDownList projNameDrpList = new DropDownList();
         bool update;
+        Label lblProjSubmit = new Label();
+        Label lblActive = new Label();
+        CheckBox activeChkBx = new CheckBox();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,7 +32,14 @@ namespace NURacingWebsite
 
         private void createForm()
         {
-             
+            createProjFrm.Controls.Clear();
+
+            createProjFrm.Controls.Add(new LiteralControl("<p>"));
+            lblProjSubmit.Visible = false;
+            lblProjSubmit.CssClass = "submitLbl";
+            createProjFrm.Controls.Add(lblProjSubmit);
+            createProjFrm.Controls.Add(new LiteralControl("</p>"));
+
 
              projNameDrpList.Items.Clear();
 
@@ -103,6 +113,14 @@ namespace NURacingWebsite
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
 
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
+            lblActive.Text = "Is Project Active?";
+            lblActive.Visible = false;
+            activeChkBx.Visible = false;
+            createProjFrm.Controls.Add(lblActive);
+            createProjFrm.Controls.Add(activeChkBx);
+            createProjFrm.Controls.Add(new LiteralControl("</p>"));
+
+            createProjFrm.Controls.Add(new LiteralControl("<p>"));
             lblDesc.Text = "Description: ";
             createProjFrm.Controls.Add(lblDesc);
             createProjFrm.Controls.Add(carDescTxtBx);
@@ -114,11 +132,44 @@ namespace NURacingWebsite
         protected void submitProjBtn_Click(object sender, EventArgs e)
         {
             BusinessLogicLayer.Project.addDefaultCar(carNameTxtBx.Text, Convert.ToInt32(yearMadeTxtBx.Text), carDescTxtBx.Text);
+            lblProjSubmit.Text = "Project submitted.";
+            lblProjSubmit.Visible = true;
         }
 
         protected void updateSubmitBtn_Click(object sender, EventArgs e)
         {
+            int projID = 0;
 
+            foreach (ProjectInfo info in ProjectInfo.getProjects())
+            {
+                if (info.Name == projNameDrpList.SelectedItem.ToString())
+                {
+                    projID = info.ProjectID;
+                }
+            }
+
+            BusinessLogicLayer.ProjectInfo editProj = BusinessLogicLayer.ProjectInfo.getProject(projID);
+            if (carNameTxtBx.Text != "")
+            {
+                editProj.Name = carNameTxtBx.Text;
+            }
+
+            if (yearMadeTxtBx.Text != "")
+            {
+                editProj.YearMade = Convert.ToInt32(yearMadeTxtBx.Text);
+            }
+
+            if (carDescTxtBx.Text != "")
+            {
+                editProj.Description = carDescTxtBx.Text;
+            }
+
+            editProj.IsActive = activeChkBx.Checked;
+
+            editProj.Status = projStatusDrpList.SelectedItem.ToString();
+
+
+            
         }
 
         protected void createProjBtn_Click(object sender, EventArgs e)
@@ -143,12 +194,14 @@ namespace NURacingWebsite
         {
             lblCarNameList.Visible = true;
             projNameDrpList.Visible = true;
-            lblCarName.Visible = false;
-            carNameTxtBx.Visible = false;
-            lblDesc.Visible = false;
-            carDescTxtBx.Visible = false;
-            lblYearMade.Visible = false;
-            yearMadeTxtBx.Visible = false;
+            //lblCarName.Visible = false;
+            //carNameTxtBx.Visible = false;
+            //lblDesc.Visible = false;
+            //carDescTxtBx.Visible = false;
+            //lblYearMade.Visible = false;
+            //yearMadeTxtBx.Visible = false;
+            lblActive.Visible = true;
+            activeChkBx.Visible = true;
             createProjFrm.Visible = true;
             submitProjBtn.Visible = false;
             updateSubmitBtn.Visible = true;
