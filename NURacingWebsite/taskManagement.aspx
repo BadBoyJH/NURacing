@@ -2,7 +2,7 @@
 
 
 <asp:Content ContentPlaceHolderID="Title" ID="Title" runat="server">
-    NURacing System - Account
+    NURacing System - Task Management
 </asp:Content>
 
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">

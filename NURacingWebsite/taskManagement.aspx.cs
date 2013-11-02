@@ -32,6 +32,7 @@ namespace NURacingWebsite
         DropDownList taskDrpList = new DropDownList();
         Calendar dueDateCal = new Calendar();
         int workTypeID = 0;
+        Label taskSub = new Label();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -42,6 +43,7 @@ namespace NURacingWebsite
 
         protected void createTaskBtn_Click(object sender, EventArgs e)
         {
+            taskSub.Visible = false;
             taskFrm.Visible = true;
             createSubmitTaskBtn.Visible = true;
         }
@@ -69,14 +71,35 @@ namespace NURacingWebsite
             takeFiveChkBx.Checked = task.TakeFiveNeeded;
             taskStatusTxtBx.Text = task.TaskStatus;
             reasonTxtBx.Text = task.TaskIncompleteReason;
+
+        }
+
+        private void clearForm()
+        {
+            taskNameTxtBx.Text = "";
+            taskDescTxtBx.Text = "";
+            takeFiveChkBx.Checked = false;
+            workTypeDrpList.SelectedIndex = 0;
+            dueDateCal.SelectedDate = DateTime.Now;
+            taskStatusTxtBx.Text = "";
+            reasonTxtBx.Text = "";
         }
 
         private void createForm()
         {
             taskFrm.Controls.Add(new LiteralControl("<p>"));
+            taskSub.Text = "Task created.";
+            taskSub.Visible = false;
+            taskSub.CssClass = "submitLbl";
+            taskFrm.Controls.Add(taskSub);
+            taskFrm.Controls.Add(new LiteralControl("</p>"));
+
+            taskFrm.Controls.Add(new LiteralControl("<p>"));
             lblTaskDrpList.Text = "Which task? ";
             taskFrm.Controls.Add(lblTaskDrpList);
             taskDrpList.Items.Clear();
+
+            
 
             foreach (TaskInfo info in BusinessLogicLayer.TaskInfo.getWorkTypeTasks(workTypeID))
             {
@@ -89,14 +112,20 @@ namespace NURacingWebsite
             lblTaskDrpList.Visible = false;
             taskDrpList.Visible = false;
             taskFrm.Controls.Add(taskDrpList);
-            taskFrm.Controls.Add(new LiteralControl("</p>"));
+            taskDrpList.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
+            taskDrpList.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
+            taskDrpList.Font.Name = "Lucida Sans Unicode";
+            taskDrpList.Font.Size = 11;
+            taskDrpList.BorderStyle = BorderStyle.None;
+            taskDrpList.Height = 25;
+            taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
             lblTaskName.Text = "Task Name: ";
             taskFrm.Controls.Add(lblTaskName);
             taskFrm.Controls.Add(taskNameTxtBx);
             taskNameTxtBx.CssClass = "textareaPassword";
-            taskFrm.Controls.Add(new LiteralControl("</p>"));
+            taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
             lblworkType.Text = "Project: ";
@@ -116,7 +145,13 @@ namespace NURacingWebsite
             }
 
             taskFrm.Controls.Add(workTypeDrpList);
-            taskFrm.Controls.Add(new LiteralControl("</p>"));
+            workTypeDrpList.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
+            workTypeDrpList.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
+            workTypeDrpList.Font.Name = "Lucida Sans Unicode";
+            workTypeDrpList.Font.Size = 11;
+            workTypeDrpList.BorderStyle = BorderStyle.None;
+            workTypeDrpList.Height = 25;
+            taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
             lblTaskDesc.Text = "Task Description: ";
@@ -124,26 +159,20 @@ namespace NURacingWebsite
             taskFrm.Controls.Add(taskDescTxtBx);
             taskDescTxtBx.CssClass = "textareaPassword";
             taskDescTxtBx.TextMode = TextBoxMode.MultiLine;
-            taskFrm.Controls.Add(new LiteralControl("</p>"));
+            taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
             lblDueDate.Text = "Due Date: ";
             taskFrm.Controls.Add(lblDueDate);
             //taskFrm.Controls.Add(new LiteralControl("<div id=\"datepicker\"></div>"));
             taskFrm.Controls.Add(dueDateCal);
-            taskFrm.Controls.Add(new LiteralControl("</p>"));
-
-            taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblReason.Text = "Incomplete reason: ";
-            taskFrm.Controls.Add(lblReason);
-            taskFrm.Controls.Add(reasonTxtBx);
-            taskFrm.Controls.Add(new LiteralControl("</p>"));
+            taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
             lblTakeFiveNeeded.Text = "Take Five Needed: ";
             taskFrm.Controls.Add(lblTakeFiveNeeded);
             taskFrm.Controls.Add(takeFiveChkBx);
-            taskFrm.Controls.Add(new LiteralControl("</p>"));
+            taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
             lblAssignTo.Text = "Assign To: ";
@@ -154,14 +183,19 @@ namespace NURacingWebsite
             }
             assignDrpList.SelectionMode = ListSelectionMode.Multiple;
             taskFrm.Controls.Add(assignDrpList);
-            taskFrm.Controls.Add(new LiteralControl("</p>"));
+            assignDrpList.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
+            assignDrpList.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
+            assignDrpList.Font.Name = "Lucida Sans Unicode";
+            assignDrpList.Font.Size = 11;
+            assignDrpList.BorderStyle = BorderStyle.None;
+            taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
             lblTaskStatus.Text = "Task Status: ";
             taskFrm.Controls.Add(lblTaskStatus);
             taskFrm.Controls.Add(taskStatusTxtBx);
             taskStatusTxtBx.CssClass = "textareaPassword";
-            taskFrm.Controls.Add(new LiteralControl("</p>"));
+            taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
         }
 
         void taskDrpList_SelectedIndexChanged(object sender, EventArgs e)
@@ -171,6 +205,7 @@ namespace NURacingWebsite
 
         protected void updateTaskBtn_Click(object sender, EventArgs e)
         {
+            taskSub.Visible = false;
             lblTaskDrpList.Visible = true;
             taskDrpList.Visible = true;
             taskFrm.Visible = true;
@@ -231,30 +266,10 @@ namespace NURacingWebsite
                 editTask.TaskIncompleteReason = reasonTxtBx.Text;
             }
 
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is TextBox)
-                {
-                    TextBox txtBx = ctrl as TextBox;
-
-                    if (txtBx.Text != "")
-                    {
-                        txtBx.Text = "";
-                    }
-
-                    if (taskDrpList.SelectedIndex != 0)
-                    {
-                        taskDrpList.SelectedIndex = 0;
-                    }
-
-                    if (assignDrpList.SelectedIndex != 0)
-                    {
-                        assignDrpList.SelectedIndex = 0;
-                    }
-                }
-            }
-
             editTask.updateDatabase();
+
+            taskSub.Text = "Task updated.";
+            taskSub.Visible = true;
         }
 
         protected void createSubmitTaskBtn_Click(object sender, EventArgs e)
@@ -290,6 +305,8 @@ namespace NURacingWebsite
 
             BusinessLogicLayer.AssignedTask.addTask(Membership.GetUser().UserName, addedUsers, 
                 workID, dueDateCal.SelectedDate, taskNameTxtBx.Text, taskDescTxtBx.Text, takeFiveChkBx.Checked);
+
+            taskSub.Visible = true;
         }
     }
 }

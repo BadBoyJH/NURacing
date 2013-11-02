@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="takefive.aspx.cs" Inherits="NURacingWebsite.takefive" MasterPageFile="~/LoggedIn.Master" %>
 
 <asp:Content ContentPlaceHolderID="Title" ID="Title" runat="server">
-    NURacing System - Purchase
+    NURacing System - Take Five
 </asp:Content>
 
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">

@@ -41,7 +41,7 @@ namespace BusinessLogicLayer
 
             MailMessage email = new MailMessage();
             email.To.Add(Recipient);
-            email.Subject = "NURacing Online - Password Reset";
+            email.Subject = "NURacing - Password Reset";
             email.From = new MailAddress(ourEmail);
             email.Body = message;
 
@@ -59,9 +59,12 @@ namespace BusinessLogicLayer
         static public void sendPasswordResetEmail(string Password, string Recipient)
         {
             string message =
-                "Until further notice this will have to do\n" +
-                "New Password is: " + Password + "\n" +
-                "NURacing Test";
+                "Dear User,\n\n" +
+                "Your new Password is: " + Password + "\n\n" +
+                "Follow this link to login to your account: http://localhost:58503/login.aspx\n\n" +
+                "Remember to change your password on the Account tab.\n\n" +
+                "This email is auto generated, please don't reply.\n\nYou can contact us at nuracinghelpdesk@gmail.com\n\n" +
+                "Thanks,\n\nNURacing Team";
 
             MailMessage email = new MailMessage();
             email.To.Add(Recipient);

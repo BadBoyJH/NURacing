@@ -28,9 +28,7 @@ namespace NURacingWebsite
 
         private void createForm()
         {
-             
-
-             projNameDrpList.Items.Clear();
+            projNameDrpList.Items.Clear();
 
             foreach (ProjectInfo project in BusinessLogicLayer.ProjectInfo.getProjects())
             {
@@ -51,7 +49,13 @@ namespace NURacingWebsite
             }
             createProjFrm.Controls.Add(projNameDrpList);
             projNameDrpList.CssClass = "drpList";
-            createProjFrm.Controls.Add(new LiteralControl("</p>"));
+            projNameDrpList.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
+            projNameDrpList.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
+            projNameDrpList.Font.Name = "Lucida Sans Unicode";
+            projNameDrpList.Font.Size = 11;
+            projNameDrpList.BorderStyle = BorderStyle.None;
+            projNameDrpList.Height = 25;
+            createProjFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
             projStatusDrpList.Items.Clear();
             projStatusDrpList.Items.Add("Completed");
@@ -62,8 +66,13 @@ namespace NURacingWebsite
             lblStatus.Text = "Set Section Status: ";
             createProjFrm.Controls.Add(lblStatus);
             createProjFrm.Controls.Add(projStatusDrpList);
-            projStatusDrpList.CssClass = "drpList";
-            createProjFrm.Controls.Add(new LiteralControl("</p>"));
+            projStatusDrpList.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
+            projStatusDrpList.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
+            projStatusDrpList.Font.Name = "Lucida Sans Unicode";
+            projStatusDrpList.Font.Size = 11;
+            projStatusDrpList.BorderStyle = BorderStyle.None;
+            projStatusDrpList.Height = 25;
+            createProjFrm.Controls.Add(new LiteralControl("</p> <br />"));
           
         }
 

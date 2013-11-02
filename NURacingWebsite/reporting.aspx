@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="reporting.aspx.cs" Inherits="NURacingWebsite.reporting" MasterPageFile ="~/LoggedIn.Master"%>
 
 <asp:Content ID ="Title" ContentPlaceHolderID = "Title" runat = "server">
-    NURacing System - Account
+    NURacing System - Reporting
 </asp:Content>
 
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">
