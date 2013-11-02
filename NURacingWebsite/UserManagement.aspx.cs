@@ -63,6 +63,7 @@ namespace NURacingWebsite
         DropDownList userDrpList = new DropDownList();
         Label lblWhichUser = new Label();
         Label lblChange = new Label();
+        Label lblSubmit = new Label();
         bool update;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -113,6 +114,12 @@ namespace NURacingWebsite
 
         private void createForm(bool pageLoad)
         {
+            createUserFrm.Controls.Add(new LiteralControl("<p>"));
+            lblSubmit.Visible = false;
+            lblSubmit.CssClass = "submitLbl";
+            createUserFrm.Controls.Add(lblSubmit);
+            createUserFrm.Controls.Add(new LiteralControl("</p>"));
+
             userDrpList.Items.Clear();
 
             userDrpList.Items.Add(Membership.GetUser().UserName);
@@ -388,14 +395,43 @@ namespace NURacingWebsite
 
         protected void submitCreateUserBtn_Click(object sender, EventArgs e)
         {
-            string userRole = Roles.GetRolesForUser()[0];
-            if (userRole == "Administrator" ||
-                userRole == "Staff" ||
-                userRole == "Team Leader")
+            try
             {
-                BusinessLogicLayer.User.addUser(userNameTxtBx.Text, passwordTxtBx.Text, userRoleDrpLst.SelectedItem.ToString(), givenNameTxtBx.Text, surnameTxtBx.Text, emailTxtBx.Text, stdNumTxtBx.Text, gradYearTxtBx.Text, degreeNameTxtBx.Text, medicareNumTxtBx.Text, allergiesTxtBx.Text, medicalCondTxtBx.Text, dietryReqTxtBx.Text, indemSignChkBx.Checked,
-                    SAEMemshpTxtBx.Text, SAEExpDatDtPckr.SelectedDate, CAMSMbrshpNum.Text, CAMSLicTypeTxtBx.Text, drivLicNumTxtBx.Text, drivLicStateTxtBx.Text, emerContNameTxtBx.Text, emerContNumTxtBx.Text);
-                Response.Redirect("UserManagement.aspx");
+                string userRole = Roles.GetRolesForUser()[0];
+                if (userRole == "Administrator" ||
+                    userRole == "Staff" ||
+                    userRole == "Team Leader")
+                {
+                    BusinessLogicLayer.User.addUser(userNameTxtBx.Text, passwordTxtBx.Text, userRoleDrpLst.SelectedItem.ToString(), givenNameTxtBx.Text, surnameTxtBx.Text, emailTxtBx.Text, stdNumTxtBx.Text, gradYearTxtBx.Text, degreeNameTxtBx.Text, medicareNumTxtBx.Text, allergiesTxtBx.Text, medicalCondTxtBx.Text, dietryReqTxtBx.Text, indemSignChkBx.Checked,
+                        SAEMemshpTxtBx.Text, SAEExpDatDtPckr.SelectedDate, CAMSMbrshpNum.Text, CAMSLicTypeTxtBx.Text, drivLicNumTxtBx.Text, drivLicStateTxtBx.Text, emerContNameTxtBx.Text, emerContNumTxtBx.Text);
+                    //Response.Redirect("UserManagement.aspx");
+                    lblSubmit.Text = "User submitted.";
+                    lblSubmit.Visible = true;
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                if (ex.Message == "Username already exists")
+                {
+                    lblSubmit.Text = "Username already exists";
+                }
+
+                else if (ex.Message == "Email isn't in a valid format")
+                {
+                    lblSubmit.Text = "Invalid email.";
+                }
+
+                else if (ex.Message == "Email already exists")
+                {
+                    lblSubmit.Text = "Email already exists.";
+                }
+
+                else if (ex.Message == "Invalid Password")
+                {
+                    lblSubmit.Text = "Invalid password.";
+                }
+
+                lblSubmit.Visible = true;
             }
 
         }
@@ -499,6 +535,8 @@ namespace NURacingWebsite
                     editUser.Email = emailTxtBx.Text;
                 }
                 editUser.updateDatabase();
+                lblSubmit.Text = "User updated.";
+                lblSubmit.Visible = true;
             }
         }
 

@@ -18,16 +18,22 @@
                     <div class="taskDetail">
                      <form id ="Form1" runat="server" onsubmit="">
 
+                         <p runat="server" id="takeFiveSubmit" class="submitLbl" visible="false">Take five submitted.</p>
+
                          <p>Which users? <br />
                              <asp:ListBox runat="server" ID="takeFiveUserLstBx"></asp:ListBox>
                          </p>
 
                          <p>Date completed: 
-                             <!--DATETIME PICKER -->
+                             <asp:Calendar runat="server" ID="takeFiveCal"></asp:Calendar>
                          </p>
 
                          <p>Description: 
                              <asp:TextBox runat="server" ID="descTxtBx"></asp:TextBox>
+                         </p>
+
+                         <p>Minutes worked: 
+                             <asp:TextBox runat="server" ID="minWordTxtBx"></asp:TextBox>
                          </p>
 
                          <p>Which work type? 
