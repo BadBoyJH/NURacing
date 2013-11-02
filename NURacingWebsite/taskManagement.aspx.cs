@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using BusinessLogicLayer;
 using System.Web.Security;
-using AjaxControlToolkit.Design;
 
 namespace NURacingWebsite
 {
