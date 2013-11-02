@@ -325,7 +325,7 @@ namespace NURacingWebsite
             lblindemSign.Text = "Indemnity Form Signed: ";
             createUserFrm.Controls.Add(lblindemSign);
             createUserFrm.Controls.Add(indemSignChkBx);
-            createUserFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            createUserFrm.Controls.Add(new LiteralControl("</p>"));
 
             createUserFrm.Controls.Add(new LiteralControl("<p>"));
             lblSAEMemshpNum.Text = "SAE Membership Number: ";

@@ -47,7 +47,7 @@ namespace NURacingWebsite
                 projNameDrpList.Items.Add(project.Name);
             }
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
-            lblCarNameList.Text = "Project Section: ";
+            lblCarNameList.Text = "Project: ";
             createProjFrm.Controls.Add(lblCarNameList);
             createProjFrm.Controls.Add(projNameDrpList);
             projNameDrpList.CssClass = "drpList";
@@ -124,7 +124,7 @@ namespace NURacingWebsite
             createProjFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
-            lblActive.Text = "Is Project Active?";
+            lblActive.Text = "Is Project Active? ";
             lblActive.Visible = false;
             activeChkBx.Visible = false;
             createProjFrm.Controls.Add(lblActive);
