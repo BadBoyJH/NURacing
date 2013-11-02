@@ -304,7 +304,7 @@ namespace BusinessLogicLayer
         {
             if (UsernameExists(Username))
             {
-                if (Email.Equals(getEmail(Username)))
+                if (Email.ToLower().Equals(getEmail(Username.ToLower())))
                 {
                     PasswordResetRequestTableAdapter prrAdapter = new PasswordResetRequestTableAdapter();
                     NuRacingDataSet.PasswordResetRequestDataTable prrTable = prrAdapter.GetData();
