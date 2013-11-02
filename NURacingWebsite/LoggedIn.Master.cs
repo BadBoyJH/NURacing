@@ -33,6 +33,10 @@ namespace NURacingWebsite
                     Response.Redirect("/error.aspx");
                 }
             }
+            if (exec is System.TimeoutException)
+            {
+                Response.Redirect("/error.aspx");
+            }
         }
 
         public void hideFooter()

@@ -9470,6 +9470,64 @@ namespace DataAccessLayer {
             
             private global::System.Data.DataColumn columnPurchase_DatePurchased;
             
+            private global::System.Data.DataColumn columnUser_Username;
+            
+            private global::System.Data.DataColumn columnUser_PasswordHash;
+            
+            private global::System.Data.DataColumn columnUser_PasswordSalt;
+            
+            private global::System.Data.DataColumn columnUser_Role;
+            
+            private global::System.Data.DataColumn columnUser_Active;
+            
+            private global::System.Data.DataColumn columnUser_Surname;
+            
+            private global::System.Data.DataColumn columnUser_GivenName;
+            
+            private global::System.Data.DataColumn columnUser_Email;
+            
+            private global::System.Data.DataColumn columnUser_StudentNumber;
+            
+            private global::System.Data.DataColumn columnUser_EstGraduationYear;
+            
+            private global::System.Data.DataColumn columnUser_Degree;
+            
+            private global::System.Data.DataColumn columnUser_SAE_MemberNo;
+            
+            private global::System.Data.DataColumn columnUser_SAE_Expiry;
+            
+            private global::System.Data.DataColumn columnUser_CAMS_MemberNo;
+            
+            private global::System.Data.DataColumn columnUser_CAMS_LicenseType;
+            
+            private global::System.Data.DataColumn columnUser_LicenseNo;
+            
+            private global::System.Data.DataColumn columnUser_LicenseState;
+            
+            private global::System.Data.DataColumn columnUser_EmergencyContactName;
+            
+            private global::System.Data.DataColumn columnUser_EmergencyContactNumber;
+            
+            private global::System.Data.DataColumn columnUser_MedicareNo;
+            
+            private global::System.Data.DataColumn columnUser_Allergies;
+            
+            private global::System.Data.DataColumn columnUser_DietaryRequirements;
+            
+            private global::System.Data.DataColumn columnUser_MedicalConditions;
+            
+            private global::System.Data.DataColumn columnUser_IndemnityFormSigned;
+            
+            private global::System.Data.DataColumn columnUser_Created;
+            
+            private global::System.Data.DataColumn columnUser_LastLogin;
+            
+            private global::System.Data.DataColumn columnUser_LastActivity;
+            
+            private global::System.Data.DataColumn columnUser_LastPasswordChanged;
+            
+            private global::System.Data.DataColumn columnUser_LastLockoutDate;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ProjectPurchasesDataTable() {
@@ -9617,6 +9675,238 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_UsernameColumn {
+                get {
+                    return this.columnUser_Username;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_PasswordHashColumn {
+                get {
+                    return this.columnUser_PasswordHash;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_PasswordSaltColumn {
+                get {
+                    return this.columnUser_PasswordSalt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_RoleColumn {
+                get {
+                    return this.columnUser_Role;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_ActiveColumn {
+                get {
+                    return this.columnUser_Active;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_SurnameColumn {
+                get {
+                    return this.columnUser_Surname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_GivenNameColumn {
+                get {
+                    return this.columnUser_GivenName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_EmailColumn {
+                get {
+                    return this.columnUser_Email;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_StudentNumberColumn {
+                get {
+                    return this.columnUser_StudentNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_EstGraduationYearColumn {
+                get {
+                    return this.columnUser_EstGraduationYear;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_DegreeColumn {
+                get {
+                    return this.columnUser_Degree;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_SAE_MemberNoColumn {
+                get {
+                    return this.columnUser_SAE_MemberNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_SAE_ExpiryColumn {
+                get {
+                    return this.columnUser_SAE_Expiry;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_CAMS_MemberNoColumn {
+                get {
+                    return this.columnUser_CAMS_MemberNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_CAMS_LicenseTypeColumn {
+                get {
+                    return this.columnUser_CAMS_LicenseType;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_LicenseNoColumn {
+                get {
+                    return this.columnUser_LicenseNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_LicenseStateColumn {
+                get {
+                    return this.columnUser_LicenseState;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_EmergencyContactNameColumn {
+                get {
+                    return this.columnUser_EmergencyContactName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_EmergencyContactNumberColumn {
+                get {
+                    return this.columnUser_EmergencyContactNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_MedicareNoColumn {
+                get {
+                    return this.columnUser_MedicareNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_AllergiesColumn {
+                get {
+                    return this.columnUser_Allergies;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_DietaryRequirementsColumn {
+                get {
+                    return this.columnUser_DietaryRequirements;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_MedicalConditionsColumn {
+                get {
+                    return this.columnUser_MedicalConditions;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_IndemnityFormSignedColumn {
+                get {
+                    return this.columnUser_IndemnityFormSigned;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_CreatedColumn {
+                get {
+                    return this.columnUser_Created;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_LastLoginColumn {
+                get {
+                    return this.columnUser_LastLogin;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_LastActivityColumn {
+                get {
+                    return this.columnUser_LastActivity;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_LastPasswordChangedColumn {
+                get {
+                    return this.columnUser_LastPasswordChanged;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn User_LastLockoutDateColumn {
+                get {
+                    return this.columnUser_LastLockoutDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -9652,7 +9942,49 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectPurchasesRow AddProjectPurchasesRow(int Project_YearMade, string Project_Name, string Project_Description, string Project_Status, System.DateTime Project_StatusChangedDate, bool WorkType_UID, string WorkType_Name, string WorkType_Status, System.DateTime WorkType_StatusChangedDate, decimal Purchase_TotalPrice, string Purchase_Good, string Purchase_Supplier, System.DateTime Purchase_DatePurchased) {
+            public ProjectPurchasesRow AddProjectPurchasesRow(
+                        int Project_YearMade, 
+                        string Project_Name, 
+                        string Project_Description, 
+                        string Project_Status, 
+                        System.DateTime Project_StatusChangedDate, 
+                        bool WorkType_UID, 
+                        string WorkType_Name, 
+                        string WorkType_Status, 
+                        System.DateTime WorkType_StatusChangedDate, 
+                        decimal Purchase_TotalPrice, 
+                        string Purchase_Good, 
+                        string Purchase_Supplier, 
+                        System.DateTime Purchase_DatePurchased, 
+                        string User_Username, 
+                        byte[] User_PasswordHash, 
+                        byte[] User_PasswordSalt, 
+                        string User_Role, 
+                        bool User_Active, 
+                        string User_Surname, 
+                        string User_GivenName, 
+                        string User_Email, 
+                        string User_StudentNumber, 
+                        string User_EstGraduationYear, 
+                        string User_Degree, 
+                        string User_SAE_MemberNo, 
+                        System.DateTime User_SAE_Expiry, 
+                        string User_CAMS_MemberNo, 
+                        string User_CAMS_LicenseType, 
+                        string User_LicenseNo, 
+                        string User_LicenseState, 
+                        string User_EmergencyContactName, 
+                        string User_EmergencyContactNumber, 
+                        string User_MedicareNo, 
+                        string User_Allergies, 
+                        string User_DietaryRequirements, 
+                        string User_MedicalConditions, 
+                        bool User_IndemnityFormSigned, 
+                        System.DateTime User_Created, 
+                        System.DateTime User_LastLogin, 
+                        System.DateTime User_LastActivity, 
+                        System.DateTime User_LastPasswordChanged, 
+                        System.DateTime User_LastLockoutDate) {
                 ProjectPurchasesRow rowProjectPurchasesRow = ((ProjectPurchasesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -9668,7 +10000,36 @@ namespace DataAccessLayer {
                         Purchase_TotalPrice,
                         Purchase_Good,
                         Purchase_Supplier,
-                        Purchase_DatePurchased};
+                        Purchase_DatePurchased,
+                        User_Username,
+                        User_PasswordHash,
+                        User_PasswordSalt,
+                        User_Role,
+                        User_Active,
+                        User_Surname,
+                        User_GivenName,
+                        User_Email,
+                        User_StudentNumber,
+                        User_EstGraduationYear,
+                        User_Degree,
+                        User_SAE_MemberNo,
+                        User_SAE_Expiry,
+                        User_CAMS_MemberNo,
+                        User_CAMS_LicenseType,
+                        User_LicenseNo,
+                        User_LicenseState,
+                        User_EmergencyContactName,
+                        User_EmergencyContactNumber,
+                        User_MedicareNo,
+                        User_Allergies,
+                        User_DietaryRequirements,
+                        User_MedicalConditions,
+                        User_IndemnityFormSigned,
+                        User_Created,
+                        User_LastLogin,
+                        User_LastActivity,
+                        User_LastPasswordChanged,
+                        User_LastLockoutDate};
                 rowProjectPurchasesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProjectPurchasesRow);
                 return rowProjectPurchasesRow;
@@ -9676,9 +10037,10 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectPurchasesRow FindByProject_UID(int Project_UID) {
+            public ProjectPurchasesRow FindByProject_UIDUser_Username(int Project_UID, string User_Username) {
                 return ((ProjectPurchasesRow)(this.Rows.Find(new object[] {
-                            Project_UID})));
+                            Project_UID,
+                            User_Username})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9712,6 +10074,35 @@ namespace DataAccessLayer {
                 this.columnPurchase_Good = base.Columns["Purchase_Good"];
                 this.columnPurchase_Supplier = base.Columns["Purchase_Supplier"];
                 this.columnPurchase_DatePurchased = base.Columns["Purchase_DatePurchased"];
+                this.columnUser_Username = base.Columns["User_Username"];
+                this.columnUser_PasswordHash = base.Columns["User_PasswordHash"];
+                this.columnUser_PasswordSalt = base.Columns["User_PasswordSalt"];
+                this.columnUser_Role = base.Columns["User_Role"];
+                this.columnUser_Active = base.Columns["User_Active"];
+                this.columnUser_Surname = base.Columns["User_Surname"];
+                this.columnUser_GivenName = base.Columns["User_GivenName"];
+                this.columnUser_Email = base.Columns["User_Email"];
+                this.columnUser_StudentNumber = base.Columns["User_StudentNumber"];
+                this.columnUser_EstGraduationYear = base.Columns["User_EstGraduationYear"];
+                this.columnUser_Degree = base.Columns["User_Degree"];
+                this.columnUser_SAE_MemberNo = base.Columns["User_SAE_MemberNo"];
+                this.columnUser_SAE_Expiry = base.Columns["User_SAE_Expiry"];
+                this.columnUser_CAMS_MemberNo = base.Columns["User_CAMS_MemberNo"];
+                this.columnUser_CAMS_LicenseType = base.Columns["User_CAMS_LicenseType"];
+                this.columnUser_LicenseNo = base.Columns["User_LicenseNo"];
+                this.columnUser_LicenseState = base.Columns["User_LicenseState"];
+                this.columnUser_EmergencyContactName = base.Columns["User_EmergencyContactName"];
+                this.columnUser_EmergencyContactNumber = base.Columns["User_EmergencyContactNumber"];
+                this.columnUser_MedicareNo = base.Columns["User_MedicareNo"];
+                this.columnUser_Allergies = base.Columns["User_Allergies"];
+                this.columnUser_DietaryRequirements = base.Columns["User_DietaryRequirements"];
+                this.columnUser_MedicalConditions = base.Columns["User_MedicalConditions"];
+                this.columnUser_IndemnityFormSigned = base.Columns["User_IndemnityFormSigned"];
+                this.columnUser_Created = base.Columns["User_Created"];
+                this.columnUser_LastLogin = base.Columns["User_LastLogin"];
+                this.columnUser_LastActivity = base.Columns["User_LastActivity"];
+                this.columnUser_LastPasswordChanged = base.Columns["User_LastPasswordChanged"];
+                this.columnUser_LastLockoutDate = base.Columns["User_LastLockoutDate"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9745,13 +10136,71 @@ namespace DataAccessLayer {
                 base.Columns.Add(this.columnPurchase_Supplier);
                 this.columnPurchase_DatePurchased = new global::System.Data.DataColumn("Purchase_DatePurchased", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPurchase_DatePurchased);
+                this.columnUser_Username = new global::System.Data.DataColumn("User_Username", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_Username);
+                this.columnUser_PasswordHash = new global::System.Data.DataColumn("User_PasswordHash", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_PasswordHash);
+                this.columnUser_PasswordSalt = new global::System.Data.DataColumn("User_PasswordSalt", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_PasswordSalt);
+                this.columnUser_Role = new global::System.Data.DataColumn("User_Role", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_Role);
+                this.columnUser_Active = new global::System.Data.DataColumn("User_Active", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_Active);
+                this.columnUser_Surname = new global::System.Data.DataColumn("User_Surname", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_Surname);
+                this.columnUser_GivenName = new global::System.Data.DataColumn("User_GivenName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_GivenName);
+                this.columnUser_Email = new global::System.Data.DataColumn("User_Email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_Email);
+                this.columnUser_StudentNumber = new global::System.Data.DataColumn("User_StudentNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_StudentNumber);
+                this.columnUser_EstGraduationYear = new global::System.Data.DataColumn("User_EstGraduationYear", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_EstGraduationYear);
+                this.columnUser_Degree = new global::System.Data.DataColumn("User_Degree", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_Degree);
+                this.columnUser_SAE_MemberNo = new global::System.Data.DataColumn("User_SAE_MemberNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_SAE_MemberNo);
+                this.columnUser_SAE_Expiry = new global::System.Data.DataColumn("User_SAE_Expiry", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_SAE_Expiry);
+                this.columnUser_CAMS_MemberNo = new global::System.Data.DataColumn("User_CAMS_MemberNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_CAMS_MemberNo);
+                this.columnUser_CAMS_LicenseType = new global::System.Data.DataColumn("User_CAMS_LicenseType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_CAMS_LicenseType);
+                this.columnUser_LicenseNo = new global::System.Data.DataColumn("User_LicenseNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_LicenseNo);
+                this.columnUser_LicenseState = new global::System.Data.DataColumn("User_LicenseState", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_LicenseState);
+                this.columnUser_EmergencyContactName = new global::System.Data.DataColumn("User_EmergencyContactName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_EmergencyContactName);
+                this.columnUser_EmergencyContactNumber = new global::System.Data.DataColumn("User_EmergencyContactNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_EmergencyContactNumber);
+                this.columnUser_MedicareNo = new global::System.Data.DataColumn("User_MedicareNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_MedicareNo);
+                this.columnUser_Allergies = new global::System.Data.DataColumn("User_Allergies", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_Allergies);
+                this.columnUser_DietaryRequirements = new global::System.Data.DataColumn("User_DietaryRequirements", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_DietaryRequirements);
+                this.columnUser_MedicalConditions = new global::System.Data.DataColumn("User_MedicalConditions", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_MedicalConditions);
+                this.columnUser_IndemnityFormSigned = new global::System.Data.DataColumn("User_IndemnityFormSigned", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_IndemnityFormSigned);
+                this.columnUser_Created = new global::System.Data.DataColumn("User_Created", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_Created);
+                this.columnUser_LastLogin = new global::System.Data.DataColumn("User_LastLogin", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_LastLogin);
+                this.columnUser_LastActivity = new global::System.Data.DataColumn("User_LastActivity", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_LastActivity);
+                this.columnUser_LastPasswordChanged = new global::System.Data.DataColumn("User_LastPasswordChanged", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_LastPasswordChanged);
+                this.columnUser_LastLockoutDate = new global::System.Data.DataColumn("User_LastLockoutDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_LastLockoutDate);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnProject_UID}, true));
+                                this.columnProject_UID,
+                                this.columnUser_Username}, true));
                 this.columnProject_UID.AutoIncrement = true;
                 this.columnProject_UID.AutoIncrementSeed = -1;
                 this.columnProject_UID.AutoIncrementStep = -1;
                 this.columnProject_UID.AllowDBNull = false;
-                this.columnProject_UID.Unique = true;
                 this.columnProject_Name.MaxLength = 255;
                 this.columnProject_Description.MaxLength = 255;
                 this.columnProject_Status.MaxLength = 255;
@@ -9759,6 +10208,33 @@ namespace DataAccessLayer {
                 this.columnWorkType_Status.MaxLength = 255;
                 this.columnPurchase_Good.MaxLength = 255;
                 this.columnPurchase_Supplier.MaxLength = 255;
+                this.columnUser_Username.AllowDBNull = false;
+                this.columnUser_Username.MaxLength = 255;
+                this.columnUser_PasswordHash.AllowDBNull = false;
+                this.columnUser_PasswordSalt.AllowDBNull = false;
+                this.columnUser_Role.AllowDBNull = false;
+                this.columnUser_Role.MaxLength = 255;
+                this.columnUser_Active.AllowDBNull = false;
+                this.columnUser_Surname.AllowDBNull = false;
+                this.columnUser_Surname.MaxLength = 255;
+                this.columnUser_GivenName.AllowDBNull = false;
+                this.columnUser_GivenName.MaxLength = 255;
+                this.columnUser_Email.AllowDBNull = false;
+                this.columnUser_Email.MaxLength = 255;
+                this.columnUser_StudentNumber.MaxLength = 255;
+                this.columnUser_EstGraduationYear.MaxLength = 255;
+                this.columnUser_Degree.MaxLength = 255;
+                this.columnUser_SAE_MemberNo.MaxLength = 255;
+                this.columnUser_CAMS_MemberNo.MaxLength = 255;
+                this.columnUser_CAMS_LicenseType.MaxLength = 255;
+                this.columnUser_LicenseNo.MaxLength = 255;
+                this.columnUser_LicenseState.MaxLength = 255;
+                this.columnUser_EmergencyContactName.MaxLength = 255;
+                this.columnUser_EmergencyContactNumber.MaxLength = 255;
+                this.columnUser_MedicareNo.MaxLength = 255;
+                this.columnUser_Allergies.MaxLength = 255;
+                this.columnUser_DietaryRequirements.MaxLength = 255;
+                this.columnUser_MedicalConditions.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -17447,6 +17923,439 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_Username {
+                get {
+                    return ((string)(this[this.tableProjectPurchases.User_UsernameColumn]));
+                }
+                set {
+                    this[this.tableProjectPurchases.User_UsernameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public byte[] User_PasswordHash {
+                get {
+                    return ((byte[])(this[this.tableProjectPurchases.User_PasswordHashColumn]));
+                }
+                set {
+                    this[this.tableProjectPurchases.User_PasswordHashColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public byte[] User_PasswordSalt {
+                get {
+                    return ((byte[])(this[this.tableProjectPurchases.User_PasswordSaltColumn]));
+                }
+                set {
+                    this[this.tableProjectPurchases.User_PasswordSaltColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_Role {
+                get {
+                    return ((string)(this[this.tableProjectPurchases.User_RoleColumn]));
+                }
+                set {
+                    this[this.tableProjectPurchases.User_RoleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool User_Active {
+                get {
+                    return ((bool)(this[this.tableProjectPurchases.User_ActiveColumn]));
+                }
+                set {
+                    this[this.tableProjectPurchases.User_ActiveColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_Surname {
+                get {
+                    return ((string)(this[this.tableProjectPurchases.User_SurnameColumn]));
+                }
+                set {
+                    this[this.tableProjectPurchases.User_SurnameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_GivenName {
+                get {
+                    return ((string)(this[this.tableProjectPurchases.User_GivenNameColumn]));
+                }
+                set {
+                    this[this.tableProjectPurchases.User_GivenNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_Email {
+                get {
+                    return ((string)(this[this.tableProjectPurchases.User_EmailColumn]));
+                }
+                set {
+                    this[this.tableProjectPurchases.User_EmailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_StudentNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.User_StudentNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_StudentNumber\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_StudentNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_EstGraduationYear {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.User_EstGraduationYearColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_EstGraduationYear\' in table \'ProjectPurchases\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_EstGraduationYearColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_Degree {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.User_DegreeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_Degree\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_DegreeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_SAE_MemberNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.User_SAE_MemberNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_SAE_MemberNo\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_SAE_MemberNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime User_SAE_Expiry {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableProjectPurchases.User_SAE_ExpiryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_SAE_Expiry\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_SAE_ExpiryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_CAMS_MemberNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.User_CAMS_MemberNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_CAMS_MemberNo\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_CAMS_MemberNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_CAMS_LicenseType {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.User_CAMS_LicenseTypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_CAMS_LicenseType\' in table \'ProjectPurchases\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_CAMS_LicenseTypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_LicenseNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.User_LicenseNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_LicenseNo\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_LicenseNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_LicenseState {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.User_LicenseStateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_LicenseState\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_LicenseStateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_EmergencyContactName {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.User_EmergencyContactNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_EmergencyContactName\' in table \'ProjectPurchases\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_EmergencyContactNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_EmergencyContactNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.User_EmergencyContactNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_EmergencyContactNumber\' in table \'ProjectPurchases\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_EmergencyContactNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_MedicareNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.User_MedicareNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_MedicareNo\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_MedicareNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_Allergies {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.User_AllergiesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_Allergies\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_AllergiesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_DietaryRequirements {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.User_DietaryRequirementsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_DietaryRequirements\' in table \'ProjectPurchases\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_DietaryRequirementsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string User_MedicalConditions {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.User_MedicalConditionsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_MedicalConditions\' in table \'ProjectPurchases\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_MedicalConditionsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool User_IndemnityFormSigned {
+                get {
+                    try {
+                        return ((bool)(this[this.tableProjectPurchases.User_IndemnityFormSignedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_IndemnityFormSigned\' in table \'ProjectPurchases\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_IndemnityFormSignedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime User_Created {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableProjectPurchases.User_CreatedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_Created\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_CreatedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime User_LastLogin {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableProjectPurchases.User_LastLoginColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_LastLogin\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_LastLoginColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime User_LastActivity {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableProjectPurchases.User_LastActivityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_LastActivity\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_LastActivityColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime User_LastPasswordChanged {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableProjectPurchases.User_LastPasswordChangedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_LastPasswordChanged\' in table \'ProjectPurchases\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_LastPasswordChangedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime User_LastLockoutDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableProjectPurchases.User_LastLockoutDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'User_LastLockoutDate\' in table \'ProjectPurchases\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.User_LastLockoutDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsProject_YearMadeNull() {
                 return this.IsNull(this.tableProjectPurchases.Project_YearMadeColumn);
             }
@@ -17599,6 +18508,258 @@ namespace DataAccessLayer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPurchase_DatePurchasedNull() {
                 this[this.tableProjectPurchases.Purchase_DatePurchasedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_StudentNumberNull() {
+                return this.IsNull(this.tableProjectPurchases.User_StudentNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_StudentNumberNull() {
+                this[this.tableProjectPurchases.User_StudentNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_EstGraduationYearNull() {
+                return this.IsNull(this.tableProjectPurchases.User_EstGraduationYearColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_EstGraduationYearNull() {
+                this[this.tableProjectPurchases.User_EstGraduationYearColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_DegreeNull() {
+                return this.IsNull(this.tableProjectPurchases.User_DegreeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_DegreeNull() {
+                this[this.tableProjectPurchases.User_DegreeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_SAE_MemberNoNull() {
+                return this.IsNull(this.tableProjectPurchases.User_SAE_MemberNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_SAE_MemberNoNull() {
+                this[this.tableProjectPurchases.User_SAE_MemberNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_SAE_ExpiryNull() {
+                return this.IsNull(this.tableProjectPurchases.User_SAE_ExpiryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_SAE_ExpiryNull() {
+                this[this.tableProjectPurchases.User_SAE_ExpiryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_CAMS_MemberNoNull() {
+                return this.IsNull(this.tableProjectPurchases.User_CAMS_MemberNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_CAMS_MemberNoNull() {
+                this[this.tableProjectPurchases.User_CAMS_MemberNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_CAMS_LicenseTypeNull() {
+                return this.IsNull(this.tableProjectPurchases.User_CAMS_LicenseTypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_CAMS_LicenseTypeNull() {
+                this[this.tableProjectPurchases.User_CAMS_LicenseTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_LicenseNoNull() {
+                return this.IsNull(this.tableProjectPurchases.User_LicenseNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_LicenseNoNull() {
+                this[this.tableProjectPurchases.User_LicenseNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_LicenseStateNull() {
+                return this.IsNull(this.tableProjectPurchases.User_LicenseStateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_LicenseStateNull() {
+                this[this.tableProjectPurchases.User_LicenseStateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_EmergencyContactNameNull() {
+                return this.IsNull(this.tableProjectPurchases.User_EmergencyContactNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_EmergencyContactNameNull() {
+                this[this.tableProjectPurchases.User_EmergencyContactNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_EmergencyContactNumberNull() {
+                return this.IsNull(this.tableProjectPurchases.User_EmergencyContactNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_EmergencyContactNumberNull() {
+                this[this.tableProjectPurchases.User_EmergencyContactNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_MedicareNoNull() {
+                return this.IsNull(this.tableProjectPurchases.User_MedicareNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_MedicareNoNull() {
+                this[this.tableProjectPurchases.User_MedicareNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_AllergiesNull() {
+                return this.IsNull(this.tableProjectPurchases.User_AllergiesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_AllergiesNull() {
+                this[this.tableProjectPurchases.User_AllergiesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_DietaryRequirementsNull() {
+                return this.IsNull(this.tableProjectPurchases.User_DietaryRequirementsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_DietaryRequirementsNull() {
+                this[this.tableProjectPurchases.User_DietaryRequirementsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_MedicalConditionsNull() {
+                return this.IsNull(this.tableProjectPurchases.User_MedicalConditionsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_MedicalConditionsNull() {
+                this[this.tableProjectPurchases.User_MedicalConditionsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_IndemnityFormSignedNull() {
+                return this.IsNull(this.tableProjectPurchases.User_IndemnityFormSignedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_IndemnityFormSignedNull() {
+                this[this.tableProjectPurchases.User_IndemnityFormSignedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_CreatedNull() {
+                return this.IsNull(this.tableProjectPurchases.User_CreatedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_CreatedNull() {
+                this[this.tableProjectPurchases.User_CreatedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_LastLoginNull() {
+                return this.IsNull(this.tableProjectPurchases.User_LastLoginColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_LastLoginNull() {
+                this[this.tableProjectPurchases.User_LastLoginColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_LastActivityNull() {
+                return this.IsNull(this.tableProjectPurchases.User_LastActivityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_LastActivityNull() {
+                this[this.tableProjectPurchases.User_LastActivityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_LastPasswordChangedNull() {
+                return this.IsNull(this.tableProjectPurchases.User_LastPasswordChangedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_LastPasswordChangedNull() {
+                this[this.tableProjectPurchases.User_LastPasswordChangedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUser_LastLockoutDateNull() {
+                return this.IsNull(this.tableProjectPurchases.User_LastLockoutDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUser_LastLockoutDateNull() {
+                this[this.tableProjectPurchases.User_LastLockoutDateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -28209,6 +29370,35 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Purchase_Good", "Purchase_Good");
             tableMapping.ColumnMappings.Add("Purchase_Supplier", "Purchase_Supplier");
             tableMapping.ColumnMappings.Add("Purchase_DatePurchased", "Purchase_DatePurchased");
+            tableMapping.ColumnMappings.Add("User_Username", "User_Username");
+            tableMapping.ColumnMappings.Add("User_PasswordHash", "User_PasswordHash");
+            tableMapping.ColumnMappings.Add("User_PasswordSalt", "User_PasswordSalt");
+            tableMapping.ColumnMappings.Add("User_Role", "User_Role");
+            tableMapping.ColumnMappings.Add("User_Active", "User_Active");
+            tableMapping.ColumnMappings.Add("User_Surname", "User_Surname");
+            tableMapping.ColumnMappings.Add("User_GivenName", "User_GivenName");
+            tableMapping.ColumnMappings.Add("User_Email", "User_Email");
+            tableMapping.ColumnMappings.Add("User_StudentNumber", "User_StudentNumber");
+            tableMapping.ColumnMappings.Add("User_EstGraduationYear", "User_EstGraduationYear");
+            tableMapping.ColumnMappings.Add("User_Degree", "User_Degree");
+            tableMapping.ColumnMappings.Add("User_SAE_MemberNo", "User_SAE_MemberNo");
+            tableMapping.ColumnMappings.Add("User_SAE_Expiry", "User_SAE_Expiry");
+            tableMapping.ColumnMappings.Add("User_CAMS_MemberNo", "User_CAMS_MemberNo");
+            tableMapping.ColumnMappings.Add("User_CAMS_LicenseType", "User_CAMS_LicenseType");
+            tableMapping.ColumnMappings.Add("User_LicenseNo", "User_LicenseNo");
+            tableMapping.ColumnMappings.Add("User_LicenseState", "User_LicenseState");
+            tableMapping.ColumnMappings.Add("User_EmergencyContactName", "User_EmergencyContactName");
+            tableMapping.ColumnMappings.Add("User_EmergencyContactNumber", "User_EmergencyContactNumber");
+            tableMapping.ColumnMappings.Add("User_MedicareNo", "User_MedicareNo");
+            tableMapping.ColumnMappings.Add("User_Allergies", "User_Allergies");
+            tableMapping.ColumnMappings.Add("User_DietaryRequirements", "User_DietaryRequirements");
+            tableMapping.ColumnMappings.Add("User_MedicalConditions", "User_MedicalConditions");
+            tableMapping.ColumnMappings.Add("User_IndemnityFormSigned", "User_IndemnityFormSigned");
+            tableMapping.ColumnMappings.Add("User_Created", "User_Created");
+            tableMapping.ColumnMappings.Add("User_LastLogin", "User_LastLogin");
+            tableMapping.ColumnMappings.Add("User_LastActivity", "User_LastActivity");
+            tableMapping.ColumnMappings.Add("User_LastPasswordChanged", "User_LastPasswordChanged");
+            tableMapping.ColumnMappings.Add("User_LastLockoutDate", "User_LastLockoutDate");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

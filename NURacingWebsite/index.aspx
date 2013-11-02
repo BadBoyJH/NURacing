@@ -24,6 +24,7 @@
                         <p style="text-align: center; clear: both;"></p>
                         <asp:Table ID="tblProjects" runat="server" GridLines="Horizontal" CssClass="tblProjects" class="tblProjects" HorizontalAlign="Center">
                         </asp:Table>
+                        <asp:Button runat="server" ID="showInactiveProjBtn" Text ="SHOW INACTIVE PROJECTS" CssClass="takeFiveBtn" OnClick="showInactiveProjBtn_Click" />
                     </form>
                     <br />
                 </div>

@@ -12,9 +12,15 @@ namespace NURacingWebsite
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        bool activeProjectsOnly = true;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            showProjects();
+            if (!IsPostBack)
+            {
+                showProjects();
+            }
+
             if (BusinessLogicLayer.Role.GetUserRole(Membership.GetUser().UserName) != "Team Leader")
             {
                 createProjBtn.Visible = false;
@@ -23,7 +29,7 @@ namespace NURacingWebsite
 
         private void showProjects()
         {
-            List<ProjectInfo> projects = ProjectInfo.getUserProjects(Membership.GetUser(false).UserName, true);
+            List<ProjectInfo> projects = ProjectInfo.getUserProjects(Membership.GetUser(false).UserName, activeProjectsOnly);
 
             TableRow row = new TableRow();
             Label cell = new Label();
@@ -59,6 +65,12 @@ namespace NURacingWebsite
         protected void createProjBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("/projectmanagement.aspx");
+        }
+
+        protected void showInactiveProjBtn_Click(object sender, EventArgs e)
+        {
+            activeProjectsOnly = false;
+            showProjects();
         }
     }
 }
