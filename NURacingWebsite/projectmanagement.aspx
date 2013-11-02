@@ -20,7 +20,7 @@
            <br />
 
                       <div class="taskDetail">
-                    
+                    <p runat="server" id="submitProj" class="submitLbl" visible="false">Project submitted.</p>
                      <asp:Button ID="updateProjBtn" CssClass="takeFiveBtn" Text="UPDATE PROJECT" runat="server" OnClick="updateProjBtn_Click" />
                      <asp:Button ID="createProjBtn" CssClass="takeFiveBtn" Text="CREATE PROJECT" runat="server" OnClick="createProjBtn_Click" />
                         <br />
