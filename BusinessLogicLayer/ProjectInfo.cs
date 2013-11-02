@@ -19,11 +19,18 @@ namespace BusinessLogicLayer
         private string status;
         private DateTime statusLastChanged;
 
+        private bool beenChanged;
+
         public string Name
         {
             get
             {
                 return name;
+            }
+            set
+            {
+                beenChanged = beenChanged || value != name;
+                name = value;
             }
         }
 
@@ -33,6 +40,11 @@ namespace BusinessLogicLayer
             {
                 return description;
             }
+            set
+            {
+                beenChanged = beenChanged || value != description;
+                description = value;
+            }
         }
 
         public bool IsActive
@@ -40,6 +52,11 @@ namespace BusinessLogicLayer
             get
             {
                 return active;
+            }
+            set
+            {
+                beenChanged = beenChanged || value != active;
+                active = value;
             }
         }
 
@@ -49,6 +66,12 @@ namespace BusinessLogicLayer
             {
                 return yearMade;
             }
+            set
+            {
+                beenChanged = beenChanged || value != yearMade;
+                yearMade = value;
+            }
+
         }
 
         public string Status
@@ -56,6 +79,15 @@ namespace BusinessLogicLayer
             get
             {
                 return status;
+            }
+            set
+            {
+                if (value != status)
+                {
+                    beenChanged = true;
+                    status = value;
+                    statusLastChanged = DateTime.Now;
+                }
             }
         }
 
@@ -92,6 +124,7 @@ namespace BusinessLogicLayer
             {
                 yearMade = projectRow.Project_YearMade;
             }
+            beenChanged = false;
         }
 
         public static ProjectInfo getProject(int ProjectID)
@@ -145,6 +178,49 @@ namespace BusinessLogicLayer
                 result.Add(new ProjectInfo(projectRow));
             }
             return result;
+        }
+
+        public void updateDatabase()
+        {
+            if (beenChanged)
+            {
+                ProjectTableAdapter projectAdapter = new ProjectTableAdapter();
+                NuRacingDataSet.ProjectDataTable projectTable = projectAdapter.GetProject(projectID);
+                NuRacingDataSet.ProjectRow projectRow = (NuRacingDataSet.ProjectRow)(projectTable.Rows[0]);
+
+                projectRow.Project_Active = active;
+                projectRow.Project_Name = name;
+                projectRow.Project_Description = description;
+                projectRow.Project_UID = projectID;
+                projectRow.Project_Status = status;
+                projectRow.Project_StatusChangedDate = statusLastChanged;
+
+                projectAdapter.Update(projectTable);
+            }
+        }
+
+        public void resetData()
+        {
+            ProjectTableAdapter projectAdapter = new ProjectTableAdapter();
+            NuRacingDataSet.ProjectDataTable projectTable = projectAdapter.GetProject(projectID);
+            NuRacingDataSet.ProjectRow projectRow = (NuRacingDataSet.ProjectRow)(projectTable.Rows[0]);
+
+            active = projectRow.Project_Active;
+            name = projectRow.Project_Name;
+            description = projectRow.Project_Description;
+            projectID = projectRow.Project_UID;
+            status = projectRow.Project_Status;
+            statusLastChanged = projectRow.Project_StatusChangedDate;
+
+            if (projectRow.IsProject_YearMadeNull())
+            {
+                yearMade = null;
+            }
+            else
+            {
+                yearMade = projectRow.Project_YearMade;
+            }
+            beenChanged = false;
         }
     }
 }
