@@ -175,7 +175,10 @@ namespace BusinessLogicLayer
 
             foreach (NuRacingDataSet.ProjectRow projectRow in projectTable.Rows)
             {
-                result.Add(new ProjectInfo(projectRow));
+                if (!(OnlyActive && !projectRow.Project_Active))
+                {
+                    result.Add(new ProjectInfo(projectRow));
+                }
             }
             return result;
         }

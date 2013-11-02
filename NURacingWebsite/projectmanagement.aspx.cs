@@ -24,6 +24,7 @@ namespace NURacingWebsite
         Label lblProjSubmit = new Label();
         Label lblActive = new Label();
         CheckBox activeChkBx = new CheckBox();
+        bool hideInactiveProjects = true;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -42,13 +43,16 @@ namespace NURacingWebsite
 
             projNameDrpList.Items.Clear();
 
-            foreach (ProjectInfo project in BusinessLogicLayer.ProjectInfo.getProjects())
+            foreach (ProjectInfo project in BusinessLogicLayer.ProjectInfo.getProjects(hideInactiveProjects))
             {
                 if (project.Name != "Workshop")
                 {
                     projNameDrpList.Items.Add(project.Name);
                 }
             }
+
+            projNameDrpList.SelectedIndexChanged += projNameDrpList_SelectedIndexChanged;
+            projNameDrpList.AutoPostBack = true;
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
             lblCarNameList.Text = "Project: ";
             createProjFrm.Controls.Add(lblCarNameList);
@@ -92,9 +96,9 @@ namespace NURacingWebsite
 
 
             projStatusDrpList.Items.Clear();
+            projStatusDrpList.Items.Add("Planning");
             projStatusDrpList.Items.Add("Completed");
             projStatusDrpList.Items.Add("In Progress");
-            projStatusDrpList.Items.Add("Ongoing");
 
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
             lblStatus.Text = "Set Project Status: ";
@@ -151,6 +155,7 @@ namespace NURacingWebsite
             submitProj.Visible = true;
             submitProjBtn.Visible = false;
             updateProjBtn.Visible = false;
+            showInactiveProjBtn.Visible = false;
         }
 
         protected void updateSubmitBtn_Click(object sender, EventArgs e)
@@ -195,6 +200,7 @@ namespace NURacingWebsite
 
             submitProjBtn.Visible = false;
             updateProjBtn.Visible = false;
+            showInactiveProjBtn.Visible = false;
             
         }
 
@@ -218,19 +224,7 @@ namespace NURacingWebsite
             lblProjSubmit.Visible = false;
             activeChkBx.Visible = false;
             lblActive.Visible = false;
-        }
-
-        protected void updateProjBtn_Click(object sender, EventArgs e)
-        {
-            submitProj.Visible = false;
-            lblCarNameList.Visible = true;
-            projNameDrpList.Visible = true;
-            lblCarName.Visible = true;
-            carNameTxtBx.Visible = true;
-            //lblDesc.Visible = false;
-            //carDescTxtBx.Visible = false;
-            //lblYearMade.Visible = false;
-            //yearMadeTxtBx.Visible = false;
+            showInactiveProjBtn.Visible = false;
             lblActive.Visible = true;
             activeChkBx.Visible = true;
             createProjFrm.Visible = true;
@@ -239,7 +233,65 @@ namespace NURacingWebsite
             projStatusDrpList.Visible = true;
             lblStatus.Visible = true;
             update = true;
-          
+            showInactiveProjBtn.Visible = true;
+        }
+
+        public void formUpdateProjectShowing()
+        {
+            submitProj.Visible = false;
+            lblCarNameList.Visible = true;
+            projNameDrpList.Visible = true;
+            lblCarName.Visible = true;
+            carNameTxtBx.Visible = true;
+            lblActive.Visible = true;
+            activeChkBx.Visible = true;
+            createProjFrm.Visible = true;
+            submitProjBtn.Visible = false;
+            updateSubmitBtn.Visible = true;
+            projStatusDrpList.Visible = true;
+            lblStatus.Visible = true;
+            update = true;
+            showInactiveProjBtn.Visible = true;
+        }
+
+        protected void updateProjBtn_Click(object sender, EventArgs e)
+        {
+            formUpdateProjectShowing();
+            fillData();
+        }
+
+        protected void showInactiveProjBtn_Click(object sender, EventArgs e)
+        {
+            hideInactiveProjects = false;
+            createForm();
+            formUpdateProjectShowing();
+        }
+
+        public void fillData()
+        {
+            int projID = 0;
+
+            foreach (ProjectInfo info in ProjectInfo.getProjects())
+            {
+                if (info.Name == projNameDrpList.SelectedItem.ToString())
+                {
+                    projID = info.ProjectID;
+                }
+            }
+
+            BusinessLogicLayer.ProjectInfo editProj = BusinessLogicLayer.ProjectInfo.getProject(projID);
+
+            carNameTxtBx.Text = editProj.Name;
+            yearMadeTxtBx.Text = editProj.YearMade.HasValue ? Convert.ToString(editProj.YearMade.Value) : "";
+            carDescTxtBx.Text = editProj.Description;
+            activeChkBx.Checked = editProj.IsActive;
+            projStatusDrpList.SelectedValue = editProj.Status;
+        }
+
+        void projNameDrpList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            formUpdateProjectShowing();
+            fillData();
         }
     }
 }
