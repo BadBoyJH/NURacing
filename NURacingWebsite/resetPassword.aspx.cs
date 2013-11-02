@@ -30,6 +30,8 @@ namespace NURacingWebsite
                     resetSuccess.Visible = true;
 
                     passwordResetFrm.Visible = false;
+
+                    Response.AddHeader("REFRESH", "5;URL=login.aspx");
                 }
 
                 else
