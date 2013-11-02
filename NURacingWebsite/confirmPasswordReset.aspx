@@ -33,11 +33,13 @@
                     <br />
                     <div id="confirmResetSuccess" runat="server">
                         <h2>Password has been reset, please check your email.</h2>
+                        <br />
                         <h2>Redirecting to login in 5 seconds...</h2>
                     </div>
 
                     <div id="confirmResetFail" runat="server">
                         <h2>Password reset has failed, please try again.</h2>
+                        <br />
                         <h2>Redirecting to password reset in 5 seconds...</h2>
                     </div>
                 </div>
