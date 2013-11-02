@@ -5,11 +5,21 @@
 </asp:Content>
 
 <asp:Content ID = "Body" ContentPlaceHolderID = "Body" runat ="server">
-    <div id="confirmResetSuccess" runat="server">
-        <p>Password has been reset, please check your email.</p>
-    </div>
+    <div class="colmask threecol">
+	    <div class="colmid">
+		    <div class="colleft">
+			    <div class="col1">
+                    <br />
+                    <br />
+                    <div id="confirmResetSuccess" runat="server">
+                        <h2>Password has been reset, please check your email.</h2>
+                    </div>
 
-    <div id="confirmResetFail" runat="server">
-        <p>Password reset has failed, please try again.</p>
+                    <div id="confirmResetFail" runat="server">
+                        <h2>Password reset has failed, please try again.</h2>
+                    </div>
+                </div>
+		    </div>
+        </div>
     </div>
 </asp:Content>
