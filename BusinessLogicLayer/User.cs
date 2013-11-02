@@ -382,7 +382,7 @@ namespace BusinessLogicLayer
 
             foreach (NuRacingDataSet.UserRow userRow in userTable.Rows)
             {
-                if (userRow.User_Username == Username)
+                if (userRow.User_Username.ToLower() == Username.ToLower())
                 {
                     byte[] salt = CreateSalt();
                     byte[] hash = HashPassword(newPassword, salt);
