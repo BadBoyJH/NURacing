@@ -58,9 +58,7 @@
                                     <td>
                                         <asp:Button runat="server" Text="SUBMIT" CssClass="btnSubmit" UseSubmitBehavior="true" ID="btnSubmit" OnClick="btnSubmit_Click" />
                                         <asp:Button runat="server" Text="RETRIEVE PASSWORD" CssClass="btnPasswordRetrieve" ID="btnPassword" OnClick="btnPassword_Click"/>
-                                        <asp:Button ID="btnRecover" runat="server" Text="?" CssClass="btnSubmit" />
-                                        
-                                        
+                                        <asp:Button ID="btnRecover" runat="server" Text="?" CssClass="btnSubmit" />  
                                     </td>
                                 </tr>
                             </table>

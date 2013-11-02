@@ -22,25 +22,25 @@ namespace BusinessLogicLayer
             smtp.EnableSsl = true;
         }
 
-        static public void SendPasswordResetRequest(byte[] ByteCode, string Recipient)
+        static public void sendPasswordResetRequest(byte[] byteCode, string username, string recipient)
         {
             StringBuilder builder = new StringBuilder();
 
-            foreach (byte b in ByteCode)
+            foreach (byte b in byteCode)
             {
                 builder.Append(b.ToString("X2"));
             }
 
-            string HexCode = builder.ToString();
+            string hexCode = builder.ToString();
 
             string message =
-                "Dear User,\n\n" +
-                "Follow this link to reset your password: http://localhost:58503/confirmPasswordReset.aspx?rrid=" + HexCode + "\n\n" +
+                "Dear " + username + ",\n\n" +
+                "Follow this link to reset your password: http://localhost:58503/confirmPasswordReset.aspx?rrid=" + hexCode + "\n\n" +
                 "This email is auto generated, please don't reply.\n\nYou can contact us at nuracinghelpdesk@gmail.com\n\n" +
                 "Thanks,\n\nNURacing Team";
 
             MailMessage email = new MailMessage();
-            email.To.Add(Recipient);
+            email.To.Add(recipient);
             email.Subject = "NURacing - Password Reset";
             email.From = new MailAddress(ourEmail);
             email.Body = message;
@@ -48,18 +48,18 @@ namespace BusinessLogicLayer
             smtp.Send(email);
         }
 
-        static public void sendPasswordResetEmail(string Password, string Recipient)
+        static public void sendPasswordResetEmail(string username, string password, string recipient)
         {
             string message =
-                "Dear User,\n\n" +
-                "Your new Password is: " + Password + "\n\n" +
+                "Dear " + username + ",\n\n" +
+                "Your new Password is: " + password + "\n\n" +
                 "Follow this link to login to your account: http://localhost:58503/login.aspx\n\n" +
                 "Remember to change your password on the Account tab.\n\n" +
                 "This email is auto generated, please don't reply.\n\nYou can contact us at nuracinghelpdesk@gmail.com\n\n" +
                 "Thanks,\n\nNURacing Team";
 
             MailMessage email = new MailMessage();
-            email.To.Add(Recipient);
+            email.To.Add(recipient);
             email.Subject = "NURacing - Password Reset Complete";
             email.From = new MailAddress(ourEmail);
             email.Body = message;
@@ -67,18 +67,18 @@ namespace BusinessLogicLayer
             smtp.Send(email);
         }
 
-        static public void newUser(string Username, string Password, string Recipient)
+        static public void newUser(string username, string password, string recipient)
         {
             string message =
-                "Dear "+ Username + ",\n\n" +
-                "Username is: " + Username + "\n" +
-                "Password is: " + Password + "\n\n" +
+                "Dear "+ username + ",\n\n" +
+                "Username is: " + username + "\n" +
+                "Password is: " + password + "\n\n" +
                 "Remember to change your password on the Account tab.\n\n" +
                 "This email is auto generated, please don't reply.\n\nYou can contact us at nuracinghelpdesk@gmail.com\n\n" +
                 "Thanks,\n\nNURacing Team";
 
             MailMessage email = new MailMessage();
-            email.To.Add(Recipient);
+            email.To.Add(recipient);
             email.Subject = "NURacing - User Registration";
             email.From = new MailAddress(ourEmail);
             email.Body = message;

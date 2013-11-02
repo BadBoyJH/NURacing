@@ -319,7 +319,7 @@ namespace BusinessLogicLayer
                     prrTable.AddPasswordResetRequestRow(prrNewRow);
                     prrAdapter.Update(prrTable);
 
-                    EmailManager.SendPasswordResetRequest(byteCode, getEmail(Username));
+                    EmailManager.sendPasswordResetRequest(byteCode, getEmail(Username));
                 }
                 else
                 {
