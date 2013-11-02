@@ -37,6 +37,7 @@
 
                     <div id="resetSuccess" runat="server">
                         <h2>Please check your email for password reset confirmation.</h2>
+                        <br />
                         <h2>Redirecting to login in 5 seconds...</h2>
                     </div>
 
