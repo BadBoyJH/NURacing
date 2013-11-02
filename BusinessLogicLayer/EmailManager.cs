@@ -9,8 +9,8 @@ namespace BusinessLogicLayer
 {
     class EmailManager
     {
-        private static string ourEmail = "nuracinghelpdesk@gmail.com";
-        private static string ourPassword = "nuracingsupport";
+        private static string ourEmail = "nuracingautoreply@gmail.com";
+        private static string ourPassword = "CaJaNiSaSiTo3930";
         private static SmtpClient smtp;
 
         static EmailManager()
@@ -35,8 +35,9 @@ namespace BusinessLogicLayer
 
             string message =
                 "Dear User,\n\n" +
-                "Follow the link to reset your password: http://localhost:58503/confirmPasswordReset.aspx?rrid=" + HexCode + "\n\n" +
-                "NURacing Support\n\nnuracinghelpdesk@gmail.com";
+                "Follow this link to reset your password: http://localhost:58503/confirmPasswordReset.aspx?rrid=" + HexCode + "\n\n" +
+                "This email is auto generated, please don't reply.\n\nYou can contact us at nuracinghelpdesk@gmail.com\n\n" +
+                "Thanks,\n\nNURacing Team";
 
             MailMessage email = new MailMessage();
             email.To.Add(Recipient);
