@@ -82,43 +82,6 @@
               </TablixCornerCell>
               <TablixCornerCell>
                 <CellContents>
-                  <Textbox Name="Textbox3">
-                    <CanGrow>true</CanGrow>
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>Purchase Date Purchased</Value>
-                            <Style>
-                              <FontSize>8.5pt</FontSize>
-                              <FontWeight>Bold</FontWeight>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style>
-                          <TextAlign>Left</TextAlign>
-                        </Style>
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>Textbox3</rd:DefaultName>
-                    <Style>
-                      <Border>
-                        <Color>LightGrey</Color>
-                        <Style>None</Style>
-                      </Border>
-                      <BackgroundColor>#e28241</BackgroundColor>
-                      <VerticalAlign>Top</VerticalAlign>
-                      <PaddingLeft>2pt</PaddingLeft>
-                      <PaddingRight>2pt</PaddingRight>
-                      <PaddingTop>2pt</PaddingTop>
-                      <PaddingBottom>2pt</PaddingBottom>
-                    </Style>
-                  </Textbox>
-                </CellContents>
-              </TablixCornerCell>
-              <TablixCornerCell>
-                <CellContents>
                   <Textbox Name="Textbox43">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
@@ -312,6 +275,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -492,7 +456,7 @@
                                     <Value>=Fields!Purchase_DatePurchased.Value</Value>
                                     <Style>
                                       <FontSize>8.5pt</FontSize>
-                                      <Format>d</Format>
+                                      <Format>dd/MM/yyyy</Format>
                                     </Style>
                                   </TextRun>
                                 </TextRuns>
@@ -520,16 +484,16 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>2.5cm</Size>
+                            <Size>5.14583cm</Size>
                             <CellContents>
-                              <Textbox Name="Purchase_DatePurchased">
+                              <Textbox Name="Purchase_Good">
                                 <CanGrow>true</CanGrow>
                                 <KeepTogether>true</KeepTogether>
                                 <Paragraphs>
                                   <Paragraph>
                                     <TextRuns>
                                       <TextRun>
-                                        <Value>=Fields!Purchase_DatePurchased.Value</Value>
+                                        <Value>=Fields!Purchase_Good.Value</Value>
                                         <Style>
                                           <FontSize>8.5pt</FontSize>
                                         </Style>
@@ -540,7 +504,7 @@
                                     </Style>
                                   </Paragraph>
                                 </Paragraphs>
-                                <rd:DefaultName>Purchase_DatePurchased</rd:DefaultName>
+                                <rd:DefaultName>Purchase_Good</rd:DefaultName>
                                 <Style>
                                   <Border>
                                     <Color>LightGrey</Color>
@@ -559,16 +523,16 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>5.14583cm</Size>
+                                <Size>5.8735cm</Size>
                                 <CellContents>
-                                  <Textbox Name="Purchase_Good">
+                                  <Textbox Name="Purchase_Supplier">
                                     <CanGrow>true</CanGrow>
                                     <KeepTogether>true</KeepTogether>
                                     <Paragraphs>
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>=Fields!Purchase_Good.Value</Value>
+                                            <Value>=Fields!Purchase_Supplier.Value</Value>
                                             <Style>
                                               <FontSize>8.5pt</FontSize>
                                             </Style>
@@ -579,7 +543,7 @@
                                         </Style>
                                       </Paragraph>
                                     </Paragraphs>
-                                    <rd:DefaultName>Purchase_Good</rd:DefaultName>
+                                    <rd:DefaultName>Purchase_Supplier</rd:DefaultName>
                                     <Style>
                                       <Border>
                                         <Color>LightGrey</Color>
@@ -598,18 +562,19 @@
                               <TablixMembers>
                                 <TablixMember>
                                   <TablixHeader>
-                                    <Size>5.8735cm</Size>
+                                    <Size>3.667cm</Size>
                                     <CellContents>
-                                      <Textbox Name="Purchase_Supplier">
+                                      <Textbox Name="Purchase_TotalPrice">
                                         <CanGrow>true</CanGrow>
                                         <KeepTogether>true</KeepTogether>
                                         <Paragraphs>
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=Fields!Purchase_Supplier.Value</Value>
+                                                <Value>=Fields!Purchase_TotalPrice.Value</Value>
                                                 <Style>
                                                   <FontSize>8.5pt</FontSize>
+                                                  <Format>'$'0.00;('$'0.00)</Format>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
@@ -618,7 +583,7 @@
                                             </Style>
                                           </Paragraph>
                                         </Paragraphs>
-                                        <rd:DefaultName>Purchase_Supplier</rd:DefaultName>
+                                        <rd:DefaultName>Purchase_TotalPrice</rd:DefaultName>
                                         <Style>
                                           <Border>
                                             <Color>LightGrey</Color>
@@ -630,53 +595,11 @@
                                           <PaddingRight>2pt</PaddingRight>
                                           <PaddingTop>2pt</PaddingTop>
                                           <PaddingBottom>2pt</PaddingBottom>
+                                          <rd:FormatSymbolCulture>en-AU</rd:FormatSymbolCulture>
                                         </Style>
                                       </Textbox>
                                     </CellContents>
                                   </TablixHeader>
-                                  <TablixMembers>
-                                    <TablixMember>
-                                      <TablixHeader>
-                                        <Size>3.667cm</Size>
-                                        <CellContents>
-                                          <Textbox Name="Purchase_TotalPrice">
-                                            <CanGrow>true</CanGrow>
-                                            <KeepTogether>true</KeepTogether>
-                                            <Paragraphs>
-                                              <Paragraph>
-                                                <TextRuns>
-                                                  <TextRun>
-                                                    <Value>=Fields!Purchase_TotalPrice.Value</Value>
-                                                    <Style>
-                                                      <FontSize>8.5pt</FontSize>
-                                                      <Format>'$'0.00;('$'0.00)</Format>
-                                                    </Style>
-                                                  </TextRun>
-                                                </TextRuns>
-                                                <Style>
-                                                  <TextAlign>Left</TextAlign>
-                                                </Style>
-                                              </Paragraph>
-                                            </Paragraphs>
-                                            <rd:DefaultName>Purchase_TotalPrice</rd:DefaultName>
-                                            <Style>
-                                              <Border>
-                                                <Color>LightGrey</Color>
-                                                <Style>None</Style>
-                                              </Border>
-                                              <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
-                                              <VerticalAlign>Top</VerticalAlign>
-                                              <PaddingLeft>2pt</PaddingLeft>
-                                              <PaddingRight>2pt</PaddingRight>
-                                              <PaddingTop>2pt</PaddingTop>
-                                              <PaddingBottom>2pt</PaddingBottom>
-                                              <rd:FormatSymbolCulture>en-AU</rd:FormatSymbolCulture>
-                                            </Style>
-                                          </Textbox>
-                                        </CellContents>
-                                      </TablixHeader>
-                                    </TablixMember>
-                                  </TablixMembers>
                                 </TablixMember>
                               </TablixMembers>
                             </TablixMember>
@@ -693,7 +616,7 @@
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>dsWORK</DataSetName>
         <Height>1.1cm</Height>
-        <Width>27.08333cm</Width>
+        <Width>24.58333cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

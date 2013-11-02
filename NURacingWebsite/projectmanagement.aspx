@@ -24,10 +24,6 @@
                      <asp:Button ID="updateProjBtn" CssClass="takeFiveBtn" Text="UPDATE PROJECT" runat="server" OnClick="updateProjBtn_Click" />
                      <asp:Button ID="createProjBtn" CssClass="takeFiveBtn" Text="CREATE PROJECT" runat="server" OnClick="createProjBtn_Click" />
                         <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
                          
                 <div class="taskMngement">
         

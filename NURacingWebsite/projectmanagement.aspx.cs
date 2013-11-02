@@ -38,13 +38,16 @@ namespace NURacingWebsite
             lblProjSubmit.CssClass = "submitLbl";
             lblProjSubmit.Visible = false;
             createProjFrm.Controls.Add(lblProjSubmit);
-            createProjFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            createProjFrm.Controls.Add(new LiteralControl("</p> "));
 
             projNameDrpList.Items.Clear();
 
             foreach (ProjectInfo project in BusinessLogicLayer.ProjectInfo.getProjects())
             {
-                projNameDrpList.Items.Add(project.Name);
+                if (project.Name != "Workshop")
+                {
+                    projNameDrpList.Items.Add(project.Name);
+                }
             }
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
             lblCarNameList.Text = "Project: ";
@@ -57,7 +60,7 @@ namespace NURacingWebsite
             projNameDrpList.Font.Size = 11;
             projNameDrpList.BorderStyle = BorderStyle.None;
             projNameDrpList.Height = 25;
-            createProjFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            createProjFrm.Controls.Add(new LiteralControl("</p> "));
             if (update)
             {
                 lblCarNameList.Visible = true;
@@ -75,7 +78,7 @@ namespace NURacingWebsite
             createProjFrm.Controls.Add(lblCarName);
             createProjFrm.Controls.Add(carNameTxtBx);
             carNameTxtBx.CssClass = "textareaPassword";
-            createProjFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            createProjFrm.Controls.Add(new LiteralControl("</p> "));
             if (update)
             {
                 lblCarName.Visible = false;
@@ -104,7 +107,7 @@ namespace NURacingWebsite
             projStatusDrpList.Font.Size = 11;
             projStatusDrpList.BorderStyle = BorderStyle.None;
             projStatusDrpList.Height = 25;
-            createProjFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            createProjFrm.Controls.Add(new LiteralControl("</p> "));
             if (update)
             {
                 lblStatus.Visible = true;
@@ -121,7 +124,7 @@ namespace NURacingWebsite
             createProjFrm.Controls.Add(lblYearMade);
             createProjFrm.Controls.Add(yearMadeTxtBx);
             yearMadeTxtBx.CssClass = "textareaPassword";
-            createProjFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            createProjFrm.Controls.Add(new LiteralControl("</p> "));
 
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
             lblActive.Text = "Is Project Active? ";
@@ -129,7 +132,7 @@ namespace NURacingWebsite
             activeChkBx.Visible = false;
             createProjFrm.Controls.Add(lblActive);
             createProjFrm.Controls.Add(activeChkBx);
-            createProjFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            createProjFrm.Controls.Add(new LiteralControl("</p> "));
 
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
             lblDesc.Text = "Description: ";
@@ -137,7 +140,7 @@ namespace NURacingWebsite
             createProjFrm.Controls.Add(carDescTxtBx);
             carDescTxtBx.CssClass = "textareaPassword";
             carDescTxtBx.TextMode = TextBoxMode.MultiLine;
-            createProjFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            createProjFrm.Controls.Add(new LiteralControl("</p> "));
         }
 
         protected void submitProjBtn_Click(object sender, EventArgs e)

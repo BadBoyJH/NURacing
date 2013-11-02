@@ -19,7 +19,7 @@
                         <h1>TASKS -
            <asp:Label ID="lblSectionTitle" runat="server" Text="Label"></asp:Label>
                         </h1>
-                        <p style="text-align: center">Please click on a task button below to review a task and log time spent.</p>
+                        <p style="text-align: center">Please click on a task button below to review a task and log time spent.</p><p style="text-align: center; clear: both;"></p><br />
                         <asp:Button runat="server" ID="createProjBtn" Text="MANAGE AND ASSIGN TASKS" CssClass="takeFiveBtn" OnClick="createProjBtn_Click" />
                         <p style="text-align: center; clear: both;"></p>
                         <br />

@@ -261,6 +261,7 @@
                               <Value>=Fields!WorkType_StatusChangedDate.Value</Value>
                               <Style>
                                 <FontSize>8.5pt</FontSize>
+                                <Format>dd/MM/yyyy</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -283,6 +284,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -561,6 +563,7 @@
                                             <Value>=Fields!Project_StatusChangedDate.Value</Value>
                                             <Style>
                                               <FontSize>8.5pt</FontSize>
+                                              <Format>dd/MM/yyyy</Format>
                                             </Style>
                                           </TextRun>
                                         </TextRuns>
@@ -629,7 +632,7 @@
       <BackgroundColor>White</BackgroundColor>
     </Style>
   </Body>
-  <Width>32.7cm</Width>
+  <Width>27.7cm</Width>
   <Page>
     <PageHeader>
       <Height>2cm</Height>

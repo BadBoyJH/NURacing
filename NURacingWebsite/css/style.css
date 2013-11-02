@@ -187,7 +187,7 @@ body {
 	border:0;			
 	background: url("../images/background/bg_vertical_1.png") repeat;
 	text-align:center;
-
+    overflow-x: scroll;
 	}
     
 .colmask {
@@ -623,7 +623,8 @@ cursor: pointer;
 .todoTable th {
     background-color:none;
     border:none;
-    font-family: 'Oswald', sans-serif; font-size: 30px; line-height: 30px;    color: #A8A8A8;
+    font-family: 'Oswald', sans-serif; font-size: 35px; line-height: 30px;    color: #A8A8A8;
+    margin-bottom:10px;
     }
 
 .todoTable td
@@ -631,7 +632,6 @@ cursor: pointer;
     vertical-align: top;
     overflow:scroll;
 	background-color:none;
-    border-top:2px #A8A8A8;
 	width:500px;	
 	height: 100px;
     padding:5px;
@@ -669,6 +669,7 @@ cursor: pointer;
     width:80%;
     margin-left:auto;
     margin-right:auto;
+    text-align:center;
 }
 .taskTitleLbl {
     color: #A8A8A8; font-size: 60px; line-height: 60px; margin-bottom: 15px;
@@ -720,6 +721,7 @@ text-transform:uppercase;
     background-color:none;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 11pt;
+    font-weight:normal;
     text-shadow: 1px 1px 1px #000000;
 }
 .timeLogging {

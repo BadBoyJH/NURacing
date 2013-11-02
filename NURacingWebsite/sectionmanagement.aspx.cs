@@ -39,12 +39,9 @@ namespace NURacingWebsite
             createProjFrm.Controls.Add(lblCarNameList);
             foreach (WorkTypeInfo type in BusinessLogicLayer.WorkTypeInfo.getAllWorkTypes())
             {
-                if (type.Project.Name != type.Name)
+                if (type.Project.Name != type.Name && type.Name != null)
                 {
                     projNameDrpList.Items.Add(type.Project.Name + " - " + type.Name);
-                }
-                else
-                {
                 }
             }
             createProjFrm.Controls.Add(projNameDrpList);

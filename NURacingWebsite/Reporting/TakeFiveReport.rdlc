@@ -359,6 +359,22 @@
         </TablixRowHierarchy>
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>dsTAKEFIVES</DataSetName>
+        <Filters>
+          <Filter>
+            <FilterExpression>=Month(Fields!Work_DateCompleted.Value)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue DataType="DateTime">=Month(DateAdd("M",-1,Today()))</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=YEAR(Fields!Work_DateCompleted.Value)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue DataType="DateTime">=Year(DateAdd("M",-1,Today()))</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
         <Height>1.2cm</Height>
         <Width>17.37067cm</Width>
         <Style>
@@ -417,7 +433,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>="From " &amp; Format(Today(), "dd/MM/yyyy")</Value>
+                  <Value>="For the Month of " &amp; CStr(MonthName(Month(DateAdd("M",-1,Today())))) &amp; ", " &amp; CStr(Year(DateAdd("M",-1,Today())))</Value>
                   <Style>
                     <FontSize>14pt</FontSize>
                     <Color>#e55f05</Color>
@@ -430,7 +446,7 @@
           <rd:DefaultName>Textbox47</rd:DefaultName>
           <Top>0.7905cm</Top>
           <Height>0.7905cm</Height>
-          <Width>6.7202cm</Width>
+          <Width>15.6102cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
