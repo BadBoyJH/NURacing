@@ -9,16 +9,17 @@ namespace BusinessLogicLayer
 {
     class EmailManager
     {
-        private static string ourEmail = "NuRacingTest@westnet.com.au";
-        private static string ourPassword = "CaJaMiNiSaSiTo3930";
+        private static string ourEmail = "nuracinghelpdesk@gmail.com";
+        private static string ourPassword = "nuracingsupport";
         private static SmtpClient smtp;
 
         static EmailManager()
         {
-            smtp = new SmtpClient("mail.westnet.com.au");
+            smtp = new SmtpClient("smtp.gmail.com");
             smtp.UseDefaultCredentials = false;
             smtp.Credentials = new System.Net.NetworkCredential(ourEmail, ourPassword);
-            smtp.Port = 2525;
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
         }
 
         static public void SendPasswordResetRequest(byte[] ByteCode, string Recipient)
@@ -33,9 +34,9 @@ namespace BusinessLogicLayer
             string HexCode = builder.ToString();
 
             string message =
-                "Until further notice this will have to do\n" +
-                "Bytecode is: " + HexCode + "\n" +
-                "NURacing Test";
+                "Dear User,\n\n" +
+                "Follow the link to reset your password: http://localhost:58503/confirmPasswordReset.aspx?rrid=" + HexCode + "\n\n" +
+                "NURacing Support\n\nnuracinghelpdesk@gmail.com";
 
             MailMessage email = new MailMessage();
             email.To.Add(Recipient);
