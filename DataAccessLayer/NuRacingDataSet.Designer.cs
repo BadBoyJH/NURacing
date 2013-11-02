@@ -10037,14 +10037,6 @@ namespace DataAccessLayer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectPurchasesRow FindByProject_UIDUser_Username(int Project_UID, string User_Username) {
-                return ((ProjectPurchasesRow)(this.Rows.Find(new object[] {
-                            Project_UID,
-                            User_Username})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
                 ProjectPurchasesDataTable cln = ((ProjectPurchasesDataTable)(base.Clone()));
                 cln.InitVars();
@@ -10194,9 +10186,6 @@ namespace DataAccessLayer {
                 base.Columns.Add(this.columnUser_LastPasswordChanged);
                 this.columnUser_LastLockoutDate = new global::System.Data.DataColumn("User_LastLockoutDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUser_LastLockoutDate);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnProject_UID,
-                                this.columnUser_Username}, true));
                 this.columnProject_UID.AutoIncrement = true;
                 this.columnProject_UID.AutoIncrementSeed = -1;
                 this.columnProject_UID.AutoIncrementStep = -1;

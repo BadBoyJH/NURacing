@@ -3127,11 +3127,6 @@ FROM CompleteTaskInfo</CommandText>
       <xs:selector xpath=".//mstns:PasswordResetRequest" />
       <xs:field xpath="mstns:PasswordRR_UID" />
     </xs:unique>
-    <xs:unique name="ProjectPurchases_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:ProjectPurchases" />
-      <xs:field xpath="mstns:Project_UID" />
-      <xs:field xpath="mstns:User_Username" />
-    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
