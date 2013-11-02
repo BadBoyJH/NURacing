@@ -20,7 +20,7 @@ namespace NURacingWebsite
                 }
                 else
                 {
-                    Response.Redirect("AccessDenied.aspx?RequestURL=" + Request.Params.Get("ReturnURL"));
+                    Response.Redirect("accessdenied.aspx?RequestURL=" + Request.Params.Get("ReturnURL"));
                 }
             }
         }
