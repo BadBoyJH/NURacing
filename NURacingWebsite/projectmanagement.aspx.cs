@@ -118,7 +118,20 @@ namespace NURacingWebsite
 
         protected void updateSubmitBtn_Click(object sender, EventArgs e)
         {
+            if (carNameTxtBx.Text != "")
+            {
 
+            }
+
+            if (yearMadeTxtBx.Text != "")
+            {
+
+            }
+
+            if (carDescTxtBx.Text != "")
+            {
+
+            }
         }
 
         protected void createProjBtn_Click(object sender, EventArgs e)

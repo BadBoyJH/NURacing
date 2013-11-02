@@ -61,95 +61,100 @@ namespace NURacingWebsite
             if (red)
             {
 
-                if (b1.Checked)
+                if (b1.Checked && reason1TxtBx.Text != "")
                 {
                     response.TakeFiveID = 1;
                     response.Response = reason1TxtBx.Text;
                     responseList.Add(response);
                 }
 
-                if (b2.Checked)
+                else if (b2.Checked && reason2TxtBx.Text != "")
                 {
                     response.TakeFiveID = 2;
                     response.Response = reason2TxtBx.Text;
                     responseList.Add(response);
                 }
 
-                if (b3.Checked)
+                else if (b3.Checked && reason3TxtBx.Text != "")
                 {
                     response.TakeFiveID = 3;
                     response.Response = reason3TxtBx.Text;
                     responseList.Add(response);
                 }
 
-                if (b4.Checked)
+                else if (b4.Checked && reason4TxtBx.Text != "")
                 {
                     response.TakeFiveID = 4;
                     response.Response = reason4TxtBx.Text;
                     responseList.Add(response);
                 }
 
-                if (b5.Checked)
+                else if (b5.Checked & reason5TxtBx.Text != "")
                 {
                     response.TakeFiveID = 5;
                     response.Response = reason5TxtBx.Text;
                     responseList.Add(response);
                 }
 
-                if (a6.Checked)
+                else if (a6.Checked && reason6TxtBx.Text != "")
                 {
                     response.TakeFiveID = 6;
                     response.Response = reason6TxtBx.Text;
                     responseList.Add(response);
                 }
 
-                if (a7.Checked)
+                else if (a7.Checked && reason7TxtBx.Text != "")
                 {
                     response.TakeFiveID = 7;
                     response.Response = reason7TxtBx.Text;
                     responseList.Add(response);
                 }
 
-                if (b8.Checked)
+                else if (b8.Checked && reason8TxtBx.Text != "")
                 {
                     response.TakeFiveID = 8;
                     response.Response = reason8TxtBx.Text;
                     responseList.Add(response);
                 }
 
-                if (a9.Checked)
+                else if (a9.Checked && reason9TxtBx.Text != "")
                 {
                     response.TakeFiveID = 9;
                     response.Response = reason9TxtBx.Text;
                     responseList.Add(response);
                 }
 
-                if (b10.Checked)
+                else if (b10.Checked && reason10TxtBx.Text != "")
                 {
                     response.TakeFiveID = 10;
                     response.Response = reason10TxtBx.Text;
                     responseList.Add(response);
                 }
 
-                if (b11.Checked)
+                else if (b11.Checked && reason11TxtBx.Text != "")
                 {
                     response.TakeFiveID = 11;
                     response.Response = reason11TxtBx.Text;
                     responseList.Add(response);
                 }
 
-                if (a12.Checked)
+                else if (a12.Checked && reason12TxtBx.Text != "")
                 {
                     response.TakeFiveID = 12;
                     response.Response = reason12TxtBx.Text;
                     responseList.Add(response);
                 }
 
-                if (b13.Checked)
+                else if (b13.Checked && reason13TxtBx.Text != "")
                 {
                     response.TakeFiveID = 13;
                     response.Response = reason13TxtBx.Text;
                     responseList.Add(response);
+                }
+
+                else
+                {
+                    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "ALERT", "<script>alert('Please enter a reason(s) for your answers.')</script>");
                 }
             }
 

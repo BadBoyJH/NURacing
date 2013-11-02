@@ -41,6 +41,10 @@ namespace NURacingWebsite
                     Response.Redirect(Request.Params.Get("ReturnURL"));
                 }
             }
+            else
+            {
+                error.Visible = true;
+            }
         }
     }
 }
