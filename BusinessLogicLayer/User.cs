@@ -294,6 +294,7 @@ namespace BusinessLogicLayer
         }
 
         //  Written By James Hibbard
+        //  Modified By Simon Davis
         /// <summary>
         ///     Sets up a reset password reset request for a given user.
         ///     Throws ArgumentException if username is invalid.
@@ -406,7 +407,6 @@ namespace BusinessLogicLayer
             }
             return false;
         }
-
 
         static public bool generateNewPassword(string ResetRequestID)
         {
