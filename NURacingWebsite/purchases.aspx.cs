@@ -66,7 +66,9 @@ namespace NURacingWebsite
             {
             }
 
-            BusinessLogicLayer.Purchase.addPurchase(Membership.GetUser().UserName, suppTxtBx.Text, goodTxtBx.Text, Convert.ToDecimal(priceTxtBx.Text), purchaseCal.SelectedDate, workID);
+   
+
+            BusinessLogicLayer.Purchase.addPurchase(Membership.GetUser().UserName, suppTxtBx.Text, goodTxtBx.Text, Convert.ToDecimal(Convert.ToString(priceTxtBx.Text).Replace("$", String.Empty)), purchaseCal.SelectedDate, workID);
 
             addedItem = true;
         }

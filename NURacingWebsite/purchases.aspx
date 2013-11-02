@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="purchases.aspx.cs" Inherits="NURacingWebsite.purchase" MasterPageFile="~/LoggedIn.Master" %>
 
 <asp:Content ContentPlaceHolderID="Title" ID="Title" runat="server">
-    NURacing System - Purchase
+    NURacing System - Purchases
 </asp:Content>
 
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">

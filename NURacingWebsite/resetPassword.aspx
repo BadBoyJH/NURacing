@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="resetPassword.aspx.cs" Inherits="NURacingWebsite.resetPassword"  MasterPageFile="~/LoggedIn.Master" %>
 
 <asp:Content ID="Title" ContentPlaceHolderID="Title" runat="server">
-    NU Racing - Password Reset
+    NURacing - Password Reset
 </asp:Content>
 
 <asp:Content ID = "Body" ContentPlaceHolderID = "Body" runat ="server">

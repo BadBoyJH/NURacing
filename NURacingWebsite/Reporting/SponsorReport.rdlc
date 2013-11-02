@@ -41,7 +41,6 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixCornerCell>
             </TablixCornerRow>
@@ -50,10 +49,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.17584cm</Width>
+              <Width>1.13351cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.45cm</Width>
+              <Width>1.1325cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.5cm</Width>
@@ -62,13 +61,13 @@
               <Width>1.1cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.15799cm</Width>
+              <Width>1cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.15334cm</Width>
+              <Width>1cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.0635cm</Width>
+              <Width>1cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.25916cm</Width>
@@ -107,13 +106,13 @@
               <Width>1.2cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.55434cm</Width>
+              <Width>1.38501cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.61167cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>1.34749cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -132,6 +131,7 @@
                               <Value>=Fields!User_Created.Value</Value>
                               <Style>
                                 <FontSize>8.5pt</FontSize>
+                                <Format>dd/MM/yyyy</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -154,6 +154,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -420,6 +421,7 @@
                               <Value>=Fields!User_SAE_MemberNo.Value</Value>
                               <Style>
                                 <FontSize>8.5pt</FontSize>
+                                <Format>d</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -878,14 +880,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Sponsored_UID">
+                    <Textbox Name="Project_UID">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!Sponsored_UID.Value)</Value>
+                              <Value>=Fields!Project_UID.Value</Value>
                               <Style>
                                 <FontSize>8.5pt</FontSize>
                               </Style>
@@ -896,7 +898,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Sponsored_UID</rd:DefaultName>
+                      <rd:DefaultName>Project_UID</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -1784,7 +1786,7 @@ Conds</Value>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Sponsored UID</Value>
+                            <Value>Project Sponsored</Value>
                             <Style>
                               <FontSize>8.5pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -1871,7 +1873,7 @@ Conds</Value>
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>dsUSERS</DataSetName>
         <Height>2cm</Height>
-        <Width>29.75651cm</Width>
+        <Width>27.70001cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1884,7 +1886,7 @@ Conds</Value>
       <BackgroundColor>White</BackgroundColor>
     </Style>
   </Body>
-  <Width>29.75651cm</Width>
+  <Width>27.70001cm</Width>
   <Page>
     <PageHeader>
       <Height>2cm</Height>
@@ -1976,7 +1978,7 @@ Conds</Value>
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.53528cm</Height>
+      <Height>0.5cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1997,7 +1999,6 @@ Conds</Value>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
-          <Top>0.03528cm</Top>
           <Height>0.5cm</Height>
           <Width>9.3cm</Width>
           <Style>

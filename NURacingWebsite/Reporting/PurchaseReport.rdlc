@@ -163,7 +163,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Purchase Good</Value>
+                            <Value>Purchased Good</Value>
                             <Style>
                               <FontSize>8.5pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -492,6 +492,7 @@
                                     <Value>=Fields!Purchase_DatePurchased.Value</Value>
                                     <Style>
                                       <FontSize>8.5pt</FontSize>
+                                      <Format>d</Format>
                                     </Style>
                                   </TextRun>
                                 </TextRuns>
@@ -818,7 +819,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
-          <Top>0cm</Top>
           <Height>0.5cm</Height>
           <Width>9.3cm</Width>
           <Style>
@@ -854,7 +854,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
-          <Top>0cm</Top>
           <Left>9.3cm</Left>
           <Height>0.5cm</Height>
           <Width>9.3cm</Width>
@@ -892,7 +891,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
-          <Top>0cm</Top>
           <Left>18.6cm</Left>
           <Height>0.5cm</Height>
           <Width>9.1cm</Width>

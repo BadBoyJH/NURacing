@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="confirmPasswordReset.aspx.cs" Inherits="NURacingWebsite.createNewPassword"  MasterPageFile="~/LoggedIn.Master" %>
 
 <asp:Content ID="Title" ContentPlaceHolderID="Title" runat="server">
-    NU Racing - Confirm Password Reset
+    NURacing - Confirm Password Reset
 </asp:Content>
 
 <asp:Content ID = "Body" ContentPlaceHolderID = "Body" runat ="server">
