@@ -41,7 +41,7 @@ namespace BusinessLogicLayer
 
             MailMessage email = new MailMessage();
             email.To.Add(Recipient);
-            email.Subject = "NURacing Online - Password Reset";
+            email.Subject = "NURacing - Password Reset";
             email.From = new MailAddress(ourEmail);
             email.Body = message;
 
