@@ -19,6 +19,8 @@ namespace NURacingWebsite
             if (Request.Params.Get("rrid") == null)
             {
                 confirmResetFail.Visible = true;
+
+                Response.AddHeader("REFRESH", "5;URL=resetPassword.aspx");
             }
 
             else
@@ -28,17 +30,23 @@ namespace NURacingWebsite
                     if (BusinessLogicLayer.User.generateNewPassword(Request.Params.Get("rrid"))) //Email sent
                     {
                         confirmResetSuccess.Visible = true;
+
+                        Response.AddHeader("REFRESH", "5;URL=login.aspx");
                     }
 
                     else //Email not sent
                     {
                         confirmResetFail.Visible = true;
+
+                        Response.AddHeader("REFRESH", "5;URL=resetPassword.aspx");
                     }
                 }
 
                 catch //Argumemt exception for expired reset link
                 {
                     confirmResetFail.Visible = true;
+
+                    Response.AddHeader("REFRESH", "5;URL=resetPassword.aspx");
                 }
             }
         }
