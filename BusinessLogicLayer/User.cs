@@ -319,7 +319,7 @@ namespace BusinessLogicLayer
                     prrTable.AddPasswordResetRequestRow(prrNewRow);
                     prrAdapter.Update(prrTable);
 
-                    EmailManager.sendPasswordResetRequest(byteCode, getEmail(Username));
+                    EmailManager.sendPasswordResetRequest(byteCode, Username, getEmail(Username));
                 }
                 else
                 {
@@ -395,7 +395,7 @@ namespace BusinessLogicLayer
 
                     try
                     {
-                        EmailManager.sendPasswordResetEmail(newPassword, userRow.User_Email);
+                        EmailManager.sendPasswordResetEmail(Username, newPassword, userRow.User_Email);
                         return true;
                     }
                     catch (Exception)
