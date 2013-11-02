@@ -42,40 +42,6 @@
               </TablixCornerCell>
               <TablixCornerCell>
                 <CellContents>
-                  <Textbox Name="Textbox4">
-                    <CanGrow>true</CanGrow>
-                    <KeepTogether>true</KeepTogether>
-                    <Paragraphs>
-                      <Paragraph>
-                        <TextRuns>
-                          <TextRun>
-                            <Value>Section Name</Value>
-                            <Style>
-                              <FontSize>8.5pt</FontSize>
-                              <FontWeight>Bold</FontWeight>
-                            </Style>
-                          </TextRun>
-                        </TextRuns>
-                        <Style />
-                      </Paragraph>
-                    </Paragraphs>
-                    <rd:DefaultName>Textbox3</rd:DefaultName>
-                    <Style>
-                      <Border>
-                        <Color>LightGrey</Color>
-                        <Style>None</Style>
-                      </Border>
-                      <BackgroundColor>#e28241</BackgroundColor>
-                      <PaddingLeft>2pt</PaddingLeft>
-                      <PaddingRight>2pt</PaddingRight>
-                      <PaddingTop>2pt</PaddingTop>
-                      <PaddingBottom>2pt</PaddingBottom>
-                    </Style>
-                  </Textbox>
-                </CellContents>
-              </TablixCornerCell>
-              <TablixCornerCell>
-                <CellContents>
                   <Textbox Name="Textbox43">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
@@ -235,7 +201,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!Work_TimeWorkedMins.Value)</Value>
+                              <Value>=Fields!Work_TimeWorkedMins.Value</Value>
                               <Style>
                                 <FontSize>8.5pt</FontSize>
                               </Style>
@@ -426,50 +392,16 @@
               </TablixHeader>
               <TablixMembers>
                 <TablixMember>
-                  <Group Name="Work_UID">
+                  <Group Name="WorkType_UID">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Work_UID.Value</GroupExpression>
+                      <GroupExpression>=Fields!WorkType_UID.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Work_UID.Value</Value>
+                      <Value>=Fields!WorkType_UID.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <TablixHeader>
-                    <Size>2.5cm</Size>
-                    <CellContents>
-                      <Textbox Name="WorkType_Name2">
-                        <CanGrow>true</CanGrow>
-                        <KeepTogether>true</KeepTogether>
-                        <Paragraphs>
-                          <Paragraph>
-                            <TextRuns>
-                              <TextRun>
-                                <Value>=Fields!WorkType_Name.Value</Value>
-                                <Style>
-                                  <FontSize>8.5pt</FontSize>
-                                </Style>
-                              </TextRun>
-                            </TextRuns>
-                            <Style />
-                          </Paragraph>
-                        </Paragraphs>
-                        <rd:DefaultName>WorkType_Name</rd:DefaultName>
-                        <Style>
-                          <Border>
-                            <Color>LightGrey</Color>
-                            <Style>None</Style>
-                          </Border>
-                          <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
-                          <PaddingLeft>2pt</PaddingLeft>
-                          <PaddingRight>2pt</PaddingRight>
-                          <PaddingTop>2pt</PaddingTop>
-                          <PaddingBottom>2pt</PaddingBottom>
-                        </Style>
-                      </Textbox>
-                    </CellContents>
-                  </TablixHeader>
                   <TablixMembers>
                     <TablixMember>
                       <Group Name="Task_UID">
@@ -519,7 +451,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>5.14583cm</Size>
+                            <Size>6.29117cm</Size>
                             <CellContents>
                               <Textbox Name="Task_Description">
                                 <CanGrow>true</CanGrow>
@@ -565,7 +497,7 @@
                                 </SortExpression>
                               </SortExpressions>
                               <TablixHeader>
-                                <Size>5.8735cm</Size>
+                                <Size>7.22817cm</Size>
                                 <CellContents>
                                   <Textbox Name="Work_Description">
                                     <CanGrow>true</CanGrow>
@@ -613,6 +545,7 @@
                                                 <Value>=Fields!Work_DateCompleted.Value</Value>
                                                 <Style>
                                                   <FontSize>8.5pt</FontSize>
+                                                  <Format>dd/MM/yyyy</Format>
                                                 </Style>
                                               </TextRun>
                                             </TextRuns>
@@ -650,9 +583,8 @@
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>dsWORKSHOP</DataSetName>
         <Top>0.01944cm</Top>
-        <Left>0cm</Left>
         <Height>1.1cm</Height>
-        <Width>27.69999cm</Width>
+        <Width>27.7cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -757,7 +689,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.51584cm</Height>
+      <Height>0.5cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -778,7 +710,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
-          <Top>0.01584cm</Top>
+          <Top>0cm</Top>
           <Height>0.5cm</Height>
           <Width>9.3cm</Width>
           <Style>

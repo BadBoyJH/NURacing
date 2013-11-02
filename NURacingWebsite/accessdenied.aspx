@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="accessdenied.aspx.cs" Inherits="NURacingWebsite.accessdenied" MasterPageFile="~/LoggedIn.Master" %>
 
 <asp:Content ID="Title" ContentPlaceHolderID="Title" runat="server">
-    NU Racing - Forbidden 403
+    NURacing - Forbidden 403
 </asp:Content>
 
 <asp:Content ID = "Body" ContentPlaceHolderID = "Body" runat ="server">

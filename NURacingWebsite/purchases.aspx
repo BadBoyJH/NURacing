@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="purchases.aspx.cs" Inherits="NURacingWebsite.purchase" MasterPageFile="~/LoggedIn.Master" %>
 
 <asp:Content ContentPlaceHolderID="Title" ID="Title" runat="server">
-    NURacing System - Purchase
+    NURacing System - Purchases
 </asp:Content>
 
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">
@@ -18,6 +18,7 @@
                         <p>Please fill out the details of goods purchased below.</p>
                         <br />
                         <div class="taskDetail">
+                            <asp:Label runat="server" CssClass="submitLbl" ID="purchSub" Visible="false">Purchase made.</asp:Label>
                             <p>Purchased Good:
                                 <asp:TextBox runat="server" ID="goodTxtBx" CssClass="textareaPassword"></asp:TextBox></p>
                             <p>Project Section:

@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="account.aspx.cs" Inherits="NURacingWebsite.account" MasterPageFile="~/LoggedIn.Master" %>
 
 <asp:Content ID="Title" ContentPlaceHolderID="Title" runat="server">
-    NU Racing - Account
+    NURacing - Account
 </asp:Content>
 
 <asp:Content ID="Scripts" ContentPlaceHolderID="Scripts" runat="server">

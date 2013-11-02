@@ -26,9 +26,9 @@
     </div>
 
     <div class="colmask threecol">
-        <div class="colmid">
-            <div class="colleft">
-                <div class="col1">
+	    <div class="colmid">
+		    <div class="colleft">
+			    <div class="col1">
                     <br />
                     <br />
                     <div id="resetHeader" runat="server">
@@ -62,8 +62,8 @@
                 <div class="col3">
                 </div>
             </div>
+		    </div>
         </div>
-    </div>
 
     <div id="footer">
         <h5><a href="http://www.newcastle.edu.au/">

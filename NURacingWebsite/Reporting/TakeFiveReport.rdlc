@@ -168,7 +168,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -374,7 +373,7 @@
       <BackgroundColor>White</BackgroundColor>
     </Style>
   </Body>
-  <Width>30.2cm</Width>
+  <Width>27.7cm</Width>
   <Page>
     <PageHeader>
       <Height>2cm</Height>
