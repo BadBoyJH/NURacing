@@ -46,8 +46,6 @@ namespace DataAccessLayer {
         
         private TakeFiveDataTable tableTakeFive;
         
-        private ProjectPurchasesDataTable tableProjectPurchases;
-        
         private WorkshopTasksDoneDataTable tableWorkshopTasksDone;
         
         private ProjectTasksDoneDataTable tableProjectTasksDone;
@@ -59,6 +57,8 @@ namespace DataAccessLayer {
         private SponsorsDataTable tableSponsors;
         
         private CompleteTaskInfoDataTable tableCompleteTaskInfo;
+        
+        private ProjectPurchasesDataTable tableProjectPurchases;
         
         private global::System.Data.DataRelation relationAssignedTask_ibfk_1;
         
@@ -153,9 +153,6 @@ namespace DataAccessLayer {
                 if ((ds.Tables["TakeFive"] != null)) {
                     base.Tables.Add(new TakeFiveDataTable(ds.Tables["TakeFive"]));
                 }
-                if ((ds.Tables["ProjectPurchases"] != null)) {
-                    base.Tables.Add(new ProjectPurchasesDataTable(ds.Tables["ProjectPurchases"]));
-                }
                 if ((ds.Tables["WorkshopTasksDone"] != null)) {
                     base.Tables.Add(new WorkshopTasksDoneDataTable(ds.Tables["WorkshopTasksDone"]));
                 }
@@ -173,6 +170,9 @@ namespace DataAccessLayer {
                 }
                 if ((ds.Tables["CompleteTaskInfo"] != null)) {
                     base.Tables.Add(new CompleteTaskInfoDataTable(ds.Tables["CompleteTaskInfo"]));
+                }
+                if ((ds.Tables["ProjectPurchases"] != null)) {
+                    base.Tables.Add(new ProjectPurchasesDataTable(ds.Tables["ProjectPurchases"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -306,16 +306,6 @@ namespace DataAccessLayer {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ProjectPurchasesDataTable ProjectPurchases {
-            get {
-                return this.tableProjectPurchases;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public WorkshopTasksDoneDataTable WorkshopTasksDone {
             get {
                 return this.tableWorkshopTasksDone;
@@ -369,6 +359,16 @@ namespace DataAccessLayer {
         public CompleteTaskInfoDataTable CompleteTaskInfo {
             get {
                 return this.tableCompleteTaskInfo;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ProjectPurchasesDataTable ProjectPurchases {
+            get {
+                return this.tableProjectPurchases;
             }
         }
         
@@ -472,9 +472,6 @@ namespace DataAccessLayer {
                 if ((ds.Tables["TakeFive"] != null)) {
                     base.Tables.Add(new TakeFiveDataTable(ds.Tables["TakeFive"]));
                 }
-                if ((ds.Tables["ProjectPurchases"] != null)) {
-                    base.Tables.Add(new ProjectPurchasesDataTable(ds.Tables["ProjectPurchases"]));
-                }
                 if ((ds.Tables["WorkshopTasksDone"] != null)) {
                     base.Tables.Add(new WorkshopTasksDoneDataTable(ds.Tables["WorkshopTasksDone"]));
                 }
@@ -492,6 +489,9 @@ namespace DataAccessLayer {
                 }
                 if ((ds.Tables["CompleteTaskInfo"] != null)) {
                     base.Tables.Add(new CompleteTaskInfoDataTable(ds.Tables["CompleteTaskInfo"]));
+                }
+                if ((ds.Tables["ProjectPurchases"] != null)) {
+                    base.Tables.Add(new ProjectPurchasesDataTable(ds.Tables["ProjectPurchases"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -592,12 +592,6 @@ namespace DataAccessLayer {
                     this.tableTakeFive.InitVars();
                 }
             }
-            this.tableProjectPurchases = ((ProjectPurchasesDataTable)(base.Tables["ProjectPurchases"]));
-            if ((initTable == true)) {
-                if ((this.tableProjectPurchases != null)) {
-                    this.tableProjectPurchases.InitVars();
-                }
-            }
             this.tableWorkshopTasksDone = ((WorkshopTasksDoneDataTable)(base.Tables["WorkshopTasksDone"]));
             if ((initTable == true)) {
                 if ((this.tableWorkshopTasksDone != null)) {
@@ -632,6 +626,12 @@ namespace DataAccessLayer {
             if ((initTable == true)) {
                 if ((this.tableCompleteTaskInfo != null)) {
                     this.tableCompleteTaskInfo.InitVars();
+                }
+            }
+            this.tableProjectPurchases = ((ProjectPurchasesDataTable)(base.Tables["ProjectPurchases"]));
+            if ((initTable == true)) {
+                if ((this.tableProjectPurchases != null)) {
+                    this.tableProjectPurchases.InitVars();
                 }
             }
             this.relationAssignedTask_ibfk_1 = this.Relations["AssignedTask_ibfk_1"];
@@ -682,8 +682,6 @@ namespace DataAccessLayer {
             base.Tables.Add(this.tableTakeFiveResponse);
             this.tableTakeFive = new TakeFiveDataTable();
             base.Tables.Add(this.tableTakeFive);
-            this.tableProjectPurchases = new ProjectPurchasesDataTable();
-            base.Tables.Add(this.tableProjectPurchases);
             this.tableWorkshopTasksDone = new WorkshopTasksDoneDataTable();
             base.Tables.Add(this.tableWorkshopTasksDone);
             this.tableProjectTasksDone = new ProjectTasksDoneDataTable();
@@ -696,6 +694,8 @@ namespace DataAccessLayer {
             base.Tables.Add(this.tableSponsors);
             this.tableCompleteTaskInfo = new CompleteTaskInfoDataTable();
             base.Tables.Add(this.tableCompleteTaskInfo);
+            this.tableProjectPurchases = new ProjectPurchasesDataTable();
+            base.Tables.Add(this.tableProjectPurchases);
             this.relationAssignedTask_ibfk_1 = new global::System.Data.DataRelation("AssignedTask_ibfk_1", new global::System.Data.DataColumn[] {
                         this.tableUser.User_UsernameColumn}, new global::System.Data.DataColumn[] {
                         this.tableAssignedTask.User_Username_AssignedByColumn}, false);
@@ -830,12 +830,6 @@ namespace DataAccessLayer {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeProjectPurchases() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeWorkshopTasksDone() {
             return false;
         }
@@ -867,6 +861,12 @@ namespace DataAccessLayer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeCompleteTaskInfo() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeProjectPurchases() {
             return false;
         }
         
@@ -959,9 +959,6 @@ namespace DataAccessLayer {
         public delegate void TakeFiveRowChangeEventHandler(object sender, TakeFiveRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void ProjectPurchasesRowChangeEventHandler(object sender, ProjectPurchasesRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void WorkshopTasksDoneRowChangeEventHandler(object sender, WorkshopTasksDoneRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -978,6 +975,9 @@ namespace DataAccessLayer {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void CompleteTaskInfoRowChangeEventHandler(object sender, CompleteTaskInfoRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void ProjectPurchasesRowChangeEventHandler(object sender, ProjectPurchasesRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -4908,446 +4908,6 @@ namespace DataAccessLayer {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "TakeFiveDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ProjectPurchasesDataTable : global::System.Data.TypedTableBase<ProjectPurchasesRow> {
-            
-            private global::System.Data.DataColumn columnProject_UID;
-            
-            private global::System.Data.DataColumn columnProject_YearMade;
-            
-            private global::System.Data.DataColumn columnProject_Name;
-            
-            private global::System.Data.DataColumn columnProject_Description;
-            
-            private global::System.Data.DataColumn columnProject_Status;
-            
-            private global::System.Data.DataColumn columnProject_StatusChangedDate;
-            
-            private global::System.Data.DataColumn columnWorkType_UID;
-            
-            private global::System.Data.DataColumn columnWorkType_Name;
-            
-            private global::System.Data.DataColumn columnWorkType_Status;
-            
-            private global::System.Data.DataColumn columnWorkType_StatusChangedDate;
-            
-            private global::System.Data.DataColumn columnPurchase_TotalPrice;
-            
-            private global::System.Data.DataColumn columnPurchase_Good;
-            
-            private global::System.Data.DataColumn columnPurchase_Supplier;
-            
-            private global::System.Data.DataColumn columnPurchase_DatePurchased;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectPurchasesDataTable() {
-                this.TableName = "ProjectPurchases";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ProjectPurchasesDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected ProjectPurchasesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Project_UIDColumn {
-                get {
-                    return this.columnProject_UID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Project_YearMadeColumn {
-                get {
-                    return this.columnProject_YearMade;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Project_NameColumn {
-                get {
-                    return this.columnProject_Name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Project_DescriptionColumn {
-                get {
-                    return this.columnProject_Description;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Project_StatusColumn {
-                get {
-                    return this.columnProject_Status;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Project_StatusChangedDateColumn {
-                get {
-                    return this.columnProject_StatusChangedDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn WorkType_UIDColumn {
-                get {
-                    return this.columnWorkType_UID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn WorkType_NameColumn {
-                get {
-                    return this.columnWorkType_Name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn WorkType_StatusColumn {
-                get {
-                    return this.columnWorkType_Status;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn WorkType_StatusChangedDateColumn {
-                get {
-                    return this.columnWorkType_StatusChangedDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Purchase_TotalPriceColumn {
-                get {
-                    return this.columnPurchase_TotalPrice;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Purchase_GoodColumn {
-                get {
-                    return this.columnPurchase_Good;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Purchase_SupplierColumn {
-                get {
-                    return this.columnPurchase_Supplier;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Purchase_DatePurchasedColumn {
-                get {
-                    return this.columnPurchase_DatePurchased;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectPurchasesRow this[int index] {
-                get {
-                    return ((ProjectPurchasesRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProjectPurchasesRowChangeEventHandler ProjectPurchasesRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProjectPurchasesRowChangeEventHandler ProjectPurchasesRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProjectPurchasesRowChangeEventHandler ProjectPurchasesRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ProjectPurchasesRowChangeEventHandler ProjectPurchasesRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddProjectPurchasesRow(ProjectPurchasesRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectPurchasesRow AddProjectPurchasesRow(int Project_YearMade, string Project_Name, string Project_Description, string Project_Status, System.DateTime Project_StatusChangedDate, bool WorkType_UID, string WorkType_Name, string WorkType_Status, System.DateTime WorkType_StatusChangedDate, decimal Purchase_TotalPrice, string Purchase_Good, string Purchase_Supplier, System.DateTime Purchase_DatePurchased) {
-                ProjectPurchasesRow rowProjectPurchasesRow = ((ProjectPurchasesRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        Project_YearMade,
-                        Project_Name,
-                        Project_Description,
-                        Project_Status,
-                        Project_StatusChangedDate,
-                        WorkType_UID,
-                        WorkType_Name,
-                        WorkType_Status,
-                        WorkType_StatusChangedDate,
-                        Purchase_TotalPrice,
-                        Purchase_Good,
-                        Purchase_Supplier,
-                        Purchase_DatePurchased};
-                rowProjectPurchasesRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowProjectPurchasesRow);
-                return rowProjectPurchasesRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                ProjectPurchasesDataTable cln = ((ProjectPurchasesDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new ProjectPurchasesDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnProject_UID = base.Columns["Project_UID"];
-                this.columnProject_YearMade = base.Columns["Project_YearMade"];
-                this.columnProject_Name = base.Columns["Project_Name"];
-                this.columnProject_Description = base.Columns["Project_Description"];
-                this.columnProject_Status = base.Columns["Project_Status"];
-                this.columnProject_StatusChangedDate = base.Columns["Project_StatusChangedDate"];
-                this.columnWorkType_UID = base.Columns["WorkType_UID"];
-                this.columnWorkType_Name = base.Columns["WorkType_Name"];
-                this.columnWorkType_Status = base.Columns["WorkType_Status"];
-                this.columnWorkType_StatusChangedDate = base.Columns["WorkType_StatusChangedDate"];
-                this.columnPurchase_TotalPrice = base.Columns["Purchase_TotalPrice"];
-                this.columnPurchase_Good = base.Columns["Purchase_Good"];
-                this.columnPurchase_Supplier = base.Columns["Purchase_Supplier"];
-                this.columnPurchase_DatePurchased = base.Columns["Purchase_DatePurchased"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnProject_UID = new global::System.Data.DataColumn("Project_UID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProject_UID);
-                this.columnProject_YearMade = new global::System.Data.DataColumn("Project_YearMade", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProject_YearMade);
-                this.columnProject_Name = new global::System.Data.DataColumn("Project_Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProject_Name);
-                this.columnProject_Description = new global::System.Data.DataColumn("Project_Description", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProject_Description);
-                this.columnProject_Status = new global::System.Data.DataColumn("Project_Status", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProject_Status);
-                this.columnProject_StatusChangedDate = new global::System.Data.DataColumn("Project_StatusChangedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProject_StatusChangedDate);
-                this.columnWorkType_UID = new global::System.Data.DataColumn("WorkType_UID", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWorkType_UID);
-                this.columnWorkType_Name = new global::System.Data.DataColumn("WorkType_Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWorkType_Name);
-                this.columnWorkType_Status = new global::System.Data.DataColumn("WorkType_Status", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWorkType_Status);
-                this.columnWorkType_StatusChangedDate = new global::System.Data.DataColumn("WorkType_StatusChangedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWorkType_StatusChangedDate);
-                this.columnPurchase_TotalPrice = new global::System.Data.DataColumn("Purchase_TotalPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPurchase_TotalPrice);
-                this.columnPurchase_Good = new global::System.Data.DataColumn("Purchase_Good", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPurchase_Good);
-                this.columnPurchase_Supplier = new global::System.Data.DataColumn("Purchase_Supplier", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPurchase_Supplier);
-                this.columnPurchase_DatePurchased = new global::System.Data.DataColumn("Purchase_DatePurchased", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPurchase_DatePurchased);
-                this.columnProject_UID.AutoIncrement = true;
-                this.columnProject_UID.AutoIncrementSeed = -1;
-                this.columnProject_UID.AutoIncrementStep = -1;
-                this.columnProject_UID.AllowDBNull = false;
-                this.columnProject_Name.MaxLength = 255;
-                this.columnProject_Description.MaxLength = 255;
-                this.columnProject_Status.MaxLength = 255;
-                this.columnWorkType_Name.MaxLength = 255;
-                this.columnWorkType_Status.MaxLength = 255;
-                this.columnPurchase_Good.MaxLength = 255;
-                this.columnPurchase_Supplier.MaxLength = 255;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectPurchasesRow NewProjectPurchasesRow() {
-                return ((ProjectPurchasesRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ProjectPurchasesRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(ProjectPurchasesRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.ProjectPurchasesRowChanged != null)) {
-                    this.ProjectPurchasesRowChanged(this, new ProjectPurchasesRowChangeEvent(((ProjectPurchasesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.ProjectPurchasesRowChanging != null)) {
-                    this.ProjectPurchasesRowChanging(this, new ProjectPurchasesRowChangeEvent(((ProjectPurchasesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.ProjectPurchasesRowDeleted != null)) {
-                    this.ProjectPurchasesRowDeleted(this, new ProjectPurchasesRowChangeEvent(((ProjectPurchasesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.ProjectPurchasesRowDeleting != null)) {
-                    this.ProjectPurchasesRowDeleting(this, new ProjectPurchasesRowChangeEvent(((ProjectPurchasesRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveProjectPurchasesRow(ProjectPurchasesRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                NuRacingDataSet ds = new NuRacingDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ProjectPurchasesDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -9876,6 +9436,456 @@ namespace DataAccessLayer {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ProjectPurchasesDataTable : global::System.Data.TypedTableBase<ProjectPurchasesRow> {
+            
+            private global::System.Data.DataColumn columnProject_UID;
+            
+            private global::System.Data.DataColumn columnProject_YearMade;
+            
+            private global::System.Data.DataColumn columnProject_Name;
+            
+            private global::System.Data.DataColumn columnProject_Description;
+            
+            private global::System.Data.DataColumn columnProject_Status;
+            
+            private global::System.Data.DataColumn columnProject_StatusChangedDate;
+            
+            private global::System.Data.DataColumn columnWorkType_UID;
+            
+            private global::System.Data.DataColumn columnWorkType_Name;
+            
+            private global::System.Data.DataColumn columnWorkType_Status;
+            
+            private global::System.Data.DataColumn columnWorkType_StatusChangedDate;
+            
+            private global::System.Data.DataColumn columnPurchase_TotalPrice;
+            
+            private global::System.Data.DataColumn columnPurchase_Good;
+            
+            private global::System.Data.DataColumn columnPurchase_Supplier;
+            
+            private global::System.Data.DataColumn columnPurchase_DatePurchased;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ProjectPurchasesDataTable() {
+                this.TableName = "ProjectPurchases";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ProjectPurchasesDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected ProjectPurchasesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Project_UIDColumn {
+                get {
+                    return this.columnProject_UID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Project_YearMadeColumn {
+                get {
+                    return this.columnProject_YearMade;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Project_NameColumn {
+                get {
+                    return this.columnProject_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Project_DescriptionColumn {
+                get {
+                    return this.columnProject_Description;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Project_StatusColumn {
+                get {
+                    return this.columnProject_Status;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Project_StatusChangedDateColumn {
+                get {
+                    return this.columnProject_StatusChangedDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WorkType_UIDColumn {
+                get {
+                    return this.columnWorkType_UID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WorkType_NameColumn {
+                get {
+                    return this.columnWorkType_Name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WorkType_StatusColumn {
+                get {
+                    return this.columnWorkType_Status;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn WorkType_StatusChangedDateColumn {
+                get {
+                    return this.columnWorkType_StatusChangedDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Purchase_TotalPriceColumn {
+                get {
+                    return this.columnPurchase_TotalPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Purchase_GoodColumn {
+                get {
+                    return this.columnPurchase_Good;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Purchase_SupplierColumn {
+                get {
+                    return this.columnPurchase_Supplier;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Purchase_DatePurchasedColumn {
+                get {
+                    return this.columnPurchase_DatePurchased;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ProjectPurchasesRow this[int index] {
+                get {
+                    return ((ProjectPurchasesRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ProjectPurchasesRowChangeEventHandler ProjectPurchasesRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ProjectPurchasesRowChangeEventHandler ProjectPurchasesRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ProjectPurchasesRowChangeEventHandler ProjectPurchasesRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event ProjectPurchasesRowChangeEventHandler ProjectPurchasesRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddProjectPurchasesRow(ProjectPurchasesRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ProjectPurchasesRow AddProjectPurchasesRow(int Project_YearMade, string Project_Name, string Project_Description, string Project_Status, System.DateTime Project_StatusChangedDate, bool WorkType_UID, string WorkType_Name, string WorkType_Status, System.DateTime WorkType_StatusChangedDate, decimal Purchase_TotalPrice, string Purchase_Good, string Purchase_Supplier, System.DateTime Purchase_DatePurchased) {
+                ProjectPurchasesRow rowProjectPurchasesRow = ((ProjectPurchasesRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Project_YearMade,
+                        Project_Name,
+                        Project_Description,
+                        Project_Status,
+                        Project_StatusChangedDate,
+                        WorkType_UID,
+                        WorkType_Name,
+                        WorkType_Status,
+                        WorkType_StatusChangedDate,
+                        Purchase_TotalPrice,
+                        Purchase_Good,
+                        Purchase_Supplier,
+                        Purchase_DatePurchased};
+                rowProjectPurchasesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowProjectPurchasesRow);
+                return rowProjectPurchasesRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ProjectPurchasesRow FindByProject_UID(int Project_UID) {
+                return ((ProjectPurchasesRow)(this.Rows.Find(new object[] {
+                            Project_UID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ProjectPurchasesDataTable cln = ((ProjectPurchasesDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ProjectPurchasesDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnProject_UID = base.Columns["Project_UID"];
+                this.columnProject_YearMade = base.Columns["Project_YearMade"];
+                this.columnProject_Name = base.Columns["Project_Name"];
+                this.columnProject_Description = base.Columns["Project_Description"];
+                this.columnProject_Status = base.Columns["Project_Status"];
+                this.columnProject_StatusChangedDate = base.Columns["Project_StatusChangedDate"];
+                this.columnWorkType_UID = base.Columns["WorkType_UID"];
+                this.columnWorkType_Name = base.Columns["WorkType_Name"];
+                this.columnWorkType_Status = base.Columns["WorkType_Status"];
+                this.columnWorkType_StatusChangedDate = base.Columns["WorkType_StatusChangedDate"];
+                this.columnPurchase_TotalPrice = base.Columns["Purchase_TotalPrice"];
+                this.columnPurchase_Good = base.Columns["Purchase_Good"];
+                this.columnPurchase_Supplier = base.Columns["Purchase_Supplier"];
+                this.columnPurchase_DatePurchased = base.Columns["Purchase_DatePurchased"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnProject_UID = new global::System.Data.DataColumn("Project_UID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject_UID);
+                this.columnProject_YearMade = new global::System.Data.DataColumn("Project_YearMade", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject_YearMade);
+                this.columnProject_Name = new global::System.Data.DataColumn("Project_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject_Name);
+                this.columnProject_Description = new global::System.Data.DataColumn("Project_Description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject_Description);
+                this.columnProject_Status = new global::System.Data.DataColumn("Project_Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject_Status);
+                this.columnProject_StatusChangedDate = new global::System.Data.DataColumn("Project_StatusChangedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProject_StatusChangedDate);
+                this.columnWorkType_UID = new global::System.Data.DataColumn("WorkType_UID", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkType_UID);
+                this.columnWorkType_Name = new global::System.Data.DataColumn("WorkType_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkType_Name);
+                this.columnWorkType_Status = new global::System.Data.DataColumn("WorkType_Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkType_Status);
+                this.columnWorkType_StatusChangedDate = new global::System.Data.DataColumn("WorkType_StatusChangedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnWorkType_StatusChangedDate);
+                this.columnPurchase_TotalPrice = new global::System.Data.DataColumn("Purchase_TotalPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPurchase_TotalPrice);
+                this.columnPurchase_Good = new global::System.Data.DataColumn("Purchase_Good", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPurchase_Good);
+                this.columnPurchase_Supplier = new global::System.Data.DataColumn("Purchase_Supplier", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPurchase_Supplier);
+                this.columnPurchase_DatePurchased = new global::System.Data.DataColumn("Purchase_DatePurchased", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPurchase_DatePurchased);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnProject_UID}, true));
+                this.columnProject_UID.AutoIncrement = true;
+                this.columnProject_UID.AutoIncrementSeed = -1;
+                this.columnProject_UID.AutoIncrementStep = -1;
+                this.columnProject_UID.AllowDBNull = false;
+                this.columnProject_UID.Unique = true;
+                this.columnProject_Name.MaxLength = 255;
+                this.columnProject_Description.MaxLength = 255;
+                this.columnProject_Status.MaxLength = 255;
+                this.columnWorkType_Name.MaxLength = 255;
+                this.columnWorkType_Status.MaxLength = 255;
+                this.columnPurchase_Good.MaxLength = 255;
+                this.columnPurchase_Supplier.MaxLength = 255;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ProjectPurchasesRow NewProjectPurchasesRow() {
+                return ((ProjectPurchasesRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ProjectPurchasesRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ProjectPurchasesRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ProjectPurchasesRowChanged != null)) {
+                    this.ProjectPurchasesRowChanged(this, new ProjectPurchasesRowChangeEvent(((ProjectPurchasesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ProjectPurchasesRowChanging != null)) {
+                    this.ProjectPurchasesRowChanging(this, new ProjectPurchasesRowChangeEvent(((ProjectPurchasesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ProjectPurchasesRowDeleted != null)) {
+                    this.ProjectPurchasesRowDeleted(this, new ProjectPurchasesRowChangeEvent(((ProjectPurchasesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ProjectPurchasesRowDeleting != null)) {
+                    this.ProjectPurchasesRowDeleting(this, new ProjectPurchasesRowChangeEvent(((ProjectPurchasesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveProjectPurchasesRow(ProjectPurchasesRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                NuRacingDataSet ds = new NuRacingDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ProjectPurchasesDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class UserRow : global::System.Data.DataRow {
@@ -12040,401 +12050,6 @@ namespace DataAccessLayer {
                 else {
                     return ((TakeFiveResponseRow[])(base.GetChildRows(this.Table.ChildRelations["TakeFiveResponse_ibfk_1"])));
                 }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class ProjectPurchasesRow : global::System.Data.DataRow {
-            
-            private ProjectPurchasesDataTable tableProjectPurchases;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ProjectPurchasesRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableProjectPurchases = ((ProjectPurchasesDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Project_UID {
-                get {
-                    return ((int)(this[this.tableProjectPurchases.Project_UIDColumn]));
-                }
-                set {
-                    this[this.tableProjectPurchases.Project_UIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Project_YearMade {
-                get {
-                    try {
-                        return ((int)(this[this.tableProjectPurchases.Project_YearMadeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Project_YearMade\' in table \'ProjectPurchases\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectPurchases.Project_YearMadeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Project_Name {
-                get {
-                    try {
-                        return ((string)(this[this.tableProjectPurchases.Project_NameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Project_Name\' in table \'ProjectPurchases\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectPurchases.Project_NameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Project_Description {
-                get {
-                    try {
-                        return ((string)(this[this.tableProjectPurchases.Project_DescriptionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Project_Description\' in table \'ProjectPurchases\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectPurchases.Project_DescriptionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Project_Status {
-                get {
-                    try {
-                        return ((string)(this[this.tableProjectPurchases.Project_StatusColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Project_Status\' in table \'ProjectPurchases\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectPurchases.Project_StatusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Project_StatusChangedDate {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableProjectPurchases.Project_StatusChangedDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Project_StatusChangedDate\' in table \'ProjectPurchases\' is D" +
-                                "BNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectPurchases.Project_StatusChangedDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool WorkType_UID {
-                get {
-                    try {
-                        return ((bool)(this[this.tableProjectPurchases.WorkType_UIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_UID\' in table \'ProjectPurchases\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectPurchases.WorkType_UIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string WorkType_Name {
-                get {
-                    try {
-                        return ((string)(this[this.tableProjectPurchases.WorkType_NameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_Name\' in table \'ProjectPurchases\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectPurchases.WorkType_NameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string WorkType_Status {
-                get {
-                    try {
-                        return ((string)(this[this.tableProjectPurchases.WorkType_StatusColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_Status\' in table \'ProjectPurchases\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectPurchases.WorkType_StatusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime WorkType_StatusChangedDate {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableProjectPurchases.WorkType_StatusChangedDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_StatusChangedDate\' in table \'ProjectPurchases\' is " +
-                                "DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectPurchases.WorkType_StatusChangedDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Purchase_TotalPrice {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableProjectPurchases.Purchase_TotalPriceColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Purchase_TotalPrice\' in table \'ProjectPurchases\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectPurchases.Purchase_TotalPriceColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Purchase_Good {
-                get {
-                    try {
-                        return ((string)(this[this.tableProjectPurchases.Purchase_GoodColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Purchase_Good\' in table \'ProjectPurchases\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectPurchases.Purchase_GoodColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Purchase_Supplier {
-                get {
-                    try {
-                        return ((string)(this[this.tableProjectPurchases.Purchase_SupplierColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Purchase_Supplier\' in table \'ProjectPurchases\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectPurchases.Purchase_SupplierColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Purchase_DatePurchased {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableProjectPurchases.Purchase_DatePurchasedColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Purchase_DatePurchased\' in table \'ProjectPurchases\' is DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tableProjectPurchases.Purchase_DatePurchasedColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsProject_YearMadeNull() {
-                return this.IsNull(this.tableProjectPurchases.Project_YearMadeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetProject_YearMadeNull() {
-                this[this.tableProjectPurchases.Project_YearMadeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsProject_NameNull() {
-                return this.IsNull(this.tableProjectPurchases.Project_NameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetProject_NameNull() {
-                this[this.tableProjectPurchases.Project_NameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsProject_DescriptionNull() {
-                return this.IsNull(this.tableProjectPurchases.Project_DescriptionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetProject_DescriptionNull() {
-                this[this.tableProjectPurchases.Project_DescriptionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsProject_StatusNull() {
-                return this.IsNull(this.tableProjectPurchases.Project_StatusColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetProject_StatusNull() {
-                this[this.tableProjectPurchases.Project_StatusColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsProject_StatusChangedDateNull() {
-                return this.IsNull(this.tableProjectPurchases.Project_StatusChangedDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetProject_StatusChangedDateNull() {
-                this[this.tableProjectPurchases.Project_StatusChangedDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsWorkType_UIDNull() {
-                return this.IsNull(this.tableProjectPurchases.WorkType_UIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetWorkType_UIDNull() {
-                this[this.tableProjectPurchases.WorkType_UIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsWorkType_NameNull() {
-                return this.IsNull(this.tableProjectPurchases.WorkType_NameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetWorkType_NameNull() {
-                this[this.tableProjectPurchases.WorkType_NameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsWorkType_StatusNull() {
-                return this.IsNull(this.tableProjectPurchases.WorkType_StatusColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetWorkType_StatusNull() {
-                this[this.tableProjectPurchases.WorkType_StatusColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsWorkType_StatusChangedDateNull() {
-                return this.IsNull(this.tableProjectPurchases.WorkType_StatusChangedDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetWorkType_StatusChangedDateNull() {
-                this[this.tableProjectPurchases.WorkType_StatusChangedDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPurchase_TotalPriceNull() {
-                return this.IsNull(this.tableProjectPurchases.Purchase_TotalPriceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPurchase_TotalPriceNull() {
-                this[this.tableProjectPurchases.Purchase_TotalPriceColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPurchase_GoodNull() {
-                return this.IsNull(this.tableProjectPurchases.Purchase_GoodColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPurchase_GoodNull() {
-                this[this.tableProjectPurchases.Purchase_GoodColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPurchase_SupplierNull() {
-                return this.IsNull(this.tableProjectPurchases.Purchase_SupplierColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPurchase_SupplierNull() {
-                this[this.tableProjectPurchases.Purchase_SupplierColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPurchase_DatePurchasedNull() {
-                return this.IsNull(this.tableProjectPurchases.Purchase_DatePurchasedColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPurchase_DatePurchasedNull() {
-                this[this.tableProjectPurchases.Purchase_DatePurchasedColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -17593,6 +17208,401 @@ namespace DataAccessLayer {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ProjectPurchasesRow : global::System.Data.DataRow {
+            
+            private ProjectPurchasesDataTable tableProjectPurchases;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal ProjectPurchasesRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableProjectPurchases = ((ProjectPurchasesDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Project_UID {
+                get {
+                    return ((int)(this[this.tableProjectPurchases.Project_UIDColumn]));
+                }
+                set {
+                    this[this.tableProjectPurchases.Project_UIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Project_YearMade {
+                get {
+                    try {
+                        return ((int)(this[this.tableProjectPurchases.Project_YearMadeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Project_YearMade\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.Project_YearMadeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Project_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.Project_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Project_Name\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.Project_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Project_Description {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.Project_DescriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Project_Description\' in table \'ProjectPurchases\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.Project_DescriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Project_Status {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.Project_StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Project_Status\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.Project_StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Project_StatusChangedDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableProjectPurchases.Project_StatusChangedDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Project_StatusChangedDate\' in table \'ProjectPurchases\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.Project_StatusChangedDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool WorkType_UID {
+                get {
+                    try {
+                        return ((bool)(this[this.tableProjectPurchases.WorkType_UIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_UID\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.WorkType_UIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string WorkType_Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.WorkType_NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_Name\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.WorkType_NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string WorkType_Status {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.WorkType_StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_Status\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.WorkType_StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime WorkType_StatusChangedDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableProjectPurchases.WorkType_StatusChangedDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'WorkType_StatusChangedDate\' in table \'ProjectPurchases\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.WorkType_StatusChangedDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Purchase_TotalPrice {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableProjectPurchases.Purchase_TotalPriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Purchase_TotalPrice\' in table \'ProjectPurchases\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.Purchase_TotalPriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Purchase_Good {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.Purchase_GoodColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Purchase_Good\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.Purchase_GoodColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Purchase_Supplier {
+                get {
+                    try {
+                        return ((string)(this[this.tableProjectPurchases.Purchase_SupplierColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Purchase_Supplier\' in table \'ProjectPurchases\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.Purchase_SupplierColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Purchase_DatePurchased {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableProjectPurchases.Purchase_DatePurchasedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Purchase_DatePurchased\' in table \'ProjectPurchases\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableProjectPurchases.Purchase_DatePurchasedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProject_YearMadeNull() {
+                return this.IsNull(this.tableProjectPurchases.Project_YearMadeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProject_YearMadeNull() {
+                this[this.tableProjectPurchases.Project_YearMadeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProject_NameNull() {
+                return this.IsNull(this.tableProjectPurchases.Project_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProject_NameNull() {
+                this[this.tableProjectPurchases.Project_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProject_DescriptionNull() {
+                return this.IsNull(this.tableProjectPurchases.Project_DescriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProject_DescriptionNull() {
+                this[this.tableProjectPurchases.Project_DescriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProject_StatusNull() {
+                return this.IsNull(this.tableProjectPurchases.Project_StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProject_StatusNull() {
+                this[this.tableProjectPurchases.Project_StatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProject_StatusChangedDateNull() {
+                return this.IsNull(this.tableProjectPurchases.Project_StatusChangedDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProject_StatusChangedDateNull() {
+                this[this.tableProjectPurchases.Project_StatusChangedDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWorkType_UIDNull() {
+                return this.IsNull(this.tableProjectPurchases.WorkType_UIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWorkType_UIDNull() {
+                this[this.tableProjectPurchases.WorkType_UIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWorkType_NameNull() {
+                return this.IsNull(this.tableProjectPurchases.WorkType_NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWorkType_NameNull() {
+                this[this.tableProjectPurchases.WorkType_NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWorkType_StatusNull() {
+                return this.IsNull(this.tableProjectPurchases.WorkType_StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWorkType_StatusNull() {
+                this[this.tableProjectPurchases.WorkType_StatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsWorkType_StatusChangedDateNull() {
+                return this.IsNull(this.tableProjectPurchases.WorkType_StatusChangedDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetWorkType_StatusChangedDateNull() {
+                this[this.tableProjectPurchases.WorkType_StatusChangedDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPurchase_TotalPriceNull() {
+                return this.IsNull(this.tableProjectPurchases.Purchase_TotalPriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPurchase_TotalPriceNull() {
+                this[this.tableProjectPurchases.Purchase_TotalPriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPurchase_GoodNull() {
+                return this.IsNull(this.tableProjectPurchases.Purchase_GoodColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPurchase_GoodNull() {
+                this[this.tableProjectPurchases.Purchase_GoodColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPurchase_SupplierNull() {
+                return this.IsNull(this.tableProjectPurchases.Purchase_SupplierColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPurchase_SupplierNull() {
+                this[this.tableProjectPurchases.Purchase_SupplierColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPurchase_DatePurchasedNull() {
+                return this.IsNull(this.tableProjectPurchases.Purchase_DatePurchasedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPurchase_DatePurchasedNull() {
+                this[this.tableProjectPurchases.Purchase_DatePurchasedColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -17970,40 +17980,6 @@ namespace DataAccessLayer {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class ProjectPurchasesRowChangeEvent : global::System.EventArgs {
-            
-            private ProjectPurchasesRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectPurchasesRowChangeEvent(ProjectPurchasesRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ProjectPurchasesRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public class WorkshopTasksDoneRowChangeEvent : global::System.EventArgs {
             
             private WorkshopTasksDoneRow eventRow;
@@ -18190,6 +18166,40 @@ namespace DataAccessLayer {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public CompleteTaskInfoRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class ProjectPurchasesRowChangeEvent : global::System.EventArgs {
+            
+            private ProjectPurchasesRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ProjectPurchasesRowChangeEvent(ProjectPurchasesRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public ProjectPurchasesRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -26490,310 +26500,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ProjectPurchasesTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
-        
-        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
-        
-        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
-        
-        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public ProjectPurchasesTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ProjectPurchases";
-            tableMapping.ColumnMappings.Add("Project_UID", "Project_UID");
-            tableMapping.ColumnMappings.Add("Project_YearMade", "Project_YearMade");
-            tableMapping.ColumnMappings.Add("Project_Name", "Project_Name");
-            tableMapping.ColumnMappings.Add("Project_Description", "Project_Description");
-            tableMapping.ColumnMappings.Add("Project_Status", "Project_Status");
-            tableMapping.ColumnMappings.Add("Project_StatusChangedDate", "Project_StatusChangedDate");
-            tableMapping.ColumnMappings.Add("WorkType_UID", "WorkType_UID");
-            tableMapping.ColumnMappings.Add("WorkType_Name", "WorkType_Name");
-            tableMapping.ColumnMappings.Add("WorkType_Status", "WorkType_Status");
-            tableMapping.ColumnMappings.Add("WorkType_StatusChangedDate", "WorkType_StatusChangedDate");
-            tableMapping.ColumnMappings.Add("Purchase_TotalPrice", "Purchase_TotalPrice");
-            tableMapping.ColumnMappings.Add("Purchase_Good", "Purchase_Good");
-            tableMapping.ColumnMappings.Add("Purchase_Supplier", "Purchase_Supplier");
-            tableMapping.ColumnMappings.Add("Purchase_DatePurchased", "Purchase_DatePurchased");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.InsertCommand = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `ProjectPurchases` (`Project_YearMade`, `Project_Name`, `Project_Description`, `Project_Status`, `Project_StatusChangedDate`, `WorkType_UID`, `WorkType_Name`, `WorkType_Status`, `WorkType_StatusChangedDate`, `Purchase_TotalPrice`, `Purchase_Good`, `Purchase_Supplier`, `Purchase_DatePurchased`) VALUES (@Project_YearMade, @Project_Name, @Project_Description, @Project_Status, @Project_StatusChangedDate, @WorkType_UID, @WorkType_Name, @WorkType_Status, @WorkType_StatusChangedDate, @Purchase_TotalPrice, @Purchase_Good, @Purchase_Supplier, @Purchase_DatePurchased)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            global::MySql.Data.MySqlClient.MySqlParameter param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Project_YearMade";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Int32;
-            param.IsNullable = true;
-            param.SourceColumn = "Project_YearMade";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Project_Name";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Project_Name";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Project_Description";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Project_Description";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Project_Status";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Project_Status";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Project_StatusChangedDate";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
-            param.IsNullable = true;
-            param.SourceColumn = "Project_StatusChangedDate";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@WorkType_UID";
-            param.DbType = global::System.Data.DbType.SByte;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Byte;
-            param.IsNullable = true;
-            param.SourceColumn = "WorkType_UID";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@WorkType_Name";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "WorkType_Name";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@WorkType_Status";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "WorkType_Status";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@WorkType_StatusChangedDate";
-            param.DbType = global::System.Data.DbType.DateTime;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.DateTime;
-            param.IsNullable = true;
-            param.SourceColumn = "WorkType_StatusChangedDate";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Purchase_TotalPrice";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.NewDecimal;
-            param.IsNullable = true;
-            param.SourceColumn = "Purchase_TotalPrice";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Purchase_Good";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Purchase_Good";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Purchase_Supplier";
-            param.DbType = global::System.Data.DbType.String;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.VarChar;
-            param.IsNullable = true;
-            param.SourceColumn = "Purchase_Supplier";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::MySql.Data.MySqlClient.MySqlParameter();
-            param.ParameterName = "@Purchase_DatePurchased";
-            param.DbType = global::System.Data.DbType.Date;
-            param.MySqlDbType = global::MySql.Data.MySqlClient.MySqlDbType.Date;
-            param.IsNullable = true;
-            param.SourceColumn = "Purchase_DatePurchased";
-            this._adapter.InsertCommand.Parameters.Add(param);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
-            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.NuRacingConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
-            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT * FROM ProjectPurchases";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(NuRacingDataSet.ProjectPurchasesDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual NuRacingDataSet.ProjectPurchasesDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            NuRacingDataSet.ProjectPurchasesDataTable dataTable = new NuRacingDataSet.ProjectPurchasesDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(NuRacingDataSet.ProjectPurchasesDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(NuRacingDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "ProjectPurchases");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class WorkshopTasksDoneTableAdapter : global::System.ComponentModel.Component {
         
         private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
@@ -28369,6 +28075,186 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ProjectPurchasesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::MySql.Data.MySqlClient.MySqlDataAdapter _adapter;
+        
+        private global::MySql.Data.MySqlClient.MySqlConnection _connection;
+        
+        private global::MySql.Data.MySqlClient.MySqlTransaction _transaction;
+        
+        private global::MySql.Data.MySqlClient.MySqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public ProjectPurchasesTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::MySql.Data.MySqlClient.MySqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::MySql.Data.MySqlClient.MySqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::MySql.Data.MySqlClient.MySqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::MySql.Data.MySqlClient.MySqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::MySql.Data.MySqlClient.MySqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "ProjectPurchases";
+            tableMapping.ColumnMappings.Add("Project_UID", "Project_UID");
+            tableMapping.ColumnMappings.Add("Project_YearMade", "Project_YearMade");
+            tableMapping.ColumnMappings.Add("Project_Name", "Project_Name");
+            tableMapping.ColumnMappings.Add("Project_Description", "Project_Description");
+            tableMapping.ColumnMappings.Add("Project_Status", "Project_Status");
+            tableMapping.ColumnMappings.Add("Project_StatusChangedDate", "Project_StatusChangedDate");
+            tableMapping.ColumnMappings.Add("WorkType_UID", "WorkType_UID");
+            tableMapping.ColumnMappings.Add("WorkType_Name", "WorkType_Name");
+            tableMapping.ColumnMappings.Add("WorkType_Status", "WorkType_Status");
+            tableMapping.ColumnMappings.Add("WorkType_StatusChangedDate", "WorkType_StatusChangedDate");
+            tableMapping.ColumnMappings.Add("Purchase_TotalPrice", "Purchase_TotalPrice");
+            tableMapping.ColumnMappings.Add("Purchase_Good", "Purchase_Good");
+            tableMapping.ColumnMappings.Add("Purchase_Supplier", "Purchase_Supplier");
+            tableMapping.ColumnMappings.Add("Purchase_DatePurchased", "Purchase_DatePurchased");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::MySql.Data.MySqlClient.MySqlConnection();
+            this._connection.ConnectionString = global::DataAccessLayer.Properties.Settings.Default.NuRacingConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::MySql.Data.MySqlClient.MySqlCommand[1];
+            this._commandCollection[0] = new global::MySql.Data.MySqlClient.MySqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT * FROM ProjectPurchases";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(NuRacingDataSet.ProjectPurchasesDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual NuRacingDataSet.ProjectPurchasesDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            NuRacingDataSet.ProjectPurchasesDataTable dataTable = new NuRacingDataSet.ProjectPurchasesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -28401,8 +28287,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         private TakeFiveResponseTableAdapter _takeFiveResponseTableAdapter;
         
         private TakeFiveTableAdapter _takeFiveTableAdapter;
-        
-        private ProjectPurchasesTableAdapter _projectPurchasesTableAdapter;
         
         private PasswordResetRequestTableAdapter _passwordResetRequestTableAdapter;
         
@@ -28580,20 +28464,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public ProjectPurchasesTableAdapter ProjectPurchasesTableAdapter {
-            get {
-                return this._projectPurchasesTableAdapter;
-            }
-            set {
-                this._projectPurchasesTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
         public PasswordResetRequestTableAdapter PasswordResetRequestTableAdapter {
             get {
                 return this._passwordResetRequestTableAdapter;
@@ -28666,10 +28536,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                             && (this._takeFiveTableAdapter.Connection != null))) {
                     return this._takeFiveTableAdapter.Connection;
                 }
-                if (((this._projectPurchasesTableAdapter != null) 
-                            && (this._projectPurchasesTableAdapter.Connection != null))) {
-                    return this._projectPurchasesTableAdapter.Connection;
-                }
                 if (((this._passwordResetRequestTableAdapter != null) 
                             && (this._passwordResetRequestTableAdapter.Connection != null))) {
                     return this._passwordResetRequestTableAdapter.Connection;
@@ -28718,9 +28584,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                     count = (count + 1);
                 }
                 if ((this._takeFiveTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._projectPurchasesTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._passwordResetRequestTableAdapter != null)) {
@@ -28797,15 +28660,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._passwordResetRequestTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._projectPurchasesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ProjectPurchases.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._projectPurchasesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -28920,14 +28774,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._projectPurchasesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ProjectPurchases.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._projectPurchasesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._sponsoredTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Sponsored.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -29015,14 +28861,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._sponsoredTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._projectPurchasesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ProjectPurchases.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._projectPurchasesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -29176,11 +29014,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
-            if (((this._projectPurchasesTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._projectPurchasesTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
-            }
             if (((this._passwordResetRequestTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._passwordResetRequestTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
@@ -29317,15 +29150,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                         adaptersWithAcceptChangesDuringUpdate.Add(this._takeFiveTableAdapter.Adapter);
                     }
                 }
-                if ((this._projectPurchasesTableAdapter != null)) {
-                    revertConnections.Add(this._projectPurchasesTableAdapter, this._projectPurchasesTableAdapter.Connection);
-                    this._projectPurchasesTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
-                    this._projectPurchasesTableAdapter.Transaction = ((global::MySql.Data.MySqlClient.MySqlTransaction)(workTransaction));
-                    if (this._projectPurchasesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._projectPurchasesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._projectPurchasesTableAdapter.Adapter);
-                    }
-                }
                 if ((this._passwordResetRequestTableAdapter != null)) {
                     revertConnections.Add(this._passwordResetRequestTableAdapter, this._passwordResetRequestTableAdapter.Connection);
                     this._passwordResetRequestTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(workConnection));
@@ -29436,10 +29260,6 @@ namespace DataAccessLayer.NuRacingDataSetTableAdapters {
                 if ((this._takeFiveTableAdapter != null)) {
                     this._takeFiveTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._takeFiveTableAdapter]));
                     this._takeFiveTableAdapter.Transaction = null;
-                }
-                if ((this._projectPurchasesTableAdapter != null)) {
-                    this._projectPurchasesTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._projectPurchasesTableAdapter]));
-                    this._projectPurchasesTableAdapter.Transaction = null;
                 }
                 if ((this._passwordResetRequestTableAdapter != null)) {
                     this._passwordResetRequestTableAdapter.Connection = ((global::MySql.Data.MySqlClient.MySqlConnection)(revertConnections[this._passwordResetRequestTableAdapter]));
