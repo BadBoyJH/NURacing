@@ -26,7 +26,7 @@
         
                 <asp:PlaceHolder runat="server" ID="createProjFrm"></asp:PlaceHolder>
                    
-                    <asp:Button runat="server" ID="updateSubmitBtn" Text="SUBMIT"  CssClass="takeFiveBtn"/>
+                    <asp:Button runat="server" ID="updateSubmitBtn" Text="SUBMIT"  CssClass="takeFiveBtn" OnClick="updateSubmitBtn_Click"/>
                     </div>
                           </div>
               

@@ -52,7 +52,7 @@ namespace NURacingWebsite
 
         protected void createProjBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/sectionmanagement.aspx");
+            Response.Redirect("/sectionmanagement.aspx?id=" + Request.QueryString["id"]);
         }
     }
 }
