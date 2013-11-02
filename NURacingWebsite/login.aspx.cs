@@ -46,5 +46,10 @@ namespace NURacingWebsite
                 error.Visible = true;
             }
         }
+
+        protected void btnPassword_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("resetPassword.aspx");
+        }
     }
 }
