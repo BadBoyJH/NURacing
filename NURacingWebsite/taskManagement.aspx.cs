@@ -32,6 +32,7 @@ namespace NURacingWebsite
         DropDownList taskDrpList = new DropDownList();
         Calendar dueDateCal = new Calendar();
         int workTypeID = 0;
+        Label taskSub = new Label();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -42,6 +43,7 @@ namespace NURacingWebsite
 
         protected void createTaskBtn_Click(object sender, EventArgs e)
         {
+            taskSub.Visible = false;
             taskFrm.Visible = true;
             createSubmitTaskBtn.Visible = true;
         }
@@ -69,10 +71,29 @@ namespace NURacingWebsite
             takeFiveChkBx.Checked = task.TakeFiveNeeded;
             taskStatusTxtBx.Text = task.TaskStatus;
             reasonTxtBx.Text = task.TaskIncompleteReason;
+
+        }
+
+        private void clearForm()
+        {
+            taskNameTxtBx.Text = "";
+            taskDescTxtBx.Text = "";
+            takeFiveChkBx.Checked = false;
+            workTypeDrpList.SelectedIndex = 0;
+            dueDateCal.SelectedDate = DateTime.Now;
+            taskStatusTxtBx.Text = "";
+            reasonTxtBx.Text = "";
         }
 
         private void createForm()
         {
+            taskFrm.Controls.Add(new LiteralControl("<p>"));
+            taskSub.Text = "Task created.";
+            taskSub.Visible = false;
+            taskSub.CssClass = "submitLbl";
+            taskFrm.Controls.Add(taskSub);
+            taskFrm.Controls.Add(new LiteralControl("</p>"));
+
             taskFrm.Controls.Add(new LiteralControl("<p>"));
             lblTaskDrpList.Text = "Which task? ";
             taskFrm.Controls.Add(lblTaskDrpList);
@@ -170,6 +191,7 @@ namespace NURacingWebsite
 
         protected void updateTaskBtn_Click(object sender, EventArgs e)
         {
+            taskSub.Visible = false;
             lblTaskDrpList.Visible = true;
             taskDrpList.Visible = true;
             taskFrm.Visible = true;
@@ -230,30 +252,10 @@ namespace NURacingWebsite
                 editTask.TaskIncompleteReason = reasonTxtBx.Text;
             }
 
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is TextBox)
-                {
-                    TextBox txtBx = ctrl as TextBox;
-
-                    if (txtBx.Text != "")
-                    {
-                        txtBx.Text = "";
-                    }
-
-                    if (taskDrpList.SelectedIndex != 0)
-                    {
-                        taskDrpList.SelectedIndex = 0;
-                    }
-
-                    if (assignDrpList.SelectedIndex != 0)
-                    {
-                        assignDrpList.SelectedIndex = 0;
-                    }
-                }
-            }
-
             editTask.updateDatabase();
+
+            taskSub.Text = "Task updated.";
+            taskSub.Visible = true;
         }
 
         protected void createSubmitTaskBtn_Click(object sender, EventArgs e)
@@ -289,6 +291,8 @@ namespace NURacingWebsite
 
             BusinessLogicLayer.AssignedTask.addTask(Membership.GetUser().UserName, addedUsers, 
                 workID, dueDateCal.SelectedDate, taskNameTxtBx.Text, taskDescTxtBx.Text, takeFiveChkBx.Checked);
+
+            taskSub.Visible = true;
         }
     }
 }
