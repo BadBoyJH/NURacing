@@ -22,5 +22,10 @@ namespace NURacingWebsite
             NewControl.InnerHtml = "<b>" + info.TaskDescription +  "</b>";
             taskDescLbl.Controls.Add(NewControl);
         }
+
+        protected void takeFiveBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/takefive.aspx");
+        }
     }
 }

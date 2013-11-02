@@ -20,6 +20,7 @@ namespace NURacingWebsite
         DropDownList projStatusDrpList = new DropDownList();
         Label lblCarNameList = new Label();
         DropDownList projNameDrpList = new DropDownList();
+        Label secSub = new Label();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,6 +31,13 @@ namespace NURacingWebsite
         {
             projNameDrpList.Items.Clear();
 
+            createProjFrm.Controls.Add(new LiteralControl("<p>"));
+            secSub.Text = "Section updated.";
+            secSub.Visible = false;
+            secSub.CssClass = "submitLbl";
+            createProjFrm.Controls.Add(secSub);
+            createProjFrm.Controls.Add(new LiteralControl("</p>"));
+
             foreach (ProjectInfo project in BusinessLogicLayer.ProjectInfo.getProjects())
             {
                 projNameDrpList.Items.Add(project.Name);
@@ -37,7 +45,7 @@ namespace NURacingWebsite
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
             lblCarNameList.Text = "Project Name: ";
             createProjFrm.Controls.Add(lblCarNameList);
-            foreach (WorkTypeInfo type in BusinessLogicLayer.WorkTypeInfo.getAllWorkTypes())
+            foreach (WorkTypeInfo type in BusinessLogicLayer.WorkTypeInfo.getProjectWorkTypes(Convert.ToInt32(Request.Params.Get("id"))))
             {
                 if (type.Project.Name != type.Name && type.Name != null)
                 {
@@ -71,6 +79,32 @@ namespace NURacingWebsite
             projStatusDrpList.Height = 25;
             createProjFrm.Controls.Add(new LiteralControl("</p> <br />"));
           
+        }
+
+        protected void updateSubmitBtn_Click(object sender, EventArgs e)
+        {
+            int workID = 0;
+            foreach (WorkTypeInfo type in BusinessLogicLayer.WorkTypeInfo.getAllWorkTypes())
+            {
+                if (type.Project.Name == type.Name)
+                {
+                    if (type.Project.Name == projNameDrpList.SelectedItem.ToString())
+                    {
+                        workID = type.WorkTypeID;
+                        break;
+                    }
+                }
+                else if (type.Project.Name + " - " + type.Name == projNameDrpList.SelectedItem.ToString())
+                {
+                    workID = type.WorkTypeID;
+                    break;
+                }
+            }
+
+            WorkType.ChangeStatus(workID, projStatusDrpList.SelectedItem.ToString());
+
+            secSub.Visible = true;
+
         }
 
     }
