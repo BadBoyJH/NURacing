@@ -711,14 +711,15 @@ text-transform:uppercase;
     width:100%;
     min-height:40%;
     height:auto;
-    font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
-    font-size:large;
     margin-top:10px;
     border:none;
     float:left;
     text-align:left;
     color: #A8A8A8;
     background-color:none;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 11pt;
+    text-shadow: 1px 1px 1px #000000;
 }
 .timeLogging {
     font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
