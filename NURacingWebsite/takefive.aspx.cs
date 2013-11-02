@@ -48,6 +48,7 @@ namespace NURacingWebsite
         {
             List<string> usernameList = new List<string>();
             List<TakeFiveResponse> responseList = new List<TakeFiveResponse>();
+            bool updatable = true;
 
             foreach (ListItem item in takeFiveUserLstBx.Items)
             {
@@ -57,6 +58,29 @@ namespace NURacingWebsite
                 }
             }
 
+            int workID = 0;
+
+            foreach (WorkTypeInfo type in BusinessLogicLayer.WorkTypeInfo.getAllWorkTypes())
+            {
+                if (type.Project.Name == type.Name)
+                {
+                    if (type.Project.Name == tkfvWorktypeDrpList.SelectedItem.ToString())
+                    {
+                        workID = type.WorkTypeID;
+                        break;
+                    }
+                }
+                else if (type.Project.Name + " - " + type.Name == tkfvWorktypeDrpList.SelectedItem.ToString())
+                {
+                    workID = type.WorkTypeID;
+                    break;
+                }
+            }
+
+            if (minWordTxtBx.Text != "")
+            {
+                updatable = false;
+            }
 
             if (red)
             {
@@ -154,34 +178,24 @@ namespace NURacingWebsite
 
                 else
                 {
-                    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "ALERT", "<script>alert('Please enter a reason(s) for your answers.')</script>");
+                    updatable = false;
                 }
             }
 
 
-            int workID = 0;
-
-            foreach (WorkTypeInfo type in BusinessLogicLayer.WorkTypeInfo.getAllWorkTypes())
+            if (updatable)
             {
-                if (type.Project.Name == type.Name)
-                {
-                    if (type.Project.Name == tkfvWorktypeDrpList.SelectedItem.ToString())
-                    {
-                        workID = type.WorkTypeID;
-                        break;
-                    }
-                }
-                else if (type.Project.Name + " - " + type.Name == tkfvWorktypeDrpList.SelectedItem.ToString())
-                {
-                    workID = type.WorkTypeID;
-                    break;
-                }
+                usernames = usernameList.ToArray();
+                responseArray = responseList.ToArray();
+
+                BusinessLogicLayer.Work.AddWork(usernames, takeFiveCal.SelectedDate, descTxtBx.Text, workID, Convert.ToInt32(minWordTxtBx.Text), responseArray);
+                takeFiveSubmit.Visible = true;
             }
-
-            usernames = usernameList.ToArray();
-            responseArray = responseList.ToArray();
-
-            BusinessLogicLayer.Work.AddWork(usernames, DateTime.Now, descTxtBx.Text, workID, 100, responseArray);
+            else
+            {
+                takeFiveSubmit.Visible = false;
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "ALERT", "<script>alert('Please enter a reason(s) for your answers.')</script>");
+            }
         }
     }
 }

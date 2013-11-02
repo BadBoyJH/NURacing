@@ -37,7 +37,7 @@
                         <br />
                         <p style="text-align: center">Welcome to the NURacing System. Please enter your login credentials below.</p>
                         <div id="loginForm" class="loginForm">
-                            <p runat="server" id="error" style="color:red; font-weight:bold;" visible="false">Wrong username/password</p>
+                            <p runat="server" id="error" class="submitLbl" visible="false">Wrong username/password</p>
                             <table border="0" style="margin-left: auto; margin-right: auto; text-align: right;">
                                 <tr>
                                     <td>
