@@ -94,22 +94,52 @@ namespace NURacingWebsite
             }
         }
 
-        private void showUpdateUser()
+        private void showUpdateUser(bool submit)
         {
             lblWhichUser.Visible = true;
             userDrpList.Visible = true;
             LblUserName.Visible = false;
             userNameTxtBx.Visible = false;
 
+            if (submit)
+            {
+                lblSubmit.Visible = true;
+            }
+            else
+            {
+                lblSubmit.Visible = false;
+            }
             createUserFrm.Visible = true;
             updateUserSubmitBtn.Visible = true;
             update = true;
             createUserSubmitBtn.Visible = false;
         }
 
+        private void showCreateUser(bool submit)
+        {
+            lblWhichUser.Visible = false;
+            userDrpList.Visible = false;
+            LblUserName.Visible = true;
+            userNameTxtBx.Visible = true;
+
+            if (submit)
+            {
+                lblSubmit.Visible = true;
+            }
+            else
+            {
+                lblSubmit.Visible = false;
+            }
+
+            createUserFrm.Visible = true;
+            updateUserSubmitBtn.Visible = false;
+            update = false;
+            createUserSubmitBtn.Visible = true;
+        }
+
         protected void btnUpdateUser_Click(object sender, EventArgs e)
         {
-            showUpdateUser();
+            showUpdateUser(false);
         }
 
         private void createForm(bool pageLoad)
@@ -397,8 +427,33 @@ namespace NURacingWebsite
             emailTxtBx.Text = user.Email;
         }
 
+        private void clearForm()
+        {
+
+            givenNameTxtBx.Text = "";
+            surnameTxtBx.Text = "";
+            stdNumTxtBx.Text = "";
+            gradYearTxtBx.Text = "";
+            degreeNameTxtBx.Text = "";
+            medicareNumTxtBx.Text = "";
+            allergiesTxtBx.Text = "";
+            medicalCondTxtBx.Text = "";
+            dietryReqTxtBx.Text = "";
+            indemSignChkBx.Checked = false;
+            SAEMemshpTxtBx.Text = "";
+            SAEExpDatDtPckr.SelectedDate = DateTime.Now;
+            CAMSMbrshpNum.Text = "";
+            CAMSLicTypeTxtBx.Text = "";
+            drivLicNumTxtBx.Text = "";
+            drivLicStateTxtBx.Text = "";
+            emerContNameTxtBx.Text = "";
+            emerContNumTxtBx.Text = "";
+            emailTxtBx.Text = "";
+        }
+
         protected void btnCreateUser_Click(object sender, EventArgs e)
         {
+            clearForm();
             createUserFrm.Visible = true;
             createUserSubmitBtn.Visible = true;
             updateUserSubmitBtn.Visible = false;
@@ -419,6 +474,8 @@ namespace NURacingWebsite
                     //Response.Redirect("UserManagement.aspx");
                     lblSubmit.Text = "User submitted.";
                     lblSubmit.Visible = true;
+                    clearForm();
+                    showCreateUser(true);
                 }
             }
             catch (ArgumentException ex)
@@ -549,13 +606,14 @@ namespace NURacingWebsite
                 editUser.updateDatabase();
                 lblSubmit.Text = "User updated.";
                 lblSubmit.Visible = true;
+                showUpdateUser(true);
             }
         }
 
 
         protected void chooseUserDrpLst_SelectedIndexChanged(object sender, EventArgs e)
         {
-            showUpdateUser();
+            showUpdateUser(false);
             createUserFrm.Visible = true;
             createUserSubmitBtn.Visible = true;
             fillForm();

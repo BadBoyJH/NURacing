@@ -61,9 +61,18 @@ namespace NURacingWebsite
                     break;
                 }
             }
-            
-            if (workID == 0)
+ 
+            foreach (Control ctrl in Page.Controls)
             {
+                if (ctrl is TextBox)
+                {
+                    TextBox txtBx = ctrl as TextBox;
+
+                    if (txtBx.Text != "")
+                    {
+                        txtBx.Text = "";
+                    }
+                }
             }
 
    
@@ -71,6 +80,8 @@ namespace NURacingWebsite
             BusinessLogicLayer.Purchase.addPurchase(Membership.GetUser().UserName, suppTxtBx.Text, goodTxtBx.Text, Convert.ToDecimal(Convert.ToString(priceTxtBx.Text).Replace("$", String.Empty)), purchaseCal.SelectedDate, workID);
 
             addedItem = true;
+
+            purchSub.Visible = true;
         }
     }
 }

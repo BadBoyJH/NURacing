@@ -896,7 +896,7 @@ text-transform:uppercase;
     vertical-align:middle;
 }
 
-.submitLbl {
+#submitLbl {
     font-weight:bold;
     color:red;
 }

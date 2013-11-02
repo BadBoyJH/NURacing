@@ -25,9 +25,13 @@ namespace NURacingWebsite
                 {
                     BusinessLogicLayer.User.resetPassword(usernameTxtBx.Text, emailTxtBx.Text); //Reset users password
 
-                    passwordResetFrm.Visible = false;
+                    resetHeader.Visible = false;
 
                     resetSuccess.Visible = true;
+
+                    passwordResetFrm.Visible = false;
+
+                    Response.AddHeader("REFRESH", "5;URL=login.aspx");
                 }
 
                 else

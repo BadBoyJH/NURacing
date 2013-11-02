@@ -32,31 +32,82 @@ namespace NURacingWebsite
         DropDownList taskDrpList = new DropDownList();
         Calendar dueDateCal = new Calendar();
         int workTypeID = 0;
+        Label taskSub = new Label();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            createForm();
             workTypeID = Convert.ToInt32(Request.Params.Get("id"));
+            createForm();
+            updateTaskBtn.Visible = (TaskInfo.getWorkTypeTasks(workTypeID).Count != 0);
         }
 
         protected void createTaskBtn_Click(object sender, EventArgs e)
         {
+            taskSub.Visible = false;
             taskFrm.Visible = true;
             createSubmitTaskBtn.Visible = true;
+        }
+
+        private void fillData()
+        {
+            int taskID = 0;
+
+            foreach (TaskInfo info in BusinessLogicLayer.TaskInfo.getTasks())
+            {
+                if (info.TaskName == taskDrpList.SelectedItem.ToString())
+                {
+                    taskID = info.TaskID;
+                    break;
+                }
+            }
+
+            BusinessLogicLayer.TaskInfo task = TaskInfo.getAssignedTask(taskID);
+            BusinessLogicLayer.WorkTypeInfo workTypeInfo = WorkTypeInfo.getWorkType(task.WorkTypeID);
+
+            workTypeDrpList.SelectedValue = workTypeInfo.Name == workTypeInfo.Project.Name ? workTypeInfo.Name : workTypeInfo.Project.Name + " - " + workTypeInfo.Name;
+
+            taskNameTxtBx.Text = task.TaskName;
+            taskDescTxtBx.Text = task.TaskDescription;
+            takeFiveChkBx.Checked = task.TakeFiveNeeded;
+            taskStatusTxtBx.Text = task.TaskStatus;
+            reasonTxtBx.Text = task.TaskIncompleteReason;
+
+        }
+
+        private void clearForm()
+        {
+            taskNameTxtBx.Text = "";
+            taskDescTxtBx.Text = "";
+            takeFiveChkBx.Checked = false;
+            workTypeDrpList.SelectedIndex = 0;
+            dueDateCal.SelectedDate = DateTime.Now;
+            taskStatusTxtBx.Text = "";
+            reasonTxtBx.Text = "";
         }
 
         private void createForm()
         {
             taskFrm.Controls.Add(new LiteralControl("<p>"));
+            taskSub.Text = "Task created.";
+            taskSub.Visible = false;
+            taskSub.CssClass = "submitLbl";
+            taskFrm.Controls.Add(taskSub);
+            taskFrm.Controls.Add(new LiteralControl("</p>"));
+
+            taskFrm.Controls.Add(new LiteralControl("<p>"));
             lblTaskDrpList.Text = "Which task? ";
             taskFrm.Controls.Add(lblTaskDrpList);
-            
+            taskDrpList.Items.Clear();
+
             
 
             foreach (TaskInfo info in BusinessLogicLayer.TaskInfo.getWorkTypeTasks(workTypeID))
             {
                 taskDrpList.Items.Add(info.TaskName);
             }
+
+            taskDrpList.SelectedIndexChanged += taskDrpList_SelectedIndexChanged;
+            taskDrpList.AutoPostBack = true;
 
             lblTaskDrpList.Visible = false;
             taskDrpList.Visible = false;
@@ -147,17 +198,23 @@ namespace NURacingWebsite
             taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
         }
 
+        void taskDrpList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            fillData();
+        }
+
         protected void updateTaskBtn_Click(object sender, EventArgs e)
         {
+            taskSub.Visible = false;
             lblTaskDrpList.Visible = true;
             taskDrpList.Visible = true;
             taskFrm.Visible = true;
+            fillData();
         }
 
         protected void updateSubmitBtn_Click(object sender, EventArgs e)
         {
             int taskID = 0;
-            int workID = 0;
 
             foreach (TaskInfo info in BusinessLogicLayer.TaskInfo.getTasks())
             {
@@ -176,13 +233,13 @@ namespace NURacingWebsite
                 {
                     if (type.Project.Name == workTypeDrpList.SelectedItem.ToString())
                     {
-                        workID = type.WorkTypeID;
+                        editTask.WorkTypeID = type.WorkTypeID;
                         break;
                     }
                 }
                 else if (type.Project.Name + " - " + type.Name == workTypeDrpList.SelectedItem.ToString())
                 {
-                    workID = type.WorkTypeID;
+                    editTask.WorkTypeID = type.WorkTypeID;
                     break;
                 }
             }
@@ -210,6 +267,9 @@ namespace NURacingWebsite
             }
 
             editTask.updateDatabase();
+
+            taskSub.Text = "Task updated.";
+            taskSub.Visible = true;
         }
 
         protected void createSubmitTaskBtn_Click(object sender, EventArgs e)
@@ -245,6 +305,8 @@ namespace NURacingWebsite
 
             BusinessLogicLayer.AssignedTask.addTask(Membership.GetUser().UserName, addedUsers, 
                 workID, dueDateCal.SelectedDate, taskNameTxtBx.Text, taskDescTxtBx.Text, takeFiveChkBx.Checked);
+
+            taskSub.Visible = true;
         }
     }
 }

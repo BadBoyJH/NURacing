@@ -30,12 +30,12 @@
                          
                         <div class="taskMngement">
                             
-                        <asp:PlaceHolder ID="taskFrm" runat="server" Visible="false"></asp:PlaceHolder>
+                        <asp:PlaceHolder ID="taskFrm" runat="server" Visible="false" />
                             <asp:Button runat="server" ID="createSubmitTaskBtn" Visible="false" Text="SUBMIT"  OnClick="createSubmitTaskBtn_Click" CssClass="takeFiveBtn"/>
                             <asp:Button runat="server" ID="updateSubmitBtn" Visible="false" Text="SUBMIT"  OnClick="updateSubmitBtn_Click" CssClass="takeFiveBtn"/>
-                            </div>
-                        <asp:Label ID="createTaskFrm" runat="server" CssClass="taskMngement"></asp:Label>
+                        </div>
                     
+                        <asp:Label ID="createTaskFrm" runat="server" CssClass="taskMngement" />
                     </div></form>
     </div>
 			<div class="col2">

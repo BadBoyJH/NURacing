@@ -304,7 +304,7 @@ namespace BusinessLogicLayer
         {
             if (UsernameExists(Username))
             {
-                if (Email.Equals(getEmail(Username)))
+                if (Email.ToLower().Equals(getEmail(Username.ToLower())))
                 {
                     PasswordResetRequestTableAdapter prrAdapter = new PasswordResetRequestTableAdapter();
                     NuRacingDataSet.PasswordResetRequestDataTable prrTable = prrAdapter.GetData();
@@ -382,7 +382,7 @@ namespace BusinessLogicLayer
 
             foreach (NuRacingDataSet.UserRow userRow in userTable.Rows)
             {
-                if (userRow.User_Username == Username)
+                if (userRow.User_Username.ToLower() == Username.ToLower())
                 {
                     byte[] salt = CreateSalt();
                     byte[] hash = HashPassword(newPassword, salt);
