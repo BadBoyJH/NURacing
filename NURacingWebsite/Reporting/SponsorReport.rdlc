@@ -458,6 +458,7 @@
                               <Value>=Fields!User_SAE_Expiry.Value</Value>
                               <Style>
                                 <FontSize>8.5pt</FontSize>
+                                <Format>dd/MM/yyyy</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -880,14 +881,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Project_UID">
+                    <Textbox Name="Project_Name">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Project_UID.Value</Value>
+                              <Value>=Fields!Project_Name.Value</Value>
                               <Style>
                                 <FontSize>8.5pt</FontSize>
                               </Style>
@@ -898,7 +899,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Project_UID</rd:DefaultName>
+                      <rd:DefaultName>Project_Name</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -2129,10 +2130,6 @@ Conds</Value>
           <DataField>Sponsored_UID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Project_UID">
-          <DataField>Project_UID</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
         <Field Name="User_Username">
           <DataField>User_Username</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -2248,6 +2245,34 @@ Conds</Value>
         <Field Name="User_LastLockoutDate">
           <DataField>User_LastLockoutDate</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Project_UID">
+          <DataField>Project_UID</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Project_YearMade">
+          <DataField>Project_YearMade</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Project_Name">
+          <DataField>Project_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Project_Description">
+          <DataField>Project_Description</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Project_Status">
+          <DataField>Project_Status</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Project_StatusChangedDate">
+          <DataField>Project_StatusChangedDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Project_Active">
+          <DataField>Project_Active</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

@@ -455,6 +455,7 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
+                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
@@ -693,6 +694,8 @@
                   </TablixMembers>
                 </TablixMember>
               </TablixMembers>
+              <FixedData>true</FixedData>
+              <KeepTogether>true</KeepTogether>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
@@ -998,10 +1001,6 @@
         <Field Name="Task_UID">
           <DataField>Task_UID</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="User_Username_AssignedTo">
-          <DataField>User_Username_AssignedTo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="User_Username_AssignedBy">
           <DataField>User_Username_AssignedBy</DataField>

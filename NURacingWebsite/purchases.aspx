@@ -22,7 +22,7 @@
                             <p>Purchased Good:
                                 <asp:TextBox runat="server" ID="goodTxtBx" CssClass="textareaPassword"></asp:TextBox></p>
                             <p>Project Section:
-                                <asp:DropDownList runat="server" ID="workTypeDrpList"></asp:DropDownList></p>
+                                <asp:DropDownList runat="server" ID="workTypeDrpList"></asp:DropDownList></p><br />
                             <p>Price:
                                 <asp:TextBox runat="server" ID="priceTxtBx" CssClass="textareaPassword"></asp:TextBox></p>
                             <p>Supplier:
