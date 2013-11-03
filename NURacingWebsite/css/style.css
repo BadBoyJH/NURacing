@@ -162,31 +162,34 @@ h6 { font-size: 14px; line-height: 14px;    color: #A8A8A8;}
 }
 
 .threecolhead .colmidhead {
-	right:25%;			
-	background:none;
-        	 		
+right:25%;			
+	background:none; 	
 }
 
 .threecolhead .collefthead {
 	right:50%;			
-	background: none;	
-
+	background: none;
 }
 
+
 .threecolhead .col1head {
-	width:auto;			
+	width:46%;			
 	left:102%;
      background-color:none;
+     text-align:center;
+
 }
 
 .threecolhead .col2head {
-	width:21%;			
-	left:31%;			
+width:21%;			
+	left:31%;	
+
+  	
 }
 
 .threecolhead .col3head {
 	width:21%;			
-	left:85%;			
+	left:85%;		
 }
 
 
@@ -201,7 +204,7 @@ body {
 	border:0;			
 	background: url("../images/background/bg_vertical_1.png") repeat;
 	text-align:center;
-    overflow-x: scroll;
+   
 	}
     
 .colmask {
@@ -234,6 +237,7 @@ body {
 	height: auto !important;
     min-height: 100%;
     text-align:center;
+    overflow:inherit;
 }
 
 .threecol {
@@ -281,6 +285,7 @@ body {
 }
 
 /* FOOTER */
+
 
 #footer {
    position:relative;
@@ -343,65 +348,43 @@ body {
 }
 
 
-/* LOGO HEADER (NOT VISIBLE ON LOGIN PAGE)*/
-
-#logo {
-	width: auto;
-	height: 70px;
-	margin-top: 32.5px;
-	float: left;	
-	margin-left:10%;
-}
-
-
 /* NAVIGATION (NOT VISIBLE ON LOGIN PAGE) */
 
 #menu {
-
-     position:relative;
+   position:relative;
     left:0px;
-    top:0px;
+    bottom:0px;
+    height:auto;
+    min-height:90px;
+    width:100%;
     clear:both;
     float:left;
-	height: auto;
-	width:100%;	
-    text-align:center;
-    margin-top:30px;
+  	background: none;
+    padding-top:10px;
 }
 
-#menu ul {
-    position: relative;
-    z-index: 300;
+
+/* MENU COMPATIBILITY WITH IE10*/
+#menu {
+   position:relative;
+   top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+   margin-top:30px;
 }
 
-#menu li {
-    float: left;
-    position: relative;
-	list-style:none;
-}
 
-#menu li a {
-	padding-left: 5px;
-    color: #EAEAEA;
-    display: block;
-    font-size: 35px;
-	line-height:30pt;
-	font-family:"Oswald", "Myriad Pro", "Trebuchet MS", sans-serif;
-	text-shadow:1px 1px 1px #000;
-	letter-spacing:0px;
-	text-transform: uppercase;
-	text-shadow: none;
-	float: left;
-}
+#menu a {
+        font-family: "Oswald", "Myriad Pro", "Trebuchet MS", sans-serif;
+        text-transform: uppercase;
+        text-shadow: none;
+        font-size: 35px;
+        line-height: 30pt;
+        color: #EAEAEA;
+        margin-left:15px;
+        vertical-align:middle;
+    }
 
-#menu li a > span > span {
-	display: block;
-    padding: 6px 0 8px 24px;
-    background: none;
-	float: left;
-}
 
-#menu li a:hover {
+#menu a:hover {
     color: #656565;
 	text-decoration: none;
 }
