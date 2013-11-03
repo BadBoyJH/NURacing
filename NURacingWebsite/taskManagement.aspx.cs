@@ -32,19 +32,37 @@ namespace NURacingWebsite
         Calendar dueDateCal = new Calendar();
         int workTypeID = 0;
         Label taskSub = new Label();
+        DropDownList taskStatDrpList = new DropDownList();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             workTypeID = Convert.ToInt32(Request.Params.Get("id"));
             createForm();
             updateTaskBtn.Visible = (TaskInfo.getWorkTypeTasks(workTypeID).Count != 0);
+
+            if (Request.Params.Get("create") == "true")
+            {
+                submitTask.Text = "Task created.";
+                submitTask.Visible = true;
+            }
+
+            if (Request.Params.Get("update") == "true")
+            {
+                submitTask.Text = "Task updated.";
+                submitTask.Visible = true;
+            }
         }
 
         protected void createTaskBtn_Click(object sender, EventArgs e)
         {
+            submitTask.Visible = false;
             taskSub.Visible = false;
+            lblTaskDrpList.Visible = false;
+            taskDrpList.Visible = false;
+            clearForm();
             taskFrm.Visible = true;
             createSubmitTaskBtn.Visible = true;
+            updateSubmitBtn.Visible = false;
         }
 
         private void fillData()
@@ -70,6 +88,8 @@ namespace NURacingWebsite
             takeFiveChkBx.Checked = task.TakeFiveNeeded;
             taskStatusTxtBx.Text = task.TaskStatus;
             reasonTxtBx.Text = task.TaskIncompleteReason;
+
+            submitTask.Visible = false;
 
         }
 
@@ -190,12 +210,33 @@ namespace NURacingWebsite
             assignDrpList.BorderStyle = BorderStyle.None;
             taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
+            taskStatDrpList.Items.Clear();
+            taskStatDrpList.Items.Add("Not Started");
+            taskStatDrpList.Items.Add("Planning");
+            taskStatDrpList.Items.Add("Designing");
+            taskStatDrpList.Items.Add("Design Completed");
+            taskStatDrpList.Items.Add("Building Commenced");
+            taskStatDrpList.Items.Add("Bulding Finished");
+            taskStatDrpList.Items.Add("Completed");
+            taskStatDrpList.Items.Add("Fit and Finish Completed");
+            taskStatDrpList.Items.Add("Ready For Assembly");
+            taskStatDrpList.Items.Add("Testing");
+            taskStatDrpList.Items.Add("Complete");
+            taskStatDrpList.Items.Add("Ongoing");
+            taskStatDrpList.Items.Add("On Hold");
+
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblTaskStatus.Text = "Task Status: ";
+            lblTaskStatus.Text = "Set Project Status: ";
             taskFrm.Controls.Add(lblTaskStatus);
-            taskFrm.Controls.Add(taskStatusTxtBx);
-            taskStatusTxtBx.CssClass = "textareaPassword";
-            taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            taskFrm.Controls.Add(taskStatDrpList);
+            taskStatDrpList.CssClass = "drpList";
+            taskStatDrpList.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
+            taskStatDrpList.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
+            taskStatDrpList.Font.Name = "Lucida Sans Unicode";
+            taskStatDrpList.Font.Size = 11;
+            taskStatDrpList.BorderStyle = BorderStyle.None;
+            taskStatDrpList.Height = 25;
+            taskFrm.Controls.Add(new LiteralControl("</p> "));
         }
 
         void taskDrpList_SelectedIndexChanged(object sender, EventArgs e)
@@ -205,10 +246,15 @@ namespace NURacingWebsite
 
         protected void updateTaskBtn_Click(object sender, EventArgs e)
         {
+            lblTaskStatus.Visible = true;
+            taskStatDrpList.Visible = true;
+            submitTask.Visible = false;
             taskSub.Visible = false;
             lblTaskDrpList.Visible = true;
             taskDrpList.Visible = true;
             taskFrm.Visible = true;
+            updateSubmitBtn.Visible = true;
+            createSubmitTaskBtn.Visible = false;
             fillData();
         }
 
@@ -256,10 +302,7 @@ namespace NURacingWebsite
 
             editTask.TakeFiveNeeded = takeFiveChkBx.Checked;
 
-            if (taskStatusTxtBx.Text != "")
-            {
-                editTask.TaskStatus = taskStatusTxtBx.Text;
-            }
+            editTask.TaskStatus = taskStatDrpList.SelectedItem.ToString();
 
             if (reasonTxtBx.Text != "")
             {
@@ -271,6 +314,7 @@ namespace NURacingWebsite
             taskSub.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
             taskSub.Text = "Task updated.";
             taskSub.Visible = true;
+            Response.Redirect("/taskmanagement.aspx?id=" + workTypeID.ToString() + "&update=true");
         }
 
         protected void createSubmitTaskBtn_Click(object sender, EventArgs e)
@@ -307,7 +351,7 @@ namespace NURacingWebsite
             BusinessLogicLayer.AssignedTask.addTask(Membership.GetUser().UserName, addedUsers, 
                 workID, dueDateCal.SelectedDate, taskNameTxtBx.Text, taskDescTxtBx.Text, takeFiveChkBx.Checked);
 
-            taskSub.Visible = true;
+            Response.Redirect("/taskmanagement.aspx?id=" + workTypeID.ToString() + "&create=true");
         }
     }
 }

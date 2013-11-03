@@ -16,7 +16,15 @@ namespace NURacingWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            fillData();
+            if (TaskInfo.getUserTasks(Membership.GetUser().ToString()).Count != 0)
+            {
+                fillData();
+            }
+
+            else
+            {
+                instructTodo.InnerText = "No tasks scheduled. You're free!";
+            }
         }
 
         public DataSet fillData()

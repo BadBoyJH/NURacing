@@ -904,3 +904,10 @@ text-transform:uppercase;
     vertical-align:middle;
     margin-bottom:5px;
 }
+
+.submitLbl {
+    font-weight:bold;
+    color:red;
+    font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
+    font-size:x-large;
+}

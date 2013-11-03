@@ -18,6 +18,8 @@
        <h1>TASK MANAGEMENT</h1>
                  <p style="text-align: center">Please click an action below.</p>
                 <br />
+                    <asp:Label runat="server" id="submitTask" class="submitLbl" visible="false">Task submitted.</asp:Label>
+
                     <div class="taskDetail">
                     
                      <asp:Button ID="updateTaskBtn" CssClass="takeFiveBtn" Text="UPDATE TASK" runat="server" OnClick="updateTaskBtn_Click" />
