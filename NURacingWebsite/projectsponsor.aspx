@@ -27,8 +27,10 @@
                         <div id="noSponsors" runat="server">
                             <p>Your Project currently has no sponsors.</p>
                         </div>
+                        <br />
                         <asp:Button ID="btnAddSponsor" CssClass="takeFiveBtn" Text="ADD SPONSOR" runat="server" OnClick="btnAddSponsor_Click" />
                         <asp:Button ID="btnRemoveSponsor" CssClass="takeFiveBtn" Text="REMOVE SPONSOR" runat="server" OnClick="btnRemoveSponsor_Click" />
+                        <br />
 
                         <div id="divAddSponsor" runat="server" visible ="false">
                             <p>
