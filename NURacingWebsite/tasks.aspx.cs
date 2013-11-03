@@ -66,7 +66,7 @@ namespace NURacingWebsite
         private void SetBkColor()
         {
             GridViewRowCollection rows = todoTable.Rows;
-            for (int i = 0; i <= rows.Count; i++)
+            for (int i = 0; i < rows.Count; i++)
             {
                 //set the background color for every second row of Gridview
                 if (i % 2 == 0)
