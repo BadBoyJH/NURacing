@@ -25,6 +25,7 @@
                             <asp:BoundField HeaderText="DESCRIPTION" DataField="Task_Description" />
                             <asp:BoundField HeaderText="DUE DATE" DataField="duedate" />
                             <asp:HyperLinkField HeaderText="&nbsp;" Text="DETAILS"  DataNavigateUrlFields="Task_ID" DataNavigateUrlFormatString="task.aspx?id={0:G}" />
+                            <asp:HyperlinkField Text="LOG WORK" DataNavigateURLFields="Task_ID" DataNavigateUrlFormatString="takefive.aspx?taskID={0:d}" />
                 </Columns>
 
             </asp:GridView>

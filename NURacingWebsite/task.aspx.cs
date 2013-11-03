@@ -14,7 +14,12 @@ namespace NURacingWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BusinessLogicLayer.TaskInfo info =  TaskInfo.getAssignedTask(Convert.ToInt32(Request.QueryString["id"]));
+            if (Request.Params.Get("id") == null)
+            {
+                Response.Redirect("todo.aspx");
+            }
+
+            BusinessLogicLayer.TaskInfo info = TaskInfo.getAssignedTask(Convert.ToInt32(Request.QueryString["id"]));
             HtmlGenericControl NewControl = new HtmlGenericControl("span");
             taskTitleLbl.Text = info.TaskName;
             dueDateLbl.Text = "DUE: " + info.TaskDueDate.ToShortDateString();
@@ -25,7 +30,7 @@ namespace NURacingWebsite
 
         protected void takeFiveBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/takefive.aspx");
+            Response.Redirect("/takefive.aspx?taskID=" +Request.Params.Get("id"));
         }
     }
 }
