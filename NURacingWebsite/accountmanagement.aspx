@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="usermanagement.aspx.cs" Inherits="NURacingWebsite.UserManagement" MasterPageFile="~/LoggedIn.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="accountmanagement.aspx.cs" Inherits="NURacingWebsite.UserManagement" MasterPageFile="~/LoggedIn.Master" %>
 
 <asp:Content ContentPlaceHolderID="Title" runat="server">
     NURacing System - User Management
@@ -15,7 +15,7 @@
                         <asp:Button ID="btnEnquiry" runat="server" Text="?" CssClass="btnEnquiry" />
                         <p style="text-align: center; clear: both;"></p>
 
-                        <h1>USER MANAGEMENT</h1>
+                        <h1>ACCOUNT MANAGEMENT</h1>
                         <p style="text-align: center">Please click an action below.</p>
 
                         <br />
