@@ -44,7 +44,10 @@ namespace BusinessLogicLayer
 
             foreach (NuRacingDataSet.UserRow userRow in userTable.Rows)
             {
-                results.Add(userRow.User_Username);
+                if (userRow.User_Role == RoleName)
+                {
+                    results.Add(userRow.User_Username);
+                }
             }
 
             return results.ToArray();
