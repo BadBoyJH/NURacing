@@ -296,7 +296,7 @@
     <Content Include="taskmanagement.aspx" />
     <Content Include="tasks.aspx" />
     <Content Include="todo.aspx" />
-    <Content Include="usermanagement.aspx" />
+    <Content Include="accountmanagement.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -548,12 +548,12 @@
     <Compile Include="todo.aspx.designer.cs">
       <DependentUpon>todo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="usermanagement.aspx.cs">
-      <DependentUpon>usermanagement.aspx</DependentUpon>
+    <Compile Include="accountmanagement.aspx.cs">
+      <DependentUpon>accountmanagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="usermanagement.aspx.designer.cs">
-      <DependentUpon>usermanagement.aspx</DependentUpon>
+    <Compile Include="accountmanagement.aspx.designer.cs">
+      <DependentUpon>accountmanagement.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
