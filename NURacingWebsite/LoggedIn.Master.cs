@@ -31,11 +31,17 @@ namespace NURacingWebsite
                 if (exec.Message.Contains("Timout"))
                 {
                     Response.Redirect("/error.aspx");
+                    Server.ClearError();
                 }
             }
             if (exec is System.TimeoutException)
             {
                 Response.Redirect("/error.aspx");
+                Server.ClearError();
+            }
+            else
+            {
+                
             }
         }
 
