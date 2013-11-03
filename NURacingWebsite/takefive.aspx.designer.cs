@@ -76,15 +76,6 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.TextBox minWordTxtBx;
         
         /// <summary>
-        /// tkfvWorktypeDrpList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList tkfvWorktypeDrpList;
-        
-        /// <summary>
         /// takeFiveYes control.
         /// </summary>
         /// <remarks>

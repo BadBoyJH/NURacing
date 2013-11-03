@@ -22,10 +22,14 @@ namespace NURacingWebsite
         DropDownList projNameDrpList = new DropDownList();
         Label secSub = new Label();
 
+        protected void Pre_Init(object sender, EventArgs e)
+        {
+            createForm();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             verifyParameters();
-            createForm();
         }
 
         private void createForm()

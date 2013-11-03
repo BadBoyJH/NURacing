@@ -34,6 +34,11 @@ namespace NURacingWebsite
         Label taskSub = new Label();
         DropDownList taskStatDrpList = new DropDownList();
 
+        protected void Pre_Init(object sender, EventArgs e)
+        {
+            createForm();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             workTypeID = Convert.ToInt32(Request.Params.Get("id"));
