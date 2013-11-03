@@ -15,6 +15,7 @@ namespace NURacingWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            verifyParameters();
             this.fillData();
 
             WorkTypeInfo workTypeInfo = WorkTypeInfo.getWorkType(Convert.ToInt32(Request.QueryString["id"]));
@@ -75,6 +76,27 @@ namespace NURacingWebsite
                 }
             }
         }
+
+        private void verifyParameters()
+        {
+            try
+            {
+                int ID = Convert.ToInt32(Request.Params.Get("id"));
+                if (!WorkType.WorkTypeExists(ID))
+                {
+                    Response.Clear();
+                    Response.StatusCode = 400;
+                    Response.End();
+                }
+            }
+            catch (Exception)
+            {
+                Response.Clear();
+                Response.StatusCode = 400;
+                Response.End();
+            }
+        }
+
         protected void todoTable_DataBound(object sender, EventArgs e)
         {
             SetBkColor();

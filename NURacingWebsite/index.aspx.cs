@@ -21,7 +21,8 @@ namespace NURacingWebsite
                 showProjects();
             }
 
-            if (BusinessLogicLayer.Role.GetUserRole(Membership.GetUser().UserName) != "Team Leader")
+            string UserRole = BusinessLogicLayer.Role.GetUserRole(Membership.GetUser().UserName);
+            if (UserRole != "Team Leader" && UserRole != "Staff" && UserRole != "Administrator")
             {
                 createProjBtn.Visible = false;
             }

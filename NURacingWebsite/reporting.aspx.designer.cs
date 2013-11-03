@@ -40,6 +40,15 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.Table reportTable;
         
         /// <summary>
+        /// UserDetailsReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow UserDetailsReport;
+        
+        /// <summary>
         /// Label10 control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace NURacingWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// SponsorDetailsReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow SponsorDetailsReport;
         
         /// <summary>
         /// Label11 control.
@@ -76,6 +94,15 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.Label Label12;
         
         /// <summary>
+        /// ProjectStatusReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow ProjectStatusReport;
+        
+        /// <summary>
         /// Label9 control.
         /// </summary>
         /// <remarks>
@@ -92,6 +119,15 @@ namespace NURacingWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// LabourLogReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow LabourLogReport;
         
         /// <summary>
         /// Label8 control.
@@ -112,6 +148,15 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
+        /// PurchasingReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow PurchasingReport;
+        
+        /// <summary>
         /// Label13 control.
         /// </summary>
         /// <remarks>
@@ -130,6 +175,15 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.Label Label14;
         
         /// <summary>
+        /// WorkshopReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow WorkshopReport;
+        
+        /// <summary>
         /// Label7 control.
         /// </summary>
         /// <remarks>
@@ -146,6 +200,15 @@ namespace NURacingWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
+        
+        /// <summary>
+        /// TakeFiveReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TableRow TakeFiveReport;
         
         /// <summary>
         /// Label6 control.

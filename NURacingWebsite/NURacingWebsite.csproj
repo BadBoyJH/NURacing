@@ -203,6 +203,7 @@
     <Content Include="error503.aspx" />
     <Content Include="error400.aspx" />
     <Content Include="error404.aspx" />
+    <Content Include="errorgeneric.aspx" />
     <Content Include="Reporting\reportpurchasing.aspx" />
     <Content Include="Reporting\reportsponsordetails.aspx" />
     <Content Include="resetPassword.aspx" />
@@ -371,6 +372,13 @@
     </Compile>
     <Compile Include="error404.aspx.designer.cs">
       <DependentUpon>error404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="errorgeneric.aspx.cs">
+      <DependentUpon>errorgeneric.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="errorgeneric.aspx.designer.cs">
+      <DependentUpon>errorgeneric.aspx</DependentUpon>
     </Compile>
     <Compile Include="NuRacingIPrincipal.cs" />
     <Compile Include="error503.aspx.cs">

@@ -41,7 +41,7 @@ namespace NURacingWebsite
             }
             else
             {
-                
+                Response.Redirect("errorgeneric.aspx");
             }
         }
 

@@ -32,5 +32,44 @@ namespace NURacingWebsite
         {
             Response.Redirect("/takefive.aspx?taskID=" +Request.Params.Get("id"));
         }
+
+        private void verifyParameters()
+        {
+            try
+            {
+                int ID = Convert.ToInt32(Request.Params.Get("id"));
+                TaskInfo task = TaskInfo.getAssignedTask(ID);
+                
+                string role = Roles.GetRolesForUser()[0];
+                if (role != "Administrator" || role != "Staff" || role != "Team Leader" || role != "Section Manager")
+                {
+                    bool found = false;
+
+                    string Username = Membership.GetUser().UserName;
+
+                    foreach (UserInfo user in task.UserAssignedInfo)
+                    {
+                        if (user.UserName == Username)  
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found)
+                    {
+                        Response.Clear();
+                        Response.StatusCode = 400;
+                        Response.End();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                Response.Clear();
+                Response.StatusCode = 400;
+                Response.End();
+            }
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace NURacingWebsite
                 DataRow newRow = dataTable.NewRow();
 
                 newRow["Task_Name"] = task.TaskName;
-                newRow["Task_Description"] = task.TaskName;
+                newRow["Task_Description"] = task.TaskDescription;
                 newRow["duedate"] = task.TaskDueDate;
                 newRow["Task_ID"] = task.TaskID;
 

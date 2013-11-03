@@ -14,7 +14,14 @@ namespace NURacingWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            String user = Membership.GetUser().UserName;
+            verifyParameters();
+
+            string UserRole = Role.GetUserRole(Membership.GetUser().UserName);
+
+            if (UserRole != "Team Leader" && UserRole != "Staff" && UserRole != "Administrator")
+            {
+                createProjBtn.Visible = false;
+            }
 
             List<WorkTypeInfo> sections = WorkTypeInfo.getProjectWorkTypes(Convert.ToInt32(Request.QueryString["id"]));
 
@@ -48,6 +55,26 @@ namespace NURacingWebsite
 
             tblProjects.Rows.Add(row);
             cell.Text += "</div>";
+        }
+
+        private void verifyParameters()
+        {
+            try
+            {
+                int ID = Convert.ToInt32(Request.Params.Get("id"));
+                if (!Project.projectExists(ID))
+                {
+                    Response.Clear();
+                    Response.StatusCode = 400;
+                    Response.End();
+                }
+            }
+            catch (Exception)
+            {
+                Response.Clear();
+                Response.StatusCode = 400;
+                Response.End();
+            }
         }
 
         protected void createProjBtn_Click(object sender, EventArgs e)

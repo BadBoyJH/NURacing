@@ -491,7 +491,19 @@ namespace BusinessLogicLayer
             {
                 throw new ArgumentException("Email already exists");
             }
-            if (!validPassword(Password))
+            if (Password == "")
+            {
+                StringBuilder builder = new StringBuilder();
+                byte[] ByteCode = getByteString(8);
+
+                foreach (byte b in ByteCode)
+                {
+                    builder.Append(b.ToString("X2"));
+                }
+
+                Password = builder.ToString();
+            }
+            else if (!validPassword(Password))
             {
                 throw new ArgumentException("Invalid Password");
             }

@@ -24,6 +24,7 @@ namespace NURacingWebsite
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            verifyParameters();
             createForm();
         }
 
@@ -89,6 +90,26 @@ namespace NURacingWebsite
             projStatusDrpList.Height = 25;
             createProjFrm.Controls.Add(new LiteralControl("</p> <br />"));
           
+        }
+
+        private void verifyParameters()
+        {
+            try
+            {
+                int ID = Convert.ToInt32(Request.Params.Get("id"));
+                if (!Project.projectExists(ID))
+                {
+                    Response.Clear();
+                    Response.StatusCode = 400;
+                    Response.End();
+                }
+            }
+            catch (Exception)
+            {
+                Response.Clear();
+                Response.StatusCode = 400;
+                Response.End();
+            }
         }
 
         protected void updateSubmitBtn_Click(object sender, EventArgs e)

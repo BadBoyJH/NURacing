@@ -14,6 +14,16 @@ namespace NURacingWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string userRole = Roles.GetRolesForUser()[0];
+            PurchasingReport.Visible = userRole == "Team Leader" || userRole == "Staff" || userRole == "Administrator";
+            SponsorDetailsReport.Visible = userRole == "Team Leader" || userRole == "Staff" || userRole == "Administrator";
+            TakeFiveReport.Visible = userRole == "Team Leader" || userRole == "Staff" || userRole == "Administrator";
+            UserDetailsReport.Visible = userRole == "Team Leader" || userRole == "Staff" || userRole == "Administrator";
+
+            ProjectStatusReport.Visible = userRole== "Team Leader" || userRole == "Staff" || userRole == "Administrator" || userRole == "Sponsor";
+
+            WorkshopReport.Visible = userRole != "Sponsor";
+            LabourLogReport.Visible = userRole != "Sponsor";
         }
     }
 }
