@@ -200,7 +200,9 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="confirmPasswordReset.aspx" />
-    <Content Include="error.aspx" />
+    <Content Include="error503.aspx" />
+    <Content Include="error400.aspx" />
+    <Content Include="error404.aspx" />
     <Content Include="Reporting\reportpurchasing.aspx" />
     <Content Include="Reporting\reportsponsordetails.aspx" />
     <Content Include="resetPassword.aspx" />
@@ -356,13 +358,27 @@
     <Compile Include="confirmPasswordReset.aspx.designer.cs">
       <DependentUpon>confirmPasswordReset.aspx</DependentUpon>
     </Compile>
-    <Compile Include="NuRacingIPrincipal.cs" />
-    <Compile Include="error.aspx.cs">
-      <DependentUpon>error.aspx</DependentUpon>
+    <Compile Include="error400.aspx.cs">
+      <DependentUpon>error400.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="error.aspx.designer.cs">
-      <DependentUpon>error.aspx</DependentUpon>
+    <Compile Include="error400.aspx.designer.cs">
+      <DependentUpon>error400.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="error404.aspx.cs">
+      <DependentUpon>error404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error404.aspx.designer.cs">
+      <DependentUpon>error404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NuRacingIPrincipal.cs" />
+    <Compile Include="error503.aspx.cs">
+      <DependentUpon>error503.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error503.aspx.designer.cs">
+      <DependentUpon>error503.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reporting\reportpurchasing.aspx.cs">
       <DependentUpon>reportpurchasing.aspx</DependentUpon>
