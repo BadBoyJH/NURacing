@@ -52,10 +52,10 @@
               <Width>1.17584cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.45cm</Width>
+              <Width>1.5135cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.5cm</Width>
+              <Width>1.22483cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.1cm</Width>
@@ -154,42 +154,6 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="User_GivenName">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!User_GivenName.Value</Value>
-                              <Style>
-                                <FontSize>8.5pt</FontSize>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>User_GivenName</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>None</Style>
-                        </Border>
-                        <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
-                        <VerticalAlign>Top</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="User_Surname">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -209,6 +173,42 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>User_Surname</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <VerticalAlign>Top</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="User_GivenName">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!User_GivenName.Value</Value>
+                              <Style>
+                                <FontSize>8.5pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>User_GivenName</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -922,15 +922,14 @@
               <TablixHeader>
                 <Size>1.5cm</Size>
                 <CellContents>
-                  <Textbox Name="Textbox7">
+                  <Textbox Name="Textbox3">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Given 
-Name</Value>
+                            <Value>Surname</Value>
                             <Style>
                               <FontSize>8.5pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -942,7 +941,7 @@ Name</Value>
                         </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox7</rd:DefaultName>
+                    <rd:DefaultName>Textbox3</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -966,14 +965,15 @@ Name</Value>
               <TablixHeader>
                 <Size>1.5cm</Size>
                 <CellContents>
-                  <Textbox Name="Textbox11">
+                  <Textbox Name="Textbox7">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Surname</Value>
+                            <Value>Given 
+Name</Value>
                             <Style>
                               <FontSize>8.5pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -985,7 +985,7 @@ Name</Value>
                         </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox11</rd:DefaultName>
+                    <rd:DefaultName>Textbox7</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -1730,6 +1730,7 @@ Conds</Value>
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
+                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
             </TablixMember>
@@ -1745,7 +1746,7 @@ Conds</Value>
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!User_Username.Value</Value>
+                  <Value>=Fields!User_Surname.Value</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
@@ -1792,7 +1793,7 @@ Conds</Value>
         <DataSetName>dsUSERS</DataSetName>
         <Left>0.03528cm</Left>
         <Height>2cm</Height>
-        <Width>27.25651cm</Width>
+        <Width>27.04484cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

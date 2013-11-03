@@ -23,10 +23,7 @@
                      <asp:Button ID="updateTaskBtn" CssClass="takeFiveBtn" Text="UPDATE TASK" runat="server" OnClick="updateTaskBtn_Click" />
                      <asp:Button ID="createTaskBtn" CssClass="takeFiveBtn" Text="CREATE TASK" runat="server" OnClick="createTaskBtn_Click" />
                         <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
+                       
                          
                         <div class="taskMngement">
                             

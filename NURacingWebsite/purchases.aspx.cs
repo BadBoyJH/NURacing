@@ -15,14 +15,20 @@ namespace NURacingWebsite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            workTypeDrpList.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
-            workTypeDrpList.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
+           
             workTypeDrpList.Font.Name = "Lucida Sans Unicode";
             workTypeDrpList.Font.Size = 11;
             workTypeDrpList.BorderStyle = BorderStyle.None;
             workTypeDrpList.Height = 25;
+            workTypeDrpList.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
+            workTypeDrpList.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
+
+
 
             purchaseCal.DayRender += purchaseCal_DayRender;
+            purchaseCal.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
+            purchaseCal.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
+
             if (!IsPostBack || addedItem)
             {
                 workTypeDrpList.Items.Clear();

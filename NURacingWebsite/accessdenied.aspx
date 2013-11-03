@@ -13,7 +13,7 @@
                             <br />
     <h1>FORBIDDEN 403</h1>
            <h2>Access Denied</h2>
-                  <p>Unfortunately you do not have access to view this resource.<br /><br />Please contact the NURacing Team Leader on (02) 4925 4937 to discuss permissions.</p>
+                  <p>Unfortunately you do not have permission to view this resource.<br /><br />Please contact the NURacing Team Leader on (02) 4925 4937 to discuss permissions.</p>
 
            </div>
 			<div class="col2">

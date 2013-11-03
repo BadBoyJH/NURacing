@@ -19,7 +19,6 @@ namespace NURacingWebsite
         Label lblTaskDesc = new Label();
         TextBox taskDescTxtBx = new TextBox();
         Label lblDueDate = new Label();
-        //DateTimePicker due date;
         Label lblAssignTo = new Label();
         ListBox assignDrpList = new ListBox();
         Label lblTakeFiveNeeded = new Label();
@@ -164,7 +163,8 @@ namespace NURacingWebsite
             taskFrm.Controls.Add(new LiteralControl("<p>"));
             lblDueDate.Text = "Due Date: ";
             taskFrm.Controls.Add(lblDueDate);
-            //taskFrm.Controls.Add(new LiteralControl("<div id=\"datepicker\"></div>"));
+            dueDateCal.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
+            dueDateCal.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
             taskFrm.Controls.Add(dueDateCal);
             taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
 

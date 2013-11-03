@@ -346,13 +346,13 @@ namespace NURacingWebsite
             SAEMemshpTxtBx.CssClass = "textareaPassword";
             createUserFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
-            createUserFrm.Controls.Add(new LiteralControl("<div style='background-color: #2D2D2D'>"));
+            createUserFrm.Controls.Add(new LiteralControl("<p>"));
             lblSAEExpDat.Text = "SAE Membership Expiry Date: ";
             SAEExpDatDtPckr.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
             SAEExpDatDtPckr.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
             createUserFrm.Controls.Add(lblSAEExpDat);
             createUserFrm.Controls.Add(SAEExpDatDtPckr);
-            createUserFrm.Controls.Add(new LiteralControl("</div><br />"));
+            createUserFrm.Controls.Add(new LiteralControl("</p><br />"));
 
             createUserFrm.Controls.Add(new LiteralControl("<p>"));
             lblSAEMemshpNum.Text = "SAE Membership Number: ";
