@@ -343,6 +343,8 @@ namespace NURacingWebsite
 
             createUserFrm.Controls.Add(new LiteralControl("<p>"));
             lblSAEExpDat.Text = "SAE Membership Expiry Date: ";
+            SAEExpDatDtPckr.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
+            SAEExpDatDtPckr.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
             createUserFrm.Controls.Add(lblSAEExpDat);
             createUserFrm.Controls.Add(SAEExpDatDtPckr);
             createUserFrm.Controls.Add(new LiteralControl("</p> <br />"));

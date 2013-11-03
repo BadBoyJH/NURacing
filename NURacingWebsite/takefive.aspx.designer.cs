@@ -31,6 +31,15 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl takeFiveSubmit;
         
         /// <summary>
+        /// taskInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl taskInfo;
+        
+        /// <summary>
         /// takeFiveUserLstBx control.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.TextBox minWordTxtBx;
         
         /// <summary>
+        /// worktype control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl worktype;
+        
+        /// <summary>
         /// tkfvWorktypeDrpList control.
         /// </summary>
         /// <remarks>
@@ -74,6 +92,24 @@ namespace NURacingWebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList tkfvWorktypeDrpList;
+        
+        /// <summary>
+        /// takeFiveYes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton takeFiveYes;
+        
+        /// <summary>
+        /// takeFiveNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton takeFiveNo;
         
         /// <summary>
         /// a1 control.
