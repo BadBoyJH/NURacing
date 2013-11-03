@@ -344,7 +344,7 @@ namespace NURacingWebsite
             createUserFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
             createUserFrm.Controls.Add(new LiteralControl("<p>"));
-            lbldietryReq.Text = "Dietry Requirements: ";
+            lbldietryReq.Text = "Dietary Requirements: ";
             createUserFrm.Controls.Add(lbldietryReq);
             createUserFrm.Controls.Add(dietryReqTxtBx);
             dietryReqTxtBx.CssClass = "textareaPassword";
