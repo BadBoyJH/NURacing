@@ -30,7 +30,7 @@ namespace NURacingWebsite
 
         protected void takeFiveBtn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/takefive.aspx");
+            Response.Redirect("/takefive.aspx?taskID=" +Request.Params.Get("id"));
         }
     }
 }
