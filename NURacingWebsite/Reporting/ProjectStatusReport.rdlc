@@ -284,7 +284,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -428,7 +427,11 @@
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!Project_UID.Value</Value>
+                  <Value>=Fields!Project_Active.Value</Value>
+                  <Direction>Descending</Direction>
+                </SortExpression>
+                <SortExpression>
+                  <Value>=Fields!Project_Name.Value</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixMembers>
@@ -468,6 +471,7 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
+                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
@@ -597,7 +601,7 @@
                                   </Group>
                                   <SortExpressions>
                                     <SortExpression>
-                                      <Value>=Fields!WorkType_UID.Value</Value>
+                                      <Value>=Fields!WorkType_Name.Value</Value>
                                     </SortExpression>
                                   </SortExpressions>
                                   <TablixMembers>
@@ -745,7 +749,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
-          <Top>0cm</Top>
           <Height>0.5cm</Height>
           <Width>9.3cm</Width>
           <Style>
@@ -781,7 +784,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
-          <Top>0cm</Top>
           <Left>9.3cm</Left>
           <Height>0.5cm</Height>
           <Width>9.3cm</Width>
@@ -819,7 +821,6 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox153</rd:DefaultName>
-          <Top>0cm</Top>
           <Left>18.6cm</Left>
           <Height>0.5cm</Height>
           <Width>9.1cm</Width>

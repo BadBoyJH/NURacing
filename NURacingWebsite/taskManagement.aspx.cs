@@ -19,7 +19,6 @@ namespace NURacingWebsite
         Label lblTaskDesc = new Label();
         TextBox taskDescTxtBx = new TextBox();
         Label lblDueDate = new Label();
-        //DateTimePicker due date;
         Label lblAssignTo = new Label();
         ListBox assignDrpList = new ListBox();
         Label lblTakeFiveNeeded = new Label();
@@ -33,6 +32,7 @@ namespace NURacingWebsite
         Calendar dueDateCal = new Calendar();
         int workTypeID = 0;
         Label taskSub = new Label();
+        DropDownList taskStatDrpList = new DropDownList();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -183,7 +183,8 @@ namespace NURacingWebsite
             taskFrm.Controls.Add(new LiteralControl("<p>"));
             lblDueDate.Text = "Due Date: ";
             taskFrm.Controls.Add(lblDueDate);
-            //taskFrm.Controls.Add(new LiteralControl("<div id=\"datepicker\"></div>"));
+            dueDateCal.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
+            dueDateCal.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
             taskFrm.Controls.Add(dueDateCal);
             taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
@@ -209,12 +210,33 @@ namespace NURacingWebsite
             assignDrpList.BorderStyle = BorderStyle.None;
             taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
+            taskStatDrpList.Items.Clear();
+            taskStatDrpList.Items.Add("Not Started");
+            taskStatDrpList.Items.Add("Planning");
+            taskStatDrpList.Items.Add("Designing");
+            taskStatDrpList.Items.Add("Design Completed");
+            taskStatDrpList.Items.Add("Building Commenced");
+            taskStatDrpList.Items.Add("Bulding Finished");
+            taskStatDrpList.Items.Add("Completed");
+            taskStatDrpList.Items.Add("Fit and Finish Completed");
+            taskStatDrpList.Items.Add("Ready For Assembly");
+            taskStatDrpList.Items.Add("Testing");
+            taskStatDrpList.Items.Add("Complete");
+            taskStatDrpList.Items.Add("Ongoing");
+            taskStatDrpList.Items.Add("On Hold");
+
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblTaskStatus.Text = "Task Status: ";
+            lblTaskStatus.Text = "Set Project Status: ";
             taskFrm.Controls.Add(lblTaskStatus);
-            taskFrm.Controls.Add(taskStatusTxtBx);
-            taskStatusTxtBx.CssClass = "textareaPassword";
-            taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            taskFrm.Controls.Add(taskStatDrpList);
+            taskStatDrpList.CssClass = "drpList";
+            taskStatDrpList.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
+            taskStatDrpList.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
+            taskStatDrpList.Font.Name = "Lucida Sans Unicode";
+            taskStatDrpList.Font.Size = 11;
+            taskStatDrpList.BorderStyle = BorderStyle.None;
+            taskStatDrpList.Height = 25;
+            taskFrm.Controls.Add(new LiteralControl("</p> "));
         }
 
         void taskDrpList_SelectedIndexChanged(object sender, EventArgs e)
@@ -224,6 +246,8 @@ namespace NURacingWebsite
 
         protected void updateTaskBtn_Click(object sender, EventArgs e)
         {
+            lblTaskStatus.Visible = true;
+            taskStatDrpList.Visible = true;
             submitTask.Visible = false;
             taskSub.Visible = false;
             lblTaskDrpList.Visible = true;
@@ -278,10 +302,7 @@ namespace NURacingWebsite
 
             editTask.TakeFiveNeeded = takeFiveChkBx.Checked;
 
-            if (taskStatusTxtBx.Text != "")
-            {
-                editTask.TaskStatus = taskStatusTxtBx.Text;
-            }
+            editTask.TaskStatus = taskStatDrpList.SelectedItem.ToString();
 
             if (reasonTxtBx.Text != "")
             {

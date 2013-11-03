@@ -29,7 +29,7 @@ namespace NURacingWebsite
         protected void Page_Load(object sender, EventArgs e)
         {
             createForm();
-
+            
             if (Request.Params.Get("create") == "true")
             {
                 submitProj.Text = "Project created.";
@@ -38,7 +38,7 @@ namespace NURacingWebsite
 
             if (Request.Params.Get("update") == "true")
             {
-                lblProjSubmit.Text = "Project updated.";
+                submitProj.Text = "Project updated.";
                 submitProj.Visible = true;
             }
 
@@ -60,7 +60,7 @@ namespace NURacingWebsite
 
             projNameDrpList.Items.Clear();
 
-            foreach (ProjectInfo project in BusinessLogicLayer.ProjectInfo.getProjects(hideInactiveProjects))
+            foreach (ProjectInfo project in BusinessLogicLayer.ProjectInfo.getProjects(false))
             {
                 if (project.Name != "Workshop")
                 {
@@ -68,13 +68,13 @@ namespace NURacingWebsite
                 }
             }
 
-            projNameDrpList.SelectedIndex = 0;
             projNameDrpList.SelectedIndexChanged += projNameDrpList_SelectedIndexChanged;
             projNameDrpList.AutoPostBack = true;
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
             lblCarNameList.Text = "Project: ";
             createProjFrm.Controls.Add(lblCarNameList);
             createProjFrm.Controls.Add(projNameDrpList);
+            projNameDrpList.SelectedIndex = 0;
             projNameDrpList.CssClass = "drpList";
             projNameDrpList.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
             projNameDrpList.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
@@ -93,7 +93,6 @@ namespace NURacingWebsite
                 lblCarNameList.Visible = false;
                 projNameDrpList.Visible = false;
             }
-
 
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
             lblCarName.Text = "Project Name: ";
@@ -293,7 +292,6 @@ namespace NURacingWebsite
         protected void updateProjBtn_Click(object sender, EventArgs e)
         {
             hideInactiveProjects = true;
-            createForm();
             formUpdateProjectShowing();
             fillData();
         }
@@ -302,7 +300,6 @@ namespace NURacingWebsite
         {
             showInactiveProjBtn.Visible = false;
             hideInactiveProjects = false;
-            createForm();
             formUpdateProjectShowing();
             fillData();
         }
@@ -310,8 +307,9 @@ namespace NURacingWebsite
         public void fillData()
         {
             int projID = 0;
+            hideInactiveProjects = true;
 
-            foreach (ProjectInfo info in ProjectInfo.getProjects(hideInactiveProjects))
+            foreach (ProjectInfo info in ProjectInfo.getProjects(false))
             {
                 if (info.Name == projNameDrpList.SelectedItem.ToString())
                 {
@@ -333,5 +331,6 @@ namespace NURacingWebsite
             formUpdateProjectShowing();
             fillData();
         }
+
     }
 }

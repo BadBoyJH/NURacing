@@ -15,10 +15,10 @@
                         <asp:Button ID="btnEnquiry" runat="server" Text="?" CssClass="btnEnquiry" />
                         <p style="text-align: center; clear: both;"></p>
                         <h1>PURCHASE</h1>
-                        <p>Please fill out the details of goods purchased below.</p>
+                        <p>Please fill out the details of a good purchased below.</p>
                         <br />
                         <div class="taskDetail">
-                            <asp:Label runat="server" CssClass="pUserFeedbackPass" ID="purchSub" Visible="false">Purchase made.</asp:Label>
+                            <asp:Label runat="server" CssClass="pUserFeedbackPass" ID="purchSub" Visible="false">Purchase submitted.</asp:Label>
                             <p>Purchased Good:
                                 <asp:TextBox runat="server" ID="goodTxtBx" CssClass="textareaPassword"></asp:TextBox></p>
                             <p>Project Section:
@@ -27,8 +27,8 @@
                                 <asp:TextBox runat="server" ID="priceTxtBx" CssClass="textareaPassword"></asp:TextBox></p>
                             <p>Supplier:
                                 <asp:TextBox runat="server" ID="suppTxtBx" CssClass="textareaPassword"></asp:TextBox></p>
-                            <p>Date Purchased: <asp:Calendar runat="server" ID="purchaseCal"></asp:Calendar>
-                            </p>
+                           <center><table><tr><td style="vertical-align: top;"><p>Date Purchased: </p></td><td><asp:Calendar runat="server" ID="purchaseCal"></asp:Calendar></td></tr></table></center>
+                            
                             <asp:Button runat="server" ID="purchaseBtn" CssClass="takeFiveBtn" Text="SUBMIT" OnClick="purchaseBtn_Click" />
                             <br />
                             <br />

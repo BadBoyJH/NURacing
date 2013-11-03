@@ -270,7 +270,7 @@
                           <Color>LightGrey</Color>
                           <Style>None</Style>
                         </Border>
-                        <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <BackgroundColor>=iif(RunningValue(Cstr(Fields!Project_UID.Value), CountDistinct, Nothing) Mod 2, "Transparent", "Whitesmoke")</BackgroundColor>
                         <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -278,6 +278,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -306,7 +307,7 @@
                           <Color>LightGrey</Color>
                           <Style>None</Style>
                         </Border>
-                        <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                        <BackgroundColor>=iif(RunningValue(Cstr(Fields!Project_UID.Value), CountDistinct, Nothing) Mod 2, "Transparent", "Whitesmoke")</BackgroundColor>
                         <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -314,6 +315,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -417,6 +419,9 @@
               </Group>
               <SortExpressions>
                 <SortExpression>
+                  <Value>=Fields!Project_Active.Value</Value>
+                </SortExpression>
+                <SortExpression>
                   <Value>=Fields!Project_UID.Value</Value>
                 </SortExpression>
               </SortExpressions>
@@ -447,7 +452,7 @@
                         <Color>LightGrey</Color>
                         <Style>None</Style>
                       </Border>
-                      <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                      <BackgroundColor>=iif(RunningValue(Cstr(Fields!Project_UID.Value), CountDistinct, Nothing) Mod 2, "Transparent", "Whitesmoke")</BackgroundColor>
                       <VerticalAlign>Top</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
@@ -455,6 +460,7 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
+                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
               <TablixMembers>
@@ -466,7 +472,7 @@
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Work_UID.Value</Value>
+                      <Value>=Fields!WorkType_Name.Value</Value>
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
@@ -496,7 +502,7 @@
                             <Color>LightGrey</Color>
                             <Style>None</Style>
                           </Border>
-                          <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                          <BackgroundColor>=iif(RunningValue(Cstr(Fields!Project_UID.Value), CountDistinct, Nothing) Mod 2, "Transparent", "Whitesmoke")</BackgroundColor>
                           <VerticalAlign>Top</VerticalAlign>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
@@ -504,6 +510,7 @@
                           <PaddingBottom>2pt</PaddingBottom>
                         </Style>
                       </Textbox>
+                      <rd:Selected>true</rd:Selected>
                     </CellContents>
                   </TablixHeader>
                   <TablixMembers>
@@ -515,7 +522,8 @@
                       </Group>
                       <SortExpressions>
                         <SortExpression>
-                          <Value>=Fields!Task_UID.Value</Value>
+                          <Value>=Fields!Task_DueDate.Value</Value>
+                          <Direction>Descending</Direction>
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
@@ -547,7 +555,7 @@ Fields!Task_Name.Value)</Value>
                                 <Color>LightGrey</Color>
                                 <Style>None</Style>
                               </Border>
-                              <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                              <BackgroundColor>=iif(RunningValue(Cstr(Fields!Project_UID.Value), CountDistinct, Nothing) Mod 2, "Transparent", "Whitesmoke")</BackgroundColor>
                               <VerticalAlign>Top</VerticalAlign>
                               <PaddingLeft>2pt</PaddingLeft>
                               <PaddingRight>2pt</PaddingRight>
@@ -555,6 +563,7 @@ Fields!Task_Name.Value)</Value>
                               <PaddingBottom>2pt</PaddingBottom>
                             </Style>
                           </Textbox>
+                          <rd:Selected>true</rd:Selected>
                         </CellContents>
                       </TablixHeader>
                       <TablixMembers>
@@ -588,7 +597,7 @@ Fields!Task_Description.Value)</Value>
                                     <Color>LightGrey</Color>
                                     <Style>None</Style>
                                   </Border>
-                                  <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                                  <BackgroundColor>=iif(RunningValue(Cstr(Fields!Project_UID.Value), CountDistinct, Nothing) Mod 2, "Transparent", "Whitesmoke")</BackgroundColor>
                                   <VerticalAlign>Top</VerticalAlign>
                                   <PaddingLeft>2pt</PaddingLeft>
                                   <PaddingRight>2pt</PaddingRight>
@@ -596,6 +605,7 @@ Fields!Task_Description.Value)</Value>
                                   <PaddingBottom>2pt</PaddingBottom>
                                 </Style>
                               </Textbox>
+                              <rd:Selected>true</rd:Selected>
                             </CellContents>
                           </TablixHeader>
                           <TablixMembers>
@@ -607,7 +617,8 @@ Fields!Task_Description.Value)</Value>
                               </Group>
                               <SortExpressions>
                                 <SortExpression>
-                                  <Value>=Fields!Work_UID.Value</Value>
+                                  <Value>=Fields!Work_DateCompleted.Value</Value>
+                                  <Direction>Descending</Direction>
                                 </SortExpression>
                               </SortExpressions>
                               <TablixHeader>
@@ -637,7 +648,7 @@ Fields!Task_Description.Value)</Value>
                                         <Color>LightGrey</Color>
                                         <Style>None</Style>
                                       </Border>
-                                      <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                                      <BackgroundColor>=iif(RunningValue(Cstr(Fields!Project_UID.Value), CountDistinct, Nothing) Mod 2, "Transparent", "Whitesmoke")</BackgroundColor>
                                       <VerticalAlign>Top</VerticalAlign>
                                       <PaddingLeft>2pt</PaddingLeft>
                                       <PaddingRight>2pt</PaddingRight>
@@ -645,6 +656,7 @@ Fields!Task_Description.Value)</Value>
                                       <PaddingBottom>2pt</PaddingBottom>
                                     </Style>
                                   </Textbox>
+                                  <rd:Selected>true</rd:Selected>
                                 </CellContents>
                               </TablixHeader>
                               <TablixMembers>
@@ -677,7 +689,7 @@ Fields!Task_Description.Value)</Value>
                                             <Color>LightGrey</Color>
                                             <Style>None</Style>
                                           </Border>
-                                          <BackgroundColor>=IIF(RowNumber(Nothing) Mod 2, "Whitesmoke", "Transparent")</BackgroundColor>
+                                          <BackgroundColor>=iif(RunningValue(Cstr(Fields!Project_UID.Value), CountDistinct, Nothing) Mod 2, "Transparent", "Whitesmoke")</BackgroundColor>
                                           <VerticalAlign>Top</VerticalAlign>
                                           <PaddingLeft>2pt</PaddingLeft>
                                           <PaddingRight>2pt</PaddingRight>
@@ -685,6 +697,7 @@ Fields!Task_Description.Value)</Value>
                                           <PaddingBottom>2pt</PaddingBottom>
                                         </Style>
                                       </Textbox>
+                                      <rd:Selected>true</rd:Selected>
                                     </CellContents>
                                   </TablixHeader>
                                 </TablixMember>
@@ -732,7 +745,7 @@ Fields!Task_Description.Value)</Value>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Labour Report</Value>
+                  <Value>Project Labour Report</Value>
                   <Style>
                     <FontSize>16pt</FontSize>
                     <Color>DimGray</Color>

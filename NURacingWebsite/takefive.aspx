@@ -54,30 +54,27 @@
 
                          <p runat="server" id="taskInfo" visible="false"></p>
 
-                         <p>What other users (if any)? <br />
+                         <p>Other Users Involved (optional): <br />
                              <asp:ListBox runat="server" ID="takeFiveUserLstBx" CssClass="textareaPassword"></asp:ListBox>
                          </p>
 
-                         <p>Date completed: 
-                             <asp:Calendar runat="server" ID="takeFiveCal" CssClass="textareaPassword" ></asp:Calendar>
-                         </p>
+                         <center><table><tr><td style="vertical-align: top;"><p>Date Completed: </p></td><td><asp:Calendar runat="server" ID="takeFiveCal" CssClass="textareaPassword" ></asp:Calendar></td></tr></table></center>
 
-                         <p>Description: 
+                         <p>Details of Work Completed: 
                              <asp:TextBox runat="server" ID="descTxtBx" CssClass="textareaPassword" TextMode="MultiLine"></asp:TextBox>
                          </p>
 
                          <p>Minutes worked: 
-                             <asp:TextBox runat="server" ID="minWordTxtBx" CssClass="textareaPassword" ></asp:TextBox>
+                             <asp:TextBox runat="server" ID="minWordTxtBx" CssClass="textareaPassword" Width="50px" ></asp:TextBox>
                          </p>
 
-                         <p id ="worktype" runat="server">Which work type? 
-                             <asp:DropDownList runat="server" ID="tkfvWorktypeDrpList"  CssClass="textareaPassword"></asp:DropDownList>
-                         </p>
+
+                         <center><table><tr><td width="25%" style="vertical-align: top;"><p>Section Worked On: </p></td><td width="75%">  <asp:DropDownList runat="server" ID="tkfvWorktypeDrpList"  CssClass="textareaPassword" Width="100%"></asp:DropDownList></td></tr></table></center>
 
                          <p>
 
                              <br />
-                             Did you do a take five?
+                             Take Five Completed: 
                              <br />
                              <asp:RadioButton onclick="showTakeFive()" ID ="takeFiveYes" runat ="server" GroupName="TakeFiveControl" Text="Yes" />
                              <asp:RadioButton onclick="hideTakeFive()" ID ="takeFiveNo" runat ="server" GroupName="TakeFiveControl" Text="No" />
@@ -96,7 +93,7 @@
                          </p>
                          <br />
 
-                         <p>Have I checked that tools and equipment are in good order and tagged appropriately?<br />
+                         <p>Have you checked that tools and equipment are in good order and tagged appropriately?<br />
                          <asp:RadioButton runat="server" ID="a2" GroupName="2" Text="Yes" />
                          <asp:RadioButton runat="server" ID="b2" GroupName="2" Text="No" OnCheckedChanged="b1_CheckedChanged"/>
                          <asp:RadioButton runat="server" ID="c2" GroupName="2" Text="N/A" checked="true"/>
@@ -123,7 +120,7 @@
                          </p>
                          <br />
 
-                         <p>Have I communicated with other workgroups in the area?<br />
+                         <p>Have you communicated with other workgroups in the area?<br />
                          <asp:RadioButton runat="server" ID="a5" GroupName="5" Text="Yes" />
                          <asp:RadioButton runat="server" ID="b5" GroupName="5" Text="No" OnCheckedChanged="b1_CheckedChanged"/>
                          <asp:RadioButton runat="server" ID="c5" GroupName="5" Text="N/A" checked="true"/> 
@@ -132,7 +129,7 @@
                          </p>
                          <br />
 
-                         <p>Am I fatigued or unfit for this task?<br />
+                         <p>Are you fatigued or unfit for this task?<br />
                          <asp:RadioButton runat="server" ID="a6" GroupName="6" Text="Yes"  OnCheckedChanged="b1_CheckedChanged"/>
                          <asp:RadioButton runat="server" ID="b6" GroupName="6" Text="No" />
                          <asp:RadioButton runat="server" ID="c6" GroupName="6" Text="N/A" checked="true"/> 
@@ -150,7 +147,7 @@
                          </p>
                          <br />
 
-                         <p>Am I using the correct PPE for the task?<br />
+                         <p>Are you using the correct PPE for the task?<br />
                          <asp:RadioButton runat="server" ID="a8" GroupName="8" Text="Yes" />
                          <asp:RadioButton runat="server" ID="b8" GroupName="8" Text="No" OnCheckedChanged="b1_CheckedChanged"/>
                          <asp:RadioButton runat="server" ID="c8" GroupName="8" Text="N/A" checked="true"/> 
@@ -159,7 +156,7 @@
                          </p>
                          <br />
 
-                         <p>Are extreme weather conditions going to affect me or the job?<br />
+                         <p>Are extreme weather conditions going to affect you or the job?<br />
                          <asp:RadioButton runat="server" ID="a9" GroupName="9" Text="Yes" OnCheckedChanged="b1_CheckedChanged" />
                          <asp:RadioButton runat="server" ID="b9" GroupName="9" Text="No" />
                          <asp:RadioButton runat="server" ID="c9" GroupName="9" Text="N/A" checked="true"/> 
@@ -168,7 +165,7 @@
                          </p>
                          <br />
 
-                         <p>Am I familiar with the equipment?<br />
+                         <p>Are you familiar with the equipment?<br />
                          <asp:RadioButton runat="server" ID="a10" GroupName="10" Text="Yes" />
                          <asp:RadioButton runat="server" ID="b10" GroupName="10" Text="No" OnCheckedChanged="b1_CheckedChanged"/>
                          <asp:RadioButton runat="server" ID="c10" GroupName="10" Text="N/A" checked="true"/> 
@@ -177,7 +174,7 @@
                          </p>
                          <br />
 
-                         <p>Is my workgroup familiar with the task?<br />
+                         <p>Is your workgroup familiar with the task?<br />
                          <asp:RadioButton runat="server" ID="a11" GroupName="11" Text="Yes" />
                          <asp:RadioButton runat="server" ID="b11" GroupName="11" Text="No" OnCheckedChanged="b1_CheckedChanged"/>
                          <asp:RadioButton runat="server" ID="c11" GroupName="11" Text="N/A" checked="true"/> 
@@ -186,7 +183,7 @@
                          </p>
                          <br />
 
-                         <p>Have any conditions changed eg plant, weather?<br />
+                         <p>Have any conditions changed (i.e. plant, weather, etc)?<br />
                          <asp:RadioButton runat="server" ID="a12" GroupName="12" Text="Yes"  OnCheckedChanged="b1_CheckedChanged" />
                          <asp:RadioButton runat="server" ID="b12" GroupName="12" Text="No" />
                          <asp:RadioButton runat="server" ID="c12" GroupName="12" Text="N/A" checked="true"/> 
@@ -205,10 +202,7 @@
                          <br />
                          </div>
 
-                         <!--<p>Purchase good: <asp:TextBox runat="server" ID="goodTxtBx"></asp:TextBox></p>
-                         <p>Work type: <asp:DropDownList runat="server" ID="workTypeDrpList"></asp:DropDownList></p>
-                         <p>Price: <asp:TextBox runat="server" ID="priceTxtBx"></asp:TextBox></p>
-                         <p>Supplier: <asp:TextBox runat="server" ID="suppTxtBx"></asp:TextBox></p>-->
+                         
                          <asp:Button runat="server" ID="submitTakefiveBtn" CssClass="takeFiveBtn" Text="SUBMIT" OnClientClick="return checkTakeFive();" OnClick="submitTakefiveBtn_Click" />
                         <br />
                         <br />
