@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="error.aspx.cs" Inherits="NURacingWebsite.Error" MasterPageFile="~/LoggedIn.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="error503.aspx.cs" Inherits="NURacingWebsite.Error" MasterPageFile="~/LoggedIn.Master" %>
 
 <asp:Content ID="Title" ContentPlaceHolderID="Title" runat="server">
     NURacing - Service Unavailable 503
