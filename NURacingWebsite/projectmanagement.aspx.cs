@@ -263,6 +263,8 @@ namespace NURacingWebsite
             lblStatus.Visible = true;
             update = true;
             showInactiveProjBtn.Visible = true;
+
+            clearForm();
         }
 
         public void formUpdateProjectShowing()
@@ -316,6 +318,16 @@ namespace NURacingWebsite
             carDescTxtBx.Text = editProj.Description;
             activeChkBx.Checked = editProj.IsActive;
             projStatusDrpList.SelectedValue = editProj.Status;
+        }
+
+        private void clearForm()
+        {
+            submitProj.Visible = false;
+            carNameTxtBx.Text = "";
+            yearMadeTxtBx.Text = "";
+            carDescTxtBx.Text = "";
+            activeChkBx.Checked = false;
+            projStatusDrpList.SelectedIndex = 0;
         }
 
         void projNameDrpList_SelectedIndexChanged(object sender, EventArgs e)
