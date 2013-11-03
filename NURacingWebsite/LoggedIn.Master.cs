@@ -28,13 +28,13 @@ namespace NURacingWebsite
 
             if (exec is MySql.Data.MySqlClient.MySqlException)
             {
-                if (exec.Message.Contains("Timout"))
+                if (exec.Message.Contains("Timeout"))
                 {
                     Response.Redirect("/error.aspx");
                     Server.ClearError();
                 }
             }
-            if (exec is System.TimeoutException)
+            else if (exec is System.TimeoutException)
             {
                 Response.Redirect("/error.aspx");
                 Server.ClearError();
