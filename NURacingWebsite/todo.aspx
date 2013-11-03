@@ -16,7 +16,7 @@
                             <br />
                       <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />         <p style="text-align: center; clear:both;"></p>
        <h1>TO DO LIST</h1>
-                    <p style="text-align: center">Please click on a task button below to update a task or review a task and log time spent.</p>
+                    <p style="text-align: center" id="instructTodo" runat="server">Please click on a task button below to update a task or review a task and log time spent.</p>
                  
                 <br />
             <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="0" GridLines="None" OnDataBound="todoTable_DataBound">

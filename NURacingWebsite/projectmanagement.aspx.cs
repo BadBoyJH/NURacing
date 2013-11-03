@@ -68,6 +68,7 @@ namespace NURacingWebsite
                 }
             }
 
+            projNameDrpList.SelectedIndex = 0;
             projNameDrpList.SelectedIndexChanged += projNameDrpList_SelectedIndexChanged;
             projNameDrpList.AutoPostBack = true;
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
@@ -191,7 +192,7 @@ namespace NURacingWebsite
         {
             int projID = 0;
 
-            foreach (ProjectInfo info in ProjectInfo.getProjects())
+            foreach (ProjectInfo info in ProjectInfo.getProjects(false))
             {
                 if (info.Name == projNameDrpList.SelectedItem.ToString())
                 {
@@ -262,9 +263,13 @@ namespace NURacingWebsite
             projStatusDrpList.Visible = true;
             lblStatus.Visible = true;
             update = true;
-            showInactiveProjBtn.Visible = true;
+            showInactiveProjBtn.Visible = false;
 
-            clearForm();
+            carNameTxtBx.Text = "";
+            projStatusDrpList.SelectedIndex = 0;
+            yearMadeTxtBx.Text = "";
+            activeChkBx.Checked = false;
+            carDescTxtBx.Text = "";
         }
 
         public void formUpdateProjectShowing()
@@ -287,6 +292,8 @@ namespace NURacingWebsite
 
         protected void updateProjBtn_Click(object sender, EventArgs e)
         {
+            hideInactiveProjects = true;
+            createForm();
             formUpdateProjectShowing();
             fillData();
         }
@@ -297,13 +304,14 @@ namespace NURacingWebsite
             hideInactiveProjects = false;
             createForm();
             formUpdateProjectShowing();
+            fillData();
         }
 
         public void fillData()
         {
             int projID = 0;
 
-            foreach (ProjectInfo info in ProjectInfo.getProjects())
+            foreach (ProjectInfo info in ProjectInfo.getProjects(hideInactiveProjects))
             {
                 if (info.Name == projNameDrpList.SelectedItem.ToString())
                 {
@@ -318,16 +326,6 @@ namespace NURacingWebsite
             carDescTxtBx.Text = editProj.Description;
             activeChkBx.Checked = editProj.IsActive;
             projStatusDrpList.SelectedValue = editProj.Status;
-        }
-
-        private void clearForm()
-        {
-            submitProj.Visible = false;
-            carNameTxtBx.Text = "";
-            yearMadeTxtBx.Text = "";
-            carDescTxtBx.Text = "";
-            activeChkBx.Checked = false;
-            projStatusDrpList.SelectedIndex = 0;
         }
 
         void projNameDrpList_SelectedIndexChanged(object sender, EventArgs e)
