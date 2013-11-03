@@ -1,0 +1,94 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace NURacingWebsite
+{
+    public partial class projectsponsors : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            validateParameters();
+            BusinessLogicLayer.ProjectInfo projectInfo = BusinessLogicLayer.ProjectInfo.getProject(Convert.ToInt32(Request.Params.Get("id")));
+            ProjectName.InnerText = projectInfo.Name;
+
+            if (projectInfo.Sponsors.Count == 0)
+            {
+                hasSponsors.Visible = false;
+            }
+            
+            foreach (BusinessLogicLayer.UserInfo user in projectInfo.Sponsors)
+            {
+                SponsorList.Items.Add(user.UserName);
+                ddlRemoveSponsor.Items.Add(user.UserName);
+                noSponsors.Visible = false;
+            }
+            foreach (string username in BusinessLogicLayer.Role.getUsersInRole("Sponsor"))
+            {
+                bool found = false;
+                foreach (BusinessLogicLayer.UserInfo userInfo in projectInfo.Sponsors)
+                {
+                    if (userInfo.UserName == username)
+                    {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    ddlAddSponsor.Items.Add(username);
+                }
+            }
+
+            btnAddSponsor.Visible = ddlAddSponsor.Items.Count != 0;
+            btnRemoveSponsor.Visible = ddlRemoveSponsor.Items.Count != 0;
+        }
+
+        private void validateParameters()
+        {
+            try
+            {
+                int ProjectID = Convert.ToInt32(Request.Params.Get("id"));
+                BusinessLogicLayer.ProjectInfo project = BusinessLogicLayer.ProjectInfo.getProject(ProjectID);
+                if (project.Name == "Workshop")
+                {
+                    Response.Clear();
+                    Response.StatusCode = 400;
+                    Response.End();
+                }
+            }
+            catch (Exception)
+            {
+                Response.Clear();
+                Response.StatusCode = 400;
+                Response.End();
+            }
+        }
+
+        protected void btnAddSponsor_Click(object sender, EventArgs e)
+        {
+            divAddSponsor.Visible = true;
+            divRemoveSponsor.Visible = false;
+        }
+
+        protected void btnRemoveSponsor_Click(object sender, EventArgs e)
+        {
+            divRemoveSponsor.Visible = true;
+            divAddSponsor.Visible = false;
+
+        }
+
+        protected void btnSubmitAdd_Click(object sender, EventArgs e)
+        {
+            BusinessLogicLayer.Sponsor.AddSponsor(ddlAddSponsor.SelectedValue, Convert.ToInt32(Request.Params.Get("id")));
+        }
+
+        protected void btnSubmitRemove_Click(object sender, EventArgs e)
+        {
+            BusinessLogicLayer.Sponsor.RemoveSponsor(ddlRemoveSponsor.SelectedValue, Convert.ToInt32(Request.Params.Get("id")));
+        }
+    }
+}

@@ -8,7 +8,7 @@
         <asp:ContentPlaceHolder ID="Title" runat="server" />
     </title>
 
-    <link id="Link1" rel="icon" type="image/png" href="~/NURacing_Favicon.ico" runat="server" />
+    <link id="Link1" rel="icon" type="image/png" href="/NURacing_Favicon.ico" runat="server" />
     <link rel="stylesheet" media="all" href="~/css/style.css" runat = "server" />
     <link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div id="menu" runat="server">
-                       <span style="vertical-align: middle;"> <img id="Img2" src="../Images/NURacingLogo_White.png" alt="NURacing" style=" margin-left:30px; margin-right:10px; vertical-align:middle; height: 88px; width: 130px;" /> 
+                       <span style="vertical-align: middle;"> <img id="Img2" src="/Images/NURacingLogo_White.png" alt="NURacing" style=" margin-left:30px; margin-right:10px; vertical-align:middle; height: 88px; width: 130px;" /> 
     <a href="\index.aspx">Projects</a> &nbsp; <a href="\todo.aspx">To Do</a> &nbsp;
     <a href="\purchases.aspx">Purchases</a> &nbsp; <a href="\accountmanagement.aspx">Account</a> &nbsp; <a href="\reporting.aspx">Reporting</a></span>
     </div>

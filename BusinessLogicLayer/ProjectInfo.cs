@@ -18,6 +18,7 @@ namespace BusinessLogicLayer
         private int? yearMade;
         private string status;
         private DateTime statusLastChanged;
+        private List<UserInfo> sponsors;
 
         private bool beenChanged;
 
@@ -107,6 +108,14 @@ namespace BusinessLogicLayer
             }
         }
 
+        public List<UserInfo> Sponsors
+        {
+            get
+            {
+                return sponsors;
+            }
+        }
+
         private ProjectInfo(NuRacingDataSet.ProjectRow projectRow)
         {
             active = projectRow.Project_Active;
@@ -124,7 +133,15 @@ namespace BusinessLogicLayer
             {
                 yearMade = projectRow.Project_YearMade;
             }
+
             beenChanged = false;
+
+            sponsors = new List<UserInfo>();
+
+            foreach (NuRacingDataSet.SponsoredRow sponsorRow in (new SponsoredTableAdapter().GetDataByProjectID(projectID).Rows))
+            {
+                sponsors.Add(UserInfo.getUser(sponsorRow.User_UserName));
+            }
         }
 
         public static ProjectInfo getProject(int ProjectID)

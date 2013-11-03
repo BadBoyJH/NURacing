@@ -81,5 +81,10 @@ namespace NURacingWebsite
         {
             Response.Redirect("/sectionmanagement.aspx?id=" + Request.QueryString["id"]);
         }
+
+        protected void manageSponsorsBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/projectsponsor.aspx?id=" + Request.Params.Get("id"));
+        }
     }
 }

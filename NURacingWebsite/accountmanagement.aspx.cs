@@ -74,7 +74,7 @@ namespace NURacingWebsite
         protected void Page_Init(object sender, EventArgs e)
         {
             createForm(true);
-        }
+            }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -467,11 +467,12 @@ namespace NURacingWebsite
             lblPassword.Visible = showPassword;
             lblPasswordConf.Visible = showPassword;
             lblPasswordNew.Visible = showPassword;
-            lblPasswordConf.Visible = showPassword;
+            lblPasswordConfChange.Visible = showPassword;
             passwordConfTxtBx.Visible = showPassword;
             passwordNewTxtBx.Visible = showPassword;
             passwordTxtBx.Visible = showPassword;
             passwordConfChangeChkBx.Visible = showPassword;
+            lblTooltip.Visible = showPassword;
         }
 
         private void clearForm()
@@ -509,11 +510,12 @@ namespace NURacingWebsite
             lblPassword.Visible = false;
             lblPasswordConf.Visible = false;
             lblPasswordNew.Visible = false;
-            lblPasswordConf.Visible = false;
+            lblPasswordConfChange.Visible = false;
             passwordConfTxtBx.Visible = false;
             passwordNewTxtBx.Visible = false;
             passwordTxtBx.Visible = false;
             passwordConfChangeChkBx.Visible = false;
+            lblTooltip.Visible = false;
         }
 
         protected void submitCreateUserBtn_Click(object sender, EventArgs e)

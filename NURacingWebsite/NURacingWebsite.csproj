@@ -204,6 +204,7 @@
     <Content Include="error400.aspx" />
     <Content Include="error404.aspx" />
     <Content Include="errorgeneric.aspx" />
+    <Content Include="projectsponsor.aspx" />
     <Content Include="Reporting\reportpurchasing.aspx" />
     <Content Include="Reporting\reportsponsordetails.aspx" />
     <Content Include="resetPassword.aspx" />
@@ -387,6 +388,13 @@
     </Compile>
     <Compile Include="error503.aspx.designer.cs">
       <DependentUpon>error503.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="projectsponsor.aspx.cs">
+      <DependentUpon>projectsponsor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="projectsponsor.aspx.designer.cs">
+      <DependentUpon>projectsponsor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reporting\reportpurchasing.aspx.cs">
       <DependentUpon>reportpurchasing.aspx</DependentUpon>
