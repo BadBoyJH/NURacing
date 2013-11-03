@@ -39,13 +39,30 @@ namespace NURacingWebsite
             workTypeID = Convert.ToInt32(Request.Params.Get("id"));
             createForm();
             updateTaskBtn.Visible = (TaskInfo.getWorkTypeTasks(workTypeID).Count != 0);
+
+            if (Request.Params.Get("create") == "true")
+            {
+                submitTask.Text = "Task created.";
+                submitTask.Visible = true;
+            }
+
+            if (Request.Params.Get("update") == "true")
+            {
+                submitTask.Text = "Task updated.";
+                submitTask.Visible = true;
+            }
         }
 
         protected void createTaskBtn_Click(object sender, EventArgs e)
         {
+            submitTask.Visible = false;
             taskSub.Visible = false;
+            lblTaskDrpList.Visible = false;
+            taskDrpList.Visible = false;
+            clearForm();
             taskFrm.Visible = true;
             createSubmitTaskBtn.Visible = true;
+            updateSubmitBtn.Visible = false;
         }
 
         private void fillData()
@@ -71,6 +88,8 @@ namespace NURacingWebsite
             takeFiveChkBx.Checked = task.TakeFiveNeeded;
             taskStatusTxtBx.Text = task.TaskStatus;
             reasonTxtBx.Text = task.TaskIncompleteReason;
+
+            submitTask.Visible = false;
 
         }
 
@@ -205,10 +224,13 @@ namespace NURacingWebsite
 
         protected void updateTaskBtn_Click(object sender, EventArgs e)
         {
+            submitTask.Visible = false;
             taskSub.Visible = false;
             lblTaskDrpList.Visible = true;
             taskDrpList.Visible = true;
             taskFrm.Visible = true;
+            updateSubmitBtn.Visible = true;
+            createSubmitTaskBtn.Visible = false;
             fillData();
         }
 
@@ -271,6 +293,7 @@ namespace NURacingWebsite
             taskSub.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
             taskSub.Text = "Task updated.";
             taskSub.Visible = true;
+            Response.Redirect("/taskmanagement.aspx?id=" + workTypeID.ToString() + "&update=true");
         }
 
         protected void createSubmitTaskBtn_Click(object sender, EventArgs e)
@@ -307,7 +330,7 @@ namespace NURacingWebsite
             BusinessLogicLayer.AssignedTask.addTask(Membership.GetUser().UserName, addedUsers, 
                 workID, dueDateCal.SelectedDate, taskNameTxtBx.Text, taskDescTxtBx.Text, takeFiveChkBx.Checked);
 
-            taskSub.Visible = true;
+            Response.Redirect("/taskmanagement.aspx?id=" + workTypeID.ToString() + "&create=true");
         }
     }
 }

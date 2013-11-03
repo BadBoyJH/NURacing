@@ -29,6 +29,23 @@ namespace NURacingWebsite
         protected void Page_Load(object sender, EventArgs e)
         {
             createForm();
+
+            if (Request.Params.Get("create") == "true")
+            {
+                submitProj.Text = "Project created.";
+                submitProj.Visible = true;
+            }
+
+            if (Request.Params.Get("update") == "true")
+            {
+                lblProjSubmit.Text = "Project updated.";
+                submitProj.Visible = true;
+            }
+
+            if (Request.Params.Get("bigredcar") == "toottootchuggachugga")
+            {
+                Response.Redirect("http://www.youtube.com/watch?v=BUINIvlJf2Y");
+            }
         }
 
         private void createForm()
@@ -37,7 +54,7 @@ namespace NURacingWebsite
 
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
             lblProjSubmit.CssClass = "submitLbl";
-            lblProjSubmit.Visible = false;
+            lblProjSubmit.Visible = true;
             createProjFrm.Controls.Add(lblProjSubmit);
             createProjFrm.Controls.Add(new LiteralControl("</p> "));
 
@@ -167,6 +184,7 @@ namespace NURacingWebsite
             submitProjBtn.Visible = false;
             updateProjBtn.Visible = false;
             showInactiveProjBtn.Visible = false;
+            Response.Redirect("/projectmanagement.aspx?create=true");
         }
 
         protected void updateSubmitBtn_Click(object sender, EventArgs e)
@@ -203,7 +221,7 @@ namespace NURacingWebsite
 
             editProj.updateDatabase();
 
-            submitProj.InnerText = "Project updated.";
+            lblProjSubmit.Text = "Project updated.";
 
             submitProj.Visible = true;
 
@@ -212,7 +230,7 @@ namespace NURacingWebsite
             submitProjBtn.Visible = false;
             updateProjBtn.Visible = false;
             showInactiveProjBtn.Visible = false;
-            
+            Response.Redirect("/projectmanagement.aspx?update=" + "true");
         }
 
         protected void createProjBtn_Click(object sender, EventArgs e)
