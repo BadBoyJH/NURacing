@@ -37,36 +37,17 @@
                 </ul>
             </div>
         </div>
-        <div class="colmaskhead threecolhead">
-            <div class="colmidhead">
-                <div class="collefthead">
-                    <div class="col1head">
-                        <div id="menu">
-                            <ul id="nav" class="menu" style="padding-top: 10px;">
-                                <li><a href="\index.aspx"><span><span>
-                                    <img src="\images\logo.png" alt="Logo" /></span></span></a></li>
-                                <li><a href="\index.aspx"><span><span style="margin-top: 25px;">Projects</span></span></a></li>
-                                <li><a href="\todo.aspx"><span><span style="margin-top: 25px;">To Do</span></span></a></li>
-                                <li><a href="\purchases.aspx"><span><span style="margin-top: 25px;">Purchase</span></span></a></li>
-                                <li><a href="\usermanagement.aspx"><span><span style="margin-top: 25px;">Account</span></span></a></li>
-                                <li><a href="\reporting.aspx"><span><span style="margin-top: 25px;">Reporting</span></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col2head">
-                    </div>
-                    <div class="col3head">
-                    </div>
-
-                </div>
-            </div>
-        </div>
+        <div id="menu" runat="server">
+                       <span style="vertical-align: middle;"> <img id="Img2" src="\images\logo.png" alt="NURacing" style=" margin-left:30px; margin-right:10px; vertical-align:middle;" /> 
+    <a href="\index.aspx">Projects</a> &nbsp; <a href="\todo.aspx">To Do</a> &nbsp;
+    <a href="\purchases.aspx">Purchases</a> &nbsp; <a href="\usermanagement.aspx">Account</a> &nbsp; <a href="\reporting.aspx">Reporting</a></span>
+    </div>
     </div>
     <asp:ContentPlaceHolder ID="Body" runat="server" />
 
     <div id="footer" runat="server">
         <h5><a href="http://www.newcastle.edu.au/">
-            <img id="Img1" src="Images/logo2.png" alt="University of Newcastle" style="margin-right: 30px; vertical-align: middle;" /></a>© NURacing, 2013 &nbsp;&#149;&nbsp; 
+            <img id="Img1" src="Images/logo2.png" alt="University of Newcastle" style="vertical-align: middle;" /></a> © NURacing, 2013 &nbsp;&#149;&nbsp; 
     <a href="http://www.eng.newcastle.edu.au/~fsae/">Website</a> &nbsp;&#149;&nbsp; <a href="https://www.facebook.com/groups/403657373086331/">Discussion Board</a> &nbsp;&#149;&nbsp; 
     <a href="http://www.saea.com.au/formula-sae-a/">FSAE</a> &nbsp;&#149;&nbsp; <a href="mailto:nuracinghelpdesk@gmail.com?Subject=NURacing%20Support%20Request">Support</a></h5>
     </div>

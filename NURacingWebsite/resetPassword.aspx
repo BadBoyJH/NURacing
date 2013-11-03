@@ -44,14 +44,14 @@
                     <div id="resetFail" runat="server">
                         <p class="pUserFeedbackFail">Supplied username and email don't match, please try again.</p>
                     </div>
-
+                    <br />
                     <form id="passwordResetFrm" runat="server">
                         <div id="resetPassword">
                             <asp:Label runat="server" ID="usernameLbl" CssClass="userRole">Username: </asp:Label>
-                            <asp:TextBox runat="server" ID="usernameTxtBx" CssClass="textareaPassword"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="usernameTxtBx" CssClass="textareaPassword" Width="40%"></asp:TextBox>
                             <br />
                             <asp:Label runat="server" ID="emailLbl" CssClass="userRole">Email: </asp:Label>
-                            <asp:TextBox runat="server" ID="emailTxtBx" CssClass="textareaPassword"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="emailTxtBx" CssClass="textareaPassword" Width="40%"></asp:TextBox>
                             <br />
                             <asp:Button runat="server" ID="resetPasswordBtn" CssClass="takeFiveBtn" Text="RESET" OnClick="resetPasswordBtn_Click" />
                         </div>
