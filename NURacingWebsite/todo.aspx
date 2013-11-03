@@ -19,7 +19,7 @@
                     <p style="text-align: center">Please click on a task button below to update a task or review a task and log time spent.</p>
                  
                 <br />
-            <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="0" GridLines="None">
+            <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="0" GridLines="None" OnDataBound="todoTable_DataBound">
                 <Columns>
                             <asp:BoundField HeaderText="NAME" DataField="Task_Name"/>
                             <asp:BoundField HeaderText="DESCRIPTION" DataField="Task_Description" />

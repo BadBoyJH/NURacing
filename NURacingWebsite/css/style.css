@@ -43,6 +43,20 @@ p {
 	text-shadow: 1px 1px 1px #000000;
 }
 
+.pUserFeedbackPass {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 11pt;
+	color: #0BA825;
+	text-shadow: 1px 1px 1px #000000;
+}
+
+.pUserFeedbackFail {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 11pt;
+	color: #E02323;
+	text-shadow: 1px 1px 1px #000000;
+}
+
 #lblUsername {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 11pt;
@@ -624,7 +638,7 @@ cursor: pointer;
     background-color:none;
     border:none;
     font-family: 'Oswald', sans-serif; font-size: 35px; line-height: 30px;    color: #A8A8A8;
-    margin-bottom:10px;
+    padding-bottom:10px;
     }
 
 .todoTable td
@@ -662,6 +676,8 @@ cursor: pointer;
 	box-shadow: 0px 1px 1px #2e2e2e;
     border: none;
 	float: left;
+    text-align:center;
+    margin-left:20px;
     }
 
 
@@ -898,7 +914,10 @@ text-transform:uppercase;
     vertical-align:middle;
 }
 
-#submitLbl {
-    font-weight:bold;
-    color:red;
+.lblTooltip {
+    font-family: "Webdings";
+    font-size:18px;
+    color: #7E7E7E;
+    vertical-align:middle;
+    margin-bottom:5px;
 }

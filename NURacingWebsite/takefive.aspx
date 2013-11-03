@@ -50,29 +50,28 @@
                     <div class="taskDetail">
                      <form id ="Form1" runat="server" onsubmit="">
 
-                         <p runat="server" id="takeFiveSubmit" class="submitLbl" visible="false">Take five submitted.</p>
+                         <p runat="server" id="takeFiveSubmit" class="pUserFeedbackPass" visible="false">Take five submitted.</p>
 
                          <p runat="server" id="taskInfo" visible="false"></p>
 
                          <p>What other users (if any)? <br />
-                             <asp:ListBox runat="server" ID="takeFiveUserLstBx"></asp:ListBox>
+                             <asp:ListBox runat="server" ID="takeFiveUserLstBx" CssClass="textareaPassword"></asp:ListBox>
                          </p>
 
                          <p>Date completed: 
-                             <br />
-                             <asp:Calendar runat="server" ID="takeFiveCal" BackColor ="#2D2D2D" ForeColor="#7E7E7E" />
+                             <asp:Calendar runat="server" ID="takeFiveCal" CssClass="textareaPassword" ></asp:Calendar>
                          </p>
 
                          <p>Description: 
-                             <asp:TextBox runat="server" ID="descTxtBx"></asp:TextBox>
+                             <asp:TextBox runat="server" ID="descTxtBx" CssClass="textareaPassword" TextMode="MultiLine"></asp:TextBox>
                          </p>
 
                          <p>Minutes worked: 
-                             <asp:TextBox runat="server" ID="minWordTxtBx"></asp:TextBox>
+                             <asp:TextBox runat="server" ID="minWordTxtBx" CssClass="textareaPassword" ></asp:TextBox>
                          </p>
 
                          <p id ="worktype" runat="server">Which work type? 
-                             <asp:DropDownList runat="server" ID="tkfvWorktypeDrpList"></asp:DropDownList>
+                             <asp:DropDownList runat="server" ID="tkfvWorktypeDrpList"  CssClass="textareaPassword"></asp:DropDownList>
                          </p>
 
                          <p>
@@ -92,7 +91,7 @@
                          <asp:RadioButton runat="server" ID="a1" GroupName="1" Text="Yes" />
                          <asp:RadioButton runat="server" ID="b1" GroupName="1" Text="No" OnCheckedChanged="b1_CheckedChanged"/>
                          <asp:RadioButton runat="server" ID="c1" GroupName="1" Text="N/A" checked="true"/>
-                         <asp:TextBox runat="server" ID="reason1TxtBx"></asp:TextBox>    
+                         <asp:TextBox runat="server" ID="reason1TxtBx" CssClass="textareaPassword"></asp:TextBox>    
                          <br />
                          </p>
                          <br />
@@ -101,7 +100,7 @@
                          <asp:RadioButton runat="server" ID="a2" GroupName="2" Text="Yes" />
                          <asp:RadioButton runat="server" ID="b2" GroupName="2" Text="No" OnCheckedChanged="b1_CheckedChanged"/>
                          <asp:RadioButton runat="server" ID="c2" GroupName="2" Text="N/A" checked="true"/>
-                         <asp:TextBox runat="server" ID="reason2TxtBx"></asp:TextBox>
+                         <asp:TextBox runat="server" ID="reason2TxtBx" CssClass="textareaPassword"></asp:TextBox>
                          <br />
                          </p>
                          <br />
@@ -110,7 +109,7 @@
                          <asp:RadioButton runat="server" ID="a3" GroupName="3" Text="Yes" />
                          <asp:RadioButton runat="server" ID="b3" GroupName="3" Text="No" OnCheckedChanged="b1_CheckedChanged"/>
                          <asp:RadioButton runat="server" ID="c3" GroupName="3" Text="N/A" checked="true"/> 
-                         <asp:TextBox runat="server" ID="reason3TxtBx"></asp:TextBox>    
+                         <asp:TextBox runat="server" ID="reason3TxtBx" CssClass="textareaPassword"></asp:TextBox>    
                          <br />
                          </p>
                          <br />
@@ -119,7 +118,7 @@
                          <asp:RadioButton runat="server" ID="a4" GroupName="4" Text="Yes" />
                          <asp:RadioButton runat="server" ID="b4" GroupName="4" Text="No" OnCheckedChanged="b1_CheckedChanged"/>
                          <asp:RadioButton runat="server" ID="c4" GroupName="4" Text="N/A" checked="true"/> 
-                         <asp:TextBox runat="server" ID="reason4TxtBx"></asp:TextBox>                                 
+                         <asp:TextBox runat="server" ID="reason4TxtBx" CssClass="textareaPassword"></asp:TextBox>                                 
                          <br />
                          </p>
                          <br />
@@ -128,7 +127,7 @@
                          <asp:RadioButton runat="server" ID="a5" GroupName="5" Text="Yes" />
                          <asp:RadioButton runat="server" ID="b5" GroupName="5" Text="No" OnCheckedChanged="b1_CheckedChanged"/>
                          <asp:RadioButton runat="server" ID="c5" GroupName="5" Text="N/A" checked="true"/> 
-                         <asp:TextBox runat="server" ID="reason5TxtBx"></asp:TextBox>                                                          
+                         <asp:TextBox runat="server" ID="reason5TxtBx" CssClass="textareaPassword"></asp:TextBox>                                                          
                          <br />
                          </p>
                          <br />
@@ -137,7 +136,7 @@
                          <asp:RadioButton runat="server" ID="a6" GroupName="6" Text="Yes"  OnCheckedChanged="b1_CheckedChanged"/>
                          <asp:RadioButton runat="server" ID="b6" GroupName="6" Text="No" />
                          <asp:RadioButton runat="server" ID="c6" GroupName="6" Text="N/A" checked="true"/> 
-                         <asp:TextBox runat="server" ID="reason6TxtBx"></asp:TextBox>                                 
+                         <asp:TextBox runat="server" ID="reason6TxtBx" CssClass="textareaPassword"></asp:TextBox>                                 
                          <br />
                          </p>
                          <br />
@@ -146,7 +145,7 @@
                          <asp:RadioButton runat="server" ID="a7" GroupName="7" Text="Yes" OnCheckedChanged="b1_CheckedChanged" />
                          <asp:RadioButton runat="server" ID="b7" GroupName="7" Text="No" />
                          <asp:RadioButton runat="server" ID="c7" GroupName="7" Text="N/A" checked="true"/> 
-                         <asp:TextBox runat="server" ID="reason7TxtBx"></asp:TextBox>                                 
+                         <asp:TextBox runat="server" ID="reason7TxtBx" CssClass="textareaPassword"></asp:TextBox>                                 
                          <br />
                          </p>
                          <br />
@@ -155,7 +154,7 @@
                          <asp:RadioButton runat="server" ID="a8" GroupName="8" Text="Yes" />
                          <asp:RadioButton runat="server" ID="b8" GroupName="8" Text="No" OnCheckedChanged="b1_CheckedChanged"/>
                          <asp:RadioButton runat="server" ID="c8" GroupName="8" Text="N/A" checked="true"/> 
-                         <asp:TextBox runat="server" ID="reason8TxtBx"></asp:TextBox> 
+                         <asp:TextBox runat="server" ID="reason8TxtBx" CssClass="textareaPassword"></asp:TextBox> 
                          <br />
                          </p>
                          <br />
@@ -164,7 +163,7 @@
                          <asp:RadioButton runat="server" ID="a9" GroupName="9" Text="Yes" OnCheckedChanged="b1_CheckedChanged" />
                          <asp:RadioButton runat="server" ID="b9" GroupName="9" Text="No" />
                          <asp:RadioButton runat="server" ID="c9" GroupName="9" Text="N/A" checked="true"/> 
-                         <asp:TextBox runat="server" ID="reason9TxtBx"></asp:TextBox> 
+                         <asp:TextBox runat="server" ID="reason9TxtBx" CssClass="textareaPassword"></asp:TextBox> 
                          <br />
                          </p>
                          <br />
@@ -173,7 +172,7 @@
                          <asp:RadioButton runat="server" ID="a10" GroupName="10" Text="Yes" />
                          <asp:RadioButton runat="server" ID="b10" GroupName="10" Text="No" OnCheckedChanged="b1_CheckedChanged"/>
                          <asp:RadioButton runat="server" ID="c10" GroupName="10" Text="N/A" checked="true"/> 
-                         <asp:TextBox runat="server" ID="reason10TxtBx"></asp:TextBox> 
+                         <asp:TextBox runat="server" ID="reason10TxtBx" CssClass="textareaPassword"></asp:TextBox> 
                          <br />
                          </p>
                          <br />
@@ -182,7 +181,7 @@
                          <asp:RadioButton runat="server" ID="a11" GroupName="11" Text="Yes" />
                          <asp:RadioButton runat="server" ID="b11" GroupName="11" Text="No" OnCheckedChanged="b1_CheckedChanged"/>
                          <asp:RadioButton runat="server" ID="c11" GroupName="11" Text="N/A" checked="true"/> 
-                         <asp:TextBox runat="server" ID="reason11TxtBx"></asp:TextBox> 
+                         <asp:TextBox runat="server" ID="reason11TxtBx" CssClass="textareaPassword"></asp:TextBox> 
                          <br />
                          </p>
                          <br />
@@ -191,7 +190,7 @@
                          <asp:RadioButton runat="server" ID="a12" GroupName="12" Text="Yes"  OnCheckedChanged="b1_CheckedChanged" />
                          <asp:RadioButton runat="server" ID="b12" GroupName="12" Text="No" />
                          <asp:RadioButton runat="server" ID="c12" GroupName="12" Text="N/A" checked="true"/> 
-                         <asp:TextBox runat="server" ID="reason12TxtBx"></asp:TextBox> 
+                         <asp:TextBox runat="server" ID="reason12TxtBx" CssClass="textareaPassword"></asp:TextBox> 
                          <br />
                          </p>
                          <br />
@@ -200,7 +199,7 @@
                          <asp:RadioButton runat="server" ID="a13" GroupName="13" Text="Yes" />
                          <asp:RadioButton runat="server" ID="b13" GroupName="13" Text="No" OnCheckedChanged="b1_CheckedChanged"/>
                          <asp:RadioButton runat="server" ID="c13" GroupName="13" Text="N/A" checked="true"/> 
-                         <asp:TextBox runat="server" ID="reason13TxtBx"></asp:TextBox> 
+                         <asp:TextBox runat="server" ID="reason13TxtBx" CssClass="textareaPassword"></asp:TextBox> 
                          <br />
                          </p>
                          <br />
