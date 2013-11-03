@@ -273,7 +273,7 @@ namespace NURacingWebsite
 
         protected void showInactiveProjBtn_Click(object sender, EventArgs e)
         {
-            showInactiveProjBtn.Visible = false;
+            //showInactiveProjBtn.Visible = false; //Removed for now, might need to be added back
             hideInactiveProjects = false;
             createForm();
             formUpdateProjectShowing();

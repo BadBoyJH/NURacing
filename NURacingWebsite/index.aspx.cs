@@ -70,6 +70,7 @@ namespace NURacingWebsite
         protected void showInactiveProjBtn_Click(object sender, EventArgs e)
         {
             activeProjectsOnly = false;
+            showInactiveProjBtn.Visible = false;
             showProjects();
         }
     }
