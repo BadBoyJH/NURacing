@@ -43,7 +43,7 @@ namespace NURacingWebsite
 
                 newRow["Task_Name"] = task.TaskName;
                 newRow["Task_Description"] = task.TaskDescription;
-                newRow["duedate"] = task.TaskDueDate;
+                newRow["duedate"] = task.TaskDueDate.ToShortDateString();
                 newRow["Task_ID"] = task.TaskID;
 
                 dataTable.Rows.Add(newRow);

@@ -69,8 +69,7 @@
                          </p>
 
 
-                         <center><table><tr><td width="25%" style="vertical-align: top;"><p>Section Worked On: </p></td><td width="75%">  <asp:DropDownList runat="server" ID="tkfvWorktypeDrpList"  CssClass="textareaPassword" Width="100%"></asp:DropDownList></td></tr></table></center>
-
+                         
                          <p>
 
                              <br />

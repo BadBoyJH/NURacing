@@ -20,15 +20,19 @@ namespace NURacingWebsite
         DropDownList projStatusDrpList = new DropDownList();
         Label lblCarNameList = new Label();
         DropDownList projNameDrpList = new DropDownList();
-        bool update;
         Label lblProjSubmit = new Label();
         Label lblActive = new Label();
         CheckBox activeChkBx = new CheckBox();
-        bool hideInactiveProjects = true;
+
+        bool update;
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            createForm();
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            createForm();
             
             if (Request.Params.Get("create") == "true")
             {
@@ -183,7 +187,6 @@ namespace NURacingWebsite
             submitProj.Visible = true;
             submitProjBtn.Visible = false;
             updateProjBtn.Visible = false;
-            showInactiveProjBtn.Visible = false;
             Response.Redirect("/projectmanagement.aspx?create=true");
         }
 
@@ -229,7 +232,6 @@ namespace NURacingWebsite
 
             submitProjBtn.Visible = false;
             updateProjBtn.Visible = false;
-            showInactiveProjBtn.Visible = false;
             Response.Redirect("/projectmanagement.aspx?update=" + "true");
         }
 
@@ -253,7 +255,6 @@ namespace NURacingWebsite
             lblProjSubmit.Visible = false;
             activeChkBx.Visible = false;
             lblActive.Visible = false;
-            showInactiveProjBtn.Visible = false;
             lblActive.Visible = true;
             activeChkBx.Visible = true;
             createProjFrm.Visible = true;
@@ -262,7 +263,6 @@ namespace NURacingWebsite
             projStatusDrpList.Visible = true;
             lblStatus.Visible = true;
             update = true;
-            showInactiveProjBtn.Visible = false;
 
             carNameTxtBx.Text = "";
             projStatusDrpList.SelectedIndex = 0;
@@ -286,20 +286,10 @@ namespace NURacingWebsite
             projStatusDrpList.Visible = true;
             lblStatus.Visible = true;
             update = true;
-            showInactiveProjBtn.Visible = true;
         }
 
         protected void updateProjBtn_Click(object sender, EventArgs e)
         {
-            hideInactiveProjects = true;
-            formUpdateProjectShowing();
-            fillData();
-        }
-
-        protected void showInactiveProjBtn_Click(object sender, EventArgs e)
-        {
-            showInactiveProjBtn.Visible = false;
-            hideInactiveProjects = false;
             formUpdateProjectShowing();
             fillData();
         }
@@ -307,7 +297,6 @@ namespace NURacingWebsite
         public void fillData()
         {
             int projID = 0;
-            hideInactiveProjects = true;
 
             foreach (ProjectInfo info in ProjectInfo.getProjects(false))
             {

@@ -21,59 +21,42 @@ namespace NURacingWebsite
         {
             takeFiveUserLstBx.SelectionMode = ListSelectionMode.Multiple;
 
-            if (Request.Params.Get("taskID") == null)
+            try
             {
-                foreach (WorkTypeInfo type in BusinessLogicLayer.WorkTypeInfo.getAllWorkTypes())
+                TaskInfo task = task = TaskInfo.getAssignedTask(Convert.ToInt32(Request.Params.Get("taskID")));
+
+                bool found = false;
+
+                foreach (UserInfo user in task.UserAssignedInfo)
                 {
-                    if (type.Project.Name == type.Name)
+                    if (user.UserName == Membership.GetUser().UserName)
                     {
-                        tkfvWorktypeDrpList.Items.Add(type.Project.Name);
+                        found = true;
+                        break;
                     }
-                    else
-                    {
-                        tkfvWorktypeDrpList.Items.Add(type.Project.Name + " - " + type.Name);
-                    }
+                }
+
+                if (!found)
+                {
+                    Response.Redirect("accessdenied.aspx");
+                }
+
+                taskInfo.InnerText = String.Format("You are logging work done for task {0:s}.", task.TaskName);
+                taskInfo.Visible = true;
+                if (task.TakeFiveNeeded)
+                {
+                    takeFiveNo.Enabled = false;
+                    takeFiveYes.Checked = true;
+                    takeFiveYes.Enabled = false;
+                }
+                else
+                {
+                    takeFiveNo.Checked = true;
                 }
             }
-            else
+            catch(Exception)
             {
-                try
-                {
-                    TaskInfo task = task = TaskInfo.getAssignedTask(Convert.ToInt32(Request.Params.Get("taskID")));
-
-                    bool found = false;
-
-                    foreach (UserInfo user in task.UserAssignedInfo)
-                    {
-                        if (user.UserName == Membership.GetUser().UserName)
-                        {
-                            found = true;
-                            break;
-                        }
-                    }
-
-                    if (!found)
-                    {
-                        Response.Redirect("accessdenied.aspx");
-                    }
-
-                    taskInfo.InnerText = String.Format("You are logging work done for task {0:s}.", task.TaskName);
-                    taskInfo.Visible = true;
-                    if (task.TakeFiveNeeded)
-                    {
-                        takeFiveNo.Enabled = false;
-                        takeFiveYes.Checked = true;
-                        takeFiveYes.Enabled = false;
-                    }
-                    else
-                    {
-                        takeFiveNo.Checked = true;
-                    }
-                }
-                catch(Exception)
-                {
-                    Response.Redirect("/index.aspx");
-                }
+                Response.Redirect("/index.aspx");
             }
 
             foreach (UserInfo user in BusinessLogicLayer.UserInfo.getAllUsers())
@@ -103,28 +86,6 @@ namespace NURacingWebsite
                 if (item.Selected)
                 {
                     usernameList.Add(item.ToString());
-                }
-            }
-
-            int workID = 0;
-
-            if (Request.Params.Get("taskID") == null)
-            {
-                foreach (WorkTypeInfo type in BusinessLogicLayer.WorkTypeInfo.getAllWorkTypes())
-                {
-                    if (type.Project.Name == type.Name)
-                    {
-                        if (type.Project.Name == tkfvWorktypeDrpList.SelectedItem.ToString())
-                        {
-                            workID = type.WorkTypeID;
-                            break;
-                        }
-                    }
-                    else if (type.Project.Name + " - " + type.Name == tkfvWorktypeDrpList.SelectedItem.ToString())
-                    {
-                        workID = type.WorkTypeID;
-                        break;
-                    }
                 }
             }
 
@@ -239,27 +200,13 @@ namespace NURacingWebsite
                 usernames = usernameList.ToArray();
                 responseArray = responseList.ToArray();
 
-                if (Request.Params.Get("taskID") == null)
+                if (takeFiveYes.Checked)
                 {
-                    if (takeFiveYes.Checked)
-                    {
-                        BusinessLogicLayer.Work.AddWork(usernames, takeFiveCal.SelectedDate, descTxtBx.Text, workID, Convert.ToInt32(minWordTxtBx.Text), responseArray);
-                    }
-                    else
-                    {
-                        BusinessLogicLayer.Work.AddWork(usernames, takeFiveCal.SelectedDate, descTxtBx.Text, workID, Convert.ToInt32(minWordTxtBx.Text), false);
-                    }
+                    BusinessLogicLayer.Work.CompleteTask(usernames, takeFiveCal.SelectedDate, Convert.ToInt32(Request.Params.Get("taskID")), descTxtBx.Text, Convert.ToInt32(minWordTxtBx.Text), responseArray);
                 }
                 else
                 {
-                    if (takeFiveYes.Checked)
-                    {
-                        BusinessLogicLayer.Work.CompleteTask(usernames, takeFiveCal.SelectedDate, Convert.ToInt32(Request.Params.Get("taskID")), descTxtBx.Text, Convert.ToInt32(minWordTxtBx.Text), responseArray);
-                    }
-                    else
-                    {
-                        BusinessLogicLayer.Work.CompleteTask(usernames, takeFiveCal.SelectedDate, Convert.ToInt32(Request.Params.Get("taskID")), descTxtBx.Text, Convert.ToInt32(minWordTxtBx.Text), false);
-                    }
+                    BusinessLogicLayer.Work.CompleteTask(usernames, takeFiveCal.SelectedDate, Convert.ToInt32(Request.Params.Get("taskID")), descTxtBx.Text, Convert.ToInt32(minWordTxtBx.Text), false);
                 }
 
                 takeFiveSubmit.Visible = true;

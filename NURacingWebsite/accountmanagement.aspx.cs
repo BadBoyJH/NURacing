@@ -68,11 +68,16 @@ namespace NURacingWebsite
         Label lblSubmit = new Label();
         Label lblPasswordChangeResult = new Label();
         Label lblTooltip = new Label();
+
         bool update;
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            createForm(true);
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            createForm(true);
             fillForm();
 
             if (!IsPostBack)
