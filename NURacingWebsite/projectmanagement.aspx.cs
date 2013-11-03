@@ -96,9 +96,19 @@ namespace NURacingWebsite
 
 
             projStatusDrpList.Items.Clear();
+            projStatusDrpList.Items.Add("Not Started");
             projStatusDrpList.Items.Add("Planning");
+            projStatusDrpList.Items.Add("Designing");
+            projStatusDrpList.Items.Add("Design Completed");
+            projStatusDrpList.Items.Add("Building Commenced");
+            projStatusDrpList.Items.Add("Bulding Finished");
             projStatusDrpList.Items.Add("Completed");
-            projStatusDrpList.Items.Add("In Progress");
+            projStatusDrpList.Items.Add("Fit and Finish Completed");
+            projStatusDrpList.Items.Add("Ready For Assembly");
+            projStatusDrpList.Items.Add("Testing");
+            projStatusDrpList.Items.Add("Complete");
+            projStatusDrpList.Items.Add("Ongoing");
+            projStatusDrpList.Items.Add("On Hold");
 
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
             lblStatus.Text = "Set Project Status: ";
@@ -151,6 +161,7 @@ namespace NURacingWebsite
         {
             BusinessLogicLayer.Project.addDefaultCar(carNameTxtBx.Text, Convert.ToInt32(yearMadeTxtBx.Text), carDescTxtBx.Text);
             lblProjSubmit.Text = "Project submitted.";
+            lblProjSubmit.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
             lblProjSubmit.Visible = true;
             submitProj.Visible = true;
             submitProjBtn.Visible = false;

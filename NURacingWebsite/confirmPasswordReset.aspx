@@ -32,15 +32,15 @@
                     <br />
                     <br />
                     <div id="confirmResetSuccess" runat="server">
-                        <h2>Password has been reset, please check your email.</h2>
+                        <p class="pUserFeedbackPass">Password has been reset, please check your email.</p>
                         <br />
-                        <h2>Redirecting to login in 5 seconds...</h2>
+                        <p>Redirecting to login in 5 seconds...</p>
                     </div>
 
                     <div id="confirmResetFail" runat="server">
-                        <h2>Password reset has failed, please try again.</h2>
+                        <p class="pUserFeedbackFail">Password reset has failed, please try again.</p>
                         <br />
-                        <h2>Redirecting to password reset in 5 seconds...</h2>
+                        <p>Redirecting to password reset in 5 seconds...</p>
                     </div>
                 </div>
                 <div class="col2">

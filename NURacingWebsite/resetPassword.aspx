@@ -36,13 +36,13 @@
                     </div>
 
                     <div id="resetSuccess" runat="server">
-                        <h2>Please check your email for password reset confirmation.</h2>
+                        <p class="pUserFeedbackPass">Please check your email for password reset confirmation.</p>
                         <br />
-                        <h2>Redirecting to login in 5 seconds...</h2>
+                        <p>Redirecting to login in 5 seconds...</p>
                     </div>
 
                     <div id="resetFail" runat="server">
-                        <h2>Supplied username and email don't match, please try again.</h2>
+                        <p class="pUserFeedbackFail">Supplied username and email don't match, please try again.</p>
                     </div>
 
                     <form id="passwordResetFrm" runat="server">

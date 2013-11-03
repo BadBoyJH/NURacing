@@ -268,6 +268,7 @@ namespace NURacingWebsite
 
             editTask.updateDatabase();
 
+            taskSub.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
             taskSub.Text = "Task updated.";
             taskSub.Visible = true;
         }

@@ -47,5 +47,23 @@ namespace NURacingWebsite
             return dataTable.DataSet;
         }
 
+        //control the background color for the Gridview
+        private void SetBkColor()
+        {
+            GridViewRowCollection rows = todoTable.Rows;
+            for (int i = 0; i <= rows.Count; i++)
+            {
+                //set the background color for every second row of Gridview
+                if (i % 2 == 0)
+                {
+                    rows[i].BackColor = System.Drawing.ColorTranslator.FromHtml("#141414");
+                }
+            }
+        }
+        protected void todoTable_DataBound(object sender, EventArgs e)
+        {
+            SetBkColor();
+        }
+
     }
 }

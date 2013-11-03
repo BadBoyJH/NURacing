@@ -23,12 +23,12 @@
                         <asp:Button runat="server" ID="createProjBtn" Text="MANAGE AND ASSIGN TASKS" CssClass="takeFiveBtn" OnClick="createProjBtn_Click" />
                         <p style="text-align: center; clear: both;"></p>
                         <br />
-                        <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="0" GridLines="None">
+                        <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="0" GridLines="None" OnDataBound="todoTable_DataBound">
                             <Columns>
                                 <asp:BoundField HeaderText="NAME" DataField="Task_Name" />
                                 <asp:BoundField HeaderText="DESCRIPTION" DataField="Task_Description" />
                                 <asp:BoundField HeaderText="DUE DATE" DataField="duedate"/>
-                                <asp:HyperLinkField HeaderText="&nbsp;" Text="DETAILS" DataNavigateUrlFields="Task_ID" DataNavigateUrlFormatString="task.aspx?id={0:G}" />
+                                <asp:HyperLinkField HeaderText="&nbsp;" Text="DETAILS" DataNavigateUrlFields="Task_ID" DataNavigateUrlFormatString="task.aspx?id={0:G}"/>
                             </Columns>
 
                         </asp:GridView>

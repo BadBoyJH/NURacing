@@ -64,6 +64,7 @@ namespace NURacingWebsite
         Label lblWhichUser = new Label();
         Label lblChange = new Label();
         Label lblSubmit = new Label();
+        Label lblTooltip = new Label();
         bool update;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -218,8 +219,12 @@ namespace NURacingWebsite
 
             createUserFrm.Controls.Add(new LiteralControl("<p>"));
             lblPasswordNew.Text = "New Password: ";
+            lblTooltip.Text = " i";
+            lblTooltip.CssClass = "lblTooltip";
+            lblTooltip.ToolTip = "Password must contain at least 8 characters, 1 number, and 1 symbol (i.e. !).";
             createUserFrm.Controls.Add(lblPasswordNew);
             createUserFrm.Controls.Add(passwordNewTxtBx);
+            createUserFrm.Controls.Add(lblTooltip);
             passwordNewTxtBx.CssClass = "textareaPassword";
             passwordNewTxtBx.TextMode = TextBoxMode.Password;
             createUserFrm.Controls.Add(new LiteralControl("</p> <br />"));
@@ -341,11 +346,11 @@ namespace NURacingWebsite
             SAEMemshpTxtBx.CssClass = "textareaPassword";
             createUserFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
-            createUserFrm.Controls.Add(new LiteralControl("<p>"));
+            createUserFrm.Controls.Add(new LiteralControl("<div style='background-color: #2D2D2D'>"));
             lblSAEExpDat.Text = "SAE Membership Expiry Date: ";
             createUserFrm.Controls.Add(lblSAEExpDat);
             createUserFrm.Controls.Add(SAEExpDatDtPckr);
-            createUserFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            createUserFrm.Controls.Add(new LiteralControl("</div><br />"));
 
             createUserFrm.Controls.Add(new LiteralControl("<p>"));
             lblSAEMemshpNum.Text = "SAE Membership Number: ";
@@ -482,7 +487,7 @@ namespace NURacingWebsite
             {
                 if (ex.Message == "Username already exists")
                 {
-                    lblSubmit.Text = "Username already exists";
+                    lblSubmit.Text = "Username already exists.";
                 }
 
                 else if (ex.Message == "Email isn't in a valid format")
@@ -605,6 +610,7 @@ namespace NURacingWebsite
                 }
                 editUser.updateDatabase();
                 lblSubmit.Text = "User updated.";
+                lblSubmit.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
                 lblSubmit.Visible = true;
                 showUpdateUser(true);
             }
