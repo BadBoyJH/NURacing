@@ -59,7 +59,6 @@ namespace NURacingWebsite
 
                     taskInfo.InnerText = String.Format("You are logging work done for task {0:s}.", task.TaskName);
                     taskInfo.Visible = true;
-                    worktype.Visible = false;
                     if (task.TakeFiveNeeded)
                     {
                         takeFiveNo.Enabled = false;
