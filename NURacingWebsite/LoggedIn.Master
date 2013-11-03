@@ -38,7 +38,7 @@
             </div>
         </div>
         <div id="menu" runat="server">
-                       <span style="vertical-align: middle;"> <img id="Img2" src="Images/NURacingLogo_White.png" alt="NURacing" style=" margin-left:30px; margin-right:10px; vertical-align:middle; height: 88px; width: 130px;" /> 
+                       <span style="vertical-align: middle;"> <img id="Img2" src="../Images/NURacingLogo_White.png" alt="NURacing" style=" margin-left:30px; margin-right:10px; vertical-align:middle; height: 88px; width: 130px;" /> 
     <a href="\index.aspx">Projects</a> &nbsp; <a href="\todo.aspx">To Do</a> &nbsp;
     <a href="\purchases.aspx">Purchases</a> &nbsp; <a href="\accountmanagement.aspx">Account</a> &nbsp; <a href="\reporting.aspx">Reporting</a></span>
     </div>
