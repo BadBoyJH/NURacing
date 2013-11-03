@@ -40,7 +40,7 @@
         <div id="menu" runat="server">
                        <span style="vertical-align: middle;"> <img id="Img2" src="\images\logo.png" alt="NURacing" style=" margin-left:30px; margin-right:10px; vertical-align:middle;" /> 
     <a href="\index.aspx">Projects</a> &nbsp; <a href="\todo.aspx">To Do</a> &nbsp;
-    <a href="\purchases.aspx">Purchases</a> &nbsp; <a href="\usermanagement.aspx">Account</a> &nbsp; <a href="\reporting.aspx">Reporting</a></span>
+    <a href="\purchases.aspx">Purchases</a> &nbsp; <a href="\accountmanagement.aspx">Account</a> &nbsp; <a href="\reporting.aspx">Reporting</a></span>
     </div>
     </div>
     <asp:ContentPlaceHolder ID="Body" runat="server" />
