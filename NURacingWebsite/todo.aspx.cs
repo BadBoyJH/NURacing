@@ -30,6 +30,7 @@ namespace NURacingWebsite
         public DataSet fillData()
         {
             DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("Section_Name");
             dataTable.Columns.Add("Task_Name");
             dataTable.Columns.Add("Task_Description");
             dataTable.Columns.Add("duedate");
@@ -39,8 +40,11 @@ namespace NURacingWebsite
 
             foreach (TaskInfo task in tasks)
             {
+                WorkTypeInfo workTypeInfo = WorkTypeInfo.getWorkType(task.WorkTypeID);
+                
                 DataRow newRow = dataTable.NewRow();
 
+                newRow["Section_Name"] = workTypeInfo.Project.Name + " - " + workTypeInfo.Name;
                 newRow["Task_Name"] = task.TaskName;
                 newRow["Task_Description"] = task.TaskDescription;
                 newRow["duedate"] = task.TaskDueDate.ToShortDateString();

@@ -23,13 +23,14 @@ namespace NURacingWebsite
 
 
             BusinessLogicLayer.TaskInfo info = TaskInfo.getAssignedTask(Convert.ToInt32(Request.QueryString["id"]));
+            BusinessLogicLayer.WorkTypeInfo workTypeInfo = WorkTypeInfo.getWorkType(info.WorkTypeID);
             
             HtmlGenericControl NewControl = new HtmlGenericControl("span");
             taskTitleLbl.Text = info.TaskName;
             dueDateLbl.Text = "DUE: " + info.TaskDueDate.ToShortDateString();
             taskDescTxtBx.TextMode = TextBoxMode.MultiLine;
             taskDescTxtBx.Text = info.TaskDescription;
-            sectionProjLbl.Text = info.
+            sectionProjLbl.Text = workTypeInfo.Project.Name + " - " + workTypeInfo.Name;
 
         }
 

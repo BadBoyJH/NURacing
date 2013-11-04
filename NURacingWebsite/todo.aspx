@@ -21,6 +21,7 @@
                 <br />
             <asp:GridView ID="todoTable" runat="server" CssClass="todoTable" AutoGenerateColumns="false" BorderWidth="0" GridLines="None" OnDataBound="todoTable_DataBound">
                 <Columns>
+                            <asp:BoundField HeaderText="PROJECT SECTION" DataField="Section_Name" />
                             <asp:BoundField HeaderText="NAME" DataField="Task_Name"/>
                             <asp:BoundField HeaderText="DESCRIPTION" DataField="Task_Description" />
                             <asp:BoundField HeaderText="DUE DATE" DataField="duedate" />
