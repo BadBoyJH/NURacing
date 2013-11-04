@@ -19,24 +19,24 @@ namespace NURacingWebsite
             if (TaskInfo.getWorkTypeTasks(Convert.ToInt32(Request.QueryString["id"])).Count != 0)
             {
                 this.fillData();
-
-                WorkTypeInfo workTypeInfo = WorkTypeInfo.getWorkType(Convert.ToInt32(Request.QueryString["id"]));
-
-                if (workTypeInfo.Project.Name == workTypeInfo.Name)
-                {
-                    lblSectionTitle.Text = workTypeInfo.Project.Name;
-                }
-                else
-                {
-                    lblSectionTitle.Text = workTypeInfo.Project.Name + " " + workTypeInfo.Name;
-                }
             }
             else
             {
                 instructTasks.InnerText = "No tasks scheduled. Create some to begin.";
-                lblSectionTitle.Text = "";
+            }
+
+            WorkTypeInfo workTypeInfo = WorkTypeInfo.getWorkType(Convert.ToInt32(Request.QueryString["id"]));
+
+            if (workTypeInfo.Project.Name == workTypeInfo.Name)
+            {
+                lblSectionTitle.Text = workTypeInfo.Project.Name;
+            }
+            else
+            {
+                lblSectionTitle.Text = workTypeInfo.Project.Name + " " + workTypeInfo.Name;
             }
         }
+
 
         public DataSet fillData()
         {
