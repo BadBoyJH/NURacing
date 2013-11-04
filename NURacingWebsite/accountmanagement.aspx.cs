@@ -448,6 +448,7 @@ namespace NURacingWebsite
             emerContNameTxtBx.Text = user.EmergencyContactName;
             emerContNumTxtBx.Text = user.EmergencyContactPhoneNumber;
             emailTxtBx.Text = user.Email;
+            userRoleDrpLst.SelectedValue = user.UserRole;
 
             bool showPassword = user.UserName == Membership.GetUser().UserName;
 
