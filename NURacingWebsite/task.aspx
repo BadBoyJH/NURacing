@@ -19,7 +19,8 @@
          <asp:Label ID="taskTitleLbl" CssClass="taskTitleLbl" runat="server">Task title</asp:Label>
                                 <p style="text-align: center; clear:both;"></p><br />
          <asp:Button ID="takeFiveBtn" CssClass="takeFiveBtn" Text="LOG WORK" runat="server" OnClick="takeFiveBtn_Click" />
-         <asp:Label ID="sectionProjLbl" CssClass="dueDateLbl" runat="server">Project Section</asp:Label><br />
+         <asp:Label ID="sectionProjLbl" CssClass="dueDateLbl" runat="server">Project Section</asp:Label>
+                         <p style="text-align: center; clear:both;"></p>
          <asp:Label ID="dueDateLbl" CssClass="dueDateLbl" runat="server">Due date</asp:Label>
          <br />
 
