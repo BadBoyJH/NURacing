@@ -50,14 +50,18 @@ namespace NURacingWebsite
 
             foreach (TaskInfo task in tasks)
             {
-                DataRow newRow = dataTable.NewRow();
 
-                newRow["Task_Name"] = task.TaskName;
-                newRow["Task_Description"] = task.TaskDescription;
-                newRow["duedate"] = task.TaskDueDate.ToShortDateString();
-                newRow["Task_ID"] = task.TaskID;
+                if (task.TaskStatus != "Complete")
+                {
+                    DataRow newRow = dataTable.NewRow();
 
-                dataTable.Rows.Add(newRow);
+                    newRow["Task_Name"] = task.TaskName;
+                    newRow["Task_Description"] = task.TaskDescription;
+                    newRow["duedate"] = task.TaskDueDate.ToShortDateString();
+                    newRow["Task_ID"] = task.TaskID;
+
+                    dataTable.Rows.Add(newRow);
+                }
             }
 
             todoTable.DataSource = dataTable;
