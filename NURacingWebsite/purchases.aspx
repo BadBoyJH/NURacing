@@ -27,8 +27,11 @@
                                 <asp:TextBox runat="server" ID="priceTxtBx" CssClass="textareaPassword"></asp:TextBox></p>
                             <p>Supplier:
                                 <asp:TextBox runat="server" ID="suppTxtBx" CssClass="textareaPassword"></asp:TextBox></p>
-                           <center><table><tr><td style="vertical-align: top;"><p>Date Purchased: </p></td><td><asp:Calendar runat="server" ID="purchaseCal"></asp:Calendar></td></tr></table></center>
-                            
+                            <center><table><tr><td style="vertical-align: top;"><p>Date Purchased: </p></td><td style="background-color:#2D2D2D;" ><asp:Calendar runat="server" ID="purchaseCal" CssClass="dtTmPckrFormat">
+                                <DayHeaderStyle ForeColor="Black" />
+                                <DayStyle ForeColor="Black" />
+                                <TitleStyle ForeColor="Black" />
+                                </asp:Calendar></td></tr></table></center>
                             <asp:Button runat="server" ID="purchaseBtn" CssClass="takeFiveBtn" Text="SUBMIT" OnClick="purchaseBtn_Click" />
                             <br />
                             <br />

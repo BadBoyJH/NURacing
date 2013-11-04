@@ -153,11 +153,11 @@ namespace NURacingWebsite
 
         private void createForm(bool pageLoad)
         {
-            createUserFrm.Controls.Add(new LiteralControl("<p>"));
+            createUserFrm.Controls.Add(new LiteralControl("<center><p>"));
             lblSubmit.Visible = false;
             lblSubmit.CssClass = "submitLbl";
             createUserFrm.Controls.Add(lblSubmit);
-            createUserFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            createUserFrm.Controls.Add(new LiteralControl("</p></center> <br />"));
 
             createUserFrm.Controls.Add(new LiteralControl("<p>"));
             lblPasswordChangeResult.Visible = false;
@@ -362,13 +362,13 @@ namespace NURacingWebsite
             SAEMemshpTxtBx.CssClass = "textareaPassword";
             createUserFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
-            createUserFrm.Controls.Add(new LiteralControl("<p>"));
+            createUserFrm.Controls.Add(new LiteralControl("<table><tr><td style='vertical-align: top;'><p>"));
             lblSAEExpDat.Text = "SAE Membership Expiry Date: ";
-            SAEExpDatDtPckr.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
-            SAEExpDatDtPckr.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
             createUserFrm.Controls.Add(lblSAEExpDat);
+            createUserFrm.Controls.Add(new LiteralControl("</p></td><td style='background-color:#2D2D2D;'>"));
+            SAEExpDatDtPckr.CssClass = "dtTmPckrFormat";
             createUserFrm.Controls.Add(SAEExpDatDtPckr);
-            createUserFrm.Controls.Add(new LiteralControl("</p><br />"));
+            createUserFrm.Controls.Add(new LiteralControl("</td></tr></table></center><br />"));
 
             createUserFrm.Controls.Add(new LiteralControl("<p>"));
             lblSAEMemshpNum.Text = "SAE Membership Number: ";
@@ -655,7 +655,7 @@ namespace NURacingWebsite
 
                 editUser.updateDatabase();
                 lblSubmit.Text = "User updated.";
-                lblSubmit.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
+                lblSubmit.CssClass = "pUserFeedbackPass";
                 lblSubmit.Visible = true;
                 showUpdateUser(true);
 

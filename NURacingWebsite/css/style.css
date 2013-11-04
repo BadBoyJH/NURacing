@@ -710,18 +710,16 @@ text-transform:uppercase;
 }
 .taskDescLbl {
     width:100%;
-    min-height:40%;
-    height:auto;
-    margin-top:10px;
-    border:none;
-    float:left;
-    text-align:left;
-    color: #A8A8A8;
-    background-color:none;
+    border: none;
+	margin-bottom: 10px;
+    padding:4px;
+    background-color: #2D2D2D;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 11pt;
-    font-weight:normal;
-    text-shadow: 1px 1px 1px #000000;
+	color: #7E7E7E;
+    vertical-align:middle;
+    min-height:50px;
+    height:auto;
 }
 .timeLogging {
     font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
@@ -910,4 +908,17 @@ text-transform:uppercase;
     color:red;
     font-family:"Oswald","Myriad Pro", "Trebuchet MS", sans-serif;
     font-size:x-large;
+}
+
+
+.dtTmPckrFormat {	
+    border: 0px solid #d2d1cf;
+	margin-bottom: 10px;
+   
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 11pt;
+	color: #000000;
+    vertical-align:middle;
+    width:60%;
+   
 }
