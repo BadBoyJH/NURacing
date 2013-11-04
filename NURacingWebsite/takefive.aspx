@@ -34,6 +34,7 @@
             }
         }
     </script>
+
 </asp:Content>
 
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">
@@ -52,22 +53,19 @@
 
                          <p runat="server" id="takeFiveSubmit" class="pUserFeedbackPass" visible="false">Take five submitted.</p>
 
-                         <p runat="server" id="taskInfo" visible="false"></p>
+                         <p runat="server" id="taskInfo" visible="false"></p><br />
 
-                         <p>Minutes worked: 
+                         <p>Minutes Worked: 
                              <asp:TextBox runat="server" ID="minWordTxtBx" CssClass="textareaPassword" Width="50px" ></asp:TextBox>
                          </p>
 
-                         <p>Details of Work Completed: 
-                             <asp:TextBox runat="server" ID="descTxtBx" CssClass="textareaPassword" TextMode="MultiLine"></asp:TextBox>
-                         </p>
-
+                          <center><table><tr><td width="125px" style="vertical-align: top;"><p>Details of Work:  </p></td><td ><asp:TextBox runat="server" ID="descTxtBx" CssClass="textareaPassword" TextMode="MultiLine" Width="400px" Height="100px"></asp:TextBox></td></tr></table></center>
                         
 
-                         <center><table><tr><td style="vertical-align: top;"><p>Date Completed: </p></td><td><asp:Calendar runat="server" ID="takeFiveCal" CssClass="textareaPassword" ></asp:Calendar></td></tr></table></center>
-                 
+                         <center><table><tr><td style="vertical-align: top;"><p>Date Completed: </p></td><td style="background-color:#2D2D2D;" ><asp:Calendar runat="server" ID="takeFiveCal" CssClass="dtTmPckrFormat"></asp:Calendar></td></tr></table></center>
+                 <br />
                           <p>Other Users Involved (optional): <br />
-                             <asp:ListBox runat="server" ID="takeFiveUserLstBx" CssClass="textareaPassword"></asp:ListBox>
+                             <asp:ListBox runat="server" ID="takeFiveUserLstBx" CssClass="textareaPassword" Width="200px"></asp:ListBox>
                          </p>
 
                          
@@ -207,8 +205,6 @@
 
                          
                          <asp:Button runat="server" ID="submitTakefiveBtn" CssClass="takeFiveBtn" Text="SUBMIT" OnClientClick="return checkTakeFive();" OnClick="submitTakefiveBtn_Click" />
-                        <br />
-                        <br />
                         <br />
                         <br />
                         <br />

@@ -36,12 +36,13 @@ namespace NURacingWebsite
         {
             projNameDrpList.Items.Clear();
 
-            createProjFrm.Controls.Add(new LiteralControl("<p>"));
+            createProjFrm.Controls.Add(new LiteralControl("<center><p>"));
             secSub.Text = "Section updated.";
+            secSub.CssClass = "pUserFeedbackPass";
             secSub.Visible = false;
             secSub.CssClass = "submitLbl";
             createProjFrm.Controls.Add(secSub);
-            createProjFrm.Controls.Add(new LiteralControl("</p>"));
+            createProjFrm.Controls.Add(new LiteralControl("</p></center>"));
 
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
             lblCarNameList.Text = "Project Name: ";
