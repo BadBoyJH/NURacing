@@ -185,13 +185,14 @@ namespace NURacingWebsite
             taskDescTxtBx.TextMode = TextBoxMode.MultiLine;
             taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
-            taskFrm.Controls.Add(new LiteralControl("<p>"));
+
+            taskFrm.Controls.Add(new LiteralControl("<table><tr><td style='vertical-align: top;'><p>"));
             lblDueDate.Text = "Due Date: ";
             taskFrm.Controls.Add(lblDueDate);
-            dueDateCal.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
-            dueDateCal.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
+            taskFrm.Controls.Add(new LiteralControl("</p></td><td style='background-color:#2D2D2D;'>"));
+            dueDateCal.CssClass = "dtTmPckrFormat";
             taskFrm.Controls.Add(dueDateCal);
-            taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            taskFrm.Controls.Add(new LiteralControl("</td></tr></table></center><br />"));
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
             lblTakeFiveNeeded.Text = "Take Five Needed: ";

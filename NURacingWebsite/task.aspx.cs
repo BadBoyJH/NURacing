@@ -19,13 +19,18 @@ namespace NURacingWebsite
                 Response.Redirect("todo.aspx");
             }
 
+
+
+
             BusinessLogicLayer.TaskInfo info = TaskInfo.getAssignedTask(Convert.ToInt32(Request.QueryString["id"]));
+            
             HtmlGenericControl NewControl = new HtmlGenericControl("span");
             taskTitleLbl.Text = info.TaskName;
             dueDateLbl.Text = "DUE: " + info.TaskDueDate.ToShortDateString();
-            NewControl.ID = "taskDescLbl";
-            NewControl.InnerHtml = "<b>" + info.TaskDescription +  "</b>";
-            taskDescLbl.Controls.Add(NewControl);
+            taskDescTxtBx.TextMode = TextBoxMode.MultiLine;
+            taskDescTxtBx.Text = info.TaskDescription;
+            sectionProjLbl.Text = info.
+
         }
 
         protected void takeFiveBtn_Click(object sender, EventArgs e)

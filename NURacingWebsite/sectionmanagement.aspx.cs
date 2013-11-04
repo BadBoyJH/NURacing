@@ -40,7 +40,6 @@ namespace NURacingWebsite
             secSub.Text = "Section updated.";
             secSub.CssClass = "pUserFeedbackPass";
             secSub.Visible = false;
-            secSub.CssClass = "submitLbl";
             createProjFrm.Controls.Add(secSub);
             createProjFrm.Controls.Add(new LiteralControl("</p></center>"));
 

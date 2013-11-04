@@ -19,6 +19,7 @@
          <asp:Label ID="taskTitleLbl" CssClass="taskTitleLbl" runat="server">Task title</asp:Label>
                                 <p style="text-align: center; clear:both;"></p><br />
          <asp:Button ID="takeFiveBtn" CssClass="takeFiveBtn" Text="LOG WORK" runat="server" OnClick="takeFiveBtn_Click" />
+         <asp:Label ID="sectionProjLbl" CssClass="dueDateLbl" runat="server">Project Section</asp:Label><br />
          <asp:Label ID="dueDateLbl" CssClass="dueDateLbl" runat="server">Due date</asp:Label>
          <br />
 
@@ -26,7 +27,7 @@
          <br />
          <br />
                           <span style="text-align:left;"><h2>TASK SUMMARY: </h2></span>
-         <asp:Label runat="server" ID="taskDescLbl" CssClass="taskDescLbl"></asp:Label><br /> <br /> <br />
+         <asp:TextBox runat="server" ID="taskDescTxtBx" CssClass="taskDescTxtBx" Enabled="False"></asp:TextBox><br /> <br /> <br />
         
         </div> </form>
         </div>

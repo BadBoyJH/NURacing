@@ -22,7 +22,7 @@
 
                         <div id="hasSponsors" runat="server">
                             <p>These are the sponsors for your project:</p>
-                            <asp:BulletedList ID="SponsorList" runat="server" />
+                            <asp:BulletedList ID="SponsorList" runat="server" CssClass="li" />
                         </div>
                         <div id="noSponsors" runat="server">
                             <p>Your Project currently has no sponsors.</p>
