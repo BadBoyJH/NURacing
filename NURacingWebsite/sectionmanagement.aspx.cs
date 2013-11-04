@@ -22,7 +22,7 @@ namespace NURacingWebsite
         DropDownList projNameDrpList = new DropDownList();
         Label secSub = new Label();
 
-        protected void Pre_Init(object sender, EventArgs e)
+        protected void Page_Init(object sender, EventArgs e)
         {
             createForm();
         }
@@ -43,13 +43,10 @@ namespace NURacingWebsite
             createProjFrm.Controls.Add(secSub);
             createProjFrm.Controls.Add(new LiteralControl("</p>"));
 
-            foreach (ProjectInfo project in BusinessLogicLayer.ProjectInfo.getProjects())
-            {
-                projNameDrpList.Items.Add(project.Name);
-            }
             createProjFrm.Controls.Add(new LiteralControl("<p>"));
             lblCarNameList.Text = "Project Name: ";
             createProjFrm.Controls.Add(lblCarNameList);
+
             foreach (WorkTypeInfo type in BusinessLogicLayer.WorkTypeInfo.getProjectWorkTypes(Convert.ToInt32(Request.Params.Get("id"))))
             {
                 if (type.Project.Name != type.Name && type.Name != null)
@@ -57,6 +54,7 @@ namespace NURacingWebsite
                     projNameDrpList.Items.Add(type.Project.Name + " - " + type.Name);
                 }
             }
+
             createProjFrm.Controls.Add(projNameDrpList);
             projNameDrpList.CssClass = "drpList";
             projNameDrpList.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");

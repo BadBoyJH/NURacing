@@ -25,7 +25,7 @@
                         <br />
                          
                 <div class="taskMngement">
-                <asp:PlaceHolder runat="server" ID="createProjFrm" Visible="False"></asp:PlaceHolder>
+                <asp:PlaceHolder runat="server" ID="createProjFrm" Visible="false"></asp:PlaceHolder>
                     <asp:Button runat="server" ID="submitProjBtn" Visible="false" CssClass="takeFiveBtn" Text="SUBMIT" OnClick="submitProjBtn_Click"/>
                     <asp:Button runat="server" ID="updateSubmitBtn" Visible="false" Text="SUBMIT"  CssClass="takeFiveBtn" OnClick="updateSubmitBtn_Click"/>
                     </div>

@@ -175,6 +175,7 @@ namespace NURacingWebsite
             carDescTxtBx.CssClass = "textareaPassword";
             carDescTxtBx.TextMode = TextBoxMode.MultiLine;
             createProjFrm.Controls.Add(new LiteralControl("</p> "));
+            updateProjBtn.Visible = projNameDrpList.Items.Count != 0;
         }
 
         protected void submitProjBtn_Click(object sender, EventArgs e)
@@ -250,18 +251,6 @@ namespace NURacingWebsite
             yearMadeTxtBx.Visible = true;
             carDescTxtBx.Visible = true;
             update = false;
-            lblStatus.Visible = false;
-            lblProjSubmit.Visible = false;
-            activeChkBx.Visible = false;
-            lblActive.Visible = false;
-            lblActive.Visible = true;
-            activeChkBx.Visible = true;
-            createProjFrm.Visible = true;
-            submitProjBtn.Visible = false;
-            updateSubmitBtn.Visible = true;
-            projStatusDrpList.Visible = true;
-            lblStatus.Visible = true;
-            update = true;
 
             carNameTxtBx.Text = "";
             projStatusDrpList.SelectedIndex = 0;
