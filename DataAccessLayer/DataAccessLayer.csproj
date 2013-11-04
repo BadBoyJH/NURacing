@@ -65,7 +65,7 @@
     <None Include="NuRacingDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>NuRacingDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>NuRacingDataSet2.Designer.cs</LastGenOutput>
     </None>
     <None Include="NuRacingDataSet.xss">
       <DependentUpon>NuRacingDataSet.xsd</DependentUpon>
