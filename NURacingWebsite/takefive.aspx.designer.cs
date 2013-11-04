@@ -40,22 +40,13 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl taskInfo;
         
         /// <summary>
-        /// takeFiveUserLstBx control.
+        /// minWordTxtBx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox takeFiveUserLstBx;
-        
-        /// <summary>
-        /// takeFiveCal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar takeFiveCal;
+        protected global::System.Web.UI.WebControls.TextBox minWordTxtBx;
         
         /// <summary>
         /// descTxtBx control.
@@ -67,13 +58,22 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.TextBox descTxtBx;
         
         /// <summary>
-        /// minWordTxtBx control.
+        /// takeFiveCal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox minWordTxtBx;
+        protected global::System.Web.UI.WebControls.Calendar takeFiveCal;
+        
+        /// <summary>
+        /// takeFiveUserLstBx control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox takeFiveUserLstBx;
         
         /// <summary>
         /// takeFiveYes control.

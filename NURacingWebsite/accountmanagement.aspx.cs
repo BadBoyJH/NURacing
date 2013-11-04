@@ -531,6 +531,7 @@ namespace NURacingWebsite
                         SAEMemshpTxtBx.Text, SAEExpDatDtPckr.SelectedDate, CAMSMbrshpNum.Text, CAMSLicTypeTxtBx.Text, drivLicNumTxtBx.Text, drivLicStateTxtBx.Text, emerContNameTxtBx.Text, emerContNumTxtBx.Text);
                     //Response.Redirect("UserManagement.aspx");
                     lblSubmit.Text = "User submitted.";
+                    lblSubmit.CssClass = "pUserFeedbackPass";
                     lblSubmit.Visible = true;
                     clearForm();
                     showCreateUser(true);
@@ -541,21 +542,25 @@ namespace NURacingWebsite
                 if (ex.Message == "Username already exists")
                 {
                     lblSubmit.Text = "Username already exists.";
+                    lblSubmit.CssClass = "pUserFeedbackFail";
                 }
 
                 else if (ex.Message == "Email isn't in a valid format")
                 {
                     lblSubmit.Text = "Invalid email.";
+                    lblSubmit.CssClass = "pUserFeedbackFail";
                 }
 
                 else if (ex.Message == "Email already exists")
                 {
                     lblSubmit.Text = "Email already exists.";
+                    lblSubmit.CssClass = "pUserFeedbackFail";
                 }
 
                 else if (ex.Message == "Invalid Password")
                 {
                     lblSubmit.Text = "Invalid password.";
+                    lblSubmit.CssClass = "pUserFeedbackFail";
                 }
 
                 lblSubmit.Visible = true;

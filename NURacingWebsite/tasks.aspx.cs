@@ -33,7 +33,7 @@ namespace NURacingWebsite
             }
             else
             {
-                instructTasks.InnerText = "No tasks scheduled. Create some!";
+                instructTasks.InnerText = "No tasks scheduled. Create some to begin.";
                 lblSectionTitle.Text = "";
             }
         }

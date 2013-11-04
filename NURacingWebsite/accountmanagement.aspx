@@ -25,15 +25,12 @@
                             <asp:Button ID="btnUpdateUser" CssClass="takeFiveBtn" Text="UPDATE USER" runat="server" OnClick="btnUpdateUser_Click" />
                             <asp:Button ID="btnCreateUser" CssClass="takeFiveBtn" Text="CREATE USER" runat="server" OnClick="btnCreateUser_Click" />
                             <br />
-                            <br />
-                            <br />
                             <div class="taskMngement">
                                 <asp:PlaceHolder runat="server" ID="createUserFrm" Visible="false"></asp:PlaceHolder>
                                 <asp:Button runat="server" ID="createUserSubmitBtn" Visible="false" OnClick="submitCreateUserBtn_Click" CssClass="takeFiveBtn" Text="SUBMIT" />
                                 <asp:Button runat="server" ID="updateUserSubmitBtn" Visible="false" OnClick="submitUpdateUserBtn_Click" CssClass="takeFiveBtn" Text="SUBMIT" />
 
                             </div>
-                            <%-- <asp:Label id="createUserFrm" runat="server" CssClass="taskMngement"></asp:Label>--%>
                         </div>
                     </form>
                 </div>
