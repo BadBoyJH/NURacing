@@ -14,14 +14,13 @@ namespace NURacingWebsite
     {
         Label LblUserName = new Label();
         TextBox userNameTxtBx = new TextBox();
+        HtmlGenericControl passwordDiv = new HtmlGenericControl();
         Label lblPassword = new Label();
         TextBox passwordTxtBx = new TextBox();
         Label lblPasswordNew = new Label();
         TextBox passwordNewTxtBx = new TextBox();
         Label lblPasswordConf = new Label();
         TextBox passwordConfTxtBx = new TextBox();
-        Label lblPasswordConfChange = new Label();
-        CheckBox passwordConfChangeChkBx = new CheckBox();
         Label lblUserRole = new Label();
         DropDownList userRoleDrpLst = new DropDownList();
         Label lblgivenName = new Label();
@@ -78,10 +77,9 @@ namespace NURacingWebsite
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            fillForm();
-
             if (!IsPostBack)
             {
+                fillForm();
                 lblWhichUser.Visible = true;
                 userDrpList.Visible = true;
                 LblUserName.Visible = false;
@@ -145,14 +143,7 @@ namespace NURacingWebsite
             update = false;
             createUserSubmitBtn.Visible = true;
 
-            passwordTxtBx.Visible = false;
-            passwordNewTxtBx.Visible = false;
-            passwordConfTxtBx.Visible = false;
-            passwordConfChangeChkBx.Visible = false;
-            lblPassword.Visible = false;
-            lblPasswordConf.Visible = false;
-            lblPasswordConfChange.Visible = false;
-            lblPasswordNew.Visible = false;
+            passwordDiv.Visible = false;
         }
 
         protected void btnUpdateUser_Click(object sender, EventArgs e)
@@ -231,39 +222,35 @@ namespace NURacingWebsite
                 userNameTxtBx.Visible = true;
             }
 
-            createUserFrm.Controls.Add(new LiteralControl("<p>"));
+            passwordDiv.Controls.Add(new LiteralControl("<p>"));
             lblPassword.Text = "Old Password: ";
-            createUserFrm.Controls.Add(lblPassword);
-            createUserFrm.Controls.Add(passwordTxtBx);
+            passwordDiv.Controls.Add(lblPassword);
+            passwordDiv.Controls.Add(passwordTxtBx);
             passwordTxtBx.CssClass = "textareaPassword";
             passwordTxtBx.TextMode = TextBoxMode.Password;
-            createUserFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            passwordDiv.Controls.Add(new LiteralControl("</p> <br />"));
 
-            createUserFrm.Controls.Add(new LiteralControl("<p>"));
+            passwordDiv.Controls.Add(new LiteralControl("<p>"));
             lblPasswordNew.Text = "New Password: ";
             lblTooltip.Text = " i";
             lblTooltip.CssClass = "lblTooltip";
             lblTooltip.ToolTip = "Password must contain at least 8 characters, 1 number, and 1 symbol (i.e. !).";
-            createUserFrm.Controls.Add(lblPasswordNew);
-            createUserFrm.Controls.Add(passwordNewTxtBx);
-            createUserFrm.Controls.Add(lblTooltip);
+            passwordDiv.Controls.Add(lblPasswordNew);
+            passwordDiv.Controls.Add(passwordNewTxtBx);
+            passwordDiv.Controls.Add(lblTooltip);
             passwordNewTxtBx.CssClass = "textareaPassword";
             passwordNewTxtBx.TextMode = TextBoxMode.Password;
-            createUserFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            passwordDiv.Controls.Add(new LiteralControl("</p> <br />"));
 
-            createUserFrm.Controls.Add(new LiteralControl("<p>"));
+            passwordDiv.Controls.Add(new LiteralControl("<p>"));
             lblPasswordConf.Text = "New Password Confirm: ";
-            createUserFrm.Controls.Add(lblPasswordConf);
-            createUserFrm.Controls.Add(passwordConfTxtBx);
+            passwordDiv.Controls.Add(lblPasswordConf);
+            passwordDiv.Controls.Add(passwordConfTxtBx);
             passwordConfTxtBx.CssClass = "textareaPassword";
             passwordConfTxtBx.TextMode = TextBoxMode.Password;
-            createUserFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            passwordDiv.Controls.Add(new LiteralControl("</p> <br />"));
 
-            createUserFrm.Controls.Add(new LiteralControl("<p>"));
-            lblPasswordConfChange.Text = "Confirm Password Change:";
-            createUserFrm.Controls.Add(lblPasswordConfChange);
-            createUserFrm.Controls.Add(passwordConfChangeChkBx);
-            createUserFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            createUserFrm.Controls.Add(passwordDiv);            
 
 
             createUserFrm.Controls.Add(new LiteralControl("<p>"));
@@ -464,20 +451,12 @@ namespace NURacingWebsite
 
             bool showPassword = user.UserName == Membership.GetUser().UserName;
 
-            lblPassword.Visible = showPassword;
-            lblPasswordConf.Visible = showPassword;
-            lblPasswordNew.Visible = showPassword;
-            lblPasswordConfChange.Visible = showPassword;
-            passwordConfTxtBx.Visible = showPassword;
-            passwordNewTxtBx.Visible = showPassword;
-            passwordTxtBx.Visible = showPassword;
-            passwordConfChangeChkBx.Visible = showPassword;
-            lblTooltip.Visible = showPassword;
+            passwordDiv.Visible = showPassword;
         }
 
         private void clearForm()
         {
-
+            userNameTxtBx.Text = "";
             givenNameTxtBx.Text = "";
             surnameTxtBx.Text = "";
             stdNumTxtBx.Text = "";
@@ -507,15 +486,12 @@ namespace NURacingWebsite
             updateUserSubmitBtn.Visible = false;
             update = false;
 
-            lblPassword.Visible = false;
-            lblPasswordConf.Visible = false;
-            lblPasswordNew.Visible = false;
-            lblPasswordConfChange.Visible = false;
-            passwordConfTxtBx.Visible = false;
-            passwordNewTxtBx.Visible = false;
-            passwordTxtBx.Visible = false;
-            passwordConfChangeChkBx.Visible = false;
-            lblTooltip.Visible = false;
+            lblWhichUser.Visible = false;
+            userDrpList.Visible = false;
+            LblUserName.Visible = true;
+            userNameTxtBx.Visible = true;
+
+            passwordDiv.Visible = false;
         }
 
         protected void submitCreateUserBtn_Click(object sender, EventArgs e)
@@ -527,6 +503,15 @@ namespace NURacingWebsite
                     userRole == "Staff" ||
                     userRole == "Team Leader")
                 {
+                    if (userNameTxtBx.Text == "" || givenNameTxtBx.Text == "" || surnameTxtBx.Text == "" || emailTxtBx.Text == "" || stdNumTxtBx.Text == "" || gradYearTxtBx.Text == "" || degreeNameTxtBx.Text == "" ||  medicareNumTxtBx.Text == "" ||  allergiesTxtBx.Text == "" || medicalCondTxtBx.Text == "" || dietryReqTxtBx.Text == "" ||
+                        SAEMemshpTxtBx.Text == "" ||  SAEExpDatDtPckr.SelectedDate == null || CAMSMbrshpNum.Text == "" || CAMSLicTypeTxtBx.Text == "" || drivLicNumTxtBx.Text == "" ||  drivLicStateTxtBx.Text == "" ||  emerContNameTxtBx.Text == "" ||  emerContNumTxtBx.Text == "")
+                    {
+                        lblSubmit.Text = "Please enter information in all fields";
+                        lblSubmit.CssClass = "pUserFeedbackFail";
+                        lblSubmit.Visible = true;
+                    }
+                    else
+                    {
                     BusinessLogicLayer.User.addUser(userNameTxtBx.Text, "", userRoleDrpLst.SelectedItem.ToString(), givenNameTxtBx.Text, surnameTxtBx.Text, emailTxtBx.Text, stdNumTxtBx.Text, gradYearTxtBx.Text, degreeNameTxtBx.Text, medicareNumTxtBx.Text, allergiesTxtBx.Text, medicalCondTxtBx.Text, dietryReqTxtBx.Text, indemSignChkBx.Checked,
                         SAEMemshpTxtBx.Text, SAEExpDatDtPckr.SelectedDate, CAMSMbrshpNum.Text, CAMSLicTypeTxtBx.Text, drivLicNumTxtBx.Text, drivLicStateTxtBx.Text, emerContNameTxtBx.Text, emerContNumTxtBx.Text);
                     //Response.Redirect("UserManagement.aspx");
@@ -536,6 +521,7 @@ namespace NURacingWebsite
                     clearForm();
                     showCreateUser(true);
                 }
+            }
             }
             catch (ArgumentException ex)
             {
@@ -675,7 +661,7 @@ namespace NURacingWebsite
 
                 if (editUser.UserName == Membership.GetUser().UserName)
                 {
-                    if (passwordConfChangeChkBx.Checked)
+                    if (passwordNewTxtBx.Text != "" && passwordConfTxtBx.Text != "" && passwordTxtBx.Text != "")
                     {
                         if (passwordNewTxtBx.Text == passwordConfTxtBx.Text)
                         {
