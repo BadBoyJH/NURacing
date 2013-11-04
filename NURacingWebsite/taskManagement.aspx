@@ -6,7 +6,7 @@
 </asp:Content>
 
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">
-	<div class="colmask threecol">
+    <div class="colmask threecol">
 	<div class="colmid">
 		<div class="colleft">
 			<div class="col1">
@@ -18,7 +18,7 @@
        <h1>TASK MANAGEMENT</h1>
                  <p style="text-align: center">Please click an action below.</p>
                 <br />
-                    <asp:Label runat="server" id="submitTask" class="submitLbl" visible="false">Task submitted.</asp:Label>
+                    <asp:Label runat="server" id="submitTask" class="submitLbl" visible="False" CssClass="pUserFeedbackPass">Submission successful.</asp:Label>
 
                     <div class="taskDetail">
                     

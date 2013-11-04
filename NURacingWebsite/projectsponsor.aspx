@@ -34,7 +34,7 @@
 
                         <div id="divAddSponsor" runat="server" visible ="false">
                             <p>
-                                <asp:DropDownList runat="server" ID="ddlAddSponsor" BackColor = "#2D2D2D" ForeColor = "#7E7E7E" Font-Names = "Lucida Sans Unicode" Font-Size = "11" Height = "25" />
+                                <asp:DropDownList runat="server" ID="ddlAddSponsor" BackColor = "#2D2D2D" ForeColor = "#7E7E7E" Font-Names = "Lucida Sans Unicode" Font-Size = "11" Height = "25px" Width="200px" />
                             </p>
                             <p>
                                 <asp:Button ID="btnSubmitAdd" CssClass="takeFiveBtn" Text="SUBMIT" runat="server" OnClick="btnSubmitAdd_Click" />
@@ -43,7 +43,7 @@
                         
                         <div id="divRemoveSponsor" runat="server" visible ="false">
                             <p>
-                                <asp:DropDownList runat="server" ID="ddlRemoveSponsor" BackColor = "#2D2D2D" ForeColor = "#7E7E7E" Font-Names = "Lucida Sans Unicode" Font-Size = "11" Height = "25" />
+                                <asp:DropDownList runat="server" ID="ddlRemoveSponsor" BackColor = "#2D2D2D" ForeColor = "#7E7E7E" Font-Names = "Lucida Sans Unicode" Font-Size = "11" Height = "25px" Width="200px" />
                             </p>
                             <p>                            
                                 <asp:Button ID="btnSubmitRemove" CssClass="takeFiveBtn" Text="SUBMIT" runat="server" OnClick="btnSubmitRemove_Click" />

@@ -123,7 +123,6 @@ namespace NURacingWebsite
             projStatusDrpList.Items.Add("Design Completed");
             projStatusDrpList.Items.Add("Building Commenced");
             projStatusDrpList.Items.Add("Bulding Finished");
-            projStatusDrpList.Items.Add("Completed");
             projStatusDrpList.Items.Add("Fit and Finish Completed");
             projStatusDrpList.Items.Add("Ready For Assembly");
             projStatusDrpList.Items.Add("Testing");

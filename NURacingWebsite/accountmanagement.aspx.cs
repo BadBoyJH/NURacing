@@ -507,40 +507,46 @@ namespace NURacingWebsite
                         SAEMemshpTxtBx.Text == "" ||  SAEExpDatDtPckr.SelectedDate == null || CAMSMbrshpNum.Text == "" || CAMSLicTypeTxtBx.Text == "" || drivLicNumTxtBx.Text == "" ||  drivLicStateTxtBx.Text == "" ||  emerContNameTxtBx.Text == "" ||  emerContNumTxtBx.Text == "")
                     {
                         lblSubmit.Text = "Please enter information in all fields";
+                        lblSubmit.CssClass = "pUserFeedbackFail";
                         lblSubmit.Visible = true;
                     }
                     else
                     {
-                        BusinessLogicLayer.User.addUser(userNameTxtBx.Text, "", userRoleDrpLst.SelectedItem.ToString(), givenNameTxtBx.Text, surnameTxtBx.Text, emailTxtBx.Text, stdNumTxtBx.Text, gradYearTxtBx.Text, degreeNameTxtBx.Text, medicareNumTxtBx.Text, allergiesTxtBx.Text, medicalCondTxtBx.Text, dietryReqTxtBx.Text, indemSignChkBx.Checked,
-                            SAEMemshpTxtBx.Text, SAEExpDatDtPckr.SelectedDate, CAMSMbrshpNum.Text, CAMSLicTypeTxtBx.Text, drivLicNumTxtBx.Text, drivLicStateTxtBx.Text, emerContNameTxtBx.Text, emerContNumTxtBx.Text);
-                        //Response.Redirect("UserManagement.aspx");
-                        lblSubmit.Text = "User submitted.";
-                        lblSubmit.Visible = true;
-                        clearForm();
-                        showCreateUser(true);
-                    }
+                    BusinessLogicLayer.User.addUser(userNameTxtBx.Text, "", userRoleDrpLst.SelectedItem.ToString(), givenNameTxtBx.Text, surnameTxtBx.Text, emailTxtBx.Text, stdNumTxtBx.Text, gradYearTxtBx.Text, degreeNameTxtBx.Text, medicareNumTxtBx.Text, allergiesTxtBx.Text, medicalCondTxtBx.Text, dietryReqTxtBx.Text, indemSignChkBx.Checked,
+                        SAEMemshpTxtBx.Text, SAEExpDatDtPckr.SelectedDate, CAMSMbrshpNum.Text, CAMSLicTypeTxtBx.Text, drivLicNumTxtBx.Text, drivLicStateTxtBx.Text, emerContNameTxtBx.Text, emerContNumTxtBx.Text);
+                    //Response.Redirect("UserManagement.aspx");
+                    lblSubmit.Text = "User submitted.";
+                    lblSubmit.CssClass = "pUserFeedbackPass";
+                    lblSubmit.Visible = true;
+                    clearForm();
+                    showCreateUser(true);
                 }
+            }
             }
             catch (ArgumentException ex)
             {
                 if (ex.Message == "Username already exists")
                 {
                     lblSubmit.Text = "Username already exists.";
+                    lblSubmit.CssClass = "pUserFeedbackFail";
                 }
 
                 else if (ex.Message == "Email isn't in a valid format")
                 {
                     lblSubmit.Text = "Invalid email.";
+                    lblSubmit.CssClass = "pUserFeedbackFail";
                 }
 
                 else if (ex.Message == "Email already exists")
                 {
                     lblSubmit.Text = "Email already exists.";
+                    lblSubmit.CssClass = "pUserFeedbackFail";
                 }
 
                 else if (ex.Message == "Invalid Password")
                 {
                     lblSubmit.Text = "Invalid password.";
+                    lblSubmit.CssClass = "pUserFeedbackFail";
                 }
 
                 lblSubmit.Visible = true;

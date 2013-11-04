@@ -18,7 +18,7 @@
                 <h1>PROJECT MANAGEMENT</h1>
                      <p style="text-align: center">Please click an action below.</p>
            <br />
-                      <asp:Label runat="server" id="submitProj" class="submitLbl" visible="false">Project submitted.</asp:Label>
+                      <asp:Label runat="server" id="submitProj" class="submitLbl" visible="False" CssClass="pUserFeedbackPass">Project submitted.</asp:Label>
                       <div class="taskDetail">
                      <asp:Button ID="updateProjBtn" CssClass="takeFiveBtn" Text="UPDATE PROJECT" runat="server" OnClick="updateProjBtn_Click" />
                      <asp:Button ID="createProjBtn" CssClass="takeFiveBtn" Text="CREATE PROJECT" runat="server" OnClick="createProjBtn_Click" />

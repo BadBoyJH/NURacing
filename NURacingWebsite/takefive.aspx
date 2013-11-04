@@ -54,19 +54,23 @@
 
                          <p runat="server" id="taskInfo" visible="false"></p>
 
-                         <p>Other Users Involved (optional): <br />
-                             <asp:ListBox runat="server" ID="takeFiveUserLstBx" CssClass="textareaPassword"></asp:ListBox>
+                         <p>Minutes worked: 
+                             <asp:TextBox runat="server" ID="minWordTxtBx" CssClass="textareaPassword" Width="50px" ></asp:TextBox>
                          </p>
-
-                         <center><table><tr><td style="vertical-align: top;"><p>Date Completed: </p></td><td><asp:Calendar runat="server" ID="takeFiveCal" CssClass="textareaPassword" ></asp:Calendar></td></tr></table></center>
 
                          <p>Details of Work Completed: 
                              <asp:TextBox runat="server" ID="descTxtBx" CssClass="textareaPassword" TextMode="MultiLine"></asp:TextBox>
                          </p>
 
-                         <p>Minutes worked: 
-                             <asp:TextBox runat="server" ID="minWordTxtBx" CssClass="textareaPassword" Width="50px" ></asp:TextBox>
+                        
+
+                         <center><table><tr><td style="vertical-align: top;"><p>Date Completed: </p></td><td><asp:Calendar runat="server" ID="takeFiveCal" CssClass="textareaPassword" ></asp:Calendar></td></tr></table></center>
+                 
+                          <p>Other Users Involved (optional): <br />
+                             <asp:ListBox runat="server" ID="takeFiveUserLstBx" CssClass="textareaPassword"></asp:ListBox>
                          </p>
+
+                         
 
 
                          
