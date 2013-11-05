@@ -16,18 +16,15 @@ namespace NURacingWebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (TaskInfo.getUserTasks(Membership.GetUser().ToString()).Count != 0)
-            {
-                fillData();
-            }
+            DataTable Data = fillData();
 
-            else
+            if (Data.Rows.Count == 0)
             {
                 instructTodo.InnerText = "No tasks scheduled. You're free!";
             }
         }
 
-        public DataSet fillData()
+        public DataTable fillData()
         {
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("Section_Name");
@@ -40,23 +37,26 @@ namespace NURacingWebsite
 
             foreach (TaskInfo task in tasks)
             {
-                WorkTypeInfo workTypeInfo = WorkTypeInfo.getWorkType(task.WorkTypeID);
-                
-                DataRow newRow = dataTable.NewRow();
+                if (task.TaskStatus != "Completed")
+                {
+                    WorkTypeInfo workTypeInfo = WorkTypeInfo.getWorkType(task.WorkTypeID);
 
-                newRow["Section_Name"] = workTypeInfo.Project.Name == workTypeInfo.Name ? workTypeInfo.Name : workTypeInfo.Project.Name + " - " + workTypeInfo.Name;
-                newRow["Task_Name"] = task.TaskName;
-                newRow["Task_Description"] = task.TaskDescription;
-                newRow["duedate"] = task.TaskDueDate.ToShortDateString();
-                newRow["Task_ID"] = task.TaskID;
+                    DataRow newRow = dataTable.NewRow();
 
-                dataTable.Rows.Add(newRow);
+                    newRow["Section_Name"] = workTypeInfo.Project.Name == workTypeInfo.Name ? workTypeInfo.Name : workTypeInfo.Project.Name + " - " + workTypeInfo.Name;
+                    newRow["Task_Name"] = task.TaskName;
+                    newRow["Task_Description"] = task.TaskDescription;
+                    newRow["duedate"] = task.TaskDueDate.ToShortDateString();
+                    newRow["Task_ID"] = task.TaskID;
+
+                    dataTable.Rows.Add(newRow);
+                }
             }
 
             todoTable.DataSource = dataTable;
             todoTable.DataBind();
 
-            return dataTable.DataSet;
+            return dataTable;
         }
 
         //control the background color for the Gridview

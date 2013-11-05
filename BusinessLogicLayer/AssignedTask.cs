@@ -64,6 +64,8 @@ namespace BusinessLogicLayer
 
             assignedTaskRow.Task_DueDate = dueDate;
 
+            assignedTaskRow.Task_Status = "Incomplete";
+
             assignedTaskTable.AddAssignedTaskRow(assignedTaskRow);
 
             assignedTaskAdapter.Update(assignedTaskTable);

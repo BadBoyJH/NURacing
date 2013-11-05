@@ -26,13 +26,12 @@ namespace NURacingWebsite
         TextBox reasonTxtBx = new TextBox();
         CheckBox takeFiveChkBx = new CheckBox();
         Label lblTaskStatus = new Label();
-        TextBox taskStatusTxtBx = new TextBox();
+        DropDownList taskStatDrpList = new DropDownList();
         Label lblTaskDrpList = new Label();
         DropDownList taskDrpList = new DropDownList();
         Calendar dueDateCal = new Calendar();
         int workTypeID = 0;
         Label taskSub = new Label();
-        DropDownList taskStatDrpList = new DropDownList();
 
         protected void Pre_Init(object sender, EventArgs e)
         {
@@ -101,8 +100,8 @@ namespace NURacingWebsite
             taskNameTxtBx.Text = task.TaskName;
             taskDescTxtBx.Text = task.TaskDescription;
             takeFiveChkBx.Checked = task.TakeFiveNeeded;
-            taskStatusTxtBx.Text = task.TaskStatus;
             reasonTxtBx.Text = task.TaskIncompleteReason;
+            taskStatDrpList.SelectedValue = task.TaskStatus;
 
             submitTask.Visible = false;
 
@@ -115,7 +114,6 @@ namespace NURacingWebsite
             takeFiveChkBx.Checked = false;
             workTypeDrpList.SelectedIndex = 0;
             dueDateCal.SelectedDate = DateTime.Now;
-            taskStatusTxtBx.Text = "";
             reasonTxtBx.Text = "";
         }
 
@@ -230,22 +228,12 @@ namespace NURacingWebsite
             taskFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
             taskStatDrpList.Items.Clear();
-            taskStatDrpList.Items.Add("Not Started");
-            taskStatDrpList.Items.Add("Planning");
-            taskStatDrpList.Items.Add("Designing");
-            taskStatDrpList.Items.Add("Design Completed");
-            taskStatDrpList.Items.Add("Building Commenced");
-            taskStatDrpList.Items.Add("Bulding Finished");
-            taskStatDrpList.Items.Add("Completed");
-            taskStatDrpList.Items.Add("Fit and Finish Completed");
-            taskStatDrpList.Items.Add("Ready For Assembly");
-            taskStatDrpList.Items.Add("Testing");
-            taskStatDrpList.Items.Add("Complete");
+            taskStatDrpList.Items.Add("Incomplete");
             taskStatDrpList.Items.Add("Ongoing");
-            taskStatDrpList.Items.Add("On Hold");
+            taskStatDrpList.Items.Add("Completed");
 
             taskFrm.Controls.Add(new LiteralControl("<p>"));
-            lblTaskStatus.Text = "Set Project Status: ";
+            lblTaskStatus.Text = "Set Task Status: ";
             taskFrm.Controls.Add(lblTaskStatus);
             taskFrm.Controls.Add(taskStatDrpList);
             taskStatDrpList.CssClass = "drpList";

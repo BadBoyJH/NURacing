@@ -328,6 +328,16 @@ namespace BusinessLogicLayer
                 taskRow.Task_TakeFiveNeeded = takeFiveNeeded;
                 taskRow.Task_DueDate = dueDate;
 
+                if (taskStatus != null)
+                {
+                    taskRow.Task_Status = taskStatus;
+                }
+
+                if (taskIncompleteReason != null)
+                {
+                    taskRow.Task_IncompleteReason = taskIncompleteReason;
+                }
+
                 taskAdapter.Update(taskTable);
             }
         }

@@ -19,9 +19,6 @@ namespace NURacingWebsite
                 Response.Redirect("todo.aspx");
             }
 
-
-
-
             BusinessLogicLayer.TaskInfo info = TaskInfo.getAssignedTask(Convert.ToInt32(Request.QueryString["id"]));
             BusinessLogicLayer.WorkTypeInfo workTypeInfo = WorkTypeInfo.getWorkType(info.WorkTypeID);
             
@@ -30,8 +27,7 @@ namespace NURacingWebsite
             dueDateLbl.Text = "DUE: " + info.TaskDueDate.ToShortDateString();
             taskDescTxtBx.TextMode = TextBoxMode.MultiLine;
             taskDescTxtBx.Text = info.TaskDescription;
-            sectionProjLbl.Text = workTypeInfo.Project.Name + " - " + workTypeInfo.Name;
-
+            sectionProjLbl.Text = workTypeInfo.Project.Name == workTypeInfo.Name ? workTypeInfo.Name : workTypeInfo.Project.Name + " - " + workTypeInfo.Name;
         }
 
         protected void takeFiveBtn_Click(object sender, EventArgs e)
