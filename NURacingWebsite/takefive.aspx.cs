@@ -62,7 +62,7 @@ namespace NURacingWebsite
             takeFiveUserLstBx.Items.Clear();
             foreach (UserInfo user in BusinessLogicLayer.UserInfo.getAllUsers())
             {
-                if (user.UserName != Membership.GetUser().UserName)
+                if (user.UserName != Membership.GetUser().UserName && user.UserRole != "Sponsor")
                 {
                     takeFiveUserLstBx.Items.Add(user.UserName);
                 }
