@@ -151,6 +151,7 @@ namespace NURacingWebsite
         protected void btnUpdateUser_Click(object sender, EventArgs e)
         {
             showUpdateUser(false);
+            fillForm();
         }
 
         private void createForm(bool pageLoad)
