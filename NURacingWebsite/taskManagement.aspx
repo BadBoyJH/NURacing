@@ -5,6 +5,15 @@
     NURacing System - Task Management
 </asp:Content>
 
+<asp:Content ContentPlaceHolderID="Scripts" ID="Scripts" runat="server">
+    <script type="text/javascript">
+        function showHelp() {
+            alert("Here, you can manage tasks. Clicking Create Task will present you with a form that will allow you to create a task. Update Task will allow you to choose a task to update. Once the form is complete, click Submit.");
+            return false;
+        }
+    </script>
+</asp:Content>
+
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">
     <div class="colmask threecol">
 	<div class="colmid">
@@ -14,7 +23,7 @@
                  <form id ="Form1" runat="server">
                         <br />
                             <br />
-                      <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />         <p style="text-align: center; clear:both;"></p>
+                      <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" OnClientClick="return showHelp()" />         <p style="text-align: center; clear:both;"></p>
        <h1>TASK MANAGEMENT</h1>
                  <p style="text-align: center">Please click an action below.</p>
                 <br />

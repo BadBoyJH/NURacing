@@ -3,6 +3,16 @@
     <asp:Content ContentPlaceHolderID="Title" ID="Title" runat="server">
     NURacing System - Project Management
 </asp:Content>
+
+<asp:Content ContentPlaceHolderID="Scripts" ID="Scripts" runat="server">
+    <script type="text/javascript">
+        function showHelp() {
+            alert("You can manage projects here. Click Create Project to fill out the project creation form. Click Update Project to update an existing project. Click Submit to save changes.");
+            return false;
+        }
+    </script>
+</asp:Content>
+
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">
 	<div class="colmask threecol">
 	<div class="colmid">
@@ -11,7 +21,7 @@
                 <form id ="Form1" runat="server">
                        <br />
                             <br />
-                 <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />       <p style="text-align: center; clear:both;"></p>  
+                 <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" OnClientClick="return showHelp()" />       <p style="text-align: center; clear:both;"></p>  
        
 
 

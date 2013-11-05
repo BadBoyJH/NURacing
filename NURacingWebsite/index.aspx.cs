@@ -74,5 +74,10 @@ namespace NURacingWebsite
             showInactiveProjBtn.Visible = false;
             showProjects();
         }
+
+        protected void btnEnquiry_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

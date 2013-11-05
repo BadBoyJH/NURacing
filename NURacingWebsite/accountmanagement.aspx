@@ -4,6 +4,15 @@
     NURacing System - User Management
 </asp:Content>
 
+<asp:Content ContentPlaceHolderID="Scripts" ID="Scripts" runat="server">
+    <script type="text/javascript">
+        function showHelp() {
+            alert("Edit your account information here. If you're an admin, you can update a user's account information for them. Click Create User or Update User to continue.");
+            return false;
+        }
+    </script>
+</asp:Content>
+
 <asp:Content ContentPlaceHolderID="Body" runat="server">
     <div class="colmask threecol">
         <div class="colmid">
@@ -12,7 +21,7 @@
                     <form id="Form1" runat="server">
                         <br />
                         <br />
-                        <asp:Button ID="btnEnquiry" runat="server" Text="?" CssClass="btnEnquiry" />
+                        <asp:Button ID="btnEnquiry" runat="server" Text="?" CssClass="btnEnquiry" OnClientClick="return showHelp()" />
                         <p style="text-align: center; clear: both;"></p>
 
                         <h1>ACCOUNT MANAGEMENT</h1>

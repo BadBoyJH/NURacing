@@ -33,6 +33,10 @@
                 document.getElementById("TakeFiveDiv").style.visibility = "visible";
             }
         }
+        function showHelp() {
+            alert("Here, you can complete a take five. If you have completed a take five, a form will appear to fill out. Click Submit to save changes.");
+            return false;
+        }
     </script>
 
 </asp:Content>
@@ -49,6 +53,8 @@
                     <p style="text-align: center"></p>
                 <br />
                     <div class="taskDetail">
+                     <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" OnClientClick="return showHelp()" />       <p style="text-align: center; clear:both;"></p>  
+
                      <form id ="Form1" runat="server" onsubmit="">
 
                          <p runat="server" id="takeFiveSubmit" class="pUserFeedbackPass" visible="false">Labour Logged!</p>

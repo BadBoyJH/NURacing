@@ -4,6 +4,15 @@
     NURacing System - Reporting
 </asp:Content>
 
+<asp:Content ContentPlaceHolderID="Scripts" ID="Scripts" runat="server">
+    <script type="text/javascript">
+        function showHelp() {
+            alert("Here, you can view the different reporting sections. Click on a section to view the report.");
+            return false;
+        }
+    </script>
+</asp:Content>
+
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">
 
     <div class="colmask threecol">
@@ -14,7 +23,7 @@
                     <br />
                     <br />
                     <form id="Form1" runat="server" style="text-align: center;">
-                        <asp:Button ID="btnEnquiry" runat="server" Text="?" CssClass="btnEnquiry" />
+                        <asp:Button ID="btnEnquiry" runat="server" Text="?" CssClass="btnEnquiry" OnClientClick="return showHelp()" />
                         <p style="text-align: center; clear: both;"></p>
                         <h1 style="text-align: center;">REPORTS</h1>
 

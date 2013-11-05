@@ -4,6 +4,15 @@
     NURacing System - Purchases
 </asp:Content>
 
+<asp:Content ContentPlaceHolderID="Scripts" ID="Scripts" runat="server">
+    <script type="text/javascript">
+        function showHelp() {
+            alert("Here, you can fill out a form to make a purchase. Click on the submit button to save changes.");
+            return false;
+        }
+    </script>
+</asp:Content>
+
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">
     <div class="colmask threecol">
         <div class="colmid">
@@ -12,7 +21,7 @@
                     <form id="Form2" runat="server">
                         <br />
                         <br />
-                        <asp:Button ID="btnEnquiry" runat="server" Text="?" CssClass="btnEnquiry" />
+                        <asp:Button ID="btnEnquiry" runat="server" Text="?" CssClass="btnEnquiry" OnClientClick="return showHelp()" />
                         <p style="text-align: center; clear: both;"></p>
                         <h1>PURCHASE</h1>
                         <p>Please fill out the details of a good purchased below.</p>

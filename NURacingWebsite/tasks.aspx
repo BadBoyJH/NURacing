@@ -5,6 +5,15 @@
     NURacing System - Tasks
 </asp:Content>
 
+<asp:Content ContentPlaceHolderID="Scripts" ID="Scripts" runat="server">
+    <script type="text/javascript">
+        function showHelp() {
+            alert("Here are the active tasks for a specific project. Click Details to find out more about them, or click Manage Tasks to manage them.");
+            return false;
+        }
+    </script>
+</asp:Content>
+
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">
     <div class="colmask threecol">
         <div class="colmid">
@@ -14,7 +23,7 @@
                     <form id="Form1" runat="server">
                         <br />
                         <br />
-                        <asp:Button ID="btnEnquiry" runat="server" Text="?" CssClass="btnEnquiry" />
+                        <asp:Button ID="btnEnquiry" runat="server" Text="?" CssClass="btnEnquiry" OnClientClick=" return showHelp()" />
                         <p style="text-align: center; clear: both;"></p>
                         <h1>TASKS -
            <asp:Label ID="lblSectionTitle" runat="server" Text="Label"></asp:Label>

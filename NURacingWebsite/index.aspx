@@ -4,8 +4,17 @@
     NURacing System - Projects
 </asp:Content>
 
-<asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">
+<asp:Content ContentPlaceHolderID="Scripts" ID="Scripts" runat="server">
+    <script type="text/javascript">
+        function showHelp()
+        {
+            alert("The following boxes are active projects. Click on them to view their sections. Click on \"Show inactive projects\" to view projects that aren't active.");
+            return false;
+        }
+    </script>
+</asp:Content>
 
+<asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">
     <div class="colmask threecol">
         <div class="colmid">
             <div class="colleft">
@@ -13,13 +22,12 @@
                     <form id="Form1" runat="server">
                         <br />
                         <br />
-                        <asp:Button ID="btnEnquiry" runat="server" Text="?" CssClass="btnEnquiry" />
+                        <asp:Button ID="btnEnquiry" runat="server" Text="?" CssClass="btnEnquiry" OnClientClick="return showHelp()"/>
                         <p style="text-align: center; clear: both;"></p>
                         <h1>PROJECTS</h1>
 
                         <p style="text-align: center;">Please click on a project below to review progress.</p>
                         <br />
-                        
                         <asp:Button runat="server" ID="createProjBtn" Text="MANAGE PROJECTS" CssClass="takeFiveBtn" OnClick="createProjBtn_Click" />
                         <p style="text-align: center; clear: both;"></p>
                         <asp:Table ID="tblProjects" runat="server" GridLines="Horizontal" CssClass="tblProjects" class="tblProjects" HorizontalAlign="Center">

@@ -12,6 +12,14 @@
     <link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script type="text/javascript">
+        function showHelp() {
+            alert("Welcome to NURacing. Please enter your login credentials to continue. If you have forgotten your username or password, click Retrieve Password and follow the prompts.");
+            return false;
+        }
+    </script>
+
 </head>
 
 <body lang="en" runat="server">
@@ -58,7 +66,7 @@
                                     <td>
                                         <asp:Button runat="server" Text="SUBMIT" CssClass="btnSubmit" UseSubmitBehavior="true" ID="btnSubmit" OnClick="btnSubmit_Click" />
                                         <asp:Button runat="server" Text="RETRIEVE PASSWORD" CssClass="btnPasswordRetrieve" ID="btnPassword" OnClick="btnPassword_Click"/>
-                                        <asp:Button ID="btnRecover" runat="server" Text="?" CssClass="btnSubmit" />  
+                                        <asp:Button ID="btnRecover" runat="server" Text="?" CssClass="btnSubmit" OnClientClick="return showHelp()" />  
                                     </td>
                                 </tr>
                             </table>

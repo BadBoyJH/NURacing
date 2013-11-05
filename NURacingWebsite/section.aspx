@@ -5,6 +5,15 @@
     NURacing System - Sections
 </asp:Content>
 
+<asp:Content ContentPlaceHolderID="Scripts" ID="Scripts" runat="server">
+    <script type="text/javascript">
+        function showHelp() {
+            alert("The following page shows sections from a certain project. Click on one to view their tasks, or click on \"Manage Sections\" to manage them. You can manage sponsors by clicking \"Manage Sponsors\".");
+            return false;
+        }
+    </script>
+</asp:Content>
+
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">
     <div class="colmask threecol">
         <div class="colmid">
@@ -13,7 +22,7 @@
                     <form id="Form1" runat="server">
                         <br />
                         <br />
-                        <asp:Button ID="btnEnquiry" runat="server" Text="?" CssClass="btnEnquiry" />
+                        <asp:Button ID="btnEnquiry" runat="server" Text="?" CssClass="btnEnquiry" OnClientClick="return showHelp()" />
                         <p style="text-align: center; clear: both;"></p>
                         <h1>SECTIONS</h1>
                         <p style="text-align: center">Please click on a section below to review progress.</p>

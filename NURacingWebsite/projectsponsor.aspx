@@ -4,6 +4,15 @@
     NURacing System - Sponsor Management
 </asp:Content>
 
+<asp:Content ContentPlaceHolderID="Scripts" ID="Scripts" runat="server">
+    <script type="text/javascript">
+        function showHelp() {
+            alert("You can view your project's sponsors here. Click Add Sponsor or Remove Sponsor to do so, respectively.");
+            return false;
+        }
+    </script>
+</asp:Content>
+
 <asp:Content ContentPlaceHolderID="Body" ID="Body" runat="server">
     <div class="colmask threecol">
         <div class="colmid">
@@ -13,8 +22,7 @@
                     <form id="Form1" runat="server">
                         <br />
                         <br />
-                        <asp:Button ID="btnEnquiry" runat="server" Text="?" CssClass="btnEnquiry" />
-
+                        <asp:Button ID="btnEnquiry" runat="server" Text="?" CssClass="btnEnquiry" OnClientClick="return showHelp()" />
                         <p style="text-align: center; clear: both;"></p>
 
                         <h1>SPONSOR MANAGEMENT</h1>
