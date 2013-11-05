@@ -698,7 +698,7 @@ namespace NURacingWebsite
                         {
                             try
                             {
-                                BusinessLogicLayer.User.setPassword(editUser.UserName, passwordTxtBx.Text, passwordNewTxtBx.Text);
+                                BusinessLogicLayer.User.setPassword(editUser.UserName, passwordNewTxtBx.Text, passwordTxtBx.Text);
                                 lblPasswordChangeResult.Text = "Password Changed";
                                 lblPasswordChangeResult.CssClass = "pUserFeedbackPass";
                                 lblPasswordChangeResult.Visible = true;
