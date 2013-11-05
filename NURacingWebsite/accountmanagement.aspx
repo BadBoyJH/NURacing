@@ -25,6 +25,11 @@
                         <p style="text-align: center; clear: both;"></p>
 
                         <h1>ACCOUNT MANAGEMENT</h1>
+                        <p id="userRoleYouAre" style="font-size: medium">
+            <asp:Label runat="server" ID="userRoleYouLbl">You are a </asp:Label>
+            <asp:Label runat="server" CssClass="userRole" ID="userRoleLbl">USER.</asp:Label>
+        </p>
+
                         <p style="text-align: center">Please click an action below.</p>
 
                         <br />

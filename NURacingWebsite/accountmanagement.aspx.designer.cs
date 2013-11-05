@@ -31,6 +31,24 @@ namespace NURacingWebsite {
         protected global::System.Web.UI.WebControls.Button btnEnquiry;
         
         /// <summary>
+        /// userRoleYouLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label userRoleYouLbl;
+        
+        /// <summary>
+        /// userRoleLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label userRoleLbl;
+        
+        /// <summary>
         /// RandomDiv control.
         /// </summary>
         /// <remarks>

@@ -11,8 +11,6 @@ namespace NURacingWebsite
 {
     public partial class takefive : System.Web.UI.Page
     {
-        bool red = false;
-        int redCount = 0;
         string[] usernames;
         TakeFiveResponse response;
         TakeFiveResponse[] responseArray;

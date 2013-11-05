@@ -9,23 +9,30 @@ namespace NURacingWebsite
 {
     public partial class projectsponsors : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Init(object sender, EventArgs e)
         {
             validateParameters();
+
+            createForm();
+        }
+
+        private void createForm()
+        {
             BusinessLogicLayer.ProjectInfo projectInfo = BusinessLogicLayer.ProjectInfo.getProject(Convert.ToInt32(Request.Params.Get("id")));
             ProjectName.InnerText = projectInfo.Name;
 
-            if (projectInfo.Sponsors.Count == 0)
-            {
-                hasSponsors.Visible = false;
-            }
-            
+            hasSponsors.Visible = projectInfo.Sponsors.Count != 0;
+
+            SponsorList.Items.Clear();
+            ddlRemoveSponsor.Items.Clear();
             foreach (BusinessLogicLayer.UserInfo user in projectInfo.Sponsors)
             {
                 SponsorList.Items.Add(user.UserName);
                 ddlRemoveSponsor.Items.Add(user.UserName);
                 noSponsors.Visible = false;
             }
+
+            ddlAddSponsor.Items.Clear();
             foreach (string username in BusinessLogicLayer.Role.getUsersInRole("Sponsor"))
             {
                 bool found = false;
@@ -91,11 +98,17 @@ namespace NURacingWebsite
         protected void btnSubmitAdd_Click(object sender, EventArgs e)
         {
             BusinessLogicLayer.Sponsor.AddSponsor(ddlAddSponsor.SelectedValue, Convert.ToInt32(Request.Params.Get("id")));
+            createForm();
+            divAddSponsor.Visible = false;
+            divRemoveSponsor.Visible = false;
         }
 
         protected void btnSubmitRemove_Click(object sender, EventArgs e)
         {
             BusinessLogicLayer.Sponsor.RemoveSponsor(ddlRemoveSponsor.SelectedValue, Convert.ToInt32(Request.Params.Get("id")));
+            createForm();
+            divAddSponsor.Visible = false;
+            divRemoveSponsor.Visible = false;
         }
     }
 }
