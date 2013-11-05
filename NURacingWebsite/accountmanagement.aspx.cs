@@ -265,6 +265,7 @@ namespace NURacingWebsite
             userRoleDrpLst.BorderStyle = BorderStyle.None;
             userRoleDrpLst.Height = 25;
             userRoleDrpLst.SelectedIndexChanged += userRoleDrpLst_SelectedIndexChanged;
+            userDrpList.AutoPostBack = true;
 
             foreach (String role in BusinessLogicLayer.Role.UserRoles)
             {
