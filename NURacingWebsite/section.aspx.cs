@@ -59,21 +59,35 @@ namespace NURacingWebsite
 
         private void verifyParameters()
         {
+            bool doRedirect = false;
+
             try
             {
                 int ID = Convert.ToInt32(Request.Params.Get("id"));
-                if (!Project.projectExists(ID))
+                if (Project.projectExists(ID))
+                {
+                    if (ProjectInfo.getProject(ID).Name == "Workshop")
+                    {
+                        doRedirect = true;
+                    }
+                }
+                else
                 {
                     Response.Clear();
                     Response.StatusCode = 400;
                     Response.End();
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 Response.Clear();
                 Response.StatusCode = 400;
                 Response.End();
+            }
+
+            if (doRedirect)
+            {
+                Response.Redirect("tasks?id=" + WorkTypeInfo.getProjectWorkTypes(Convert.ToInt32(Request.Params.Get("id")))[0].WorkTypeID);
             }
         }
 

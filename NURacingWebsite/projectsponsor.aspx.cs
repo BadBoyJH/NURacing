@@ -43,7 +43,6 @@ namespace NURacingWebsite
                 }
             }
 
-            btnAddSponsor.Visible = ddlAddSponsor.Items.Count != 0;
             btnRemoveSponsor.Visible = ddlRemoveSponsor.Items.Count != 0;
         }
 
@@ -70,8 +69,16 @@ namespace NURacingWebsite
 
         protected void btnAddSponsor_Click(object sender, EventArgs e)
         {
-            divAddSponsor.Visible = true;
-            divRemoveSponsor.Visible = false;
+            if (ddlAddSponsor.Items.Count == 0)
+            {
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "ALERT", "<script>alert('Either all the sponsors registered in the server are already registered on this project, or there are no sponsors in the system.')</script>");
+                Response.AddHeader("REFRESH", "1;URL=/section.aspx?id=" + Request.Params.Get("id"));
+            }
+            else
+            {
+                divAddSponsor.Visible = true;
+                divRemoveSponsor.Visible = false;
+            }
         }
 
         protected void btnRemoveSponsor_Click(object sender, EventArgs e)

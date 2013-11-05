@@ -41,6 +41,8 @@ namespace NURacingWebsite
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            verifyParameters();
+
             workTypeID = Convert.ToInt32(Request.Params.Get("id"));
             createForm();
             updateTaskBtn.Visible = (TaskInfo.getWorkTypeTasks(workTypeID).Count != 0);
@@ -60,14 +62,22 @@ namespace NURacingWebsite
 
         protected void createTaskBtn_Click(object sender, EventArgs e)
         {
-            submitTask.Visible = false;
-            taskSub.Visible = false;
-            lblTaskDrpList.Visible = false;
-            taskDrpList.Visible = false;
-            clearForm();
-            taskFrm.Visible = true;
-            createSubmitTaskBtn.Visible = true;
-            updateSubmitBtn.Visible = false;
+            if (assignDrpList.Items.Count == 0)
+            {
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "ALERT", "<script>alert('There are currently no valid users to add to the project. Returning you to the homepage.')</script>");
+                Response.AddHeader("REFRESH", "5;URL=/index.aspx");
+            }
+            else
+            {
+                submitTask.Visible = false;
+                taskSub.Visible = false;
+                lblTaskDrpList.Visible = false;
+                taskDrpList.Visible = false;
+                clearForm();
+                taskFrm.Visible = true;
+                createSubmitTaskBtn.Visible = true;
+                updateSubmitBtn.Visible = false;
+            }
         }
 
         private void fillData()
@@ -122,8 +132,6 @@ namespace NURacingWebsite
             lblTaskDrpList.Text = "Which task? ";
             taskFrm.Controls.Add(lblTaskDrpList);
             taskDrpList.Items.Clear();
-
-            
 
             foreach (TaskInfo info in BusinessLogicLayer.TaskInfo.getWorkTypeTasks(workTypeID))
             {
@@ -203,10 +211,15 @@ namespace NURacingWebsite
             taskFrm.Controls.Add(new LiteralControl("<p>"));
             lblAssignTo.Text = "Assign To: ";
             taskFrm.Controls.Add(lblAssignTo);
+
             foreach (UserInfo user in BusinessLogicLayer.UserInfo.getAllUsers())
             {
-                assignDrpList.Items.Add(user.UserName);
+                if (user.UserRole != "Sponsor" && user.UserRole != "Staff" && user.UserRole != "Administrator")
+                {
+                    assignDrpList.Items.Add(user.UserName);
+                }
             }
+
             assignDrpList.SelectionMode = ListSelectionMode.Multiple;
             taskFrm.Controls.Add(assignDrpList);
             assignDrpList.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
@@ -315,6 +328,7 @@ namespace NURacingWebsite
                 editTask.TaskIncompleteReason = reasonTxtBx.Text;
             }
 
+
             editTask.updateDatabase();
 
             taskSub.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
@@ -358,6 +372,25 @@ namespace NURacingWebsite
                 workID, dueDateCal.SelectedDate, taskNameTxtBx.Text, taskDescTxtBx.Text, takeFiveChkBx.Checked);
 
             Response.Redirect("/taskmanagement.aspx?id=" + workTypeID.ToString() + "&create=true");
+        }
+
+        private void verifyParameters()
+        {
+            try
+            {
+                if (!WorkType.WorkTypeExists(Convert.ToInt32(Request.Params.Get("id"))))
+                {
+                    Response.Clear();
+                    Response.StatusCode = 400;
+                    Response.End();
+                }
+            }
+            catch (Exception)
+            {
+                Response.Clear();
+                Response.StatusCode = 400;
+                Response.End();
+            }
         }
     }
 }
