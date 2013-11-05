@@ -175,7 +175,7 @@ namespace NURacingWebsite
 
             foreach (UserInfo user in BusinessLogicLayer.UserInfo.getAllUsers())
             {
-                if (Role.greaterRole(Roles.GetRolesForUser()[0], user.UserRole))
+                if (Role.CanChange(Roles.GetRolesForUser()[0], user.UserRole))
                 {
                     if (user.UserName != Membership.GetUser().UserName)
                     {
@@ -265,11 +265,11 @@ namespace NURacingWebsite
             userRoleDrpLst.BorderStyle = BorderStyle.None;
             userRoleDrpLst.Height = 25;
             userRoleDrpLst.SelectedIndexChanged += userRoleDrpLst_SelectedIndexChanged;
-            userDrpList.AutoPostBack = true;
+            userRoleDrpLst.AutoPostBack = true;
 
             foreach (String role in BusinessLogicLayer.Role.UserRoles)
             {
-                if (Role.greaterRole(Roles.GetRolesForUser()[0], role))
+                if (Role.CanElevateTo(Roles.GetRolesForUser()[0], role))
                 {
                     userRoleDrpLst.Items.Add(role);
                 }
@@ -468,7 +468,7 @@ namespace NURacingWebsite
 
         private void checkRole()
         {
-            bool isSponsor = userDrpList.SelectedValue == "Sponsor";
+            bool isSponsor = userRoleDrpLst.SelectedValue == "Sponsor";
             studentInfoDiv.Visible = !isSponsor;
             membershipInfoDiv.Visible = !isSponsor;
         }
@@ -522,18 +522,18 @@ namespace NURacingWebsite
                     userRole == "Staff" ||
                     userRole == "Team Leader")
                 {
-                    bool filledIn;
+                    bool notFilledIn;
                     if (userRoleDrpLst.SelectedValue == "Sponsor")
                     {
-                        filledIn = userNameTxtBx.Text == "" || givenNameTxtBx.Text == "" || surnameTxtBx.Text == "" || emailTxtBx.Text == "" || SAEMemshpTxtBx.Text == "" ||  SAEExpDatDtPckr.SelectedDate == null;
+                        notFilledIn = userNameTxtBx.Text == "" || givenNameTxtBx.Text == "" || surnameTxtBx.Text == "" || emailTxtBx.Text == "" || SAEMemshpTxtBx.Text == "" ||  SAEExpDatDtPckr.SelectedDate == null;
                     }
                     else
                     {
-                        filledIn = userNameTxtBx.Text == "" || givenNameTxtBx.Text == "" || surnameTxtBx.Text == "" || emailTxtBx.Text == "" || stdNumTxtBx.Text == "" || gradYearTxtBx.Text == "" || degreeNameTxtBx.Text == "" ||  medicareNumTxtBx.Text == "" ||  allergiesTxtBx.Text == "" || medicalCondTxtBx.Text == "" || dietryReqTxtBx.Text == "" ||
+                        notFilledIn = userNameTxtBx.Text == "" || givenNameTxtBx.Text == "" || surnameTxtBx.Text == "" || emailTxtBx.Text == "" || stdNumTxtBx.Text == "" || gradYearTxtBx.Text == "" || degreeNameTxtBx.Text == "" || medicareNumTxtBx.Text == "" || allergiesTxtBx.Text == "" || medicalCondTxtBx.Text == "" || dietryReqTxtBx.Text == "" ||
                             SAEMemshpTxtBx.Text == "" ||  SAEExpDatDtPckr.SelectedDate == null || CAMSMbrshpNum.Text == "" || CAMSLicTypeTxtBx.Text == "" || drivLicNumTxtBx.Text == "" ||  drivLicStateTxtBx.Text == "" ||  emerContNameTxtBx.Text == "" ||  emerContNumTxtBx.Text == "";
                     }
 
-                    if (filledIn)
+                    if (notFilledIn)
                     {
                         lblSubmit.Text = "Please enter information in all fields";
                         lblSubmit.CssClass = "pUserFeedbackFail";
@@ -588,7 +588,7 @@ namespace NURacingWebsite
             UserInfo editUser = BusinessLogicLayer.UserInfo.getUser(userDrpList.SelectedItem.ToString());
             
             if (editUser.UserName == Membership.GetUser().UserName ||
-                Role.greaterRole(Roles.GetRolesForUser()[0], editUser.UserRole))
+                Role.CanChange(Roles.GetRolesForUser()[0], editUser.UserRole))
             {
                 if (givenNameTxtBx.Text != "")
                 {

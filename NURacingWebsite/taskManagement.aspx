@@ -19,6 +19,7 @@
                  <p style="text-align: center">Please click an action below.</p>
                 <br />
                     <asp:Label runat="server" id="submitTask" class="submitLbl" visible="False" CssClass="pUserFeedbackPass">Submission successful.</asp:Label>
+                    <asp:Label runat="server" id="submitFail" class="submitLbl" visible="False" CssClass="pUserFeedbackFail">An error has occured.</asp:Label>
 
                     <div class="taskDetail">
                     

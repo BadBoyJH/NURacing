@@ -76,6 +76,9 @@ namespace NURacingWebsite
                 taskFrm.Visible = true;
                 createSubmitTaskBtn.Visible = true;
                 updateSubmitBtn.Visible = false;
+
+                WorkTypeInfo workTypeInfo = WorkTypeInfo.getWorkType(Convert.ToInt32(Request.Params.Get("id")));
+                workTypeDrpList.SelectedValue = workTypeInfo.Project.Name == workTypeInfo.Name ? workTypeInfo.Name : workTypeInfo.Project.Name + " - " + workTypeInfo.Name;
             }
         }
 
@@ -133,7 +136,14 @@ namespace NURacingWebsite
 
             foreach (TaskInfo info in BusinessLogicLayer.TaskInfo.getWorkTypeTasks(workTypeID))
             {
-                taskDrpList.Items.Add(info.TaskName);
+                if (info.WorkTypeID == workTypeID)
+                {
+                    taskDrpList.Items.Insert(0, info.TaskName);
+                }
+                else
+                {
+                    taskDrpList.Items.Add(info.TaskName);
+                }
             }
 
             taskDrpList.SelectedIndexChanged += taskDrpList_SelectedIndexChanged;
@@ -356,10 +366,34 @@ namespace NURacingWebsite
                 }
             }
 
-            BusinessLogicLayer.AssignedTask.addTask(Membership.GetUser().UserName, addedUsers, 
-                workID, dueDateCal.SelectedDate, taskNameTxtBx.Text, taskDescTxtBx.Text, takeFiveChkBx.Checked);
+            if (addedUsers.Count != 0)
+            {
+                if (dueDateCal.SelectedDate != null)
+                {
+                    if (taskNameTxtBx.Text != "" && taskDescTxtBx.Text == "")
+                    {
+                        BusinessLogicLayer.AssignedTask.addTask(Membership.GetUser().UserName, addedUsers,
+                            workID, dueDateCal.SelectedDate, taskNameTxtBx.Text, taskDescTxtBx.Text, takeFiveChkBx.Checked);
 
-            Response.Redirect("/taskmanagement.aspx?id=" + workTypeID.ToString() + "&create=true");
+                        Response.Redirect("/taskmanagement.aspx?id=" + workTypeID.ToString() + "&create=true");
+                    }
+                    else
+                    {
+                        submitFail.Text = "Please fill in all fields.";
+                        submitFail.Visible = true;
+                    }
+                }
+                else
+                {
+                    submitFail.Text = "Please select a due date for the task.";
+                    submitFail.Visible = true;
+                }
+            }
+            else
+            {
+                submitFail.Text = "Please assign at least 1 user to the task.";
+                submitFail.Visible = true;
+            }
         }
 
         private void verifyParameters()
