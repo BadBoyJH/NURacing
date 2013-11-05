@@ -45,6 +45,8 @@ namespace NURacingWebsite
             dataTable.Columns.Add("Task_Description");
             dataTable.Columns.Add("duedate");
             dataTable.Columns.Add("Task_ID");
+            dataTable.Columns.Add("Status");
+            dataTable.Columns.Add("StatusIndexNumber");
 
             List<TaskInfo> tasks = TaskInfo.getWorkTypeTasks(Convert.ToInt32(Request.QueryString["id"]));
 
@@ -59,10 +61,14 @@ namespace NURacingWebsite
                     newRow["Task_Description"] = task.TaskDescription;
                     newRow["duedate"] = task.TaskDueDate.ToShortDateString();
                     newRow["Task_ID"] = task.TaskID;
+                    newRow["Status"] = task.TaskStatus;
+                    newRow["StatusIndexNumber"] = task.TaskStatus == "Completed" ? 3 : task.TaskStatus == "Incomplete" ? 1 : 2;
 
                     dataTable.Rows.Add(newRow);
                 }
             }
+
+            dataTable.DefaultView.Sort = "StatusIndexNumber ASC, duedate DESC";
 
             todoTable.DataSource = dataTable;
             todoTable.DataBind();

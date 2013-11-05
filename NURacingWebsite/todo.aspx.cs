@@ -53,6 +53,8 @@ namespace NURacingWebsite
                 }
             }
 
+            dataTable.DefaultView.Sort = "duedate DESC";
+
             todoTable.DataSource = dataTable;
             todoTable.DataBind();
 

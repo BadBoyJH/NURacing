@@ -370,7 +370,7 @@ namespace NURacingWebsite
             {
                 if (dueDateCal.SelectedDate != null)
                 {
-                    if (taskNameTxtBx.Text != "" && taskDescTxtBx.Text == "")
+                    if (taskNameTxtBx.Text != "" && taskDescTxtBx.Text != "")
                     {
                         BusinessLogicLayer.AssignedTask.addTask(Membership.GetUser().UserName, addedUsers,
                             workID, dueDateCal.SelectedDate, taskNameTxtBx.Text, taskDescTxtBx.Text, takeFiveChkBx.Checked);

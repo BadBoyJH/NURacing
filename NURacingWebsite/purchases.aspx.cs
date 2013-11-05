@@ -13,6 +13,11 @@ namespace NURacingWebsite
     {
         bool addedItem = false;
 
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            purchaseCal.SelectedDate = DateTime.Today;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
            
@@ -95,6 +100,17 @@ namespace NURacingWebsite
             addedItem = true;
 
             purchSub.Visible = true;
+
+            clearForm();
+        }
+
+        private void clearForm()
+        {
+            goodTxtBx.Text = "";
+            workTypeDrpList.SelectedIndex = 0;
+            priceTxtBx.Text = "";
+            suppTxtBx.Text = "";
+            purchaseCal.SelectedDate = DateTime.Today;
         }
     }
 }

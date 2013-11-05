@@ -19,13 +19,17 @@ namespace NURacingWebsite
             {
                 hasSponsors.Visible = false;
             }
-            
+
+            SponsorList.Items.Clear();
+            ddlRemoveSponsor.Items.Clear();
             foreach (BusinessLogicLayer.UserInfo user in projectInfo.Sponsors)
             {
                 SponsorList.Items.Add(user.UserName);
                 ddlRemoveSponsor.Items.Add(user.UserName);
                 noSponsors.Visible = false;
             }
+
+            ddlAddSponsor.Items.Clear();
             foreach (string username in BusinessLogicLayer.Role.getUsersInRole("Sponsor"))
             {
                 bool found = false;
