@@ -53,9 +53,10 @@
                     <p style="text-align: center"></p>
                 <br />
                     <div class="taskDetail">
-                     <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" OnClientClick="return showHelp()" />       <p style="text-align: center; clear:both;"></p>  
 
                      <form id ="Form1" runat="server" onsubmit="">
+                      <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" OnClientClick="return showHelp()" />       <p style="text-align: center; clear:both;"></p>  
+
 
                          <p runat="server" id="takeFiveSubmit" class="pUserFeedbackPass" visible="false">Labour Logged!</p>
 

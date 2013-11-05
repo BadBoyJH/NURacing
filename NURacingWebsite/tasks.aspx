@@ -8,7 +8,7 @@
 <asp:Content ContentPlaceHolderID="Scripts" ID="Scripts" runat="server">
     <script type="text/javascript">
         function showHelp() {
-            alert("Here are the active tasks for a specific project. Click Details to find out more about them, or click Manage Tasks to manage them.");
+            alert("Here are the active tasks for a specific project. Click Details to find out more about a task, or click Manage Tasks to manage them.");
             return false;
         }
     </script>

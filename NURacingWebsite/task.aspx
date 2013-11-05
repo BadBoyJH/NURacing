@@ -5,6 +5,15 @@
     NURacing System - Task
 </asp:Content>
 
+<asp:Content ContentPlaceHolderID="Scripts" ID="Scripts" runat="server">
+    <script type="text/javascript">
+        function showHelp() {
+            alert("You can view a task in more detail here, as well as logging work. Click Log Work to begin logging work.");
+            return false;
+        }
+    </script>
+</asp:Content>
+
 <asp:Content ID="Body" ContentPlaceHolderID="Body" runat="server">
          <div class="colmask threecol">
 	<div class="colmid">
@@ -13,7 +22,7 @@
                  <form id ="Form2" runat="server">    
                         <br />
                             <br />    
-       <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" />         <p style="text-align: center; clear:both;"></p>
+       <asp:Button ID="btnEnquiry" runat="server" Text="?"  CssClass="btnEnquiry" OnClientClick="return showHelp()" />         <p style="text-align: center; clear:both;"></p>
                      <div class="taskDetail">
   
          <asp:Label ID="taskTitleLbl" CssClass="taskTitleLbl" runat="server">Task title</asp:Label>
