@@ -44,7 +44,7 @@ namespace NURacingWebsite
                 
                 DataRow newRow = dataTable.NewRow();
 
-                newRow["Section_Name"] = workTypeInfo.Project.Name + " - " + workTypeInfo.Name;
+                newRow["Section_Name"] = workTypeInfo.Project.Name == workTypeInfo.Name ? workTypeInfo.Name : workTypeInfo.Project.Name + " - " + workTypeInfo.Name;
                 newRow["Task_Name"] = task.TaskName;
                 newRow["Task_Description"] = task.TaskDescription;
                 newRow["duedate"] = task.TaskDueDate.ToShortDateString();
