@@ -688,7 +688,6 @@ namespace NURacingWebsite
                 lblSubmit.Text = "User updated.";
                 lblSubmit.CssClass = "pUserFeedbackPass";
                 lblSubmit.Visible = true;
-                showUpdateUser(true);
 
                 if (editUser.UserName == Membership.GetUser().UserName)
                 {
@@ -727,6 +726,7 @@ namespace NURacingWebsite
                         }
                     }
                 }
+                showUpdateUser(true);
             }
         }
 
