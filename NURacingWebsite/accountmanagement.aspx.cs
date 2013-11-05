@@ -736,7 +736,7 @@ namespace NURacingWebsite
         {
             showUpdateUser(false);
             createUserFrm.Visible = true;
-            createUserSubmitBtn.Visible = true;
+            updateUserSubmitBtn.Visible = true;
             fillForm();
         }
     }
