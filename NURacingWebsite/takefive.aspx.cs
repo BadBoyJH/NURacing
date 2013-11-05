@@ -254,7 +254,7 @@ namespace NURacingWebsite
                 }
                 if(didConvert)
                 {
-                    if(takeFiveCal.SelectedDate == null)
+                    if(takeFiveCal.SelectedDate != null)
                     {
                         if (takeFiveYes.Checked)
                         {
