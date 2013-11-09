@@ -17,6 +17,7 @@ namespace NURacingWebsite
         HtmlGenericControl passwordDiv = new HtmlGenericControl();
         HtmlGenericControl studentInfoDiv = new HtmlGenericControl();
         HtmlGenericControl membershipInfoDiv = new HtmlGenericControl();
+        HtmlGenericControl memberStatusDiv = new HtmlGenericControl();
         Label lblPassword = new Label();
         TextBox passwordTxtBx = new TextBox();
         Label lblPasswordNew = new Label();
@@ -25,6 +26,8 @@ namespace NURacingWebsite
         TextBox passwordConfTxtBx = new TextBox();
         Label lblUserRole = new Label();
         DropDownList userRoleDrpLst = new DropDownList();
+        Label lblIsActive = new Label();
+        CheckBox isActiveChkBx = new CheckBox();
         Label lblgivenName = new Label();
         TextBox givenNameTxtBx = new TextBox();
         Label lblsurname = new Label();
@@ -79,6 +82,8 @@ namespace NURacingWebsite
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            userRoleLbl.Text = Roles.GetRolesForUser()[0];
+
             if (!IsPostBack)
             {
                 fillForm();
@@ -100,24 +105,21 @@ namespace NURacingWebsite
             {
                 btnUpdateUser.Visible = false;
                 btnCreateUser.Visible = false;
+                memberStatusDiv.Visible = false;
             }
         }
 
-        private void showUpdateUser(bool submit)
+        private void showUpdateUser(bool submit, bool passChanged)
         {
             lblWhichUser.Visible = true;
             userDrpList.Visible = true;
             LblUserName.Visible = false;
             userNameTxtBx.Visible = false;
 
-            if (submit)
-            {
-                lblSubmit.Visible = true;
-            }
-            else
-            {
-                lblSubmit.Visible = false;
-            }
+            lblSubmit.Visible = submit;
+
+            lblPasswordChangeResult.Visible = passChanged;
+
             createUserFrm.Visible = true;
             updateUserSubmitBtn.Visible = true;
             update = true;
@@ -146,25 +148,26 @@ namespace NURacingWebsite
             createUserSubmitBtn.Visible = true;
 
             passwordDiv.Visible = false;
+            isActiveChkBx.Checked = true;
         }
 
         protected void btnUpdateUser_Click(object sender, EventArgs e)
         {
-            showUpdateUser(false);
+            showUpdateUser(false, false);
             fillForm();
         }
 
         private void createForm(bool pageLoad)
         {
-            createUserFrm.Controls.Add(new LiteralControl("<center><p>"));
+            createUserFrm.Controls.Add(new LiteralControl("<p>"));
             lblSubmit.Visible = false;
             lblSubmit.CssClass = "submitLbl";
             createUserFrm.Controls.Add(lblSubmit);
-            createUserFrm.Controls.Add(new LiteralControl("</p></center> <br />"));
+            createUserFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
             createUserFrm.Controls.Add(new LiteralControl("<p>"));
             lblPasswordChangeResult.Visible = false;
-            createUserFrm.Controls.Add(lblSubmit);
+            createUserFrm.Controls.Add(lblPasswordChangeResult);
             createUserFrm.Controls.Add(new LiteralControl("</p> <br />"));
 
             userDrpList.Items.Clear();
@@ -174,7 +177,7 @@ namespace NURacingWebsite
             userDrpList.SelectedIndexChanged += chooseUserDrpLst_SelectedIndexChanged;
             userDrpList.AutoPostBack = true;
 
-            foreach (UserInfo user in BusinessLogicLayer.UserInfo.getAllUsers())
+            foreach (UserInfo user in BusinessLogicLayer.UserInfo.getAllUsers(false))
             {
                 if (Role.CanChange(Roles.GetRolesForUser()[0], user.UserRole))
                 {
@@ -253,12 +256,12 @@ namespace NURacingWebsite
             passwordConfTxtBx.TextMode = TextBoxMode.Password;
             passwordDiv.Controls.Add(new LiteralControl("</p> <br />"));
 
-            createUserFrm.Controls.Add(passwordDiv);            
+            createUserFrm.Controls.Add(passwordDiv);
 
 
-            createUserFrm.Controls.Add(new LiteralControl("<p>"));
+            memberStatusDiv.Controls.Add(new LiteralControl("<p>"));
             lblUserRole.Text = "User Role: ";
-            createUserFrm.Controls.Add(lblUserRole);
+            memberStatusDiv.Controls.Add(lblUserRole);
             userRoleDrpLst.BackColor = System.Drawing.ColorTranslator.FromHtml("#2D2D2D");
             userRoleDrpLst.ForeColor = System.Drawing.ColorTranslator.FromHtml("#7E7E7E");
             userRoleDrpLst.Font.Name = "Lucida Sans Unicode";
@@ -275,8 +278,17 @@ namespace NURacingWebsite
                     userRoleDrpLst.Items.Add(role);
                 }
             }
-            createUserFrm.Controls.Add(userRoleDrpLst);
-            createUserFrm.Controls.Add(new LiteralControl("</p> <br />"));
+            memberStatusDiv.Controls.Add(userRoleDrpLst);
+            memberStatusDiv.Controls.Add(new LiteralControl("</p> <br />"));
+
+
+            memberStatusDiv.Controls.Add(new LiteralControl("<p>"));
+            lblIsActive.Text = "User is active: ";
+            memberStatusDiv.Controls.Add(lblIsActive);
+            memberStatusDiv.Controls.Add(isActiveChkBx);
+            memberStatusDiv.Controls.Add(new LiteralControl("</p> <br />"));
+
+            createUserFrm.Controls.Add(memberStatusDiv);
 
             createUserFrm.Controls.Add(new LiteralControl("<p>"));
             lblgivenName.Text = "Given Name: ";
@@ -459,6 +471,7 @@ namespace NURacingWebsite
             emerContNumTxtBx.Text = user.EmergencyContactPhoneNumber;
             emailTxtBx.Text = user.Email;
             userRoleDrpLst.SelectedValue = user.UserRole;
+            isActiveChkBx.Checked = user.IsActive;
 
             bool showPassword = user.UserName == Membership.GetUser().UserName;
 
@@ -496,6 +509,7 @@ namespace NURacingWebsite
             emerContNameTxtBx.Text = "";
             emerContNumTxtBx.Text = "";
             emailTxtBx.Text = "";
+            isActiveChkBx.Checked = true;
         }
 
         protected void btnCreateUser_Click(object sender, EventArgs e)
@@ -510,8 +524,12 @@ namespace NURacingWebsite
             userDrpList.Visible = false;
             LblUserName.Visible = true;
             userNameTxtBx.Visible = true;
+            userRoleDrpLst.SelectedValue = "User";
+            studentInfoDiv.Visible = true;
+            membershipInfoDiv.Visible = true;
 
             passwordDiv.Visible = false;
+            memberStatusDiv.Visible = true;
         }
 
         protected void submitCreateUserBtn_Click(object sender, EventArgs e)
@@ -683,6 +701,7 @@ namespace NURacingWebsite
                     editUser.Email = emailTxtBx.Text;
                 }
 
+                editUser.IsActive = isActiveChkBx.Checked;
                 editUser.UserRole = userRoleDrpLst.SelectedValue;
 
                 editUser.updateDatabase();
@@ -727,14 +746,14 @@ namespace NURacingWebsite
                         }
                     }
                 }
-                showUpdateUser(true);
+                showUpdateUser(true, lblPasswordChangeResult.Visible);
             }
         }
 
 
         protected void chooseUserDrpLst_SelectedIndexChanged(object sender, EventArgs e)
         {
-            showUpdateUser(false);
+            showUpdateUser(false, false);
             createUserFrm.Visible = true;
             updateUserSubmitBtn.Visible = true;
             fillForm();

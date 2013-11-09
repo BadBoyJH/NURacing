@@ -379,6 +379,11 @@ namespace BusinessLogicLayer
             {
                 return isActive;
             }
+            set
+            {
+                beenChanged = beenChanged || isActive != value;
+                isActive = value;
+            }
         }
 
         //Written By Simon Davis
@@ -464,7 +469,7 @@ namespace BusinessLogicLayer
         /// </summary>
         /// <returns></returns>
 
-        static public List<UserInfo> getAllUsers()
+        static public List<UserInfo> getAllUsers(bool activeOnly = true)
         {
             List<UserInfo> userList = new List<UserInfo>();
 
@@ -474,7 +479,7 @@ namespace BusinessLogicLayer
 
             foreach (NuRacingDataSet.UserRow row in userTable.Rows)
             {
-                if (row.User_Active)
+                if (row.User_Active || !activeOnly)
                 {
                     userList.Add(new UserInfo(row));
                 }
